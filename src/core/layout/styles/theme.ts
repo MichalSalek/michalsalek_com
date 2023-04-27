@@ -1,5 +1,5 @@
-import { createTheme }      from '@mui/material'
-import { blueGrey, indigo } from '@mui/material/colors'
+import { createTheme }   from '@mui/material'
+import { brown, indigo } from '@mui/material/colors'
 
 
 
@@ -7,28 +7,45 @@ import { blueGrey, indigo } from '@mui/material/colors'
 export const mainTheme = createTheme({
     palette: {
         primary: {
-            main: indigo[600]
+            main: brown[900]
         }
     },
     typography: {
+        allVariants: {
+            color: indigo[900]
+        },
         fontFamily: [
             'Mona Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
         ].join(','),
-        fontSize: 10,
-        allVariants: {
-            color: indigo[900]
+        fontSize: 12,
+        h2: {
+            fontSize: '7vw',
+            '@media (min-width:600px)': {
+                fontSize: '4vw'
+            },
+            '@media (min-width:900px)': {
+                fontSize: '3vw'
+            },
+            '@media (min-width:1200px)': {
+                fontSize: '2rem'
+            },
+            marginTop: '1rem'
+        },
+        caption: {
+            opacity: 0.8,
+            fontSize: 8,
+            color: indigo[50]
+        },
+        body2: {
+            color: brown[900]
+        },
+        button: {
+            // lineHeight: '0.6rem',
+            fontSize: '0.6rem',
+            color: brown[900]
         }
     },
     components: {
-        MuiTypography: {
-            styleOverrides: {
-                caption: {
-                    opacity: 0.8,
-                    fontSize: 8,
-                    color: indigo[50]
-                }
-            }
-        },
         MuiStack: {
             defaultProps: {
                 minHeight: '100%',
@@ -41,7 +58,12 @@ export const mainTheme = createTheme({
         },
         MuiButton: {
             defaultProps: {
-                variant: 'contained'
+                variant: 'outlined'
+            },
+            styleOverrides: {
+                root: {
+                    alignItems: 'flex-end'
+                }
             }
         }
     }

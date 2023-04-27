@@ -3,6 +3,7 @@ import { ThemeProvider } from '@mui/material'
 import localFont         from 'next/font/local'
 import Head              from 'next/head'
 import { ReactNode }     from 'react'
+import scss              from './main.module.scss'
 
 
 
@@ -18,7 +19,7 @@ const font = localFont({
 
 
 export const MainComposition = ({children}: { children: ReactNode }): JSX.Element => {
-    return <main className={font.className}>
+    return <main className={[font.className, scss.host].join(' ')}>
 
         <Head>
             <title>Atomic Contept</title>
