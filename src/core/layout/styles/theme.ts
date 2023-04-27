@@ -19,7 +19,7 @@ export const mainTheme = createTheme({
         ].join(','),
         fontSize: 12,
         h2: {
-            fontSize: '7vw',
+            fontSize: '8vw',
             '@media (min-width:600px)': {
                 fontSize: '4vw'
             },
@@ -33,8 +33,9 @@ export const mainTheme = createTheme({
         },
         caption: {
             opacity: 0.8,
-            fontSize: 8,
-            color: indigo[50]
+            fontSize: 7,
+            color: indigo[50],
+            filter: `drop-shadow(0px 0px 1px ${indigo[500]})`
         },
         body2: {
             color: brown[900]
@@ -42,7 +43,7 @@ export const mainTheme = createTheme({
         button: {
             // lineHeight: '0.6rem',
             fontSize: '0.6rem',
-            color: brown[900]
+            color: indigo[50]
         }
     },
     components: {
@@ -58,7 +59,7 @@ export const mainTheme = createTheme({
         },
         MuiButton: {
             defaultProps: {
-                variant: 'outlined'
+                variant: 'contained'
             },
             styleOverrides: {
                 root: {

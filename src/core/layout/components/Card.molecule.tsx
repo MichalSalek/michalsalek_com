@@ -1,13 +1,13 @@
-import { ImageAtom }                from '@/core/layout/components/Image.atom'
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import { Typography }               from '@mui/material'
-import Button                       from '@mui/material/Button'
-import Card                         from '@mui/material/Card'
-import CardActionArea               from '@mui/material/CardActionArea'
-import CardActions                  from '@mui/material/CardActions'
-import CardContent                  from '@mui/material/CardContent'
-import { StaticImageData }          from 'next/image'
-import { ReactNode }                from 'react'
+import { ImageAtom }       from '@/core/layout/components/Image.atom'
+import ArrowRightIcon      from '@mui/icons-material/ArrowRight'
+import { Typography }      from '@mui/material'
+import Button              from '@mui/material/Button'
+import Card                from '@mui/material/Card'
+import CardActionArea      from '@mui/material/CardActionArea'
+import CardActions         from '@mui/material/CardActions'
+import CardContent         from '@mui/material/CardContent'
+import { StaticImageData } from 'next/image'
+import { ReactNode }       from 'react'
 
 
 
@@ -41,7 +41,7 @@ export const CardMolecule = ({image, alt, credits, title, content}: Props): JSX.
         </CardActionArea>
         <CardActions>
             <Button size="small" endIcon={<ArrowRightIcon scale={1}/>}>
-               <Typography variant={'button'}>More</Typography>
+                <Typography variant={'button'}>More</Typography>
             </Button>
         </CardActions>
     </Card>

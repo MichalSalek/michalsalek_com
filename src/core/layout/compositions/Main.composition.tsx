@@ -6,7 +6,7 @@ import { ReactNode }     from 'react'
 import scss              from './main.module.scss'
 
 
-
+ 
 
 const font = localFont({
     src: [{
