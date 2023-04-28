@@ -1,8 +1,8 @@
-import { blueGrey, indigo } from '@mui/material/colors'
+import { blueGrey } from '@mui/material/colors'
 
 
 
 
 export const colors = {
-
+    white: blueGrey[50]
 } as const

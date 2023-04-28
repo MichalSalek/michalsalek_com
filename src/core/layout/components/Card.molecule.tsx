@@ -40,7 +40,7 @@ export const CardMolecule = ({image, alt, credits, title, content}: Props): JSX.
             </CardContent>
         </CardActionArea>
         <CardActions>
-            <Button size="small" endIcon={<ArrowRightIcon scale={1}/>}>
+            <Button size="small" color={'secondary'} endIcon={<ArrowRightIcon scale={1}/>}>
                 <Typography variant={'button'}>More</Typography>
             </Button>
         </CardActions>

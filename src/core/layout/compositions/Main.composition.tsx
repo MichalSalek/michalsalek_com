@@ -1,12 +1,16 @@
+import { FooterPartial } from '@/core/layout/partials/Footer.partial'
+import { HeaderPartial } from '@/core/layout/partials/Header.partial'
 import { mainTheme }     from '@/core/layout/styles/theme'
 import { ThemeProvider } from '@mui/material'
+import Box               from '@mui/material/Box'
+import Stack             from '@mui/material/Stack'
 import localFont         from 'next/font/local'
 import Head              from 'next/head'
 import { ReactNode }     from 'react'
 import scss              from './main.module.scss'
 
 
- 
+
 
 const font = localFont({
     src: [{
@@ -29,7 +33,15 @@ export const MainComposition = ({children}: { children: ReactNode }): JSX.Elemen
         </Head>
 
         <ThemeProvider theme={mainTheme}>
-            {children}
+
+            <HeaderPartial/>
+
+            <Box sx={{minHeight: '100vh'}}>
+                {children}
+            </Box>
+
+            <FooterPartial/>
+
         </ThemeProvider>
     </main>
 }

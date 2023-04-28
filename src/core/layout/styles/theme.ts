@@ -7,6 +7,9 @@ import { brown, indigo } from '@mui/material/colors'
 export const mainTheme = createTheme({
     palette: {
         primary: {
+            main: indigo[900]
+        },
+        secondary: {
             main: brown[900]
         }
     },
@@ -29,7 +32,7 @@ export const mainTheme = createTheme({
             '@media (min-width:1200px)': {
                 fontSize: '2rem'
             },
-            marginTop: '1rem'
+            marginTop: '3rem'
         },
         caption: {
             opacity: 0.8,
@@ -41,7 +44,6 @@ export const mainTheme = createTheme({
             color: brown[900]
         },
         button: {
-            // lineHeight: '0.6rem',
             fontSize: '0.6rem',
             color: indigo[50]
         }
