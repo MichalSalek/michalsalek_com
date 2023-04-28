@@ -1,24 +1,12 @@
-#### TODO 
+(ilość kropek = długość nazwy servisu) + ilość słów as number + 'kekozamenoza'
 
+#### TODO
 
 #### TODO przed deployem na prod:
+
 - Usunąć nadmiarowe czcionki z public
 
-
-
-
-
-
-
-
-
-
-  
-
-  
-  
 # Defaultowe readme:
-  
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
