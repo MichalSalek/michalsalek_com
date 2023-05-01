@@ -1,4 +1,4 @@
-import { ImageAtom }       from '@/core/layout/components/Image.atom'
+import { ImageAtom }       from '@/src/core/layout/components/Image.atom'
 import ArrowRightIcon      from '@mui/icons-material/ArrowRight'
 import { Typography }      from '@mui/material'
 import Button              from '@mui/material/Button'
@@ -43,6 +43,7 @@ export const CardMolecule = ({image, alt, credits, title, content}: Props): JSX.
                 image={image}
                 alt={alt}
                 credits={credits}
+                priority={true}
             />
             <CardContent
                 sx={{

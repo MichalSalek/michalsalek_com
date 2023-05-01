@@ -12,7 +12,7 @@ const nextConfig = {
         if (!serverSideOrProd) config.plugins.push(new BrowserSyncPlugin({
             host: '0.0.0.0', port: 4000, open: false, proxy: 'http://localhost:3000/'
         }, {
-            reload: true, injectChanges: true
+            reload: false, injectChanges: false
         }))
 
         return config

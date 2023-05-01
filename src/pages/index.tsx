@@ -1,4 +1,4 @@
-import { CardOrganism } from '@/core/layout/components/Card.organism'
+import { CardOrganism } from '@/src/core/layout/components/Card.organism'
 import Container        from '@mui/material/Container'
 
 

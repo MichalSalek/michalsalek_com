@@ -1,4 +1,4 @@
-import { getCompanyName }                    from '@/../public-policies/basic.policy'
+import { CompanyNameAtom }                   from '@/src/core/layout/components/CompanyName.atom'
 import ContactMailIcon                       from '@mui/icons-material/ContactMail'
 import AppBar                                from '@mui/material/AppBar'
 import Box                                   from '@mui/material/Box'
@@ -36,15 +36,13 @@ export const AppBarOrganism = (): JSX.Element => {
                             <Button
                                 variant={'text'}
                                 size="large"
-                                // color={'primary'}
-
                             >
                                 <Typography
                                     variant="h6"
                                     noWrap
                                     sx={{mx: 2}}
                                 >
-                                    {getCompanyName(true)}
+                                    <CompanyNameAtom fullName={true}/>
                                 </Typography>
                             </Button>
                         </Link>

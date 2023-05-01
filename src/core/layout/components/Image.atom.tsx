@@ -9,16 +9,18 @@ type Props = {
     alt: string
     credits: string
     height?: number
+    priority?: boolean
 }
 
 
-export const ImageAtom = ({image, alt, credits, height = 250}: Props): JSX.Element => {
+export const ImageAtom = ({image, alt, credits, height = 250, priority = false}: Props): JSX.Element => {
 
     return <figure>
         <Image
             src={image}
             alt={`Picture showing ${alt}`}
             height={height}
+            priority={priority}
         />
         <Typography
             variant={'caption'}

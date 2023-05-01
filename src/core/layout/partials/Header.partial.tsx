@@ -1,4 +1,4 @@
-import { AppBarOrganism } from '@/core/layout/components/app-bar/AppBar.organism'
+import { AppBarOrganism } from '@/src/core/layout/components/app-bar/AppBar.organism'
 import React              from 'react'
 
 

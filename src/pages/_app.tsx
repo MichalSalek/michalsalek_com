@@ -1,5 +1,5 @@
-import { MainComposition } from '@/core/layout/compositions/Main.composition'
-import '@/core/layout/styles/globals.scss'
+import { MainComposition } from '@/src/core/layout/compositions/Main.composition'
+import '@/src/core/layout/styles/globals.scss'
 import type { AppProps }   from 'next/app'
 
 
