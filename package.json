@@ -22,7 +22,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.4",
-    "browser-sync": "^2.29.1"
+    "browser-sync": "^2.29.1",
+    "nextjs-breadcrumbs2": "^2.0.4"
   },
   "devDependencies": {
     "sass": "^1.62.0",

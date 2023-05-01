@@ -19,7 +19,7 @@ type Props = {
 const OutsideWrapper = ({children}: { children: ReactNode }): JSX.Element => <Stack
     flexDirection={'column'}
     flexWrap={'nowrap'}
-
+    mb={5}
 > {children} </Stack>
 
 const InsideWrapper = ({children}: { children: ReactNode }): JSX.Element => <Stack

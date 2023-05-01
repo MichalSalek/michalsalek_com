@@ -36,11 +36,11 @@ export const AppBarOrganism = (): JSX.Element => {
                             <Button
                                 variant={'text'}
                                 size="large"
+                                sx={{padding: 0}}
                             >
                                 <Typography
                                     variant="h6"
                                     noWrap
-                                    sx={{mx: 2}}
                                 >
                                     <CompanyNameAtom fullName={true}/>
                                 </Typography>

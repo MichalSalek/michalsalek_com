@@ -1,12 +1,14 @@
-import { FooterPartial } from '@/src/core/layout/partials/Footer.partial'
-import { HeaderPartial } from '@/src/core/layout/partials/Header.partial'
-import { mainTheme }     from '@/src/core/layout/styles/theme'
-import { ThemeProvider } from '@mui/material'
-import Box               from '@mui/material/Box'
-import localFont         from 'next/font/local'
-import Head              from 'next/head'
-import { ReactNode }     from 'react'
-import scss              from './main.module.scss'
+import { BreadcrumbsAtom } from '@/src/core/layout/components/breadcrumbs/Breadcrumbs.atom'
+import { FooterPartial }   from '@/src/core/layout/partials/Footer.partial'
+import { HeaderPartial }   from '@/src/core/layout/partials/Header.partial'
+import { mainTheme }       from '@/src/core/layout/styles/theme'
+import { ThemeProvider }   from '@mui/material'
+import Box                 from '@mui/material/Box'
+import Container           from '@mui/material/Container'
+import localFont           from 'next/font/local'
+import Head                from 'next/head'
+import { ReactNode }       from 'react'
+import scss                from './main.module.scss'
 
 
 
@@ -36,6 +38,10 @@ export const MainComposition = ({children}: { children: ReactNode }): JSX.Elemen
             <HeaderPartial/>
 
             <Box sx={{minHeight: '100vh'}}>
+
+                <Container><BreadcrumbsAtom/></Container>
+
+
                 {children}
             </Box>
 

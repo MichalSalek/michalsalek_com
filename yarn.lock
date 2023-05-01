@@ -2375,6 +2375,11 @@ next@13.3.1:
     "@next/swc-win32-ia32-msvc" "13.3.1"
     "@next/swc-win32-x64-msvc" "13.3.1"
 
+nextjs-breadcrumbs2@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/nextjs-breadcrumbs2/-/nextjs-breadcrumbs2-2.0.4.tgz#ea47899097268c5e9a1bbf425a07ddcac8622a26"
+  integrity sha512-UxYpJ1lTzPqaLWuAaYNJSW4Nmcidu5Z7Es3pMd9txzOYJ3enjsa8U9g22xrkNhrIXLxnlUkbm6nr3tP73xtzJw==
+
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"

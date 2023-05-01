@@ -56,7 +56,9 @@ export const mainTheme = createTheme({
                 justifyContent: 'center',
                 flexDirection: 'row',
                 flexWrap: 'wrap',
-                gap: 5
+                columnGap: 4,
+                rowGap: 2
+
             }
         },
         MuiButton: {
