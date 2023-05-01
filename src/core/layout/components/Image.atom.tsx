@@ -14,9 +14,7 @@ type Props = {
 
 export const ImageAtom = ({image, alt, credits, height = 250}: Props): JSX.Element => {
 
-    return <figure
-        style={{position: 'relative'}}
-    >
+    return <figure>
         <Image
             src={image}
             alt={`Picture showing ${alt}`}

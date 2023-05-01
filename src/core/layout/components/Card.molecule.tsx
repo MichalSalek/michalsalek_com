@@ -23,14 +23,31 @@ type Props = {
 
 export const CardMolecule = ({image, alt, credits, title, content}: Props): JSX.Element => {
 
-    return <Card sx={{maxWidth: 310}}>
-        <CardActionArea>
+    return <Card
+        sx={{
+            maxWidth: 310,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between'
+        }}
+    >
+        <CardActionArea
+            sx={{
+                flex: 1,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
+            }}
+        >
             <ImageAtom
                 image={image}
                 alt={alt}
                 credits={credits}
             />
-            <CardContent>
+            <CardContent
+                sx={{
+                    flex: 1
+                }}>
                 <Typography gutterBottom variant="h5" component="div">
                     {title}
                 </Typography>

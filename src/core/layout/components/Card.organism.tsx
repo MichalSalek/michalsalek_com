@@ -7,6 +7,7 @@ import PlanningImage      from '@/core/layout/images/planning.jpg'
 import StudioImage        from '@/core/layout/images/studio.jpg'
 import { Typography }     from '@mui/material'
 import Stack              from '@mui/material/Stack'
+import { ReactNode }      from 'react'
 
 
 
@@ -15,18 +16,28 @@ type Props = {
     version: 'software' | 'sound'
 }
 
+const OutsideWrapper = ({children}: { children: ReactNode }): JSX.Element => <Stack
+    flexDirection={'column'}
+    flexWrap={'nowrap'}
+
+> {children} </Stack>
+
+const InsideWrapper = ({children}: { children: ReactNode }): JSX.Element => <Stack
+    alignItems={'stretch'}
+> {children} </Stack>
+
 
 export const CardOrganism = ({version}: Props): JSX.Element => {
     switch (version) {
 
 
         case 'software':
-            return <Stack flexDirection={'column'} flexWrap={'nowrap'}>
+            return <OutsideWrapper>
 
                 <Typography variant={'h2'} textAlign={'center'}>{getCompanyName(true)} <br/>
                     <strong> in your Software</strong></Typography>
 
-                <Stack>
+                <InsideWrapper>
 
                     <CardMolecule
                         image={PlanningImage}
@@ -58,19 +69,18 @@ export const CardOrganism = ({version}: Props): JSX.Element => {
                             <p>{getCompanyName()} use an event driven solutions to keep perfect timing and wayback machine possibilities.</p></>}
                     />
 
-                </Stack>
+                </InsideWrapper>
 
-            </Stack>
+            </OutsideWrapper>
 
 
 
         case 'sound':
-            return <Stack flexDirection={'column'} flexWrap={'nowrap'}>
-
+            return <OutsideWrapper>
 
                 <Typography variant={'h2'} textAlign={'center'}>{getCompanyName(true)} <br/> <strong> for sound and music </strong></Typography>
 
-                <Stack>
+                <InsideWrapper>
 
                     <CardMolecule
                         image={StudioImage}
@@ -90,9 +100,8 @@ export const CardOrganism = ({version}: Props): JSX.Element => {
                             <p>Are you a singer or rapper? Want to have your own music to video? Take a look.</p></>}
                     />
 
-                </Stack>
-
-            </Stack>
+                </InsideWrapper>
+            </OutsideWrapper>
     }
 
 }
