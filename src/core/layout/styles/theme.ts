@@ -38,7 +38,7 @@ export const mainTheme = createTheme({
             opacity: 0.8,
             fontSize: 7,
             color: indigo[50],
-            filter: `drop-shadow(0px 0px 1px ${indigo[500]})`
+            filter: `drop-shadow(0px 0px 0.5px ${indigo[900]})`
         },
         body2: {
             color: brown[900]
