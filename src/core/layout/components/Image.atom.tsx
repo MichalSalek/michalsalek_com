@@ -1,5 +1,6 @@
 import { Typography }             from '@mui/material'
 import Image, { StaticImageData } from 'next/image'
+import { CSSProperties }          from 'react'
 
 
 
@@ -10,10 +11,22 @@ type Props = {
     credits: string
     height?: number
     priority?: boolean
+    fill?: boolean
+    asCover?: boolean
+    style?: CSSProperties
 }
 
 
-export const ImageAtom = ({image, alt, credits, height = 250, priority = false}: Props): JSX.Element => {
+export const ImageAtom = ({
+    image,
+    alt,
+    credits,
+    height = undefined,
+    priority = false,
+    fill = false,
+    asCover = false,
+    style
+}: Props): JSX.Element => {
 
     return <figure>
         <Image
@@ -21,6 +34,8 @@ export const ImageAtom = ({image, alt, credits, height = 250, priority = false}:
             alt={`Picture showing ${alt}`}
             height={height}
             priority={priority}
+            fill={fill}
+            style={{...style, objectFit: asCover ? 'cover' : 'initial'}}
         />
         <Typography
             variant={'caption'}

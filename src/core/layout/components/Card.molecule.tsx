@@ -51,6 +51,7 @@ export const CardMolecule = ({image, alt, credits, title, content, linkPath}: Pr
                     alt={alt}
                     credits={credits}
                     priority={true}
+                    height={250}
                 />
                 <CardContent
                     sx={{
