@@ -50,10 +50,10 @@ export const mainTheme = createTheme({
         h3: {
             fontSize: '4vw',
             '@media (min-width:600px)': {
-                fontSize: '2.5vw'
+                fontSize: '2.2vw'
             },
             '@media (min-width:900px)': {
-                fontSize: '2vw'
+                fontSize: '1.8vw'
             },
             '@media (min-width:1200px)': {
                 fontSize: '1.3rem'
