@@ -9,7 +9,7 @@ import Container                 from '@mui/material/Container'
 
 
 
-const PAGE_TITLE = 'Be a Pro, with a modern online services'
+const PAGE_TITLE = 'A quality value you can get and give.'
 
 export default function Page() {
     return <Container>
