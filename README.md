@@ -2,6 +2,8 @@
 
 #### TODO
 
+- Zamienić exporty z MUI na defaultowe z folderów
+
 #### TODO przed deployem na prod:
 
 - Usunąć nadmiarowe czcionki z public

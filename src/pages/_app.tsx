@@ -5,10 +5,12 @@ import type { AppProps }   from 'next/app'
 
 
 
-export default function App({Component, pageProps}: AppProps) {
+export type GeneralPageProps = { title: string }
+export default function App({Component, pageProps}: AppProps<GeneralPageProps>) {
+
     return <>
 
-        <MainComposition>
+        <MainComposition title={pageProps.title}>
             <Component {...pageProps} />
         </MainComposition>
 

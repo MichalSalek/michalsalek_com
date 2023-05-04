@@ -35,11 +35,12 @@ export const CardOrganism = ({version}: Props): JSX.Element => {
             return <OutsideWrapper>
 
                 <Typography variant={'h2'} textAlign={'center'}><CompanyNameAtom fullName={true}/> <br/>
-                    <strong> in your Software</strong></Typography>
+                    <strong> in your software</strong></Typography>
 
                 <InsideWrapper>
 
                     <CardMolecule
+                        linkPath={'software/architecture'}
                         image={PlanningImage}
                         alt={'software planning process'}
                         credits={'Photo by Daria Nepriakhina on Unsplash'}
@@ -50,6 +51,7 @@ export const CardOrganism = ({version}: Props): JSX.Element => {
 
 
                     <CardMolecule
+                        linkPath={'software/frontend'}
                         image={FrontImage}
                         alt={'software frontend UI development process in atomic concept'}
                         credits={'Photo by John Schnobrich on Unsplash'}
@@ -61,6 +63,7 @@ export const CardOrganism = ({version}: Props): JSX.Element => {
 
 
                     <CardMolecule
+                        linkPath={'software/backend'}
                         image={BackImage}
                         alt={'software backend development process in atomic concept'}
                         credits={'Photo by Christina on Unsplash'}
@@ -83,6 +86,7 @@ export const CardOrganism = ({version}: Props): JSX.Element => {
                 <InsideWrapper>
 
                     <CardMolecule
+                        linkPath={'sound/studio'}
                         image={StudioImage}
                         alt={'music studio services in atomic concept'}
                         credits={'Photo by Caught In Joy on Unsplash'}
@@ -92,6 +96,7 @@ export const CardOrganism = ({version}: Props): JSX.Element => {
 
 
                     <CardMolecule
+                        linkPath={'sound/soundtracks'}
                         image={DrumsImage}
                         alt={'drumkit'}
                         credits={'Photo by Josh Sorenson on Unsplash'}

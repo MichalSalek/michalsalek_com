@@ -19,7 +19,7 @@ export const FooterPartial = (): JSX.Element => {
                 <Link href="/sound"><Typography variant={'body2'}>Sound services</Typography></Link>
             </Stack>
 
-            
+
             <Stack>
                 <Typography
                     variant={'body2'}

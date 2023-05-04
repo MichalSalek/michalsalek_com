@@ -21,6 +21,19 @@ export const mainTheme = createTheme({
             'Mona Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
         ].join(','),
         fontSize: 12,
+        h1: {
+            fontSize: '12vw',
+            '@media (min-width:600px)': {
+                fontSize: '7vw'
+            },
+            '@media (min-width:900px)': {
+                fontSize: '5vw'
+            },
+            '@media (min-width:1200px)': {
+                fontSize: '4rem'
+            },
+            marginTop: '1rem'
+        },
         h2: {
             fontSize: '8vw',
             '@media (min-width:600px)': {
@@ -34,11 +47,28 @@ export const mainTheme = createTheme({
             },
             marginTop: '3rem'
         },
+        h3: {
+            fontSize: '4vw',
+            '@media (min-width:600px)': {
+                fontSize: '2.5vw'
+            },
+            '@media (min-width:900px)': {
+                fontSize: '2vw'
+            },
+            '@media (min-width:1200px)': {
+                fontSize: '1.3rem'
+            },
+            marginBottom: '1rem'
+        },
         caption: {
             opacity: 0.8,
             fontSize: 7,
             color: indigo[50],
             filter: `drop-shadow(0px 0px 0.5px ${indigo[900]})`
+        },
+        body1: {
+            color: brown[900],
+            marginTop: '0.5rem'
         },
         body2: {
             color: brown[900]
@@ -68,6 +98,13 @@ export const mainTheme = createTheme({
             styleOverrides: {
                 root: {
                     alignItems: 'flex-end'
+                }
+            }
+        },
+        MuiCard: {
+            styleOverrides: {
+                root: {
+                    width: 310
                 }
             }
         }
