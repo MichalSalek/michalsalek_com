@@ -63,7 +63,7 @@ export const mainTheme = createTheme({
         },
         caption: {
             opacity: 0.8,
-            fontSize: 7,
+            fontSize: 6,
             color: indigo[50],
             filter: `drop-shadow(0px 0px 0.5px ${indigo[900]})`
         },

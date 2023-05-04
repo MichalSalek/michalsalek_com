@@ -21,7 +21,7 @@ export default function Page() {
         />
 
 
-        <br/> <br/> @todo: przerobic te segmenty ponizej na molekule:
+        {/*@todo: przerobic te segmenty ponizej na molekule:*/}
 
         <Card elevation={0} sx={{minWidth: '100%'}}>
 
