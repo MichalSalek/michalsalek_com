@@ -1,6 +1,6 @@
 import { HeroMolecule }       from '@/src/core/layout/components/Hero.molecule'
 import { SubpageComposition } from '@/src/core/layout/compositions/Subpage.composition'
-import architecture           from '@/src/core/layout/images/architecture.jpg'
+import molecules              from '@/src/core/layout/images/molecules.jpg'
 import { GeneralPageProps }   from '@/src/pages/_app'
 import { Typography }         from '@mui/material'
 import Card                   from '@mui/material/Card'
@@ -15,7 +15,7 @@ export default function Page() {
     return <SubpageComposition title={PAGE_TITLE}>
 
         <HeroMolecule
-            image={architecture}
+            image={molecules}
             alt={'software achitecture concept'}
             credits={'Photo by Terry Vlisidis on Unsplash'}
         />

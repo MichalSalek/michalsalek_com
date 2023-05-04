@@ -32,7 +32,8 @@ export const mainTheme = createTheme({
             '@media (min-width:1200px)': {
                 fontSize: '4rem'
             },
-            marginTop: '1rem'
+            marginTop: '1rem',
+            marginBottom: '1rem'
         },
         h2: {
             fontSize: '8vw',
