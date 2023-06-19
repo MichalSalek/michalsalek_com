@@ -1,3 +1,4 @@
+
 export type AppRoutes =
     'software'
     | 'software/architecture'

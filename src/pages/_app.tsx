@@ -1,18 +1,29 @@
-import { MainComposition } from '@/src/core/layout/compositions/Main.composition'
-import '@/src/core/layout/styles/globals.scss'
-import type { AppProps }   from 'next/app'
+import { MainComposition }   from '@/src/UI/compositions/Main.composition'
+import '@/src/UI/styles/globals.scss'
+import { NextComponentType } from 'next/dist/shared/lib/utils'
+import React                 from 'react'
 
 
 
 
 export type GeneralPageProps = { title: string }
-export default function App({Component, pageProps}: AppProps<GeneralPageProps>) {
+
+type Props = {
+    Component: any | NextComponentType<GeneralPageProps>
+    pageProps: GeneralPageProps
+}
+
+const App = ({Component, pageProps}: Props) => {
 
     return <>
 
         <MainComposition title={pageProps.title}>
-            <Component {...pageProps} />
+
+            <Component {...pageProps}/>
+
         </MainComposition>
 
     </>
 }
+
+export default App

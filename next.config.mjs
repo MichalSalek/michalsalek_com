@@ -5,7 +5,9 @@ import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
+    reactStrictMode: true, experimental: {
+        typedRoutes: true
+    }, output: 'export',
 
     webpack: (config, {dev, isServer}) => {
         const serverSideOrProd = isServer || !dev

@@ -1,4 +1,4 @@
-import { SubpageComposition } from '@/src/core/layout/compositions/Subpage.composition'
+import { SubpageComposition } from '@/src/UI/compositions/Subpage.composition'
 import { GeneralPageProps }   from '@/src/pages/_app'
 import { Typography }         from '@mui/material'
 

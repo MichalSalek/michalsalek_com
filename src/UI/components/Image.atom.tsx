@@ -1,6 +1,6 @@
-import { Typography }             from '@mui/material'
-import Image, { StaticImageData } from 'next/image'
-import { CSSProperties }          from 'react'
+import { Typography }                  from '@mui/material'
+import Image, { StaticImageData }      from 'next/image'
+import { CSSProperties, ReactElement } from 'react'
 
 
 
@@ -26,7 +26,7 @@ export const ImageAtom = ({
     fill = false,
     asCover = false,
     style
-}: Props): JSX.Element => {
+}: Props): ReactElement => {
 
     return <figure>
         <Image

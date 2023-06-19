@@ -1,13 +1,13 @@
-import { CardMolecule }    from '@/src/core/layout/components/Card.molecule'
-import { CompanyNameAtom } from '@/src/core/layout/components/CompanyName.atom'
-import BackImage           from '@/src/core/layout/images/back.jpg'
-import DrumsImage          from '@/src/core/layout/images/drums.jpg'
-import FrontImage          from '@/src/core/layout/images/front.jpg'
-import PlanningImage       from '@/src/core/layout/images/planning.jpg'
-import StudioImage         from '@/src/core/layout/images/studio.jpg'
-import { Typography }      from '@mui/material'
-import Stack               from '@mui/material/Stack'
-import { ReactNode }       from 'react'
+import { CardMolecule }            from '@/src/UI/components/Card.molecule'
+import { CompanyNameAtom }         from '@/src/UI/components/CompanyName.atom'
+import BackImage                   from '@/src/UI/images/back.jpg'
+import DrumsImage                  from '@/src/UI/images/drums.jpg'
+import FrontImage                  from '@/src/UI/images/front.jpg'
+import PlanningImage               from '@/src/UI/images/planning.jpg'
+import StudioImage                 from '@/src/UI/images/studio.jpg'
+import { Typography }              from '@mui/material'
+import Stack                       from '@mui/material/Stack'
+import { ReactElement, ReactNode } from 'react'
 
 
 
@@ -16,18 +16,18 @@ type Props = {
     version: 'software' | 'sound'
 }
 
-const OutsideWrapper = ({children}: { children: ReactNode }): JSX.Element => <Stack
+const OutsideWrapper = ({children}: { children: ReactNode }): ReactElement => <Stack
     flexDirection={'column'}
     flexWrap={'nowrap'}
     mb={5}
 > {children} </Stack>
 
-const InsideWrapper = ({children}: { children: ReactNode }): JSX.Element => <Stack
+const InsideWrapper = ({children}: { children: ReactNode }): ReactElement => <Stack
     alignItems={'stretch'}
 > {children} </Stack>
 
 
-export const CardOrganism = ({version}: Props): JSX.Element => {
+export const CardOrganism = ({version}: Props): ReactElement => {
     switch (version) {
 
 

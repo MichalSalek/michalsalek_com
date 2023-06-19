@@ -1,4 +1,4 @@
-import { CompanyNameAtom }                   from '@/src/core/layout/components/CompanyName.atom'
+import { CompanyNameAtom }                   from '@/src/UI/components/CompanyName.atom'
 import ContactMailIcon                       from '@mui/icons-material/ContactMail'
 import AppBar                                from '@mui/material/AppBar'
 import Box                                   from '@mui/material/Box'
@@ -9,12 +9,12 @@ import Typography                            from '@mui/material/Typography'
 import useScrollTrigger                      from '@mui/material/useScrollTrigger'
 import Link                                  from 'next/link'
 import React, { cloneElement, ReactElement } from 'react'
-import scss                                  from './appBar.module.scss'
+import scss                                  from 'src/UI/components/app-bar/appBar.module.scss'
 
 
 
 
-const ElevationScroll = ({children}: { children: ReactElement }): JSX.Element => {
+const ElevationScroll = ({children}: { children: ReactElement }): ReactElement => {
     const trigger = useScrollTrigger({
         disableHysteresis: true,
         threshold: 0
@@ -25,7 +25,7 @@ const ElevationScroll = ({children}: { children: ReactElement }): JSX.Element =>
     })
 }
 
-export const AppBarOrganism = (): JSX.Element => {
+export const AppBarOrganism = (): ReactElement => {
 
     return (
         <>
@@ -49,7 +49,7 @@ export const AppBarOrganism = (): JSX.Element => {
 
                         <Box sx={{flex: 1}}/>
 
-                        <Link href="/contact">
+                        <Link href="/src/pages/contact">
                             <IconButton
                                 size="large"
                                 color={'primary'}

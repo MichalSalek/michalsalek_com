@@ -1,14 +1,14 @@
-import { BreadcrumbsAtom }  from '@/src/core/layout/components/breadcrumbs/Breadcrumbs.atom'
-import { FooterPartial }    from '@/src/core/layout/partials/Footer.partial'
-import { HeaderPartial }    from '@/src/core/layout/partials/Header.partial'
-import { mainTheme }        from '@/src/core/layout/styles/theme'
 import { GeneralPageProps } from '@/src/pages/_app'
+import { BreadcrumbsAtom }  from '@/src/UI/components/breadcrumbs/Breadcrumbs.atom'
+import { FooterPartial }    from '@/src/UI/partials/Footer.partial'
+import { HeaderPartial }    from '@/src/UI/partials/Header.partial'
+import { mainTheme }        from '@/src/UI/styles/theme'
 import { ThemeProvider }    from '@mui/material'
 import Box                  from '@mui/material/Box'
 import Container            from '@mui/material/Container'
 import localFont            from 'next/font/local'
 import Head                 from 'next/head'
-import { ReactNode }        from 'react'
+import { ReactElement }     from 'react'
 
 
 
@@ -23,11 +23,11 @@ const font = localFont({
 
 
 type Props = {
-    children: ReactNode,
+    children: ReactElement,
 } & GeneralPageProps
 
 
-export const MainComposition = ({children, title}: Props): JSX.Element => {
+export const MainComposition = ({children, title}: Props): ReactElement => {
 
     const getTitle = (): string => title ? '– ' + title : ''
 

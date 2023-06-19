@@ -1,5 +1,5 @@
-import { ImageAtom }       from '@/src/core/layout/components/Image.atom'
 import { AppRoutes }       from '@/src/core/routes.config'
+import { ImageAtom }       from '@/src/UI/components/Image.atom'
 import ArrowRightIcon      from '@mui/icons-material/ArrowRight'
 import { Typography }      from '@mui/material'
 import Button              from '@mui/material/Button'
@@ -8,8 +8,8 @@ import CardActionArea      from '@mui/material/CardActionArea'
 import CardActions         from '@mui/material/CardActions'
 import CardContent         from '@mui/material/CardContent'
 import { StaticImageData } from 'next/image'
-import Link                from 'next/link'
-import { ReactNode }       from 'react'
+import Link                        from 'next/link'
+import { ReactElement, ReactNode } from 'react'
 
 
 
@@ -24,7 +24,7 @@ type Props = {
 }
 
 
-export const CardMolecule = ({image, alt, credits, title, content, linkPath}: Props): JSX.Element => {
+export const CardMolecule = ({image, alt, credits, title, content, linkPath}: Props): ReactElement => {
 
     return <Card
         sx={{

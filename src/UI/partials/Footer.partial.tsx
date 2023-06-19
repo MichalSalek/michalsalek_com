@@ -1,12 +1,13 @@
-import { CompanyNameAtom } from '@/src/core/layout/components/CompanyName.atom'
+import { CompanyNameAtom } from '@/src/UI/components/CompanyName.atom'
 import { Typography }      from '@mui/material'
 import Stack               from '@mui/material/Stack'
 import Link                from 'next/link'
+import { ReactElement }    from 'react'
 
 
 
 
-export const FooterPartial = (): JSX.Element => {
+export const FooterPartial = (): ReactElement => {
 
     return <>
 
