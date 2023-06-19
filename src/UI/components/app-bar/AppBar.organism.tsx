@@ -9,7 +9,7 @@ import Typography                            from '@mui/material/Typography'
 import useScrollTrigger                      from '@mui/material/useScrollTrigger'
 import Link                                  from 'next/link'
 import React, { cloneElement, ReactElement } from 'react'
-import scss                                  from 'src/UI/components/app-bar/appBar.module.scss'
+import scss                                  from './appBar.module.scss'
 
 
 
