@@ -1,3 +1,4 @@
+import { AppLinkAtom }     from '@/src/UI/components/_atoms/AppLink.atom'
 import { CompanyNameAtom } from '@/src/UI/components/CompanyName.atom'
 import { Typography }      from '@mui/material'
 import Stack               from '@mui/material/Stack'
@@ -15,9 +16,9 @@ export const FooterPartial = (): ReactElement => {
         <Stack mt={5} pt={5} mb={1} flexDirection={'column'}>
 
             <Stack alignItems={'baseline'}>
-                <Link href="/software"><Typography variant={'body2'}>Software services</Typography></Link>
+                <AppLinkAtom href="/software"><Typography variant={'body2'}>Software services</Typography></AppLinkAtom>
                 <p><CompanyNameAtom redirectOnClick={true}/></p>
-                <Link href="/sound"><Typography variant={'body2'}>Sound services</Typography></Link>
+                <AppLinkAtom href="/sound"><Typography variant={'body2'}>Sound services</Typography></AppLinkAtom>
             </Stack>
 
 

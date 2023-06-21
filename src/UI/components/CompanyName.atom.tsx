@@ -1,5 +1,5 @@
 import { getCompanyName } from '@/shared-policies/core.policy'
-import Link               from 'next/link'
+import { AppLinkAtom }    from '@/src/UI/components/_atoms/AppLink.atom'
 import { ReactElement }   from 'react'
 
 
@@ -14,7 +14,7 @@ type Props = {
 export const CompanyNameAtom = ({redirectOnClick = false, fullName}: Props): ReactElement => {
 
     if (redirectOnClick) {
-        return <span><Link href="/">{getCompanyName(fullName)}</Link></span>
+        return <span><AppLinkAtom href="/">{getCompanyName(fullName)}</AppLinkAtom></span>
     } else {
         return <span>{getCompanyName(fullName)}</span>
     }

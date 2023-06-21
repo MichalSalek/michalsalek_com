@@ -5,9 +5,24 @@ import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true, experimental: {
+
+    reactStrictMode: true,
+
+    experimental: {
         typedRoutes: true
-    }, output: 'export', images: {unoptimized: true},
+    },
+
+    output: 'export',
+
+    images: {unoptimized: true},
+
+    compress: true,
+
+    modularizeImports: {
+        '@mui/material': {
+            transform: '@mui/material/{{member}}'
+        }
+    },
 
     webpack: (config, {dev, isServer}) => {
         const serverSideOrProd = isServer || !dev

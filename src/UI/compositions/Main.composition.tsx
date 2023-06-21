@@ -2,9 +2,10 @@ import { GeneralPageProps } from '@/src/pages/_app'
 import { BreadcrumbsAtom }  from '@/src/UI/components/breadcrumbs/Breadcrumbs.atom'
 import { FooterPartial }    from '@/src/UI/partials/Footer.partial'
 import { HeaderPartial }    from '@/src/UI/partials/Header.partial'
-import { mainTheme }        from '@/src/UI/styles/theme'
-import { ThemeProvider }    from '@mui/material'
-import Box                  from '@mui/material/Box'
+import { mainTheme }                  from '@/src/UI/styles/theme'
+import { CssBaseline } from '@mui/material'
+import { ThemeProvider } from '@mui/material/styles'
+import Box                            from '@mui/material/Box'
 import Container            from '@mui/material/Container'
 import localFont            from 'next/font/local'
 import Head                 from 'next/head'
@@ -32,6 +33,8 @@ export const MainComposition = ({children, title}: Props): ReactElement => {
     const getTitle = (): string => title ? '– ' + title : ''
 
     return <main className={font.className} style={{marginTop: '7rem'}}>
+
+        <CssBaseline />
 
         <Head>
             <title>{String('Atomic Concept ' + getTitle())}</title>

@@ -40,7 +40,7 @@ export const CardOrganism = ({version}: Props): ReactElement => {
                 <InsideWrapper>
 
                     <CardMolecule
-                        linkPath={'software/architecture'}
+                        linkPath={'/software/architecture'}
                         image={PlanningImage}
                         alt={'software planning process'}
                         credits={'Photo by Daria Nepriakhina on Unsplash'}
@@ -51,7 +51,7 @@ export const CardOrganism = ({version}: Props): ReactElement => {
 
 
                     <CardMolecule
-                        linkPath={'software/frontend'}
+                        linkPath={'/software/frontend'}
                         image={FrontImage}
                         alt={'software frontend UI development process in atomic concept'}
                         credits={'Photo by John Schnobrich on Unsplash'}
@@ -63,7 +63,7 @@ export const CardOrganism = ({version}: Props): ReactElement => {
 
 
                     <CardMolecule
-                        linkPath={'software/backend'}
+                        linkPath={'/software/backend'}
                         image={BackImage}
                         alt={'software backend development process in atomic concept'}
                         credits={'Photo by Christina on Unsplash'}
@@ -86,7 +86,7 @@ export const CardOrganism = ({version}: Props): ReactElement => {
                 <InsideWrapper>
 
                     <CardMolecule
-                        linkPath={'sound/studio'}
+                        linkPath={'/sound/studio'}
                         image={StudioImage}
                         alt={'music studio services in atomic concept'}
                         credits={'Photo by Caught In Joy on Unsplash'}
@@ -96,7 +96,7 @@ export const CardOrganism = ({version}: Props): ReactElement => {
 
 
                     <CardMolecule
-                        linkPath={'sound/soundtracks'}
+                        linkPath={'/sound/soundtracks'}
                         image={DrumsImage}
                         alt={'drumkit'}
                         credits={'Photo by Josh Sorenson on Unsplash'}

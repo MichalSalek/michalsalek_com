@@ -8,12 +8,14 @@
     "dev": "yarn lint:fix && yarn dev:nolint",
     "build:nolint": "yarn cleanup && next build --no-lint",
     "build": "yarn lint:fix && yarn build:nolint",
-    "start-server": "yarn build && next start -p 3100",
+    "server": "yarn build && next start -p 3100",
+    "server:out": "yarn build && npx serve@latest out",
     "type-check": "tsc",
     "lint": "next lint",
     "lint:fix": "printf '%b\\n' '\\033[1m\n\n   -> -> -> Linting and fixing -> -> ->   \n\n\\033[0m' && next lint --fix && yarn type-check",
     "anal": "ANALYZE=true yarn build",
-    "coupling": "npx madge --extensions ts,tsx --image graph.svg ."
+    "coupling": "npx madge --extensions ts,tsx --image graph.svg .",
+    "deploy:stg": "bash scripts/deploy-stg.sh"
   },
   "dependencies": {
     "@msalek/utils": "latest",

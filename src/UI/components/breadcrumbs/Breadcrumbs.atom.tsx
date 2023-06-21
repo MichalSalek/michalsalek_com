@@ -1,7 +1,7 @@
 import { useRouter }    from 'next/router'
 import Breadcrumbs      from 'nextjs-breadcrumbs2'
 import { ReactElement } from 'react'
-import scss             from 'src/UI/components/breadcrumbs/Breadcrumbs.module.scss'
+import scss             from 'src/UI/components/breadcrumbs/breadcrumbs.module.scss'
 
 
 

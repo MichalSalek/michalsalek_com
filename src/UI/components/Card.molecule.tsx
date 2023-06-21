@@ -1,4 +1,5 @@
 import { AppRoutes }       from '@/src/core/routes.config'
+import { AppLinkAtom }     from '@/src/UI/components/_atoms/AppLink.atom'
 import { ImageAtom }       from '@/src/UI/components/Image.atom'
 import ArrowRightIcon      from '@mui/icons-material/ArrowRight'
 import { Typography }      from '@mui/material'
@@ -33,7 +34,7 @@ export const CardMolecule = ({image, alt, credits, title, content, linkPath}: Pr
             justifyContent: 'space-between'
         }}
     >
-        <Link
+        <AppLinkAtom
             href={linkPath}
             style={{textDecoration: 'none'}}
         >
@@ -66,18 +67,18 @@ export const CardMolecule = ({image, alt, credits, title, content, linkPath}: Pr
                 </CardContent>
             </CardActionArea>
 
-        </Link>
+        </AppLinkAtom>
 
 
         <CardActions>
 
-            <Link href={linkPath}>
+            <AppLinkAtom href={linkPath}>
 
                 <Button size="small" color={'primary'} endIcon={<ArrowRightIcon scale={1}/>}>
                     <Typography variant={'button'}>More</Typography>
                 </Button>
 
-            </Link>
+            </AppLinkAtom>
 
         </CardActions>
 
