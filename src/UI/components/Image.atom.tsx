@@ -1,5 +1,6 @@
 import { Typography }                  from '@mui/material'
-import Image, { StaticImageData }      from 'next/image'
+import ExportedImage                   from 'next-image-export-optimizer'
+import { StaticImageData }             from 'next/image'
 import { CSSProperties, ReactElement } from 'react'
 
 
@@ -29,13 +30,14 @@ export const ImageAtom = ({
 }: Props): ReactElement => {
 
     return <figure>
-        <Image
+        <ExportedImage
             src={image}
             alt={`Picture showing ${alt}`}
             height={height}
             priority={priority}
             fill={fill}
             style={{...style, objectFit: asCover ? 'cover' : 'initial'}}
+
         />
         <Typography
             variant={'caption'}

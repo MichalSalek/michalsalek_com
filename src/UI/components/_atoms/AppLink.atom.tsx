@@ -1,6 +1,7 @@
-import { AppRoutes }    from '@/src/core/routes.config'
-import Link, {LinkProps}                                     from 'next/link'
-import { CSSProperties, HTMLProps, ReactElement, ReactNode } from 'react'
+import { AppRoutes }                              from '@/src/layers/core/routes.config'
+import Link, { LinkProps }                        from 'next/link'
+import { CSSProperties, ReactElement, ReactNode } from 'react'
+
 
 
 

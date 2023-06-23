@@ -6,7 +6,7 @@
     "cleanup": "rm -rf ./.next ./.out ./.standalone",
     "dev:nolint": "yarn cleanup && printf '%b\\n' '\\033[1m\n\n   -> -> -> Launching dev server -> -> ->   \n\n\\033[0m' && next",
     "dev": "yarn lint:fix && yarn dev:nolint",
-    "build:nolint": "yarn cleanup && next build --no-lint",
+    "build:nolint": "yarn cleanup && next build --no-lint && next-image-export-optimizer",
     "build": "yarn lint:fix && yarn build:nolint",
     "server": "yarn build && next start -p 3100",
     "server:out": "yarn build && npx serve@latest out",
@@ -23,21 +23,21 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.5",
+    "next": "^13.4.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "nextjs-breadcrumbs2": "^2.0.4"
+  },
+  "devDependencies": {
+    "sass": "^1.62.0",
+    "browser-sync": "^2.29.1",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "typescript": "5.0.4",
     "@types/node": "18.16.0",
     "@types/react": "^18.2.13",
     "@types/react-dom": "^18.2.6",
     "eslint": "^8.43.0",
     "eslint-config-next": "^13.4.6",
-    "next": "^13.4.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "5.0.4",
-    "browser-sync": "^2.29.1",
-    "nextjs-breadcrumbs2": "^2.0.4",
-    "sharp": "0.30.7"
-  },
-  "devDependencies": {
-    "sass": "^1.62.0",
-    "browser-sync-webpack-plugin": "^2.3.0"
+    "next-image-export-optimizer": "^1.8.1"
   }
 }

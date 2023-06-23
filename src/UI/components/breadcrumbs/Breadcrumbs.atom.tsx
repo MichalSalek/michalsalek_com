@@ -11,11 +11,15 @@ export const BreadcrumbsAtom = (): ReactElement => {
 
     const isHomeRoute = router.asPath === '/'
 
-    return <Breadcrumbs
-        labelsToUppercase
-        rootLabel="Home"
-        listClassName={scss.host}
-        activeItemClassName={scss.active}
-        listStyle={isHomeRoute ? {visibility: 'hidden'} : undefined}
-    />
+    return <section style={{
+        height: '20px'
+    }}>
+        <Breadcrumbs
+            labelsToUppercase
+            rootLabel="Home"
+            listClassName={scss.host}
+            activeItemClassName={scss.active}
+            listStyle={isHomeRoute ? {visibility: 'hidden'} : undefined}
+        />
+    </section>
 }
