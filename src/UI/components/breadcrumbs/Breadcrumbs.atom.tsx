@@ -9,15 +9,13 @@ import scss             from 'src/UI/components/breadcrumbs/breadcrumbs.module.s
 export const BreadcrumbsAtom = (): ReactElement => {
     const router = useRouter()
 
-    if (router.asPath === '/') {
-        return <></>
-    }
-
+    const isHomeRoute = router.asPath === '/'
 
     return <Breadcrumbs
         labelsToUppercase
         rootLabel="Home"
         listClassName={scss.host}
         activeItemClassName={scss.active}
+        listStyle={isHomeRoute ? {visibility: 'hidden'} : undefined}
     />
 }
