@@ -26,37 +26,28 @@ export default function Page() {
         <Card elevation={0} sx={{minWidth: '100%'}}>
 
             <CardContent>
-                <Typography variant={'h2'}>What is a software architecture in general?</Typography>
-                <Typography variant={'body1'}>No matter what your political opinions of Obama are, very few people out there can say his speeches were poorly written. The man knew how to make a speech! Always bringing in emotion, making a moral stand or inspiring unity – Obama’s speeches had it
-                    all.</Typography>
-                <Typography variant={'body1'}>So, why not use his wise words instead of Lorem Ipsum? Obama Ipsum is bound to make your product feel more real, as it will include current issues and debates that are still on-going, even with the radical change in administration.</Typography>
+                <Typography variant={'h2'}>Easy and understandable Project maintenance</Typography>
+
+                <Typography variant={'body1'}>
+                   <p>Jeśli będziesz chciał w przyszłości powierzyć kod innemu zespołowi deweloperskemu. </p>
+                    Struktura plików oraz katalogów kodu źródłowego pozostanie jasna oraz udokumentowana w stosownym miejscu.
+                    Wszystko po to, by osoby techniczne chcący dokonywać dalszych zmian, usprawnień i modyfikacji Twojej aplikacji
+                    mieli w tym pełną swobodę.
+                </Typography>
+
             </CardContent>
-
-        </Card>
-
-
-        <Card elevation={0} sx={{minWidth: '100%'}}>
 
             <CardContent>
-                <Typography variant={'h2'}>What is a software architecture in general?</Typography>
+                <Typography variant={'h2'}>Easy and understandable Project structure</Typography>
+
                 <Typography variant={'body1'}>No matter what your political opinions of Obama are, very few people out there can say his speeches were poorly written. The man knew how to make a speech! Always bringing in emotion, making a moral stand or inspiring unity – Obama’s speeches had it
                     all.</Typography>
                 <Typography variant={'body1'}>So, why not use his wise words instead of Lorem Ipsum? Obama Ipsum is bound to make your product feel more real, as it will include current issues and debates that are still on-going, even with the radical change in administration.</Typography>
+
             </CardContent>
 
         </Card>
 
-
-        <Card elevation={0} sx={{minWidth: '100%'}}>
-
-            <CardContent>
-                <Typography variant={'h2'}>What is a software architecture in general?</Typography>
-                <Typography variant={'body1'}>No matter what your political opinions of Obama are, very few people out there can say his speeches were poorly written. The man knew how to make a speech! Always bringing in emotion, making a moral stand or inspiring unity – Obama’s speeches had it
-                    all.</Typography>
-                <Typography variant={'body1'}>So, why not use his wise words instead of Lorem Ipsum? Obama Ipsum is bound to make your product feel more real, as it will include current issues and debates that are still on-going, even with the radical change in administration.</Typography>
-            </CardContent>
-
-        </Card>
 
     </SubpageComposition>
 }

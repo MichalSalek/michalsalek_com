@@ -1,5 +1,6 @@
 import { AppLinkAtom }                       from '@/src/UI/components/_atoms/AppLink.atom'
 import { CompanyNameAtom }                   from '@/src/UI/components/CompanyName.atom'
+import { appColors }                         from '@/src/UI/styles/colors'
 import ContactMailIcon                       from '@mui/icons-material/ContactMail'
 import AppBar                                from '@mui/material/AppBar'
 import Box                                   from '@mui/material/Box'
@@ -9,6 +10,8 @@ import Toolbar                               from '@mui/material/Toolbar'
 import Typography                            from '@mui/material/Typography'
 import useScrollTrigger                      from '@mui/material/useScrollTrigger'
 import React, { cloneElement, ReactElement } from 'react'
+
+import scss from './appBar.module.scss'
 
 
 
@@ -29,12 +32,17 @@ export const AppBarOrganism = (): ReactElement => {
     return (
         <>
             <ElevationScroll>
-                <AppBar sx={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                    backdropFilter: 'blur(10px) saturate(160%) contrast(45%) brightness(140%)'
-                }}>
+                <AppBar
+                    className={scss.host}
+                    sx={{
+                        backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                        backdropFilter: 'blur(5px) saturate(160%) contrast(45%) brightness(140%)',
+                        borderTop: `4px solid ${appColors.main}`
+                    }}>
                     <Toolbar
-                        sx={{padding: '0 !important'}}
+                        sx={{
+                            padding: '0 !important'
+                        }}
                     >
                         <AppLinkAtom href="/">
                             <Button

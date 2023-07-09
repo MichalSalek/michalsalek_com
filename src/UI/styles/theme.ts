@@ -1,5 +1,5 @@
-import { createTheme }   from '@mui/material/styles'
-import { brown, indigo } from '@mui/material/colors'
+import { appColors }   from '@/src/UI/styles/colors'
+import { createTheme } from '@mui/material/styles'
 
 
 
@@ -7,15 +7,15 @@ import { brown, indigo } from '@mui/material/colors'
 export const mainTheme = createTheme({
     palette: {
         primary: {
-            main: indigo[900]
+            main: appColors.main
         },
         secondary: {
-            main: brown[900]
+            main: appColors.secondary
         }
     },
     typography: {
         allVariants: {
-            color: indigo[900]
+            color: appColors.main
         },
         fontFamily: [
             'Mona Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
@@ -64,19 +64,19 @@ export const mainTheme = createTheme({
         caption: {
             opacity: 0.8,
             fontSize: 6,
-            color: indigo[50],
-            filter: `drop-shadow(0px 0px 0.5px ${indigo[900]})`
+            color: appColors.mainLight,
+            filter: `drop-shadow(0px 0px 0.5px ${appColors.main})`
         },
         body1: {
-            color: brown[900],
+            color: appColors.secondary,
             marginTop: '0.5rem'
         },
         body2: {
-            color: brown[900]
+            color: appColors.secondary
         },
         button: {
             fontSize: '0.6rem',
-            color: indigo[50]
+            color: appColors.mainLight
         }
     },
     components: {
