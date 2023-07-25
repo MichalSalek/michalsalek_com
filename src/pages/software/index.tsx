@@ -1,5 +1,5 @@
 import { GeneralPageProps } from '@/src/pages/_app'
-import { CardOrganism }     from '@/src/UI/components/Card.organism'
+import { RootCardOrganism } from '@/src/UI/components/RootCardOrganism'
 import { Container }        from '@mui/material'
 
 
@@ -10,7 +10,7 @@ const PAGE_TITLE = 'Software services'
 export default function Page() {
     return <Container>
 
-        <CardOrganism version={'software'}/>
+        <RootCardOrganism version={'software'}/>
 
     </Container>
 }

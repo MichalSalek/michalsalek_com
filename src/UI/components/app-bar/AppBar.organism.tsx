@@ -53,7 +53,7 @@ export const AppBarOrganism = (): ReactElement => {
                                 <Typography
                                     variant="h6"
                                     noWrap
-                                    sx={{p: 3}}
+                                    sx={{px: 2, py: 3}}
                                 >
                                     <CompanyNameAtom fullName={true}/>
                                 </Typography>
@@ -66,12 +66,12 @@ export const AppBarOrganism = (): ReactElement => {
                             <IconButton
                                 size="large"
                                 color={'primary'}
-                                sx={{p: 3, borderRadius: 0}}
+                                sx={{px: 2, py: 3, borderRadius: 0}}
                             >
                                 <Typography
                                     variant="h6"
                                     noWrap
-                                    sx={{mx: 3}}
+                                    sx={{mx: 1}}
                                 >
                                     contact
                                 </Typography>

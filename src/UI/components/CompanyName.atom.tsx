@@ -8,19 +8,20 @@ import { CSSProperties, ReactElement } from 'react'
 type Props = {
     redirectOnClick?: boolean
     fullName?: boolean
+    style?: CSSProperties
 }
 
 const TradeMarkAtom = (): ReactElement => <small>™</small>
 
 
-export const CompanyNameAtom = ({redirectOnClick = false, fullName}: Props): ReactElement => {
+export const CompanyNameAtom = ({redirectOnClick = false, fullName, style}: Props): ReactElement => {
 
-    const style: CSSProperties = {whiteSpace: 'nowrap'}
+    const concatenatedStyle: CSSProperties = {whiteSpace: 'nowrap', ...style}
 
     if (redirectOnClick) {
-        return <span style={style}><strong><AppLinkAtom href="/">{getCompanyName(fullName)}</AppLinkAtom> <TradeMarkAtom/></strong></span>
+        return <span style={concatenatedStyle}><strong><AppLinkAtom href="/">{getCompanyName(fullName)}</AppLinkAtom> <TradeMarkAtom/></strong></span>
     } else {
-        return <span style={style}><strong>{getCompanyName(fullName)} <TradeMarkAtom/></strong></span>
+        return <span style={concatenatedStyle}><strong>{getCompanyName(fullName)} <TradeMarkAtom/></strong></span>
     }
 
 }

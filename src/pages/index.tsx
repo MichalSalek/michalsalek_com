@@ -1,6 +1,6 @@
-import { GeneralPageProps }      from '@/src/pages/_app'
-import { CardOrganism }          from '@/src/UI/components/Card.organism'
-import { CompanyNameAtom }       from '@/src/UI/components/CompanyName.atom'
+import { GeneralPageProps } from '@/src/pages/_app'
+import { RootCardOrganism } from '@/src/UI/components/RootCardOrganism'
+import { CompanyNameAtom }  from '@/src/UI/components/CompanyName.atom'
 import { InfoTextBlockMolecule } from '@/src/UI/components/InfoTextBlock.molecule'
 import { Container, Typography } from '@mui/material'
 import Box                       from '@mui/material/Box'
@@ -15,9 +15,9 @@ export default function Page() {
 
         <Typography variant={'h1'}>{PAGE_TITLE}</Typography>
 
-        <CardOrganism version={'software'}/>
+        <RootCardOrganism version={'software'}/>
 
-        <CardOrganism version={'sound'}/>
+        <RootCardOrganism version={'sound'}/>
 
         <Box paddingY={5}/>
 
