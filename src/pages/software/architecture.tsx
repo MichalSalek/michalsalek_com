@@ -2,8 +2,8 @@ import { GeneralPageProps }     from '@/src/pages/_app'
 import { CompanyNameAtom }      from '@/src/UI/components/CompanyName.atom'
 import { ContentBlockOrganism } from '@/src/UI/components/ContentBlock.organism'
 import { HeroMolecule }         from '@/src/UI/components/Hero.molecule'
-import { SubpageComposition }   from '@/src/UI/compositions/Subpage.composition'
-import molecules                from '@/src/UI/images/molecules.jpg'
+import { SubpageComposition } from '@/src/UI/compositions/Subpage.composition'
+import molecules              from '@/src/UI/assets/molecules.jpg'
 
 
 
