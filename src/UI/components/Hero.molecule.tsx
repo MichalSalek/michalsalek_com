@@ -13,7 +13,7 @@ type Props = {
 export const HeroMolecule = ({image, alt, credits}: Props): ReactElement => {
 
 
-    return <header style={{
+    return <section style={{
         position: 'relative',
         height: 'calc(20vw + 300px)'
     }}>
@@ -25,5 +25,5 @@ export const HeroMolecule = ({image, alt, credits}: Props): ReactElement => {
             fill={true}
             asCover={true}
         />
-    </header>
+    </section>
 }

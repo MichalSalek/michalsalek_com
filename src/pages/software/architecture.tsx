@@ -1,10 +1,9 @@
-import { HeroMolecule }       from '@/src/UI/components/Hero.molecule'
-import { SubpageComposition } from '@/src/UI/compositions/Subpage.composition'
-import molecules              from '@/src/UI/images/molecules.jpg'
-import { GeneralPageProps }   from '@/src/pages/_app'
-import { Typography }         from '@mui/material'
-import Card                   from '@mui/material/Card'
-import CardContent            from '@mui/material/CardContent'
+import { GeneralPageProps }     from '@/src/pages/_app'
+import { CompanyNameAtom }      from '@/src/UI/components/CompanyName.atom'
+import { ContentBlockOrganism } from '@/src/UI/components/ContentBlock.organism'
+import { HeroMolecule }         from '@/src/UI/components/Hero.molecule'
+import { SubpageComposition }   from '@/src/UI/compositions/Subpage.composition'
+import molecules                from '@/src/UI/images/molecules.jpg'
 
 
 
@@ -17,36 +16,78 @@ export default function Page() {
         <HeroMolecule
             image={molecules}
             alt={'software achitecture concept'}
-            credits={'Photo by Terry Vlisidis on Unsplash'}
+            credits={'Photo by Ashraful Islam on Unsplash'}
         />
 
 
-        {/*@todo: przerobic te segmenty ponizej na molekule:*/}
 
-        <Card elevation={0} sx={{minWidth: '100%'}}>
+        <ContentBlockOrganism
+            title={<>
 
-            <CardContent>
-                <Typography variant={'h2'}>Easy and understandable Project maintenance</Typography>
+                High performance
 
-                <Typography variant={'body1'}>
-                   <p>Jeśli będziesz chciał w przyszłości powierzyć kod innemu zespołowi deweloperskemu. </p>
-                    Struktura plików oraz katalogów kodu źródłowego pozostanie jasna oraz udokumentowana w stosownym miejscu.
-                    Wszystko po to, by osoby techniczne chcący dokonywać dalszych zmian, usprawnień i modyfikacji Twojej aplikacji
-                    mieli w tym pełną swobodę.
-                </Typography>
+            </>}
+            subtitle={<>
 
-            </CardContent>
+                so your customers don&apos;t have to wait.
 
-            <CardContent>
-                <Typography variant={'h2'}>Easy and understandable Project structure</Typography>
+            </>}
+            body={<><p>
 
-                <Typography variant={'body1'}>No matter what your political opinions of Obama are, very few people out there can say his speeches were poorly written. The man knew how to make a speech! Always bringing in emotion, making a moral stand or inspiring unity – Obama’s speeches had it
-                    all.</Typography>
-                <Typography variant={'body1'}>So, why not use his wise words instead of Lorem Ipsum? Obama Ipsum is bound to make your product feel more real, as it will include current issues and debates that are still on-going, even with the radical change in administration.</Typography>
+                Discover Event Sourcing. At <CompanyNameAtom/>, we use the high-speed UDP protocol available to your customers at critical areas,
+                which has long been used by all multiplayer games, chat rooms and GPS navigation. Our applications are lightning fast,
+                because we know the importance of a lightning-fast responsive interface - the domain of the top players in the software market.
+            </p>
+            </>}
+        />
 
-            </CardContent>
 
-        </Card>
+        <ContentBlockOrganism
+            title={<>
+
+                Easy and understandable project maintenance
+
+            </>}
+            subtitle={<>
+
+                if you want to outsource the code to another development team in the future.
+
+            </>}
+            body={<p>
+
+                The structure of the files and directories of the source code will remain clear and documented in an appropriate place.
+                All this so that technical people who want to make further changes, improvements and modifications to your application
+                have full freedom in this.
+
+            </p>}
+        />
+
+
+        <ContentBlockOrganism
+            title={<>
+
+                High scalability through modularization
+
+            </>}
+            subtitle={<>
+
+                in case of rapid growth of your business.
+
+            </>}
+            body={<>
+                <p>
+
+                    Learn the advantages of the DDD model and CQRS in practice.
+                    An application written according to <CompanyNameAtom/> guidelines has a modular stucture
+                    with clearly defined input and output models - so you can, if necessary, separate the most loaded
+                    functionality of your application to more server machines.
+                </p>
+                <p>
+                    In addition, most components can be reused multiple times, even in other projects.
+                </p>
+            </>}
+        />
+
 
 
     </SubpageComposition>

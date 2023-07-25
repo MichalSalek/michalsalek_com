@@ -1,10 +1,9 @@
+import { GeneralPageProps }      from '@/src/pages/_app'
 import { CardOrganism }          from '@/src/UI/components/Card.organism'
 import { CompanyNameAtom }       from '@/src/UI/components/CompanyName.atom'
 import { InfoTextBlockMolecule } from '@/src/UI/components/InfoTextBlock.molecule'
-import { GeneralPageProps }      from '@/src/pages/_app'
-import { Typography }            from '@mui/material'
+import { Container, Typography } from '@mui/material'
 import Box                       from '@mui/material/Box'
-import Container                 from '@mui/material/Container'
 
 
 

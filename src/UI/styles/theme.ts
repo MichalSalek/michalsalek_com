@@ -1,10 +1,12 @@
 import { appColors }   from '@/src/UI/styles/colors'
 import { createTheme } from '@mui/material/styles'
+import { Theme }       from '@mui/system'
 
 
 
 
-export const mainTheme = createTheme({
+
+export const mainTheme: Theme = createTheme({
     palette: {
         primary: {
             main: appColors.main
@@ -44,12 +46,15 @@ export const mainTheme = createTheme({
                 fontSize: '3vw'
             },
             '@media (min-width:1200px)': {
-                fontSize: '2rem'
+                fontSize: '2.5rem'
             },
-            marginTop: '3rem'
+            marginTop: '3rem',
+            marginBottom: '1rem',
+            fontWeight: '400'
         },
         h3: {
             fontSize: '4vw',
+            fontWeight: '400',
             '@media (min-width:600px)': {
                 fontSize: '2.2vw'
             },
@@ -57,7 +62,7 @@ export const mainTheme = createTheme({
                 fontSize: '1.8vw'
             },
             '@media (min-width:1200px)': {
-                fontSize: '1.3rem'
+                fontSize: '1.5rem'
             },
             marginBottom: '1rem'
         },
@@ -68,11 +73,13 @@ export const mainTheme = createTheme({
             filter: `drop-shadow(0px 0px 0.5px ${appColors.main})`
         },
         body1: {
+            fontSize: '1.2rem',
+            fontWeight: '300',
             color: appColors.secondary,
-            marginTop: '0.5rem'
+            marginTop: '2rem'
         },
         body2: {
-            color: appColors.secondary
+            color: appColors.secondary,
         },
         button: {
             fontSize: '0.6rem',
@@ -80,6 +87,13 @@ export const mainTheme = createTheme({
         }
     },
     components: {
+        MuiContainer: {
+            defaultProps: {
+
+                // @ts-ignore
+                component: 'section'
+            }
+        },
         MuiStack: {
             defaultProps: {
                 minHeight: '100%',
@@ -88,8 +102,10 @@ export const mainTheme = createTheme({
                 flexDirection: 'row',
                 flexWrap: 'wrap',
                 columnGap: 4,
-                rowGap: 2
+                rowGap: 2,
 
+                // @ts-ignore
+                component: 'section'
             }
         },
         MuiButton: {

@@ -1,5 +1,5 @@
-import Typography              from '@mui/material/Typography'
-import Container                   from '@mui/material/Container'
+import { Container }               from '@mui/material'
+import Typography                  from '@mui/material/Typography'
 import { ReactElement, ReactNode } from 'react'
 
 

@@ -1,6 +1,5 @@
-import { GeneralPageProps }      from '@/src/pages/_app'
-import { TextField, Typography } from '@mui/material'
-import Container                 from '@mui/material/Container'
+import { GeneralPageProps }                 from '@/src/pages/_app'
+import { Container, TextField, Typography } from '@mui/material'
 
 
 

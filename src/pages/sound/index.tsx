@@ -1,6 +1,6 @@
-import { CardOrganism }     from '@/src/UI/components/Card.organism'
 import { GeneralPageProps } from '@/src/pages/_app'
-import Container            from '@mui/material/Container'
+import { CardOrganism }     from '@/src/UI/components/Card.organism'
+import { Container }        from '@mui/material'
 
 
 

@@ -13,7 +13,7 @@ export const FooterPartial = (): ReactElement => {
     return <>
 
 
-        <Stack mt={5} pt={5} mb={1} flexDirection={'column'}>
+        <Stack mt={30} pt={5} mb={1} flexDirection={'column'}>
 
             <Stack alignItems={'baseline'}>
                 <AppLinkAtom href="/software"><Typography variant={'body2'}>Software services</Typography></AppLinkAtom>
