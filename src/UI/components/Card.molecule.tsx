@@ -57,7 +57,7 @@ export const CardMolecule = ({image, alt, credits, title, content, linkPath}: Pr
                     sx={{
                         flex: 1
                     }}>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography variant="h3" component="div">
                         {title}
                     </Typography>
                     <Typography component={'span'} variant="body2">

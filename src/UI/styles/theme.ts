@@ -53,16 +53,16 @@ export const mainTheme: Theme = createTheme({
             fontWeight: '400'
         },
         h3: {
-            fontSize: '4vw',
-            fontWeight: '400',
+            fontSize: '5vw',
+            fontWeight: '500',
             '@media (min-width:600px)': {
-                fontSize: '2.2vw'
+                fontSize: '2.5vw'
             },
             '@media (min-width:900px)': {
-                fontSize: '1.8vw'
+                fontSize: '2vw'
             },
             '@media (min-width:1200px)': {
-                fontSize: '1.5rem'
+                fontSize: '1.3rem'
             },
             marginBottom: '1rem'
         },
@@ -73,12 +73,31 @@ export const mainTheme: Theme = createTheme({
             filter: `drop-shadow(0px 0px 0.5px ${appColors.main})`
         },
         body1: {
-            fontSize: '1.2rem',
+            fontSize: '4.2vw',
+            '@media (min-width:600px)': {
+                fontSize: '2.2vw'
+            },
+            '@media (min-width:900px)': {
+                fontSize: '1.8vw'
+            },
+            '@media (min-width:1200px)': {
+                fontSize: '1.1rem'
+            },
             fontWeight: '300',
             color: appColors.secondary,
             marginTop: '2rem'
         },
         body2: {
+            fontSize: '4vw',
+            '@media (min-width:600px)': {
+                fontSize: '2vw'
+            },
+            '@media (min-width:900px)': {
+                fontSize: '1.6vw'
+            },
+            '@media (min-width:1200px)': {
+                fontSize: '1rem'
+            },
             color: appColors.secondary,
         },
         button: {
@@ -87,6 +106,13 @@ export const mainTheme: Theme = createTheme({
         }
     },
     components: {
+        MuiDivider: {
+          styleOverrides: {
+              root: {
+                  margin: '5rem'
+              }
+          }
+        },
         MuiContainer: {
             defaultProps: {
 

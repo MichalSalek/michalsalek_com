@@ -8,21 +8,27 @@ import { Fragment, ReactElement } from 'react'
 
 
 type Props = {
-    data: { heading: string | ReactElement, content: string | ReactElement }[]
+    data: { heading?: string | ReactElement | undefined, content: string | ReactElement }[]
 }
 
 export const InfoTextBlockMolecule = ({data}: Props): ReactElement => {
 
 
-    return <Stack alignItems={'flex-start'}>
+    return <Stack alignItems={'flex-start'} my={10}>
 
         {data.map((el, index) => <Fragment key={index}>
 
 
             <Card variant={'outlined'}>
                 <CardContent>
-                    <Typography variant={'h3'}>{el.heading}</Typography>
-                    <Typography variant={'body1'}>{el.content}</Typography>
+                    {el.heading && <Typography
+                        variant={'h3'}
+                        sx={{minHeight: '70px'}}
+                    >{el.heading}</Typography>}
+                    <Typography
+                        variant={'body1'}
+                        sx={typeof el.content !== 'string' ? {textAlign: 'center', margin: 0} : undefined}
+                    >{el.content}</Typography>
                 </CardContent>
 
             </Card>

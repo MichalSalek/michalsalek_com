@@ -1,9 +1,14 @@
 import { GeneralPageProps }     from '@/src/pages/_app'
+import molecules                from '@/src/UI/assets/molecules.jpg'
+import { AppLinkAtom }          from '@/src/UI/components/_atoms/AppLink.atom'
 import { CompanyNameAtom }      from '@/src/UI/components/CompanyName.atom'
 import { ContentBlockOrganism } from '@/src/UI/components/ContentBlock.organism'
+import { GoToContactFormMolecule } from '@/src/UI/components/GoToContactForm.molecule'
 import { HeroMolecule }         from '@/src/UI/components/Hero.molecule'
-import { SubpageComposition } from '@/src/UI/compositions/Subpage.composition'
-import molecules              from '@/src/UI/assets/molecules.jpg'
+import { InfoTextBlockMolecule } from '@/src/UI/components/InfoTextBlock.molecule'
+import { SubpageComposition }   from '@/src/UI/compositions/Subpage.composition'
+import { Divider, Typography }  from '@mui/material'
+import Button from '@mui/material/Button'
 
 
 
@@ -32,12 +37,12 @@ export default function Page() {
                 so your customers don&apos;t have to wait.
 
             </>}
-            body={<><p>
+            body={<>
 
-                Discover Event Sourcing. At <CompanyNameAtom/>, we use the high-speed UDP protocol available to your customers at critical areas,
+                Discover Event Sourcing. At <CompanyNameAtom/>, we use the <strong>high-speed UDP protocol</strong> available to your customers at critical areas,
                 which has long been used by all multiplayer games, chat rooms and GPS navigation. Our applications are lightning fast,
-                because we know the importance of a lightning-fast responsive interface - the domain of the top players in the software market.
-            </p>
+                because we know the importance of a <strong>lightning-fast responsive interface</strong> - the domain of the top players in the software market.
+
             </>}
         />
 
@@ -53,13 +58,13 @@ export default function Page() {
                 if you want to outsource the code to another development team in the future.
 
             </>}
-            body={<p>
+            body={<>
 
                 The structure of the files and directories of the source code will remain clear and documented in an appropriate place.
                 All this so that technical people who want to make further changes, improvements and modifications to your application
-                have full freedom in this.
+                have <strong>full freedom</strong> in this.
 
-            </p>}
+            </>}
         />
 
 
@@ -75,18 +80,43 @@ export default function Page() {
 
             </>}
             body={<>
-                <p>
 
-                    Learn the advantages of the DDD model and CQRS in practice.
-                    An application written according to <CompanyNameAtom/> guidelines has a modular stucture
-                    with clearly defined input and output models - so you can, if necessary, separate the most loaded
-                    functionality of your application to more server machines.
-                </p>
-                <p>
+
+                    Learn the advantages of the <strong>DDD</strong> model and <strong>CQRS</strong> in practice.
+                    An application written according to <CompanyNameAtom/> guidelines has a modular structure
+                    with clearly defined input and output models - so you can, if necessary, <strong>separate the most loaded
+                    functionality of your application</strong> to more server machines.
+
+                    <br/>
+                    <br/>
+
                     In addition, most components can be reused multiple times, even in other projects.
-                </p>
+
             </>}
         />
+
+
+        <Divider/>
+
+        <GoToContactFormMolecule objectOfInterest={PAGE_TITLE} />
+
+        <Divider/>
+
+
+        <aside>
+            <Typography variant={'h3'}>See how we can help your business with other software areas</Typography>
+
+            <InfoTextBlockMolecule data={[
+                {
+                    heading: <>Try our Frontend services:</>,
+                    content: <Button size={'large'}><AppLinkAtom href={'/software/frontend'}>User Interface solutions</AppLinkAtom></Button>
+                },
+                {
+                    heading: <>Read about our Backend solutions:</>,
+                    content: <Button size={'large'}><AppLinkAtom href={'/software/backend'}>Server solutions</AppLinkAtom></Button>
+                }
+            ]}/>
+        </aside>
 
 
 

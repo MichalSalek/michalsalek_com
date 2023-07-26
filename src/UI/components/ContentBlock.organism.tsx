@@ -17,12 +17,12 @@ export const ContentBlockOrganism = ({title, subtitle, body}: Props): ReactEleme
     return <article>
         <Card elevation={0} sx={{minWidth: '100%'}}>
 
-            <CardContent>
+            <CardContent sx={{px: 0}}>
                 <Typography variant={'h2'}>{title}</Typography>
 
                 <Typography variant={'h3'}>{subtitle}</Typography>
 
-                <Typography variant={'body1'}>{body}</Typography>
+                <Typography variant={'body1'} sx={{textIndent: '3rem'}}>{body}</Typography>
 
             </CardContent>
 
