@@ -5,9 +5,11 @@ import { ContentBlockOrganism }    from '@/src/UI/components/ContentBlock.organi
 import { GoToContactFormMolecule } from '@/src/UI/components/GoToContactForm.molecule'
 import { HeroMolecule }            from '@/src/UI/components/Hero.molecule'
 import { InfoTextBlockMolecule }   from '@/src/UI/components/InfoTextBlock.molecule'
+import { InternalLinkingMolecule } from '@/src/UI/components/InternalLinking.molecule'
 import { SubpageComposition }      from '@/src/UI/compositions/Subpage.composition'
 import { Divider, Typography }     from '@mui/material'
 import Button                      from '@mui/material/Button'
+import React                       from 'react'
 
 
 
@@ -53,7 +55,7 @@ export default function Page() {
         <ContentBlockOrganism
             title={<>
 
-                We don't promise miracles at the beginning
+                We don&apos;t promise miracles at the beginning
 
             </>}
             subtitle={<>
@@ -85,12 +87,12 @@ export default function Page() {
             </>}
             subtitle={<>
 
-                it's not that difficult.
+                it&apos;s not that difficult.
 
             </>}
             body={<>
 
-                Many things that seem abstract - have many analogies in the real world. We can find them and rearrange them for you.
+                Many things that seem abstract – have many analogies in the real world. We can find them and rearrange them for you.
                 This makes the understanding of how a web application works much clearer, and thus <strong>becomes much more digestible</strong>.
 
             </>}
@@ -102,21 +104,9 @@ export default function Page() {
 
         <Divider/>
 
-
-        <aside>
-            <Typography variant={'h3'}>See how we can help your business with other software areas</Typography>
-
-            <InfoTextBlockMolecule data={[
-                {
-                    heading: <>Read about our Architecture solutions:</>,
-                    content: <Button size={'large'}><AppLinkAtom href={'/software/architecture'}>Software architecture</AppLinkAtom></Button>
-                },
-                {
-                    heading: <>Try our Frontend services:</>,
-                    content: <Button size={'large'}><AppLinkAtom href={'/software/frontend'}>User Interface solutions</AppLinkAtom></Button>
-                }
-            ]}/>
-        </aside>
+        <InternalLinkingMolecule
+            itemsToShow={['/software/architecture', '/software/backend', '/software/frontend']}
+        />
 
     </SubpageComposition>
 }

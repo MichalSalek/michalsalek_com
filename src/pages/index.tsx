@@ -24,15 +24,33 @@ export default function Page() {
         <InfoTextBlockMolecule data={[
             {
                 heading: <>What is the <CompanyNameAtom fullName={true}/>?</>,
-                content: 'Explanation'
+                content: <>
+
+                    It is a contractor guided by a <strong>set of best practices</strong>.
+                    The name is not accidental – the atomic approach allows to build molecules and whole
+                    organisms from the smallest atoms. <strong>Always maintaining consistency</strong>.
+
+                </>
             },
             {
                 heading: <>What kind of services the <CompanyNameAtom fullName={true}/> provide?</>,
-                content: 'Explanation'
+                content: <>
+
+                    We specialize in small and medium-sized solutions.
+                    We will make software that will <strong>simplify or automate the process of your business</strong>, or some part of it.
+                    We are also professionally involved in <strong>audio production and sound processing</strong>.
+
+                    </>
             },
             {
                 heading: <>What does <CompanyNameAtom fullName={true}/> specialize in?</>,
-                content: 'Explanation'
+                content: <>
+
+                    We specialize in non-trivial solutions where <strong>performance and cleverness</strong> are valued.
+                    Do you feel that some current process is unnecessarily consuming your time and money?
+                    Contact us, <strong>we'll take a look at it</strong>.
+
+                </>
             }
         ]}/>
 

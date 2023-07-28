@@ -6,9 +6,11 @@ import { ContentBlockOrganism } from '@/src/UI/components/ContentBlock.organism'
 import { GoToContactFormMolecule } from '@/src/UI/components/GoToContactForm.molecule'
 import { HeroMolecule }         from '@/src/UI/components/Hero.molecule'
 import { InfoTextBlockMolecule } from '@/src/UI/components/InfoTextBlock.molecule'
+import { InternalLinkingMolecule } from '@/src/UI/components/InternalLinking.molecule'
 import { SubpageComposition }   from '@/src/UI/compositions/Subpage.composition'
 import { Divider, Typography }  from '@mui/material'
 import Button from '@mui/material/Button'
+import React from 'react'
 
 
 
@@ -41,7 +43,7 @@ export default function Page() {
 
                 Discover Event Sourcing. At <CompanyNameAtom/>, we use the <strong>high-speed UDP protocol</strong> available to your customers at critical areas,
                 which has long been used by all multiplayer games, chat rooms and GPS navigation. Our applications are lightning fast,
-                because we know the importance of a <strong>lightning-fast responsive interface</strong> - the domain of the top players in the software market.
+                because we know the importance of a <strong>lightning-fast responsive interface</strong> – the domain of the top players in the software market.
 
             </>}
         />
@@ -81,10 +83,9 @@ export default function Page() {
             </>}
             body={<>
 
-
                     Learn the advantages of the <strong>DDD</strong> model and <strong>CQRS</strong> in practice.
                     An application written according to <CompanyNameAtom/> guidelines has a modular structure
-                    with clearly defined input and output models - so you can, if necessary, <strong>separate the most loaded
+                    with clearly defined input and output models – so you can, if necessary, <strong>separate the most loaded
                     functionality of your application</strong> to more server machines.
 
                     <br/>
@@ -96,27 +97,38 @@ export default function Page() {
         />
 
 
+        <ContentBlockOrganism
+            title={<>
+
+                Time is always flowing
+
+            </>}
+            subtitle={<>
+
+                let's not forget that.
+
+            </>}
+            body={<>
+
+                When designing complex networks of systems – we do not mindlessly push data.
+                <strong> Everything that can happen in your application is an event</strong>. Each event happens at a specific point in time.
+                Software created in this convention allows you <strong>to do more</strong> – easily travel back in time when dealing with a claim,
+                for example. The ease of imagining the flow of execution increases –
+                because <strong>everything always happens after something that came before, or before something that is yet to come</strong>.
+
+            </>}
+        />
+
+
         <Divider/>
 
         <GoToContactFormMolecule objectOfInterest={PAGE_TITLE} />
 
         <Divider/>
 
-
-        <aside>
-            <Typography variant={'h3'}>See how we can help your business with other software areas</Typography>
-
-            <InfoTextBlockMolecule data={[
-                {
-                    heading: <>Try our Frontend services:</>,
-                    content: <Button size={'large'}><AppLinkAtom href={'/software/frontend'}>User Interface solutions</AppLinkAtom></Button>
-                },
-                {
-                    heading: <>Read about our Backend solutions:</>,
-                    content: <Button size={'large'}><AppLinkAtom href={'/software/backend'}>Server solutions</AppLinkAtom></Button>
-                }
-            ]}/>
-        </aside>
+        <InternalLinkingMolecule
+            itemsToShow={['/software/architecture', '/software/backend', '/software/frontend']}
+        />
 
 
 

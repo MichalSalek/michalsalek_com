@@ -6,9 +6,10 @@ import { Fragment, ReactElement } from 'react'
 
 
 
+export type InfoTextBlockMoleculeData = { heading?: string | ReactElement | undefined, content: string | ReactElement }[]
 
 type Props = {
-    data: { heading?: string | ReactElement | undefined, content: string | ReactElement }[]
+    data: InfoTextBlockMoleculeData
 }
 
 export const InfoTextBlockMolecule = ({data}: Props): ReactElement => {
@@ -23,7 +24,7 @@ export const InfoTextBlockMolecule = ({data}: Props): ReactElement => {
                 <CardContent>
                     {el.heading && <Typography
                         variant={'h3'}
-                        sx={{minHeight: '70px'}}
+                        sx={{minHeight: '100px'}}
                     >{el.heading}</Typography>}
                     <Typography
                         variant={'body1'}

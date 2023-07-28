@@ -12,7 +12,7 @@ type Props = {
 export const GoToContactFormMolecule = ({objectOfInterest}: Props): ReactElement => {
 
 
-    return <><Typography variant="h3">Are you interested? Use the link below to ask for details. We will respond to you as soon as possible. </Typography>
+    return <><Typography variant="h3">Do you want to talk? Use the link below to ask for a details. We will respond to you as soon as possible. </Typography>
 
         <InfoTextBlockMolecule data={[
             {
