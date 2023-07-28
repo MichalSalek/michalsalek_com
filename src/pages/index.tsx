@@ -48,7 +48,7 @@ export default function Page() {
 
                     We specialize in non-trivial solutions where <strong>performance and cleverness</strong> are valued.
                     Do you feel that some current process is unnecessarily consuming your time and money?
-                    Contact us, <strong>we'll take a look at it</strong>.
+                    Contact us, <strong>we&apos;ll take a look at it</strong>.
 
                 </>
             }

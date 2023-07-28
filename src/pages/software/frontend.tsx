@@ -39,15 +39,15 @@ export default function Page() {
             body={<>
 
                 <strong>A good application is one that helps the user.</strong> Properly written,
-                optimized source code allows today's modern browser technologies to spread their wings.
+                optimized source code allows today&apos;s modern browser technologies to spread their wings.
                 <br/>
                 <br/>
-                We don't force the user to wait senselessly where it is not necessary.
+                We don&apos;t force the user to wait senselessly where it is not necessary.
                 Sometimes, however, waiting is unavoidable – for example: for database reads/writes,
                 to perform operations on the backend, or when a network traffic is heavy loaded –
                 <strong> then the frontend takes responsibility for the whole user experience</strong>.
                 Proper manipulation of loaders, transitions, or micro–animations makes the application
-                seem to have a "flow" and anyway – <strong>it runs smoothly</strong>.
+                seem to have a `&quot;flow`&quot; and anyway – <strong>it runs smoothly</strong>.
 
             </>}
         />
@@ -70,9 +70,9 @@ export default function Page() {
                 Sometimes there are situations in which the Internet temporarily goes down.
                 <br/>
                 There are many clever ways to get out of this situation <strong>with class and show professionalism to the customer</strong>.
-                A user filled out a form and can't send it? Let's cache it in case he wants to refresh the page.
-                User moves and uses unstable mobile internet? Let's detect it and inform him about it.
-                In addition, let's queue the events he performed – to be executed when the connection returns to normal.
+                A user filled out a form and can&apos;t send it? Let&apos;s cache it in case he wants to refresh the page.
+                User moves and uses unstable mobile internet? Let&apos;s detect it and inform him about it.
+                In addition, let&apos;s queue the events he performed – to be executed when the connection returns to normal.
                 <br/>
                 We are aware of these and many other solutions <strong>to simply help the person who wants to use your services</strong>.
 
