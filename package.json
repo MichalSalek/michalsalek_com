@@ -16,7 +16,8 @@
     "lint:fix": "printf '%b\\n' '\\033[1m\n\n   -> -> -> Linting and fixing -> -> ->   \n\n\\033[0m' && next lint --fix && yarn type-check",
     "anal": "ANALYZE=true yarn build",
     "coupling": "npx madge --extensions ts,tsx --image graph.svg .",
-    "deploy:stg": "bash scripts/deploy-stg.sh"
+    "deploy:stg": "bash scripts/deploy-stg.sh",
+    "prepare-husky": "husky install"
   },
   "dependencies": {
     "@msalek/utils": "latest",
@@ -39,6 +40,7 @@
     "@types/react-dom": "^18.2.6",
     "eslint": "^8.43.0",
     "eslint-config-next": "^13.4.6",
-    "next-image-export-optimizer": "^1.8.1"
+    "next-image-export-optimizer": "^1.8.1",
+    "husky": "^8.0.3"
   }
 }
