@@ -1,16 +1,13 @@
-import { GeneralPageProps }     from '@/src/pages/_app'
-import molecules                from '@/src/UI/assets/molecules.jpg'
-import { AppLinkAtom }          from '@/src/UI/components/_atoms/AppLink.atom'
-import { CompanyNameAtom }      from '@/src/UI/components/CompanyName.atom'
-import { ContentBlockOrganism } from '@/src/UI/components/ContentBlock.organism'
+import { GeneralPageProps }        from '@/src/pages/_app'
+import molecules                   from '@/src/UI/assets/molecules.jpg'
+import { CompanyNameAtom }         from '@/src/UI/components/CompanyName.atom'
+import { ContentBlockOrganism }    from '@/src/UI/components/ContentBlock.organism'
 import { GoToContactFormMolecule } from '@/src/UI/components/GoToContactForm.molecule'
-import { HeroMolecule }         from '@/src/UI/components/Hero.molecule'
-import { InfoTextBlockMolecule } from '@/src/UI/components/InfoTextBlock.molecule'
+import { HeroMolecule }            from '@/src/UI/components/Hero.molecule'
 import { InternalLinkingMolecule } from '@/src/UI/components/InternalLinking.molecule'
-import { SubpageComposition }   from '@/src/UI/compositions/Subpage.composition'
-import { Divider, Typography }  from '@mui/material'
-import Button from '@mui/material/Button'
-import React from 'react'
+import { SubpageComposition }      from '@/src/UI/compositions/Subpage.composition'
+import { Divider }                 from '@mui/material'
+import React                       from 'react'
 
 
 
@@ -83,15 +80,15 @@ export default function Page() {
             </>}
             body={<>
 
-                    Learn the advantages of the <strong>DDD</strong> model and <strong>CQRS</strong> in practice.
-                    An application written according to <CompanyNameAtom/> guidelines has a modular structure
-                    with clearly defined input and output models – so you can, if necessary, <strong>separate the most loaded
-                    functionality of your application</strong> to more server machines.
+                Learn the advantages of the <strong>DDD</strong> model and <strong>CQRS</strong> in practice.
+                An application written according to <CompanyNameAtom/> guidelines has a modular structure
+                with clearly defined input and output models – so you can, if necessary, <strong>separate the most loaded
+                functionality of your application</strong> to more server machines.
 
-                    <br/>
-                    <br/>
+                <br/>
+                <br/>
 
-                    In addition, most components can be reused multiple times, even in other projects.
+                In addition, most components can be reused multiple times, even in other projects.
 
             </>}
         />
@@ -122,7 +119,7 @@ export default function Page() {
 
         <Divider/>
 
-        <GoToContactFormMolecule objectOfInterest={PAGE_TITLE} />
+        <GoToContactFormMolecule objectOfInterest={PAGE_TITLE}/>
 
         <Divider/>
 

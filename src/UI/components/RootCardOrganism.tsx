@@ -25,7 +25,6 @@ const OutsideWrapper = ({children}: { children: ReactNode }): ReactElement => <S
 
 const InsideWrapper = ({children}: { children: ReactNode }): ReactElement => <Stack
     alignItems={'stretch'}
-    rowGap={5}
 > {children} </Stack>
 
 

@@ -1,8 +1,9 @@
-import { Typography }             from '@mui/material'
-import Card                       from '@mui/material/Card'
-import CardContent                from '@mui/material/CardContent'
-import Stack                      from '@mui/material/Stack'
-import { Fragment, ReactElement } from 'react'
+import { Typography }                            from '@mui/material'
+import Card                                      from '@mui/material/Card'
+import CardContent                               from '@mui/material/CardContent'
+import Stack                                     from '@mui/material/Stack'
+import { CSSProperties, Fragment, ReactElement } from 'react'
+
 
 
 
@@ -14,13 +15,20 @@ type Props = {
 
 export const InfoTextBlockMolecule = ({data}: Props): ReactElement => {
 
+    const flexCenter: CSSProperties = {
+        alignItems: 'center',
+        display: 'flex',
+        justifyContent: 'center'
+    }
+
 
     return <Stack alignItems={'flex-start'} my={10}>
 
         {data.map((el, index) => <Fragment key={index}>
 
 
-            <Card variant={'outlined'}>
+            <Card variant={'outlined'}
+                  sx={{minHeight: '150px', ...flexCenter}}>
                 <CardContent>
                     {el.heading && <Typography
                         variant={'h3'}
@@ -28,7 +36,7 @@ export const InfoTextBlockMolecule = ({data}: Props): ReactElement => {
                     >{el.heading}</Typography>}
                     <Typography
                         variant={'body1'}
-                        sx={typeof el.content !== 'string' ? {textAlign: 'center', margin: 0} : undefined}
+                        sx={typeof el.content !== 'string' ? {margin: 0, width: '100%'} : undefined}
                     >{el.content}</Typography>
                 </CardContent>
 

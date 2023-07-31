@@ -16,10 +16,10 @@ export const GoToContactFormMolecule = ({objectOfInterest}: Props): ReactElement
 
         <InfoTextBlockMolecule data={[
             {
-                content: <Button size={'large'}>I have question about {objectOfInterest}</Button>
+                content: <Button size={'large'} fullWidth={true}>I have question about {objectOfInterest}</Button>
             },
             {
-                content: <Button size={'large'}>I want to ask a general question</Button>
+                content: <Button size={'large'} fullWidth={true}>I want to ask a general question</Button>
             }
         ]}/>
     </>

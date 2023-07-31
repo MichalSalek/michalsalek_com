@@ -16,9 +16,9 @@ export const FooterPartial = (): ReactElement => {
         <Stack mt={30} pt={5} mb={1} flexDirection={'column'}>
 
             <Stack alignItems={'baseline'}>
-                <AppLinkAtom href="/software"><Typography variant={'body2'}>Software services</Typography></AppLinkAtom>
+                <AppLinkAtom href="/software"><Typography variant={'body2'}><strong>Software</strong> services</Typography></AppLinkAtom>
                 <p><CompanyNameAtom redirectOnClick={true}/></p>
-                <AppLinkAtom href="/sound"><Typography variant={'body2'}>Sound services</Typography></AppLinkAtom>
+                <AppLinkAtom href="/sound"><Typography variant={'body2'}><strong>Sound</strong> services</Typography></AppLinkAtom>
             </Stack>
 
 

@@ -14,6 +14,17 @@ type Props = {
 }
 
 
+const ButtonWithProps = ({href, content}: { href: AppRoutes, content: string }): ReactElement =>
+    <Button
+        size={'large'}
+        fullWidth={true}>
+        <AppLinkAtom
+            href={href}>
+            {content}
+        </AppLinkAtom>
+    </Button>
+
+
 export const InternalLinkingMolecule = ({itemsToShow}: Props): ReactElement => {
     const router = useRouter()
 
@@ -24,26 +35,38 @@ export const InternalLinkingMolecule = ({itemsToShow}: Props): ReactElement => {
 
 
     return <aside>
-        <Typography variant={'h3'}>See how we can help your business with other software areas</Typography>
+        <Typography variant={'h3'}>See how we can help you with other creative areas</Typography>
 
         <InfoTextBlockMolecule data={[
 
 
             showThisPathLink('/software/architecture') && {
                 heading: <>Read about <strong>architecture</strong> solutions:</>,
-                content: <Button size={'large'}><AppLinkAtom href={'/software/architecture'}>Software architecture</AppLinkAtom></Button>
+                content: <ButtonWithProps href={'/software/architecture'} content={'Software architecture'}/>
             },
 
 
             showThisPathLink('/software/backend') && {
                 heading: <>Try our <strong>backend</strong> services:</>,
-                content: <Button size={'large'}><AppLinkAtom href={'/software/backend'}>Server solutions</AppLinkAtom></Button>
+                content: <ButtonWithProps href={'/software/backend'} content={'Server solutions'}/>
             },
 
 
             showThisPathLink('/software/frontend') && {
                 heading: <>Check out <strong>frontend</strong> services:</>,
-                content: <Button size={'large'}><AppLinkAtom href={'/software/frontend'}>User Interface solutions</AppLinkAtom></Button>
+                content: <ButtonWithProps href={'/software/frontend'} content={'User Interface solutions'}/>
+            },
+
+
+            showThisPathLink('/sound/soundtracks') && {
+                heading: <>Check out <strong>sound and music making</strong> services:</>,
+                content: <ButtonWithProps href={'/sound/soundtracks'} content={'backtracks and soundtracks'}/>
+            },
+
+
+            showThisPathLink('/sound/studio') && {
+                heading: <>Read about <strong>mix and mastering</strong> studio services:</>,
+                content: <ButtonWithProps href={'/sound/studio'} content={'Music studio serviecs'}/>
             }
 
 
