@@ -1,4 +1,5 @@
-import axios from 'axios'
+import { reportIssue } from '@/src/layers/application/ErrorTracker'
+import axios           from 'axios'
 
 
 
@@ -14,11 +15,9 @@ export const sendEmail = (payload: SendEmail) => {
         return void undefined
     }
 
-    axios.post(process.env.NEXT_PUBLIC_MAILING_SERVICE_URL, payload)
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+    try {
+        void axios.post(process.env.NEXT_PUBLIC_MAILING_SERVICE_URL, payload)
+    } catch (e) {
+        reportIssue(e)
+    }
 }

@@ -7,7 +7,7 @@ import { useCallback, useState }            from 'react'
 
 
 
-const PAGE_TITLE = 'Contact with the office'
+const PAGE_TITLE = 'Contact with us'
 
 export default function Page() {
 
