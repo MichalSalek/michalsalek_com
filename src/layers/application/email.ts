@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 
-type SendEmail = {
+export type SendEmail = {
     subject: string
     text: string
 }

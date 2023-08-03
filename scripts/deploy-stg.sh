@@ -10,7 +10,7 @@ ssh pistachio@s26.mydevil.net  << EOF
 pwd
 cd ./repositories/
 pwd
-bash ./deploy-stg-michalsalek_pl_2023.sh
+bash ./deploy-michalsalek_pl_2023-STAGING.sh
 echo 'End of deploy script, exiting from ssh.'
 exit
 EOF
