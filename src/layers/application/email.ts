@@ -9,14 +9,14 @@ export type SendEmail = {
     text: string
 }
 
-export const sendEmail = (payload: SendEmail) => {
+export const sendEmail = async (payload: SendEmail): Promise<void> => {
     if (!process.env.NEXT_PUBLIC_MAILING_SERVICE_URL) {
         console.warn('No email provider.')
         return void undefined
     }
 
     try {
-        void axios.post(process.env.NEXT_PUBLIC_MAILING_SERVICE_URL, payload)
+        await axios.post(process.env.NEXT_PUBLIC_MAILING_SERVICE_URL, payload)
     } catch (e) {
         reportIssue(e)
     }
