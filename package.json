@@ -16,7 +16,6 @@
     "lint:fix": "printf '%b\\n' '\\033[1m\n\n   -> -> -> Linting and fixing -> -> ->   \n\n\\033[0m' && next lint --fix && yarn type-check",
     "anal": "ANALYZE=true yarn build",
     "coupling": "npx madge --extensions ts,tsx --image graph.svg .",
-    "deploy:stg": "bash scripts/deploy-stg.sh",
     "prepare-husky": "husky install"
   },
   "dependencies": {
