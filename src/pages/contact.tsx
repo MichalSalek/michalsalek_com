@@ -35,7 +35,7 @@ export default function Page() {
     const unlockForm = async () => {
         setMessageWasSent(false)
         setFormDisabled(false)
-        await freezeThreadAndWait(300)
+        await freezeThreadAndWait(100)
         clearForm()
     }
 
