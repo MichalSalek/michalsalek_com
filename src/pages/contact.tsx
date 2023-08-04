@@ -1,9 +1,11 @@
 import { sendEmail }                                     from '@/src/layers/application/email'
 import { GeneralPageProps }                              from '@/src/pages/_app'
+import { ContentBlockOrganism }                          from '@/src/UI/components/ContentBlock.organism'
 import { freezeThreadAndWait }                           from '@msalek/utils'
 import { Container, FormControl, TextField, Typography } from '@mui/material'
 import Button                                            from '@mui/material/Button'
-import { useState }                                      from 'react'
+import Stack                                             from '@mui/material/Stack'
+import React, { FormEvent, useState }                    from 'react'
 
 
 
@@ -13,6 +15,8 @@ const PAGE_TITLE = 'Contact with us'
 export default function Page() {
 
     const [subject, setSubject] = useState('')
+    const [yourEmail, setYourEmail] = useState('')
+    const [yourName, setYourName] = useState('')
     const [text, setText] = useState('')
 
     const clearForm = () => {
@@ -25,11 +29,20 @@ export default function Page() {
     const [formError, setFormError] = useState(false)
 
 
-    const sendEmailCallback = async () => {
+    const sendEmailCallback = async (e: FormEvent) => {
+        e?.preventDefault()
+
         setFormDisabled(true)
 
         if (subject && text) {
-            await sendEmail({subject, text})
+            await sendEmail({
+                subject, text: text + `
+             
+             *** Email to reply: ${yourEmail} ***
+             
+             ${yourName}
+             `
+            })
             await freezeThreadAndWait(500)
             clearForm()
 
@@ -52,34 +65,116 @@ export default function Page() {
 
         <Typography variant={'h1'}>{PAGE_TITLE}</Typography>
 
+
+        <ContentBlockOrganism
+            subtitle={<>
+
+                How can we help you?
+
+            </>}
+            body={<>
+
+                Use the contact form below.
+                We always try to make our response time as fast as possible.
+                Usually it is one day.
+                <br/>
+                <br/>
+                Give us your email address to enable us to respond.
+            </>}
+        />
+
+
+
         <FormControl
-            component={'section'}
+            component={'form'}
+            onSubmit={sendEmailCallback}
+            sx={{
+                width: '100%'
+            }}
         >
+            <Stack
+                maxWidth={'1000px'}
+                justifyContent={'center'}
+                flexWrap={'wrap'}
+                alignItems={'baseline'}
+            >
 
-            <TextField
-                error={formError}
-                disabled={formDisabled}
-                placeholder={'Subject'}
-                value={subject}
-                onChange={(event) =>
-                    setSubject(event.target.value)}
-            />
-            <TextField
-                error={formError}
-                disabled={formDisabled}
-                multiline={true}
-                placeholder={'Text'}
-                value={text}
-                onChange={(event) =>
-                    setText(event.target.value)}
-            />
+                <Stack
+                    flexDirection={'column'}
+                    rowGap={1}
+                    flex={1}
+                    alignItems={'stretch'}
+                    minWidth={'320px'}
+                >
 
-            <Button
-                color={formError ? 'error' : 'primary'}
-                disabled={formDisabled}
-                onClick={sendEmailCallback}
-                sx={{my: 5}}>send</Button>
+                    <TextField
+                        error={formError}
+                        disabled={formDisabled}
+                        label={'Email to reply *'}
+                        placeholder={'Reply to'}
+                        type={'email'}
+                        value={yourEmail}
+                        onChange={(event) =>
+                            setYourEmail(event.target.value)}
+                    />
 
+
+                </Stack>
+
+
+
+                <Stack
+                    flexDirection={'column'}
+                    flex={2}
+                    rowGap={1}
+                    alignItems={'stretch'}
+                    minWidth={'320px'}
+                >
+
+                    <TextField
+                        error={formError}
+                        disabled={formDisabled}
+                        label={'Subject *'}
+                        placeholder={'Email title'}
+                        value={subject}
+                        onChange={(event) =>
+                            setSubject(event.target.value)}
+                    />
+
+                    <TextField
+                        error={formError}
+                        disabled={formDisabled}
+                        multiline={true}
+                        minRows={12}
+                        label={'Message *'}
+                        placeholder={'Email body'}
+                        value={text}
+                        onChange={(event) =>
+                            setText(event.target.value)}
+                    />
+
+
+
+                    <TextField
+                        disabled={formDisabled}
+                        label={'Your name'}
+                        value={yourName}
+                        onChange={(event) =>
+                            setYourName(event.target.value)}
+                    />
+
+
+                    <Button
+                        color={formError ? 'error' : 'primary'}
+                        disabled={formDisabled}
+                        type={'submit'}
+                        sx={{my: 5}}
+                        size={'large'}
+                    >send</Button>
+
+                </Stack>
+
+            </Stack>
         </FormControl>
 
 

@@ -5,7 +5,6 @@ import { Theme }       from '@mui/system'
 
 
 
-
 export const mainTheme: Theme = createTheme({
     palette: {
         primary: {
@@ -98,7 +97,7 @@ export const mainTheme: Theme = createTheme({
             '@media (min-width:1200px)': {
                 fontSize: '1rem'
             },
-            color: appColors.secondary,
+            color: appColors.secondary
         },
         button: {
             fontSize: '0.6rem',
@@ -107,11 +106,11 @@ export const mainTheme: Theme = createTheme({
     },
     components: {
         MuiDivider: {
-          styleOverrides: {
-              root: {
-                  margin: '5rem'
-              }
-          }
+            styleOverrides: {
+                root: {
+                    margin: '5rem'
+                }
+            }
         },
         MuiContainer: {
             defaultProps: {
@@ -141,6 +140,13 @@ export const mainTheme: Theme = createTheme({
             styleOverrides: {
                 root: {
                     alignItems: 'flex-end'
+                }
+            }
+        },
+        MuiOutlinedInput: {
+            styleOverrides: {
+                notchedOutline: {
+                    borderWidth: '2px'
                 }
             }
         },
