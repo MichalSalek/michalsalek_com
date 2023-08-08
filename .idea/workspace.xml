@@ -5,10 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cc7d367-2b8d-488f-b6ac-9967706dad9c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared-policies/core.policy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shared-policies/core.policy.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/components/CompanyName.atom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/components/CompanyName.atom.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layers/application/email.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/layers/application/email.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/contact.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/contact.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +51,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1691164904903</updated>
-      <workItem from="1691164906126" duration="12246000" />
+      <workItem from="1691164906126" duration="12760000" />
     </task>
     <servers />
   </component>

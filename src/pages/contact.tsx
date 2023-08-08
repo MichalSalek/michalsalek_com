@@ -81,6 +81,7 @@ export default function Page() {
 
         setDisableButtonAction(true)
         setLoading(true)
+        await freezeThreadAndWait(700)
 
         try {
 
@@ -92,7 +93,7 @@ export default function Page() {
              ${yourName}
              `
             })
-            await freezeThreadAndWait(700)
+
             setIsMessageSuccessfullySent(true)
             clearFormAction()
 
