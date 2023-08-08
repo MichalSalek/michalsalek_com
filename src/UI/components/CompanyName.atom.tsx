@@ -1,5 +1,5 @@
-import { getCompanyName } from '@/shared-policies/core.policy'
-import { AppLinkAtom }                 from '@/src/UI/components/_atoms/AppLink.atom'
+import { GET_COMPANY_NAME } from '@/shared-policies/core.policy'
+import { AppLinkAtom }      from '@/src/UI/components/_atoms/AppLink.atom'
 import { CSSProperties, ReactElement } from 'react'
 
 
@@ -19,9 +19,9 @@ export const CompanyNameAtom = ({redirectOnClick = false, fullName, style}: Prop
     const concatenatedStyle: CSSProperties = {whiteSpace: 'nowrap', ...style}
 
     if (redirectOnClick) {
-        return <span style={concatenatedStyle}><strong><AppLinkAtom href="/">{getCompanyName(fullName)}</AppLinkAtom> <TradeMarkAtom/></strong></span>
+        return <span style={concatenatedStyle}><strong><AppLinkAtom href="/">{GET_COMPANY_NAME(fullName)}</AppLinkAtom> <TradeMarkAtom/></strong></span>
     } else {
-        return <span style={concatenatedStyle}><strong>{getCompanyName(fullName)} <TradeMarkAtom/></strong></span>
+        return <span style={concatenatedStyle}><strong>{GET_COMPANY_NAME(fullName)} <TradeMarkAtom/></strong></span>
     }
 
 }

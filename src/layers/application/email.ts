@@ -20,8 +20,10 @@ export const sendEmail = async (payload: SendEmail): Promise<void> => {
 
         try {
             await axios.post(URL as string, payload)
+            await Promise.resolve()
         } catch (e) {
             reportIssue(e)
+            await Promise.reject(e)
         }
     } else {
         console.warn('No email provider.')

@@ -1,13 +1,13 @@
-import { sendEmail }                                     from '@/src/layers/application/email'
-import { GeneralPageProps }                              from '@/src/pages/_app'
-import { ContentBlockOrganism }                          from '@/src/UI/components/ContentBlock.organism'
-import { mainTheme }                                     from '@/src/UI/styles/theme'
-import { freezeThreadAndWait }                           from '@msalek/utils'
-import { Container, FormControl, TextField, Typography } from '@mui/material'
-import Box                                               from '@mui/material/Box'
-import Button                                            from '@mui/material/Button'
-import Stack                                             from '@mui/material/Stack'
-import React, { FormEvent, useMemo, useState }           from 'react'
+import { sendEmail }                                                       from '@/src/layers/application/email'
+import { GeneralPageProps }                                                from '@/src/pages/_app'
+import { ContactFormFeedbackAtom }                                         from '@/src/UI/components/ContactFormFeedback.atom'
+import { ContentBlockOrganism }                                            from '@/src/UI/components/ContentBlock.organism'
+import { useFakeLoadingHook }                                              from '@/src/UI/hooks/useFakeLoading.hook'
+import { freezeThreadAndWait }                                             from '@msalek/utils'
+import { CircularProgress, Container, FormControl, TextField, Typography } from '@mui/material'
+import Button                                                              from '@mui/material/Button'
+import Stack                                                               from '@mui/material/Stack'
+import React, { FormEvent, useMemo, useState }                             from 'react'
 
 
 
@@ -16,34 +16,74 @@ const PAGE_TITLE = 'Contact with us'
 
 export default function Page() {
 
-    const [subject, setSubject] = useState('')
+
     const [yourEmail, setYourEmail] = useState('')
     const [yourName, setYourName] = useState('')
+    const [subject, setSubject] = useState('')
     const [text, setText] = useState('')
 
-    const clearForm = () => {
+    const isFormValid = useMemo(() => Boolean(subject && text), [subject, text])
+
+    const clearFormAction = () => {
         setSubject('')
         setText('')
     }
 
-    
 
     const [formDisabled, setFormDisabled] = useState(false)
     const [formError, setFormError] = useState(false)
-    const [messageWasSent, setMessageWasSent] = useState(false)
 
-    const unlockForm = async () => {
-        setMessageWasSent(false)
+    const [isMessageSuccessfullySent, setIsMessageSuccessfullySent] = useState(true)
+    const [showFeedbackInfo, setShowFeedbackInfo] = useState(false)
+
+
+    const {
+        loading,
+        setLoading,
+        loadingProgressValue,
+        resetLoadingProgressValue
+    } = useFakeLoadingHook()
+
+
+    const [disableButtonAction, setDisableButtonAction] = useState(false)
+
+    const unlockFormAction = async () => {
+        setShowFeedbackInfo(false)
         setFormDisabled(false)
         await freezeThreadAndWait(100)
-        clearForm()
+        setFormError(false)
+        resetLoadingProgressValue()
     }
 
+    const doErrorAnimationForm = async (): Promise<void> => {
+        setFormError(true)
+        await freezeThreadAndWait(100)
+        setFormError(false)
+        await freezeThreadAndWait(100)
+        setFormError(true)
+        await freezeThreadAndWait(200)
+        setFormError(false)
+        await freezeThreadAndWait(100)
+        setFormError(true)
+        await freezeThreadAndWait(500)
+        setFormError(false)
+    }
 
-    const sendEmailCallback = async () => {
+    const submitHanlder = async () => {
         setFormDisabled(true)
 
-        if (subject && text) {
+        if (!isFormValid) {
+            setFormDisabled(false)
+            await doErrorAnimationForm()
+            return void undefined
+        }
+
+
+        setDisableButtonAction(true)
+        setLoading(true)
+
+        try {
+
             await sendEmail({
                 subject, text: text + `
              
@@ -52,30 +92,30 @@ export default function Page() {
              ${yourName}
              `
             })
-            setMessageWasSent(true)
+            await freezeThreadAndWait(700)
+            setIsMessageSuccessfullySent(true)
+            clearFormAction()
 
-        } else {
-            setFormDisabled(false)
+        } catch (e) {
+            setIsMessageSuccessfullySent(false)
             setFormError(true)
-            await freezeThreadAndWait(200)
-            setFormError(false)
-            await freezeThreadAndWait(200)
-            setFormError(true)
-            await freezeThreadAndWait(200)
-            setFormError(false)
         }
+
+        setLoading(false)
+        setShowFeedbackInfo(true)
+        setDisableButtonAction(false)
     }
 
 
     const getButtonColor = useMemo(() => {
-        if (messageWasSent) {
+        if (showFeedbackInfo && isMessageSuccessfullySent) {
             return 'success'
         } else if (formError) {
             return 'error'
         } else {
             return 'primary'
         }
-    }, [messageWasSent, formError])
+    }, [showFeedbackInfo, isMessageSuccessfullySent, formError])
 
 
 
@@ -107,9 +147,9 @@ export default function Page() {
         <FormControl
             component={'form'}
             aria-autocomplete={'both'}
-            onSubmit={(e: FormEvent) => {
+            onSubmit={async (e: FormEvent) => {
                 e?.preventDefault()
-                messageWasSent ? unlockForm() : sendEmailCallback()
+                showFeedbackInfo ? await unlockFormAction() : await submitHanlder()
             }}
             sx={{
                 width: '100%'
@@ -183,17 +223,7 @@ export default function Page() {
                             sx={{width: '100%'}}
                         />
 
-                        {messageWasSent && <Stack sx={{
-                            position: 'absolute',
-                            top: 0,
-                            height: '40%'
-                        }}>
-                            <Typography
-                                variant={'body1'}
-                                color={mainTheme.palette.success.main}
-                                fontWeight={'400'}
-                            >Your message has been sent. Thank you.</Typography>
-                        </Stack>}
+                        {showFeedbackInfo && <ContactFormFeedbackAtom isSuccessfully={isMessageSuccessfullySent}/>}
 
                     </Stack>
 
@@ -211,9 +241,27 @@ export default function Page() {
                     <Button
                         color={getButtonColor}
                         type={'submit'}
-                        sx={{my: '2rem'}}
+                        sx={{
+                            my: '2rem',
+                            height: '3rem',
+                            alignItems: 'center',
+                            pointerEvents: disableButtonAction ? 'none' : 'all'
+                        }}
                         size={'large'}
-                    >{messageWasSent ? 'OK' : 'SEND'}</Button>
+                    >{loading ?
+
+                      <CircularProgress
+                          thickness={20}
+                          size={24}
+                          color={'inherit'}
+                          variant="determinate"
+                          value={loadingProgressValue}
+                      />
+
+
+                              :
+
+                      showFeedbackInfo ? 'OK' : 'SEND'}</Button>
 
                 </Stack>
 
