@@ -30,7 +30,7 @@ export const ContactFormFeedbackAtom = ({isSuccessfully}: Props): ReactElement =
                 variant={'body1'}
                 color={mainTheme.palette.error.main}
                 fontWeight={'400'}
-            >Connection problem here. Please email this message manually to: {GET_CONTACT_EMAIL_ADDRESS()}</Typography>
+            >Connection problem here. Please send this message manually to: {GET_CONTACT_EMAIL_ADDRESS()}</Typography>
         }
 
     </Stack>
