@@ -8,6 +8,7 @@ import axios               from 'axios'
 export type SendEmail = {
     subject: string
     text: string
+    replyTo: string
 }
 
 export const sendEmail = async (payload: SendEmail): Promise<void> => {

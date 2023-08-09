@@ -86,7 +86,7 @@ export default function Page() {
         try {
 
             await sendEmail({
-                subject, text: text + `
+                subject, replyTo: yourEmail, text: text + `
              
              *** Email to reply: ${yourEmail} ***
              
