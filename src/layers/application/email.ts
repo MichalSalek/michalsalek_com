@@ -5,13 +5,13 @@ import axios               from 'axios'
 
 
 
-export type SendEmail = {
+export type SendEmailDTO = {
     subject: string
     text: string
     replyTo: string
 }
 
-export const sendEmail = async (payload: SendEmail): Promise<void> => {
+export const sendEmail = async (payload: SendEmailDTO): Promise<void> => {
 
     if (process.env.NEXT_PUBLIC_MAILING_SERVICE_URL_PROD || process.env.NEXT_PUBLIC_MAILING_SERVICE_URL_DEV) {
 

@@ -69,7 +69,7 @@ export default function Page() {
         setFormError(false)
     }
 
-    const submitHanlder = async () => {
+    const submitHandler = async () => {
         setFormDisabled(true)
 
         if (!isFormValid) {
@@ -150,7 +150,7 @@ export default function Page() {
             aria-autocomplete={'both'}
             onSubmit={async (e: FormEvent) => {
                 e?.preventDefault()
-                showFeedbackInfo ? await unlockFormAction() : await submitHanlder()
+                showFeedbackInfo ? await unlockFormAction() : await submitHandler()
             }}
             sx={{
                 width: '100%'
