@@ -9,6 +9,7 @@ export type SendEmailDTO = {
     subject: string
     text: string
     replyTo: string
+    signature: string
 }
 
 export const sendEmail = async (payload: SendEmailDTO): Promise<void> => {

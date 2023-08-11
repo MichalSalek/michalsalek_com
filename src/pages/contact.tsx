@@ -51,6 +51,7 @@ export default function Page() {
         setShowFeedbackInfo(false)
         setFormDisabled(false)
         await freezeThreadAndWait(100)
+        clearFormAction()
         setFormError(false)
         resetLoadingProgressValue()
     }
@@ -86,16 +87,10 @@ export default function Page() {
         try {
 
             await sendEmail({
-                subject, replyTo: yourEmail, text: text + `
-             
-             *** Email to reply: ${yourEmail} ***
-             
-             ${yourName}
-             `
+                subject, replyTo: yourEmail, text, signature: yourName
             })
 
             setIsMessageSuccessfullySent(true)
-            clearFormAction()
 
         } catch (e) {
             setIsMessageSuccessfullySent(false)
