@@ -1,14 +1,14 @@
-import { GeneralPageProps } from '@/src/pages/_app'
-import { BreadcrumbsAtom }  from '@/src/UI/components/breadcrumbs/Breadcrumbs.atom'
-import { FooterPartial }    from '@/src/UI/partials/Footer.partial'
-import { HeaderPartial }    from '@/src/UI/partials/Header.partial'
+import { GeneralPageProps }       from '@/src/pages/_app'
+import { BreadcrumbsAtom }        from '@/src/UI/components/breadcrumbs/Breadcrumbs.atom'
+import { FooterPartial }          from '@/src/UI/partials/Footer.partial'
+import { HeaderPartial }          from '@/src/UI/partials/Header.partial'
 import { mainTheme }              from '@/src/UI/styles/theme'
 import { Container, CssBaseline } from '@mui/material'
 import Box                        from '@mui/material/Box'
-import { ThemeProvider }    from '@mui/material/styles'
-import localFont            from 'next/font/local'
-import Head                 from 'next/head'
-import { ReactElement }     from 'react'
+import { ThemeProvider }          from '@mui/material/styles'
+import localFont                  from 'next/font/local'
+import Head                       from 'next/head'
+import { ReactElement }           from 'react'
 
 
 
@@ -31,31 +31,33 @@ export const MainComposition = ({children, title}: Props): ReactElement => {
 
     const getTitle = (): string => title ? '– ' + title : ''
 
-    return <main className={font.className} style={{marginTop: '7rem'}}>
+    return <Container maxWidth={'xl'}>
+        <main className={font.className} style={{marginTop: '7rem'}}>
 
-        <CssBaseline/>
+            <CssBaseline/>
 
-        <Head>
-            <title>{String('Atomic Concept ' + getTitle())}</title>
-            <meta name="description" content="Digital services"/>
-            <meta name="viewport" content="width=device-width, initial-scale=1"/>
-            <link rel="icon" href="/favicon.ico"/>
-        </Head>
+            <Head>
+                <title>{String('Atomic Concept ' + getTitle())}</title>
+                <meta name="description" content="Digital services"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                <link rel="icon" href="/favicon.ico"/>
+            </Head>
 
-        <ThemeProvider theme={mainTheme}>
+            <ThemeProvider theme={mainTheme}>
 
-            <HeaderPartial/>
+                <HeaderPartial/>
 
-            <Box sx={{minHeight: '100vh'}} component={'section'}>
+                <Box sx={{minHeight: '100vh'}} component={'section'}>
 
-                <Container><BreadcrumbsAtom/></Container>
+                    <Container><BreadcrumbsAtom/></Container>
 
 
-                {children}
-            </Box>
+                    {children}
+                </Box>
 
-            <FooterPartial/>
+                <FooterPartial/>
 
-        </ThemeProvider>
-    </main>
+            </ThemeProvider>
+        </main>
+    </Container>
 }

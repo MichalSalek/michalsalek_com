@@ -1,9 +1,8 @@
-import { AppLinkAtom }     from '@/src/UI/components/AppLink.atom'
-import { CompanyNameAtom } from '@/src/UI/components/CompanyName.atom'
-import { Typography }      from '@mui/material'
-import Stack               from '@mui/material/Stack'
-import Link                from 'next/link'
-import { ReactElement }    from 'react'
+import { AppLinkAtom }         from '@/src/UI/components/AppLink.atom'
+import { CompanyNameAtom }     from '@/src/UI/components/CompanyName.atom'
+import { Typography }          from '@mui/material'
+import Stack                   from '@mui/material/Stack'
+import React, { ReactElement } from 'react'
 
 
 
@@ -19,6 +18,19 @@ export const FooterPartial = (): ReactElement => {
                 <AppLinkAtom href="/software"><Typography variant={'body2'}><strong>Software</strong> services</Typography></AppLinkAtom>
                 <p><CompanyNameAtom redirectOnClick={true}/></p>
                 <AppLinkAtom href="/sound"><Typography variant={'body2'}><strong>Sound</strong> services</Typography></AppLinkAtom>
+            </Stack>
+
+
+            <Stack>
+                <AppLinkAtom href="/contact">
+                    <Typography
+                        variant='body2'
+                        noWrap
+                        sx={{mx: 1}}
+                    >
+                        <strong>Contact</strong> form
+                    </Typography>
+                </AppLinkAtom>
             </Stack>
 
 

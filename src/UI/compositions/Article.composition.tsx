@@ -10,7 +10,7 @@ type Props = {
     title: string
 }
 
-export const SubpageComposition = ({children, title}: Props): ReactElement => {
+export const ArticleComposition = ({children, title}: Props): ReactElement => {
     return <Container>
 
         <Typography variant={'h1'}>{title}</Typography>

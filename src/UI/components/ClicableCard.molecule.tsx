@@ -1,6 +1,8 @@
 import { AppRoutes }   from '@/src/layers/core/routes.config'
 import { AppLinkAtom } from '@/src/UI/components/AppLink.atom'
 import { ImageAtom }   from '@/src/UI/components/Image.atom'
+import { appColors }   from '@/src/UI/styles/colors'
+import { mainTheme }   from '@/src/UI/styles/theme'
 import ArrowRightIcon  from '@mui/icons-material/ArrowRight'
 import { Typography }              from '@mui/material'
 import Button                      from '@mui/material/Button'
@@ -25,7 +27,7 @@ type Props = {
 }
 
 
-export const CardMolecule = ({image, alt, credits, title, content, linkPath, buttonContent = 'More'}: Props): ReactElement => {
+export const ClicableCardMolecule = ({image, alt, credits, title, content, linkPath, buttonContent = 'Read More'}: Props): ReactElement => {
 
     return <Card
         elevation={0}
@@ -45,7 +47,9 @@ export const CardMolecule = ({image, alt, credits, title, content, linkPath, but
                     flex: 1,
                     display: 'flex',
                     flexDirection: 'column',
-                    justifyContent: 'space-between'
+                    justifyContent: 'space-between',
+                    backgroundColor: mainTheme.palette.primary.main,
+                    p: 0
                 }}
             >
                 <ImageAtom
@@ -62,11 +66,18 @@ export const CardMolecule = ({image, alt, credits, title, content, linkPath, but
                     <Typography
                         variant="h3"
                         component="div"
-                        sx={{minHeight: '4rem'}}
+                        color={appColors.white}
+                        sx={{
+                            minHeight: '4rem'
+                    }}
                     >
                         {title}
                     </Typography>
-                    <Typography component={'span'} variant="body2">
+                    <Typography
+                        component={'span'}
+                        variant="body2"
+                        color={appColors.white}
+                    >
                         <>{content}</>
                     </Typography>
                 </CardContent>

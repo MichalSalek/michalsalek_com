@@ -3,9 +3,9 @@ import { CompanyNameAtom }      from '@/src/UI/components/CompanyName.atom'
 import { ContentBlockOrganism } from '@/src/UI/components/ContentBlock.organism'
 import { GoToContactFormMolecule }  from '@/src/UI/components/GoToContactForm.molecule'
 import { HeroMolecule }         from '@/src/UI/components/Hero.molecule'
-import { InternalLinkingMolecule }  from '@/src/UI/components/InternalLinking.molecule'
-import { SubpageComposition }   from '@/src/UI/compositions/Subpage.composition'
-import { GeneralPageProps }     from '@/src/pages/_app'
+import { InternalLinkingMolecule } from '@/src/UI/components/InternalLinking.molecule'
+import { ArticleComposition }      from '@/src/UI/compositions/Article.composition'
+import { GeneralPageProps }        from '@/src/pages/_app'
 import { Divider }                  from '@mui/material'
 import React                    from 'react'
 
@@ -15,7 +15,7 @@ import React                    from 'react'
 const PAGE_TITLE = 'Online studio services'
 
 export default function Page() {
-    return <SubpageComposition title={PAGE_TITLE}>
+    return <ArticleComposition title={PAGE_TITLE}>
 
 
         <HeroMolecule
@@ -138,7 +138,7 @@ export default function Page() {
 
 
 
-    </SubpageComposition>
+    </ArticleComposition>
 }
 
 

@@ -11,7 +11,7 @@ import Box                       from '@mui/material/Box'
 const PAGE_TITLE = 'A quality value you can get and give.'
 
 export default function Page() {
-    return <Container>
+    return <>
 
         <Typography variant={'h1'}>{PAGE_TITLE}</Typography>
 
@@ -54,7 +54,7 @@ export default function Page() {
             }
         ]}/>
 
-    </Container>
+    </>
 }
 
 

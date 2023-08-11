@@ -98,10 +98,6 @@ export const mainTheme: Theme = createTheme({
                 fontSize: '1rem'
             },
             color: appColors.secondary
-        },
-        button: {
-            fontSize: '0.6rem',
-            color: appColors.mainLight
         }
     },
     components: {
@@ -127,7 +123,7 @@ export const mainTheme: Theme = createTheme({
                 flexDirection: 'row',
                 flexWrap: 'wrap',
                 columnGap: 4,
-                rowGap: 5,
+                rowGap: 4,
 
                 // @ts-ignore
                 component: 'section'
@@ -135,7 +131,7 @@ export const mainTheme: Theme = createTheme({
         },
         MuiButton: {
             defaultProps: {
-                variant: 'contained'
+                variant: 'outlined'
             },
             styleOverrides: {
                 root: {
@@ -160,7 +156,22 @@ export const mainTheme: Theme = createTheme({
         MuiCard: {
             styleOverrides: {
                 root: {
-                    width: 310
+                    minWidth: 310,
+                    maxWidth: 375
+                }
+            }
+        },
+        MuiCardActions: {
+            styleOverrides: {
+                root: {
+                    padding: '5px 0'
+                }
+            }
+        },
+        MuiCardActionArea: {
+            styleOverrides: {
+                root: {
+                    minHeight: 500
                 }
             }
         }

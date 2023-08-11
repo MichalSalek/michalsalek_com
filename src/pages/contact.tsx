@@ -241,6 +241,7 @@ export default function Page() {
                     <Button
                         color={getButtonColor}
                         type={'submit'}
+                        variant={showFeedbackInfo ? 'contained' : undefined}
                         sx={{
                             my: '2rem',
                             height: '3rem',

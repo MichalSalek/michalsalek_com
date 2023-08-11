@@ -18,11 +18,14 @@ body {
 }
 
 a {
-  color: inherit;
-  text-decoration: underline;
+  color: #528bec !important;
+  > p { color: #528bec !important;}
+  text-decoration: none;
+
   transition: filter 0.1s ease-out;
 
   &:hover, &:focus {
+    font-weight: bold;
     text-decoration: underline;
   }
 }

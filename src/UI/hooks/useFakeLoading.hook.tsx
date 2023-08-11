@@ -23,7 +23,7 @@ export const useFakeLoadingHook = (): UseFakeLoadingHook => {
 
         loadingProgressInvervalID.current = window?.setInterval(() => {
             setLoadingProgressValue((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 9))
-        }, 120)
+        }, 190)
         return () => {
             clearInterval(loadingProgressInvervalID.current)
         }

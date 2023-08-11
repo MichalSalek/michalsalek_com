@@ -6,7 +6,7 @@ import { GoToContactFormMolecule } from '@/src/UI/components/GoToContactForm.mol
 import { HeroMolecule }            from '@/src/UI/components/Hero.molecule'
 import { InfoTextBlockMolecule }   from '@/src/UI/components/InfoTextBlock.molecule'
 import { InternalLinkingMolecule } from '@/src/UI/components/InternalLinking.molecule'
-import { SubpageComposition }      from '@/src/UI/compositions/Subpage.composition'
+import { ArticleComposition }      from '@/src/UI/compositions/Article.composition'
 import { Divider, Typography }     from '@mui/material'
 import Button                      from '@mui/material/Button'
 import React                       from 'react'
@@ -17,7 +17,7 @@ import React                       from 'react'
 const PAGE_TITLE = 'Backend services'
 
 export default function Page() {
-    return <SubpageComposition title={PAGE_TITLE}>
+    return <ArticleComposition title={PAGE_TITLE}>
 
         <HeroMolecule
             image={backend}
@@ -108,7 +108,7 @@ export default function Page() {
             itemsToShow={['/software/architecture', '/software/backend', '/software/frontend']}
         />
 
-    </SubpageComposition>
+    </ArticleComposition>
 }
 
 
