@@ -143,6 +143,13 @@ export const mainTheme: Theme = createTheme({
                 }
             }
         },
+        MuiInputBase: {
+            styleOverrides: {
+                root: {
+                    fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif'
+                }
+            }
+        },
         MuiOutlinedInput: {
             styleOverrides: {
                 notchedOutline: {
