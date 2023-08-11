@@ -127,7 +127,7 @@ export const mainTheme: Theme = createTheme({
                 flexDirection: 'row',
                 flexWrap: 'wrap',
                 columnGap: 4,
-                rowGap: 10,
+                rowGap: 5,
 
                 // @ts-ignore
                 component: 'section'

@@ -1,6 +1,6 @@
 import { GeneralPageProps } from '@/src/pages/_app'
-import { RootCardOrganism } from '@/src/UI/components/RootCardOrganism'
-import { CompanyNameAtom }  from '@/src/UI/components/CompanyName.atom'
+import { RootCardOrganism }      from '@/src/UI/components/RootCardOrganism'
+import { CompanyNameAtom }       from '@/src/UI/components/CompanyName.atom'
 import { InfoTextBlockMolecule } from '@/src/UI/components/InfoTextBlock.molecule'
 import { Container, Typography } from '@mui/material'
 import Box                       from '@mui/material/Box'
@@ -23,7 +23,7 @@ export default function Page() {
 
         <InfoTextBlockMolecule data={[
             {
-                heading: <>What is the <CompanyNameAtom fullName={true}/>?</>,
+                heading: <>Who are we?</>,
                 content: <>
 
                     It is a contractor guided by a <strong>set of best practices</strong>.
@@ -33,7 +33,7 @@ export default function Page() {
                 </>
             },
             {
-                heading: <>What kind of services the <CompanyNameAtom fullName={true}/> provide?</>,
+                heading: <>What kind of services we provide?</>,
                 content: <>
 
                     We specialize in small and medium-sized solutions.

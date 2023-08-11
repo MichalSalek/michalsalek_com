@@ -6,7 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="3cc7d367-2b8d-488f-b6ac-9967706dad9c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/components/ContactFormFeedback.atom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/components/ContactFormFeedback.atom.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/components/Card.molecule.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/components/Card.molecule.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/components/CompanyName.atom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/components/CompanyName.atom.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/components/GoToContactForm.molecule.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/components/GoToContactForm.molecule.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/components/InternalLinking.molecule.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/components/InternalLinking.molecule.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/components/RootCardOrganism.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/components/RootCardOrganism.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/components/_atoms/AppLink.atom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/components/AppLink.atom.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/components/app-bar/AppBar.organism.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/components/app-bar/AppBar.organism.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/partials/Footer.partial.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/partials/Footer.partial.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/styles/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/styles/theme.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layers/core/routes.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/layers/core/routes.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/contact.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/contact.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/software/architecture.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/software/architecture.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/software/backend.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/software/backend.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/software/frontend.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/software/frontend.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/sound/soundtracks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sound/soundtracks.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/sound/studio.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/sound/studio.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +60,12 @@
     &quot;ts.external.directory.path&quot;: &quot;\\\\wsl$\\Ubuntu\\home\\a\\Projects\\michalsalek_com\\node_modules\\typescript\\lib&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="\\wsl$\Ubuntu\home\a\Projects\michalsalek_com\src\UI\components" />
+      <recent name="\\wsl$\Ubuntu\home\a\Projects\michalsalek_com\src\UI\components\_atoms" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -53,7 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1691164904903</updated>
       <workItem from="1691164906126" duration="16755000" />
-      <workItem from="1691750728777" duration="5692000" />
+      <workItem from="1691750728777" duration="8593000" />
     </task>
     <servers />
   </component>

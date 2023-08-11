@@ -1,10 +1,10 @@
-import { CardMolecule }            from '@/src/UI/components/Card.molecule'
+import BackImage                   from '@/src/UI/assets/back.jpg'
+import DrumsImage                  from '@/src/UI/assets/drums.jpg'
+import FrontImage                  from '@/src/UI/assets/front.jpg'
+import PlanningImage               from '@/src/UI/assets/planning.jpg'
+import StudioImage                 from '@/src/UI/assets/studio.jpg'
+import { CardMolecule }    from '@/src/UI/components/Card.molecule'
 import { CompanyNameAtom } from '@/src/UI/components/CompanyName.atom'
-import BackImage           from '@/src/UI/assets/back.jpg'
-import DrumsImage          from '@/src/UI/assets/drums.jpg'
-import FrontImage          from '@/src/UI/assets/front.jpg'
-import PlanningImage       from '@/src/UI/assets/planning.jpg'
-import StudioImage         from '@/src/UI/assets/studio.jpg'
 import { Typography }      from '@mui/material'
 import Stack                       from '@mui/material/Stack'
 import { ReactElement, ReactNode } from 'react'
@@ -81,7 +81,7 @@ export const RootCardOrganism = ({version}: Props): ReactElement => {
                         title={'Frontend User Interface'}
                         content={<><p> With <CompanyNameAtom/>, UI of your business views will be solid,
                             reusable <strong>coherent</strong>. </p>
-                            <p>From a first byte after page a load to long-life applications - SEO and performance is a key.</p></>}
+                            <p>From a first byte after page load to a long-life applications – SEO and performance is a key.</p></>}
                     />
 
 
@@ -92,7 +92,8 @@ export const RootCardOrganism = ({version}: Props): ReactElement => {
                         credits={'Photo by Christina on Unsplash'}
                         title={'Backend logic and operations'}
                         content={<><p> Want to process some data? Need a microservice? </p>
-                            <p><CompanyNameAtom/> use an event driven solutions to keep perfect timing and wayback machine possibilities.</p></>}
+                            <p><CompanyNameAtom/> use an event driven solutions to keep perfect timing and &quot;time travel&quot; possibilities –
+                                to keep your business coherent.</p></>}
                     />
 
                 </InsideWrapper>
@@ -114,7 +115,7 @@ export const RootCardOrganism = ({version}: Props): ReactElement => {
                         alt={'music studio services in atomic concept'}
                         credits={'Photo by Caught In Joy on Unsplash'}
                         title={'Mixing and mastering all-in services'}
-                        content={<><p>Looking for a nice sound? Want to boost your music? </p></>}
+                        content={<><p>Want to boost your music? Are you looking for something really special? </p></>}
                     />
 
 

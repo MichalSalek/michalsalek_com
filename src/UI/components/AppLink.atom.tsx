@@ -1,5 +1,5 @@
-import { AppRoutes }                              from '@/src/layers/core/routes.config'
-import Link, { LinkProps }                        from 'next/link'
+import { AppRoutes }       from '@/src/layers/core/routes.config'
+import Link, { LinkProps } from 'next/link'
 import { CSSProperties, ReactElement, ReactNode } from 'react'
 
 
@@ -14,5 +14,5 @@ export const AppLinkAtom = (props: Props): ReactElement => {
     const {href, children}: Props = props
 
 
-    return <Link {...props} href={href}>{children}</Link>
+    return <Link {...props} href={href} >{children}</Link>
 }

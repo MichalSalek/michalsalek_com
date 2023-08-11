@@ -1,5 +1,5 @@
-import music_studio                 from '@/src/UI/assets/music_studio.jpg'
-import { CompanyNameAtom }          from '@/src/UI/components/CompanyName.atom'
+import music_studio             from '@/src/UI/assets/music_studio.jpg'
+import { CompanyNameAtom }      from '@/src/UI/components/CompanyName.atom'
 import { ContentBlockOrganism } from '@/src/UI/components/ContentBlock.organism'
 import { GoToContactFormMolecule }  from '@/src/UI/components/GoToContactForm.molecule'
 import { HeroMolecule }         from '@/src/UI/components/Hero.molecule'

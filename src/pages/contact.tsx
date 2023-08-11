@@ -7,6 +7,7 @@ import { freezeThreadAndWait }                                             from 
 import { CircularProgress, Container, FormControl, TextField, Typography } from '@mui/material'
 import Button                                                              from '@mui/material/Button'
 import Stack                                                               from '@mui/material/Stack'
+import { useRouter }                                                       from 'next/router'
 import React, { FormEvent, useMemo, useState }                             from 'react'
 
 
@@ -16,10 +17,13 @@ const PAGE_TITLE = 'Contact with us'
 
 export default function Page() {
 
+    const router = useRouter()
+    const {about} = router.query
+    const passedEmailSubject = about ? `[ ${about as string} ]` : ''
 
     const [yourEmail, setYourEmail] = useState('')
     const [yourName, setYourName] = useState('')
-    const [subject, setSubject] = useState('')
+    const [subject, setSubject] = useState(passedEmailSubject)
     const [text, setText] = useState('')
 
     const isFormValid = useMemo(() => Boolean(subject && text), [subject, text])

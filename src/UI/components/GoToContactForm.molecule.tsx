@@ -1,6 +1,7 @@
+import { AppRoutes }             from '@/src/layers/core/routes.config'
 import { InfoTextBlockMolecule } from '@/src/UI/components/InfoTextBlock.molecule'
+import { LinkButtonAtom }        from '@/src/UI/components/LinkButton.atom'
 import { Typography }            from '@mui/material'
-import Button                    from '@mui/material/Button'
 import { ReactElement }          from 'react'
 
 
@@ -16,10 +17,10 @@ export const GoToContactFormMolecule = ({objectOfInterest}: Props): ReactElement
 
         <InfoTextBlockMolecule data={[
             {
-                content: <Button size={'large'} fullWidth={true}>I have question about {objectOfInterest}</Button>
+                content: <LinkButtonAtom content={`I have question about ${objectOfInterest}`} href={`/contact?about=${objectOfInterest}`}/>
             },
             {
-                content: <Button size={'large'} fullWidth={true}>I want to ask a general question</Button>
+                content: <LinkButtonAtom content={`I want to ask a general question`} href={'/contact'}/>
             }
         ]}/>
     </>

@@ -1,7 +1,7 @@
-import { AppRoutes }               from '@/src/layers/core/routes.config'
-import { AppLinkAtom }             from '@/src/UI/components/_atoms/AppLink.atom'
-import { ImageAtom }               from '@/src/UI/components/Image.atom'
-import ArrowRightIcon              from '@mui/icons-material/ArrowRight'
+import { AppRoutes }   from '@/src/layers/core/routes.config'
+import { AppLinkAtom } from '@/src/UI/components/AppLink.atom'
+import { ImageAtom }   from '@/src/UI/components/Image.atom'
+import ArrowRightIcon  from '@mui/icons-material/ArrowRight'
 import { Typography }              from '@mui/material'
 import Button                      from '@mui/material/Button'
 import Card                        from '@mui/material/Card'
@@ -21,12 +21,14 @@ type Props = {
     title: string
     content: ReactNode
     linkPath: AppRoutes
+    buttonContent?: string
 }
 
 
-export const CardMolecule = ({image, alt, credits, title, content, linkPath}: Props): ReactElement => {
+export const CardMolecule = ({image, alt, credits, title, content, linkPath, buttonContent = 'More'}: Props): ReactElement => {
 
     return <Card
+        elevation={0}
         sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -57,7 +59,11 @@ export const CardMolecule = ({image, alt, credits, title, content, linkPath}: Pr
                     sx={{
                         flex: 1
                     }}>
-                    <Typography variant="h3" component="div">
+                    <Typography
+                        variant="h3"
+                        component="div"
+                        sx={{minHeight: '4rem'}}
+                    >
                         {title}
                     </Typography>
                     <Typography component={'span'} variant="body2">
@@ -73,8 +79,8 @@ export const CardMolecule = ({image, alt, credits, title, content, linkPath}: Pr
 
             <AppLinkAtom href={linkPath}>
 
-                <Button size="small" color={'primary'} endIcon={<ArrowRightIcon scale={1}/>}>
-                    <Typography variant={'button'}>More</Typography>
+                <Button size="medium" color={'primary'} endIcon={<ArrowRightIcon scale={1}/>}>
+                    <Typography variant={'button'}>{buttonContent}</Typography>
                 </Button>
 
             </AppLinkAtom>

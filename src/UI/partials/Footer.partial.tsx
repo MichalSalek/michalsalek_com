@@ -1,4 +1,4 @@
-import { AppLinkAtom }     from '@/src/UI/components/_atoms/AppLink.atom'
+import { AppLinkAtom }     from '@/src/UI/components/AppLink.atom'
 import { CompanyNameAtom } from '@/src/UI/components/CompanyName.atom'
 import { Typography }      from '@mui/material'
 import Stack               from '@mui/material/Stack'

@@ -1,5 +1,5 @@
-import { GET_COMPANY_NAME } from '@/shared-policies/core.policy'
-import { AppLinkAtom }      from '@/src/UI/components/_atoms/AppLink.atom'
+import { GET_COMPANY_NAME }            from '@/shared-policies/core.policy'
+import { AppLinkAtom }                 from '@/src/UI/components/AppLink.atom'
 import { CSSProperties, ReactElement } from 'react'
 
 

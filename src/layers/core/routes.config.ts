@@ -1,5 +1,4 @@
-export type AppRoutes =
-    '/'
+type RoutesDefinitions = '/'
     | '/software'
     | '/software/architecture'
     | '/software/frontend'
@@ -8,3 +7,6 @@ export type AppRoutes =
     | '/sound/studio'
     | '/sound/soundtracks'
     | '/contact'
+
+
+export type AppRoutes = `${RoutesDefinitions}${string | ''}`
