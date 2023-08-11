@@ -51,7 +51,7 @@ export default function Page() {
         setShowFeedbackInfo(false)
         setFormDisabled(false)
         await freezeThreadAndWait(100)
-        clearFormAction()
+        isMessageSuccessfullySent && clearFormAction()
         setFormError(false)
         resetLoadingProgressValue()
     }

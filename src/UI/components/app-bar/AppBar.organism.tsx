@@ -1,6 +1,6 @@
 import { AppLinkAtom }                       from '@/src/UI/components/_atoms/AppLink.atom'
 import { CompanyNameAtom }                   from '@/src/UI/components/CompanyName.atom'
-import { appColors }                         from '@/src/UI/styles/colors'
+import { mainTheme }                         from '@/src/UI/styles/theme'
 import ContactMailIcon                       from '@mui/icons-material/ContactMail'
 import AppBar                                from '@mui/material/AppBar'
 import Box                                   from '@mui/material/Box'
@@ -37,7 +37,7 @@ export const AppBarOrganism = (): ReactElement => {
                     sx={{
                         backgroundColor: 'rgba(255, 255, 255, 0.6)',
                         backdropFilter: 'blur(5px) saturate(160%) contrast(45%) brightness(140%)',
-                        borderTop: `4px solid ${appColors.main}`
+                        borderTop: `4px solid ${mainTheme.palette.primary.main}`
                     }}>
                     <Toolbar
                         sx={{
