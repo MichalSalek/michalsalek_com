@@ -17,7 +17,7 @@ export const ContactFormFeedbackAtom = ({isSuccessfully}: Props): ReactElement =
         position: 'absolute',
         top: '15%',
         p: 5,
-        backgroundColor: appColors.transparentWhite,
+        backgroundColor: isSuccessfully ? mainTheme.palette.success.main : mainTheme.palette.error.main,
         minHeight: 'unset',
         maxWidth: '90%'
     }}>
@@ -26,14 +26,14 @@ export const ContactFormFeedbackAtom = ({isSuccessfully}: Props): ReactElement =
             <Typography
                 m={0}
                 variant={'body1'}
-                color={mainTheme.palette.success.main}
+                color={appColors.transparentWhite}
                 fontWeight={'500'}
             >Your message has been sent. Thank you.</Typography>
                           :
             <Typography
                 m={0}
                 variant={'body1'}
-                color={mainTheme.palette.error.main}
+                color={appColors.transparentWhite}
                 fontWeight={'500'}
             >Connection problem here. Please send this message manually to: <strong>{GET_CONTACT_EMAIL_ADDRESS()}</strong>. Or try again.</Typography>
         }
