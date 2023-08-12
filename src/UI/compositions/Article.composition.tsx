@@ -1,6 +1,7 @@
-import { Container }               from '@mui/material'
-import Typography                  from '@mui/material/Typography'
-import { ReactElement, ReactNode } from 'react'
+import { GoToContactFormMolecule }        from '@/src/UI/components/GoToContactForm.molecule'
+import { Container, Divider }             from '@mui/material'
+import Typography                         from '@mui/material/Typography'
+import React, { ReactElement, ReactNode } from 'react'
 
 
 
@@ -16,6 +17,10 @@ export const ArticleComposition = ({children, title}: Props): ReactElement => {
         <Typography variant={'h1'}>{title}</Typography>
 
         {children}
+
+        <Divider/>
+
+        <GoToContactFormMolecule objectOfInterest={title}/>
 
     </Container>
 }

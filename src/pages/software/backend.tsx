@@ -100,10 +100,6 @@ export default function Page() {
 
         <Divider/>
 
-        <GoToContactFormMolecule objectOfInterest={PAGE_TITLE}/>
-
-        <Divider/>
-
         <InternalLinkingMolecule
             itemsToShow={['/software/architecture', '/software/backend', '/software/frontend']}
         />

@@ -11,9 +11,10 @@ export type InfoTextBlockMoleculeData = { heading?: string | ReactElement | unde
 
 type Props = {
     data: InfoTextBlockMoleculeData
+    largeRowGap?: boolean
 }
 
-export const InfoTextBlockMolecule = ({data}: Props): ReactElement => {
+export const InfoTextBlockMolecule = ({data, largeRowGap = false}: Props): ReactElement => {
 
     const flexCenter: CSSProperties = {
         alignItems: 'center',
@@ -22,7 +23,7 @@ export const InfoTextBlockMolecule = ({data}: Props): ReactElement => {
     }
 
 
-    return <Stack alignItems={'flex-start'} my={10}>
+    return <Stack alignItems={'flex-start'} rowGap={largeRowGap ? 15 : undefined}>
 
         {data.map((el, index) => <Fragment key={index}>
 

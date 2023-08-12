@@ -21,7 +21,9 @@ export default function Page() {
 
         <Box paddingY={5}/>
 
-        <InfoTextBlockMolecule data={[
+        <InfoTextBlockMolecule
+            largeRowGap={true}
+            data={[
             {
                 heading: <>Who are we?</>,
                 content: <>

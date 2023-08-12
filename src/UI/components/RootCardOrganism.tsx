@@ -2,9 +2,9 @@ import BackImage                   from '@/src/UI/assets/back.jpg'
 import DrumsImage                  from '@/src/UI/assets/drums.jpg'
 import FrontImage                  from '@/src/UI/assets/front.jpg'
 import PlanningImage               from '@/src/UI/assets/planning.jpg'
-import StudioImage              from '@/src/UI/assets/studio.jpg'
-import { ClicableCardMolecule } from '@/src/UI/components/ClicableCard.molecule'
-import { CompanyNameAtom }      from '@/src/UI/components/CompanyName.atom'
+import StudioImage               from '@/src/UI/assets/studio.jpg'
+import { ClickableCardMolecule } from '@/src/UI/components/ClickableCard.molecule'
+import { CompanyNameAtom }       from '@/src/UI/components/CompanyName.atom'
 import { Typography }      from '@mui/material'
 import Stack                       from '@mui/material/Stack'
 import { ReactElement, ReactNode } from 'react'
@@ -62,7 +62,7 @@ export const RootCardOrganism = ({version}: Props): ReactElement => {
 
                 <InsideWrapper>
 
-                    <ClicableCardMolecule
+                    <ClickableCardMolecule
                         linkPath={'/software/architecture'}
                         image={PlanningImage}
                         alt={'software planning process'}
@@ -73,7 +73,7 @@ export const RootCardOrganism = ({version}: Props): ReactElement => {
                     />
 
 
-                    <ClicableCardMolecule
+                    <ClickableCardMolecule
                         linkPath={'/software/frontend'}
                         image={FrontImage}
                         alt={'software frontend UI development process in atomic concept'}
@@ -85,7 +85,7 @@ export const RootCardOrganism = ({version}: Props): ReactElement => {
                     />
 
 
-                    <ClicableCardMolecule
+                    <ClickableCardMolecule
                         linkPath={'/software/backend'}
                         image={BackImage}
                         alt={'software backend development process in atomic concept'}
@@ -109,7 +109,7 @@ export const RootCardOrganism = ({version}: Props): ReactElement => {
 
                 <InsideWrapper>
 
-                    <ClicableCardMolecule
+                    <ClickableCardMolecule
                         linkPath={'/sound/studio'}
                         image={StudioImage}
                         alt={'music studio services in atomic concept'}
@@ -119,7 +119,7 @@ export const RootCardOrganism = ({version}: Props): ReactElement => {
                     />
 
 
-                    <ClicableCardMolecule
+                    <ClickableCardMolecule
                         linkPath={'/sound/soundtracks'}
                         image={DrumsImage}
                         alt={'drumkit'}

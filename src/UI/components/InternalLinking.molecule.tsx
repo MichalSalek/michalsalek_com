@@ -25,7 +25,9 @@ export const InternalLinkingMolecule = ({itemsToShow}: Props): ReactElement => {
 
 
     return <aside>
-        <Typography variant={'h3'}>See how we can help you with other creative areas</Typography>
+        <Typography variant="h3">See how we can help you</Typography>
+        <Typography variant="body2" mb={5}>with other creative areas</Typography>
+
 
         <InfoTextBlockMolecule data={[
 

@@ -13,14 +13,20 @@ type Props = {
 export const GoToContactFormMolecule = ({objectOfInterest}: Props): ReactElement => {
 
 
-    return <><Typography variant="h3">Do you want to talk? Use the link below to ask for a details. We will respond to you as soon as possible. </Typography>
+    return <>
+        <Typography variant="h3">Do you want to talk?</Typography>
+        <Typography variant="body2" mb={5}> Use the link below to ask for a details. We will respond to you as soon as possible.</Typography>
 
-        <InfoTextBlockMolecule data={[
+
+        <InfoTextBlockMolecule
+            data={[
             {
-                content: <LinkButtonAtom content={`I have question about ${objectOfInterest}`} href={`/contact?about=${objectOfInterest}`}/>
+                heading: <>The article interested you?</>,
+                content: <LinkButtonAtom content={<>Ask about <strong>{' '}{objectOfInterest}</strong></>} href={`/contact?about=${objectOfInterest}`}/>
             },
             {
-                content: <LinkButtonAtom content={`I want to ask a general question`} href={'/contact'}/>
+                heading: <>I just have a question</>,
+                content: <LinkButtonAtom content={`General question`} href={'/contact'}/>
             }
         ]}/>
     </>
