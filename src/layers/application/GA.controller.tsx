@@ -28,7 +28,7 @@ export const GAController = (): null => {
             __next?.append(script2)
 
 
-        }, 500)
+        }, 1500)
 
     }, [])
 
