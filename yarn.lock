@@ -214,6 +214,13 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
+"@msalek/controllers@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@msalek/controllers/-/controllers-1.2.0.tgz#b64bde4f618bcc9d13adfacc112f790dc1f61481"
+  integrity sha512-4NiIX03xBE/F9Z4/UPWpKbBttWVMDcJHH98uGJlwCDwdGCVkaXVB/FhYPGf8Z7a/AGGd9WM+3E3CtTh+zwxC8Q==
+  dependencies:
+    tslib "^2.x"
+
 "@msalek/utils@^1.0.12":
   version "1.0.19"
   resolved "https://registry.yarnpkg.com/@msalek/utils/-/utils-1.0.19.tgz#332d21747d7e7641cf19102c999a2701851b9094"

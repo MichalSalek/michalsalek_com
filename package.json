@@ -22,6 +22,7 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@msalek/utils": "^1.0.12",
+    "@msalek/controllers": "^1.2.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.5",
     "@rollbar/react": "^0.11.2",
