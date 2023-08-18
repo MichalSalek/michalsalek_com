@@ -34,7 +34,7 @@ export const ImageAtom = ({
             src={image}
             alt={`Picture showing ${alt}`}
             height={height}
-            priority={false}
+            priority={priority}
             fill={fill}
             style={{...style, objectFit: asCover ? 'cover' : 'initial'}}
 

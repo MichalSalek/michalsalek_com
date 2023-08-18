@@ -14,11 +14,13 @@ import { ReactElement }           from 'react'
 
 
 const font = localFont({
-    src: [{
+    src:      [{
         path: '../styles/fonts/Mona-Sans-Light.woff2', weight: '400', style: 'normal'
     }, {
         path: '../styles/fonts/Mona-Sans-Medium.woff2', weight: '700', style: 'normal'
-    }]
+    }],
+    display:  'swap',
+    fallback: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol']
 })
 
 
@@ -32,9 +34,14 @@ export const MainComposition = ({children, title}: Props): ReactElement => {
     const getTitle = (): string => title ? '– ' + title : ''
 
     return <Container maxWidth={'xl'}>
-        <main className={font.className} style={{marginTop: '7rem'}}>
 
-            <CssBaseline/>
+        <CssBaseline/>
+
+        <main
+            className={font.className}
+            style={{marginTop: '7rem'}}>
+
+
 
             <Head>
                 <title>{String('Atomic Concept ' + getTitle())}</title>

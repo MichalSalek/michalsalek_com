@@ -17,7 +17,7 @@ export default function Page() {
 
         <RootCardOrganism version={'software'}/>
 
-        <RootCardOrganism version={'sound'}/>
+        <RootCardOrganism version={'sound'} priorityLoad={false}/>
 
         <Box paddingY={5}/>
 

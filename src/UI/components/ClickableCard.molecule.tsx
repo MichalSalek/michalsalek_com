@@ -22,10 +22,11 @@ type Props = {
     content: ReactNode
     linkPath: AppRoutes
     buttonContent?: string
+    priorityLoad?: boolean
 }
 
 
-export const ClickableCardMolecule = ({image, alt, credits, title, content, linkPath, buttonContent = 'Read More'}: Props): ReactElement => {
+export const ClickableCardMolecule = ({image, alt, credits, title, content, linkPath, buttonContent = 'Read More', priorityLoad = true}: Props): ReactElement => {
 
     return <Card
         elevation={0}
@@ -54,7 +55,7 @@ export const ClickableCardMolecule = ({image, alt, credits, title, content, link
                     image={image}
                     alt={alt}
                     credits={credits}
-                    priority={true}
+                    priority={priorityLoad}
                     height={250}
                 />
                 <CardContent sx={{

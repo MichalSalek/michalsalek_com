@@ -14,6 +14,7 @@ import { ReactElement, ReactNode } from 'react'
 
 type Props = {
     version: 'software' | 'sound'
+    priorityLoad?: boolean
 }
 
 const OutsideWrapper = ({children}: { children: ReactNode }): ReactElement => <Stack
@@ -51,7 +52,7 @@ const CardsSectionTitleWithCompanyName = ({content}: { content: string }) =>
     </Typography>
 
 
-export const RootCardOrganism = ({version}: Props): ReactElement => {
+export const RootCardOrganism = ({version, priorityLoad}: Props): ReactElement => {
     switch (version) {
 
 
@@ -70,6 +71,7 @@ export const RootCardOrganism = ({version}: Props): ReactElement => {
                         title={'Architecture and process planning'}
                         content={<><p><CompanyNameAtom/> will help you discover and plan areas of your business.</p>
                             <p>Let&apos;s find a definite borders of a features, scopes and modules. </p></>}
+                        priorityLoad={priorityLoad}
                     />
 
 
@@ -82,6 +84,7 @@ export const RootCardOrganism = ({version}: Props): ReactElement => {
                         content={<><p> With <CompanyNameAtom/>, UI of your business views will be solid,
                             reusable <strong>coherent</strong>. </p>
                             <p>From a first byte after page load to a long-life applications – SEO and performance is a key.</p></>}
+                        priorityLoad={priorityLoad}
                     />
 
 
@@ -94,6 +97,7 @@ export const RootCardOrganism = ({version}: Props): ReactElement => {
                         content={<><p> Want to process some data? Need a microservice? </p>
                             <p><CompanyNameAtom/> use an event driven solutions to keep perfect timing and &quot;time travel&quot; possibilities –
                                 to keep your business coherent.</p></>}
+                        priorityLoad={priorityLoad}
                     />
 
                 </InsideWrapper>
@@ -116,6 +120,7 @@ export const RootCardOrganism = ({version}: Props): ReactElement => {
                         credits={'Photo by Caught In Joy on Unsplash'}
                         title={'Mixing and mastering all-in services'}
                         content={<><p>Want to boost your music? Are you looking for something really special? </p></>}
+                        priorityLoad={priorityLoad}
                     />
 
 
@@ -127,6 +132,7 @@ export const RootCardOrganism = ({version}: Props): ReactElement => {
                         title={'Soundtracks and beats'}
                         content={<><p> You can order <CompanyNameAtom/> prepared music. </p>
                             <p>Are you a singer or rapper? Want to have your own music to video? Take a look.</p></>}
+                        priorityLoad={priorityLoad}
                     />
 
                 </InsideWrapper>

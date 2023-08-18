@@ -3,8 +3,6 @@ import { createTheme } from '@mui/material/styles'
 import { Theme }       from '@mui/system'
 
 
-
-
 export const mainTheme: Theme = createTheme({
     palette:    {
         primary:   {
@@ -168,7 +166,7 @@ export const mainTheme: Theme = createTheme({
                     '&.MuiTypography-button': {
                         borderWidth: '1px',
                         borderStyle: 'solid',
-                        padding: '0.5rem 1rem'
+                        padding:     '0.5rem 1rem'
                     }
                 }
             }
