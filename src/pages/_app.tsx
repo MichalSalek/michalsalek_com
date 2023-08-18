@@ -1,8 +1,8 @@
-import { GAController }    from '@/src/layers/application/GA.controller'
-import { MainComposition } from '@/src/UI/compositions/Main.composition'
+import { GAController }           from '@/src/layers/application/GA.controller'
+import { MainComposition }        from '@/src/UI/compositions/Main.composition'
 import '@/src/UI/styles/globals.scss'
-import { NextComponentType } from 'next/dist/shared/lib/utils'
-import React                 from 'react'
+import { NextComponentType }      from 'next/dist/shared/lib/utils'
+import React                      from 'react'
 
 
 
