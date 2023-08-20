@@ -1,5 +1,5 @@
 import { GeneralPageProps } from '@/src/pages/_app'
-import { RootCardOrganism } from '@/src/UI/components/RootCardOrganism'
+import RootCardOrganism from '@/src/UI/components/RootCardOrganism'
 import { Container }        from '@mui/material'
 
 

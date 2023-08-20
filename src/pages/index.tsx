@@ -1,7 +1,7 @@
 import { GeneralPageProps } from '@/src/pages/_app'
 import { CompanyNameAtom }  from '@/src/UI/components/CompanyName.atom'
 // import { InfoTextBlockMolecule } from '@/src/UI/components/InfoTextBlock.molecule'
-import { RootCardOrganism } from '@/src/UI/components/RootCardOrganism'
+// import { RootCardOrganism } from '@/src/UI/components/RootCardOrganism'
 import { Typography }       from '@mui/material'
 import Box                  from '@mui/material/Box'
 import { lazy, Suspense }   from 'react'
@@ -10,7 +10,10 @@ import { lazy, Suspense }   from 'react'
 
 
 const InfoTextBlockMolecule =
-    lazy( () =>  import('../UI/components/InfoTextBlock.molecule'))
+    lazy(() => import('@/src/UI/components/InfoTextBlock.molecule'))
+
+const RootCardOrganism =
+    lazy(() => import('@/src/UI/components/RootCardOrganism'))
 
 
 const PAGE_TITLE = 'A quality value you can get and give.'
@@ -20,9 +23,13 @@ export default function Page() {
 
         <Typography variant={'h1'}>{PAGE_TITLE}</Typography>
 
-        <RootCardOrganism version={'software'}/>
+        <Suspense fallback={<span>ŁADOWANKO</span>}>
 
-        <RootCardOrganism version={'sound'} priorityLoad={false}/>
+            <RootCardOrganism version={'software'}/>
+
+            <RootCardOrganism version={'sound'} priorityLoad={false}/>
+
+        </Suspense>
 
         <Box paddingY={5}/>
 

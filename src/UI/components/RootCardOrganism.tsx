@@ -52,7 +52,7 @@ const CardsSectionTitleWithCompanyName = ({content}: { content: string }) =>
     </Typography>
 
 
-export const RootCardOrganism = ({version, priorityLoad}: Props): ReactElement => {
+const RootCardOrganism = ({version, priorityLoad}: Props): ReactElement => {
     switch (version) {
 
 
@@ -140,3 +140,5 @@ export const RootCardOrganism = ({version, priorityLoad}: Props): ReactElement =
     }
 
 }
+
+export default RootCardOrganism
