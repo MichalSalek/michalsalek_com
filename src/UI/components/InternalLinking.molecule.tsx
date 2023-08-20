@@ -1,5 +1,5 @@
 import { AppRoutes }                                        from '@/src/layers/core/routes.config'
-import { InfoTextBlockMolecule, InfoTextBlockMoleculeData } from '@/src/UI/components/InfoTextBlock.molecule'
+import  InfoTextBlockMolecule, { InfoTextBlockMoleculeData } from '@/src/UI/components/InfoTextBlock.molecule'
 import { LinkButtonAtom }                                   from '@/src/UI/components/LinkButton.atom'
 import { Typography }                                       from '@mui/material'
 import { useRouter }                                        from 'next/router'

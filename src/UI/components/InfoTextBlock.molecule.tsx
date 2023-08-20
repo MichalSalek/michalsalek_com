@@ -14,7 +14,7 @@ type Props = {
     largeRowGap?: boolean
 }
 
-export const InfoTextBlockMolecule = ({data, largeRowGap = false}: Props): ReactElement => {
+const InfoTextBlockMolecule = ({data, largeRowGap = false}: Props): ReactElement => {
 
     const flexCenter: CSSProperties = {
         alignItems: 'center',
@@ -49,3 +49,5 @@ export const InfoTextBlockMolecule = ({data, largeRowGap = false}: Props): React
 
     </Stack>
 }
+
+export default InfoTextBlockMolecule

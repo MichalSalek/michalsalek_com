@@ -1,14 +1,10 @@
 import { GeneralPageProps }        from '@/src/pages/_app'
-import backend                  from '@/src/UI/assets/backend.jpg'
-import { AppLinkAtom }          from '@/src/UI/components/AppLink.atom'
-import { ContentBlockOrganism } from '@/src/UI/components/ContentBlock.organism'
-import { GoToContactFormMolecule } from '@/src/UI/components/GoToContactForm.molecule'
+import backend                     from '@/src/UI/assets/backend.jpg'
+import { ContentBlockOrganism }    from '@/src/UI/components/ContentBlock.organism'
 import { HeroMolecule }            from '@/src/UI/components/Hero.molecule'
-import { InfoTextBlockMolecule }   from '@/src/UI/components/InfoTextBlock.molecule'
 import { InternalLinkingMolecule } from '@/src/UI/components/InternalLinking.molecule'
 import { ArticleComposition }      from '@/src/UI/compositions/Article.composition'
-import { Divider, Typography }     from '@mui/material'
-import Button                      from '@mui/material/Button'
+import { Divider }                 from '@mui/material'
 import React                       from 'react'
 
 

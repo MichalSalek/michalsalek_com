@@ -1,8 +1,7 @@
-import { AppRoutes }             from '@/src/layers/core/routes.config'
-import { InfoTextBlockMolecule } from '@/src/UI/components/InfoTextBlock.molecule'
-import { LinkButtonAtom }        from '@/src/UI/components/LinkButton.atom'
-import { Typography }            from '@mui/material'
-import { ReactElement }          from 'react'
+import InfoTextBlockMolecule from '@/src/UI/components/InfoTextBlock.molecule'
+import { LinkButtonAtom }    from '@/src/UI/components/LinkButton.atom'
+import { Typography }        from '@mui/material'
+import { ReactElement }      from 'react'
 
 
 
@@ -20,14 +19,14 @@ export const GoToContactFormMolecule = ({objectOfInterest}: Props): ReactElement
 
         <InfoTextBlockMolecule
             data={[
-            {
-                heading: <>The article interested you?</>,
-                content: <LinkButtonAtom content={<>Ask about <strong>{' '}{objectOfInterest}</strong></>} href={`/contact?about=${objectOfInterest}`}/>
-            },
-            {
-                heading: <>I just have a question</>,
-                content: <LinkButtonAtom content={`General question`} href={'/contact'}/>
-            }
-        ]}/>
+                {
+                    heading: <>The article interested you?</>,
+                    content: <LinkButtonAtom content={<>Ask about <strong>{' '}{objectOfInterest}</strong></>} href={`/contact?about=${objectOfInterest}`}/>
+                },
+                {
+                    heading: <>I just have a question</>,
+                    content: <LinkButtonAtom content={`General question`} href={'/contact'}/>
+                }
+            ]}/>
     </>
 }

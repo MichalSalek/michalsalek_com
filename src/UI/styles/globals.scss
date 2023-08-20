@@ -14,8 +14,8 @@ main {
 }
 
 a {
-  color: #528bec !important;
-  > p { color: #528bec !important;}
+  color: hsl(218, 89%, 51%) !important;
+  > p { color: hsl(218, 89%, 51%) !important;}
   text-decoration: none;
 
   transition: filter 0.1s ease-out;
