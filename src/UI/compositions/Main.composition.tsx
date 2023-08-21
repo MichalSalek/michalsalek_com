@@ -58,7 +58,6 @@ export const MainComposition = ({children, title}: Props): ReactElement => {
 
                     <Container><BreadcrumbsAtom/></Container>
 
-
                     {children}
                 </Box>
 

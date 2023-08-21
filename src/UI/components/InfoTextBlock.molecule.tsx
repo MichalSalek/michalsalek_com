@@ -1,8 +1,8 @@
 import { Typography }                            from '@mui/material'
 import Card                                      from '@mui/material/Card'
 import CardContent                               from '@mui/material/CardContent'
-import Stack                                     from '@mui/material/Stack'
-import { CSSProperties, Fragment, ReactElement } from 'react'
+import Stack                                           from '@mui/material/Stack'
+import { CSSProperties, Fragment, lazy, ReactElement } from 'react'
 
 
 

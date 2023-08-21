@@ -1,11 +1,9 @@
-import { GeneralPageProps }        from '@/src/pages/_app'
-import backend                     from '@/src/UI/assets/backend.jpg'
-import { ContentBlockOrganism }    from '@/src/UI/components/ContentBlock.organism'
-import { HeroMolecule }            from '@/src/UI/components/Hero.molecule'
-import { InternalLinkingMolecule } from '@/src/UI/components/InternalLinking.molecule'
-import { ArticleComposition }      from '@/src/UI/compositions/Article.composition'
-import { Divider }                 from '@mui/material'
-import React                       from 'react'
+import { GeneralPageProps }         from '@/src/pages/_app'
+import backend                      from '@/src/UI/assets/backend.jpg'
+import { ContentBlockOrganismLazy } from '@/src/UI/components/_lazyComponents.aggregate'
+import { HeroMolecule }             from '@/src/UI/components/Hero.molecule'
+import { ArticleComposition }       from '@/src/UI/compositions/Article.composition'
+import React                        from 'react'
 
 
 
@@ -13,7 +11,7 @@ import React                       from 'react'
 const PAGE_TITLE = 'Backend services'
 
 export default function Page() {
-    return <ArticleComposition title={PAGE_TITLE}>
+    return <ArticleComposition title={PAGE_TITLE} internalLinksToShow={['/software/architecture', '/software/backend', '/software/frontend']}>
 
         <HeroMolecule
             image={backend}
@@ -23,7 +21,7 @@ export default function Page() {
 
 
 
-        <ContentBlockOrganism
+        <ContentBlockOrganismLazy
             title={<>
 
                 Backend perfect fit for a real-time experience
@@ -48,7 +46,7 @@ export default function Page() {
 
 
 
-        <ContentBlockOrganism
+        <ContentBlockOrganismLazy
             title={<>
 
                 We don&apos;t promise miracles at the beginning
@@ -75,7 +73,7 @@ export default function Page() {
 
 
 
-        <ContentBlockOrganism
+        <ContentBlockOrganismLazy
             title={<>
 
                 Digital solutions in an analog world
@@ -92,12 +90,6 @@ export default function Page() {
                 This makes the understanding of how a web application works much clearer, and thus <strong>becomes much more digestible</strong>.
 
             </>}
-        />
-
-        <Divider/>
-
-        <InternalLinkingMolecule
-            itemsToShow={['/software/architecture', '/software/backend', '/software/frontend']}
         />
 
     </ArticleComposition>

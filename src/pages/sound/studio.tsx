@@ -1,13 +1,10 @@
-import music_studio             from '@/src/UI/assets/music_studio.jpg'
-import { CompanyNameAtom }      from '@/src/UI/components/CompanyName.atom'
-import { ContentBlockOrganism } from '@/src/UI/components/ContentBlock.organism'
-import { GoToContactFormMolecule }  from '@/src/UI/components/GoToContactForm.molecule'
-import { HeroMolecule }         from '@/src/UI/components/Hero.molecule'
-import { InternalLinkingMolecule } from '@/src/UI/components/InternalLinking.molecule'
-import { ArticleComposition }      from '@/src/UI/compositions/Article.composition'
-import { GeneralPageProps }        from '@/src/pages/_app'
-import { Divider }                  from '@mui/material'
-import React                    from 'react'
+import { GeneralPageProps }         from '@/src/pages/_app'
+import music_studio                 from '@/src/UI/assets/music_studio.jpg'
+import { ContentBlockOrganismLazy } from '@/src/UI/components/_lazyComponents.aggregate'
+import { CompanyNameAtom }          from '@/src/UI/components/CompanyName.atom'
+import { HeroMolecule }             from '@/src/UI/components/Hero.molecule'
+import { ArticleComposition }       from '@/src/UI/compositions/Article.composition'
+import React                        from 'react'
 
 
 
@@ -15,7 +12,7 @@ import React                    from 'react'
 const PAGE_TITLE = 'Online studio services'
 
 export default function Page() {
-    return <ArticleComposition title={PAGE_TITLE}>
+    return <ArticleComposition title={PAGE_TITLE} internalLinksToShow={['/sound/soundtracks', '/sound/studio']}>
 
 
         <HeroMolecule
@@ -26,7 +23,7 @@ export default function Page() {
 
 
 
-        <ContentBlockOrganism
+        <ContentBlockOrganismLazy
             title={<>
 
                 <CompanyNameAtom fullName={true}/> can mix your tracks online
@@ -51,7 +48,7 @@ export default function Page() {
 
 
 
-        <ContentBlockOrganism
+        <ContentBlockOrganismLazy
             title={<>
 
                 Let us know your vision to sound good
@@ -79,7 +76,7 @@ export default function Page() {
 
 
 
-        <ContentBlockOrganism
+        <ContentBlockOrganismLazy
             title={<>
 
                 Check out our specialization. Kick, snare and bass
@@ -102,7 +99,7 @@ export default function Page() {
         />
 
 
-        <ContentBlockOrganism
+        <ContentBlockOrganismLazy
             title={<>
 
                 We use high-tech
@@ -123,15 +120,6 @@ export default function Page() {
 
             </>}
         />
-
-        <Divider/>
-
-        <InternalLinkingMolecule
-            itemsToShow={['/sound/soundtracks', '/sound/studio']}
-        />
-
-
-
 
     </ArticleComposition>
 }

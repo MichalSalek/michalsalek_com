@@ -1,13 +1,10 @@
-import { GeneralPageProps }        from '@/src/pages/_app'
-import molecules                from '@/src/UI/assets/molecules.jpg'
-import { CompanyNameAtom }      from '@/src/UI/components/CompanyName.atom'
-import { ContentBlockOrganism } from '@/src/UI/components/ContentBlock.organism'
-import { GoToContactFormMolecule } from '@/src/UI/components/GoToContactForm.molecule'
-import { HeroMolecule }            from '@/src/UI/components/Hero.molecule'
-import { InternalLinkingMolecule } from '@/src/UI/components/InternalLinking.molecule'
-import { ArticleComposition }      from '@/src/UI/compositions/Article.composition'
-import { Divider }                 from '@mui/material'
-import React                       from 'react'
+import { GeneralPageProps }         from '@/src/pages/_app'
+import molecules                    from '@/src/UI/assets/molecules.jpg'
+import { ContentBlockOrganismLazy } from '@/src/UI/components/_lazyComponents.aggregate'
+import { CompanyNameAtom }          from '@/src/UI/components/CompanyName.atom'
+import { HeroMolecule }             from '@/src/UI/components/Hero.molecule'
+import { ArticleComposition }       from '@/src/UI/compositions/Article.composition'
+import React                        from 'react'
 
 
 
@@ -15,15 +12,15 @@ import React                       from 'react'
 const PAGE_TITLE = 'Software architecture'
 
 export default function Page() {
-    return <ArticleComposition title={PAGE_TITLE}>
+    return <ArticleComposition title={PAGE_TITLE} internalLinksToShow={['/software/architecture', '/software/backend', '/software/frontend']}>
 
         <HeroMolecule
             image={molecules}
             alt={'software achitecture concept'}
             credits={'Photo by Ashraful Islam on Unsplash'}
         />
- 
-        <ContentBlockOrganism
+
+        <ContentBlockOrganismLazy
             title={<>
 
                 High performance
@@ -44,7 +41,7 @@ export default function Page() {
         />
 
 
-        <ContentBlockOrganism
+        <ContentBlockOrganismLazy
             title={<>
 
                 Easy and understandable project maintenance
@@ -65,7 +62,7 @@ export default function Page() {
         />
 
 
-        <ContentBlockOrganism
+        <ContentBlockOrganismLazy
             title={<>
 
                 High scalability through modularization
@@ -92,7 +89,7 @@ export default function Page() {
         />
 
 
-        <ContentBlockOrganism
+        <ContentBlockOrganismLazy
             title={<>
 
                 Time is always flowing
@@ -113,14 +110,6 @@ export default function Page() {
 
             </>}
         />
-
-        <Divider/>
-
-        <InternalLinkingMolecule
-            itemsToShow={['/software/architecture', '/software/backend', '/software/frontend']}
-        />
-
-
 
     </ArticleComposition>
 }

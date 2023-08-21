@@ -12,7 +12,7 @@ type Props = {
     body?: ReactElement | string | undefined
 }
 
-export const ContentBlockOrganism = ({title, subtitle, body}: Props): ReactElement => {
+const ContentBlockOrganism = ({title, subtitle, body}: Props): ReactElement => {
 
     return <article>
         <Card elevation={0} sx={{minWidth: '100%'}}>
@@ -29,3 +29,5 @@ export const ContentBlockOrganism = ({title, subtitle, body}: Props): ReactEleme
         </Card>
     </article>
 }
+
+export default ContentBlockOrganism

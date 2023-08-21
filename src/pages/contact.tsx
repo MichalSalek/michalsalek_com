@@ -1,7 +1,7 @@
 import { sendEmail }                                                       from '@/src/layers/application/email'
 import { GeneralPageProps }                                                from '@/src/pages/_app'
+import { ContentBlockOrganismLazy }                                        from '@/src/UI/components/_lazyComponents.aggregate'
 import { ContactFormFeedbackAtom }                                         from '@/src/UI/components/ContactFormFeedback.atom'
-import { ContentBlockOrganism }                                            from '@/src/UI/components/ContentBlock.organism'
 import { useFakeLoadingHook }                                              from '@/src/UI/hooks/useFakeLoading.hook'
 import { freezeThreadAndWait }                                             from '@msalek/utils'
 import { CircularProgress, Container, FormControl, TextField, Typography } from '@mui/material'
@@ -125,7 +125,7 @@ export default function Page() {
         <Typography variant={'h1'}>{PAGE_TITLE}</Typography>
 
 
-        <ContentBlockOrganism
+        <ContentBlockOrganismLazy
             subtitle={<>
 
                 How can we help you?
@@ -243,9 +243,9 @@ export default function Page() {
                         type={'submit'}
                         variant={showFeedbackInfo ? 'contained' : undefined}
                         sx={{
-                            my: '2rem',
-                            height: '3rem',
-                            alignItems: 'center',
+                            my:            '2rem',
+                            height:        '3rem',
+                            alignItems:    'center',
                             pointerEvents: disableButtonAction ? 'none' : 'all'
                         }}
                         size={'large'}

@@ -1,5 +1,5 @@
 import { AppRoutes }                                        from '@/src/layers/core/routes.config'
-import  InfoTextBlockMolecule, { InfoTextBlockMoleculeData } from '@/src/UI/components/InfoTextBlock.molecule'
+import InfoTextBlockMolecule, { InfoTextBlockMoleculeData } from '@/src/UI/components/InfoTextBlock.molecule'
 import { LinkButtonAtom }                                   from '@/src/UI/components/LinkButton.atom'
 import { Typography }                                       from '@mui/material'
 import { useRouter }                                        from 'next/router'
@@ -8,20 +8,21 @@ import { ReactElement }                                     from 'react'
 
 
 
-type Props = {
-    itemsToShow: AppRoutes[]
+export type InternalLinkingMoleculeProps = {
+    itemsToShow?: AppRoutes[]
 }
 
 
 
 
-export const InternalLinkingMolecule = ({itemsToShow}: Props): ReactElement => {
+const InternalLinkingMolecule = ({itemsToShow}: InternalLinkingMoleculeProps): ReactElement | null => {
     const router = useRouter()
+
+    if (!itemsToShow) return null
 
     const showThisPathLink = (itemToShow: AppRoutes): boolean => itemsToShow
         .filter(path => path !== router.pathname) // Guard to not show a current router internal link.
         .includes(itemToShow)
-
 
 
     return <aside>
@@ -65,3 +66,5 @@ export const InternalLinkingMolecule = ({itemsToShow}: Props): ReactElement => {
         ].filter(Boolean) as InfoTextBlockMoleculeData}/>
     </aside>
 }
+
+export default InternalLinkingMolecule
