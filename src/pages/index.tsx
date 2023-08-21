@@ -1,7 +1,5 @@
 import { GeneralPageProps } from '@/src/pages/_app'
 import { CompanyNameAtom }  from '@/src/UI/components/CompanyName.atom'
-// import { InfoTextBlockMolecule } from '@/src/UI/components/InfoTextBlock.molecule'
-// import { RootCardOrganism } from '@/src/UI/components/RootCardOrganism'
 import { Typography }       from '@mui/material'
 import Box                  from '@mui/material/Box'
 import { lazy, Suspense }   from 'react'

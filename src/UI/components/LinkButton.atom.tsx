@@ -12,9 +12,10 @@ export const LinkButtonAtom = ({href, content}: { href: AppRoutes, content: stri
         <Typography
             variant={'button'}
             width={'100%'}
-            component={'p'}
-        textAlign={'center'}
-        color={'inherit'}>
+            component={'span'}
+            display={'block'}
+            textAlign={'center'}
+            color={'inherit'}>
             {content}
         </Typography>
     </AppLinkAtom>

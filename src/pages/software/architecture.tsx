@@ -22,9 +22,7 @@ export default function Page() {
             alt={'software achitecture concept'}
             credits={'Photo by Ashraful Islam on Unsplash'}
         />
-
-
-
+ 
         <ContentBlockOrganism
             title={<>
 
