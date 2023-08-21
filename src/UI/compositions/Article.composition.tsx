@@ -1,5 +1,5 @@
-import { InternalLinkingMoleculeLazy }    from '@/src/UI/components/_lazyComponents.aggregate'
-import { GoToContactFormMolecule }        from '@/src/UI/components/GoToContactForm.molecule'
+import { InternalLinkingMoleculeLazy } from '@/src/UI/components/_lazyComponents.aggregate'
+import { GoToContactFormMolecule }     from '@/src/UI/components/GoToContactForm.molecule'
 import { InternalLinkingMoleculeProps }   from '@/src/UI/components/InternalLinking.molecule'
 import { Container, Divider }             from '@mui/material'
 import Typography                         from '@mui/material/Typography'
