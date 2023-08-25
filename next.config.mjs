@@ -12,6 +12,8 @@ const nextConfig = {
         typedRoutes: true
     },
 
+    trailingSlash: true,
+
     output: 'export',
 
     // https://www.npmjs.com/package/next-image-export-optimizer
