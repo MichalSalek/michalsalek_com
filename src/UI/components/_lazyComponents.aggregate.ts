@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic'
 
 export const InfoTextBlockMoleculeLazy =
     dynamic(() => import('./InfoTextBlock.molecule'), {
-        ssr: true
+        ssr: false
     })
 
 export const RootCardOrganismLazy =
@@ -20,5 +20,5 @@ export const ContentBlockOrganismLazy =
 
 export const InternalLinkingMoleculeLazy =
     dynamic(() => import('./InternalLinking.molecule'), {
-        ssr: true
+        ssr: false
     })

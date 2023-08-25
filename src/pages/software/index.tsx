@@ -1,6 +1,6 @@
-import { GeneralPageProps } from '@/src/pages/_app'
-import RootCardOrganism     from '@/src/UI/components/RootCard.organism'
-import { Container }        from '@mui/material'
+import { GeneralPageProps }     from '@/src/pages/_app'
+import { RootCardOrganismLazy } from '@/src/UI/components/_lazyComponents.aggregate'
+import { Container }            from '@mui/material'
 
 
 
@@ -10,7 +10,7 @@ const PAGE_TITLE = 'Software services'
 export default function Page() {
     return <Container>
 
-        <RootCardOrganism version={'software'}/>
+        <RootCardOrganismLazy version={'software'}/>
 
     </Container>
 }

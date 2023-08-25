@@ -1,5 +1,6 @@
 import { AppRoutes }                                        from '@/src/layers/core/routes.config'
-import InfoTextBlockMolecule, { InfoTextBlockMoleculeData } from '@/src/UI/components/InfoTextBlock.molecule'
+import { InfoTextBlockMoleculeLazy }                        from '@/src/UI/components/_lazyComponents.aggregate'
+import { InfoTextBlockMoleculeData } from '@/src/UI/components/InfoTextBlock.molecule'
 import { LinkButtonAtom }                                   from '@/src/UI/components/LinkButton.atom'
 import { Typography }                                       from '@mui/material'
 import { useRouter }                                        from 'next/router'
@@ -30,7 +31,7 @@ const InternalLinkingMolecule = ({itemsToShow}: InternalLinkingMoleculeProps): R
         <Typography variant="body2" mb={5}>with other creative areas</Typography>
 
 
-        <InfoTextBlockMolecule data={[
+        <InfoTextBlockMoleculeLazy data={[
 
 
             showThisPathLink('/software/architecture') && {
