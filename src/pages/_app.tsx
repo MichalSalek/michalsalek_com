@@ -1,7 +1,7 @@
+import '@/src/UI/styles/globals.scss'
 import { errorTrackerScriptLoader }    from '@/src/layers/application/errorTracker'
 import { googleAnalyticsScriptLoader } from '@/src/layers/application/googleAnalytics'
 import { MainComposition }             from '@/src/UI/compositions/Main.composition'
-import '@/src/UI/styles/globals.scss'
 import { ControllersComposition }   from '@msalek/controllers'
 import { NextComponentType }        from 'next/dist/shared/lib/utils'
 import React                        from 'react'

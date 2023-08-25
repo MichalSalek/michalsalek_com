@@ -3,6 +3,8 @@ import { createTheme } from '@mui/material/styles'
 import { Theme }       from '@mui/system'
 
 
+
+
 export const mainTheme: Theme = createTheme({
     palette:    {
         primary:   {
@@ -45,7 +47,7 @@ export const mainTheme: Theme = createTheme({
             '@media (min-width:1200px)': {
                 fontSize: '2.5rem'
             },
-            marginTop:                   '3rem',
+            marginTop:                   '5rem',
             marginBottom:                '1rem',
             fontWeight:                  '400'
         },
@@ -121,7 +123,7 @@ export const mainTheme: Theme = createTheme({
                 flexDirection:  'row',
                 flexWrap:       'wrap',
                 columnGap:      4,
-                rowGap:         4,
+                rowGap:         2,
 
                 // @ts-ignore
                 component: 'section'

@@ -14,18 +14,20 @@ main {
 }
 
 a {
-  color: hsl(218, 89%, 51%) !important;
-  > p { color: hsl(218, 89%, 51%) !important;}
-  text-decoration: none;
+  color: hsl(218, 89%, 51%);
 
-  transition: filter 0.1s ease-out;
-
-  &:hover, &:focus {
-    font-weight: bold;
-    text-decoration: underline;
+  > p, span {
+    color: hsl(218, 89%, 51%);
   }
+
+  text-decoration: underline;
+
 }
 
 p {
   margin-bottom: 1rem;
+}
+
+strong {
+  font-weight: 600;
 }

@@ -1,6 +1,6 @@
-import { AppLinkAtom }     from '@/src/UI/components/AppLink.atom'
-import { CompanyNameAtom } from '@/src/UI/components/CompanyName.atom'
-import { mainTheme }       from '@/src/UI/styles/theme'
+import { AppLinkAtom }                       from '@/src/UI/components/AppLink.atom'
+import { CompanyNameAtom }                   from '@/src/UI/components/CompanyName.atom'
+import { mainTheme }                         from '@/src/UI/styles/theme'
 import ContactMailIcon                       from '@mui/icons-material/ContactMail'
 import AppBar                                from '@mui/material/AppBar'
 import Box                                   from '@mui/material/Box'
@@ -19,7 +19,7 @@ import scss from './appBar.module.scss'
 const ElevationScroll = ({children}: { children: ReactElement }): ReactElement => {
     const trigger = useScrollTrigger({
         disableHysteresis: true,
-        threshold: 0
+        threshold:         0
     })
 
     return cloneElement(children, {
@@ -36,8 +36,8 @@ export const AppBarOrganism = (): ReactElement => {
                     className={scss.host}
                     sx={{
                         backgroundColor: 'rgba(255, 255, 255, 0.6)',
-                        backdropFilter: 'blur(5px) saturate(160%) contrast(45%) brightness(140%)',
-                        borderTop: `4px solid ${mainTheme.palette.primary.main}`
+                        backdropFilter:  'blur(5px) saturate(160%) contrast(45%) brightness(140%)',
+                        borderTop:       `4px solid ${mainTheme.palette.primary.main}`
                     }}>
                     <Toolbar
                         sx={{
@@ -48,15 +48,9 @@ export const AppBarOrganism = (): ReactElement => {
                             <Button
                                 variant={'text'}
                                 size="large"
-                                sx={{padding: 0}}
+                                sx={{px: 2, py: 3, color: mainTheme.palette.primary.main}}
                             >
-                                <Typography
-                                    variant="h6"
-                                    noWrap
-                                    sx={{px: 2, py: 3}}
-                                >
-                                    <CompanyNameAtom fullName={true}/>
-                                </Typography>
+                                <CompanyNameAtom fullName={true}/>
                             </Button>
                         </AppLinkAtom>
 
@@ -64,14 +58,13 @@ export const AppBarOrganism = (): ReactElement => {
 
                         <AppLinkAtom href="/contact">
                             <IconButton
-                                size="large"
                                 color={'primary'}
-                                sx={{px: 2, py: 3, borderRadius: 0}}
+                                sx={{px: 2, py: 2}}
                             >
                                 <Typography
-                                    variant="h6"
+                                    variant="button"
                                     noWrap
-                                    sx={{mx: 1}}
+                                    sx={{mr: 1}}
                                 >
                                     contact
                                 </Typography>

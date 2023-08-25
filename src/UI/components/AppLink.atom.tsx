@@ -14,5 +14,5 @@ export const AppLinkAtom = (props: Props): ReactElement => {
     const {href, children}: Props = props
 
 
-    return <Link {...props} href={href} >{children}</Link>
+    return <Link {...props} href={href}>{children}</Link>
 }

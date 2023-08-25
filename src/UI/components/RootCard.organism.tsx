@@ -1,14 +1,17 @@
-import BackImage                   from '@/src/UI/assets/back.jpg'
-import DrumsImage                  from '@/src/UI/assets/drums.jpg'
-import FrontImage                  from '@/src/UI/assets/front.jpg'
-import PlanningImage               from '@/src/UI/assets/planning.jpg'
-import StudioImage               from '@/src/UI/assets/studio.jpg'
-import { ClickableCardMolecule } from '@/src/UI/components/ClickableCard.molecule'
-import { CompanyNameAtom }       from '@/src/UI/components/CompanyName.atom'
-import { Typography }      from '@mui/material'
-import Stack                       from '@mui/material/Stack'
-import { ReactElement, ReactNode } from 'react'
-
+import BackImage                          from '@/src/UI/assets/back.jpg'
+import DrumsImage                         from '@/src/UI/assets/drums.jpg'
+import FrontImage                         from '@/src/UI/assets/front.jpg'
+import PlanningImage                      from '@/src/UI/assets/planning.jpg'
+import StudioImage                        from '@/src/UI/assets/studio.jpg'
+import { AppLinkAtom }                    from '@/src/UI/components/AppLink.atom'
+import { ClickableCardMolecule }          from '@/src/UI/components/ClickableCard.molecule'
+import { CompanyNameAtom }                from '@/src/UI/components/CompanyName.atom'
+import { appColors }                      from '@/src/UI/styles/colors'
+import { Typography }                     from '@mui/material'
+import Stack                              from '@mui/material/Stack'
+import { useRouter }                      from 'next/router'
+import React, { ReactElement, ReactNode } from 'react'
+import ArrowRightIcon  from '@mui/icons-material/ArrowRight'
 
 
 
@@ -26,6 +29,7 @@ const OutsideWrapper = ({children}: { children: ReactNode }): ReactElement => <S
 
 const InsideWrapper = ({children}: { children: ReactNode }): ReactElement => <Stack
     alignItems={'stretch'}
+    width={'100%'}
 > {children} </Stack>
 
 
@@ -52,6 +56,24 @@ const CardsSectionTitleWithCompanyName = ({content}: { content: string }) =>
     </Typography>
 
 
+const CardsSectionGoToCategory = ({content}: { content: Props['version'] }) => {
+    const router = useRouter()
+    const orHideItInView = router.pathname.includes(content)
+
+    return <Typography
+        visibility={orHideItInView ? 'hidden' : 'visible'}
+        variant={'h3'}
+    >
+        <AppLinkAtom href={`/${content}`}>
+            <Typography
+                variant={'h3'}
+            >
+                See <strong>{content}</strong> services <ArrowRightIcon sx={{marginBottom: '-3px'}}/>
+            </Typography>
+        </AppLinkAtom>
+    </Typography>
+}
+
 const RootCardOrganism = ({version, priorityLoad}: Props): ReactElement => {
     switch (version) {
 
@@ -60,6 +82,8 @@ const RootCardOrganism = ({version, priorityLoad}: Props): ReactElement => {
             return <OutsideWrapper>
 
                 <CardsSectionTitleWithCompanyName content={'in your software'}/>
+
+                <CardsSectionGoToCategory content={version} />
 
                 <InsideWrapper>
 
@@ -110,6 +134,8 @@ const RootCardOrganism = ({version, priorityLoad}: Props): ReactElement => {
             return <OutsideWrapper>
 
                 <CardsSectionTitleWithCompanyName content={'for sound and music'}/>
+
+                <CardsSectionGoToCategory content={version} />
 
                 <InsideWrapper>
 

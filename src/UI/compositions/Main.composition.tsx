@@ -17,7 +17,7 @@ const font = localFont({
     src:      [{
         path: '../styles/fonts/Mona-Sans-Light.woff2', weight: '400', style: 'normal'
     }, {
-        path: '../styles/fonts/Mona-Sans-Medium.woff2', weight: '700', style: 'normal'
+        path: '../styles/fonts/Mona-Sans-Medium.woff2', weight: '600', style: 'bold'
     }],
     display:  'swap',
     fallback: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol']
@@ -33,15 +33,13 @@ export const MainComposition = ({children, title}: Props): ReactElement => {
 
     const getTitle = (): string => title ? '– ' + title : ''
 
-    return <Container maxWidth={'xl'}>
+    return <>
 
         <CssBaseline/>
 
         <main
             className={font.className}
             style={{marginTop: '7rem'}}>
-
-
 
             <Head>
                 <title>{String('Atomic Concept ' + getTitle())}</title>
@@ -52,18 +50,23 @@ export const MainComposition = ({children, title}: Props): ReactElement => {
 
             <ThemeProvider theme={mainTheme}>
 
-                <HeaderPartial/>
+                <Container maxWidth={'xl'}>
 
-                <Box sx={{minHeight: '100vh'}} component={'section'}>
+                    <HeaderPartial/>
 
-                    <Container><BreadcrumbsAtom/></Container>
+                    <Box sx={{minHeight: '100vh'}} component={'section'}>
 
-                    {children}
-                </Box>
+                        <Container><BreadcrumbsAtom/></Container>
+
+                        {children}
+                    </Box>
+
+                </Container>
 
                 <FooterPartial/>
 
             </ThemeProvider>
+
         </main>
-    </Container>
+    </>
 }
