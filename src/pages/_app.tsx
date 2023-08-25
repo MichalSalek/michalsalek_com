@@ -1,9 +1,10 @@
-import { GAScriptLoader }  from '@/src/layers/application/GAScriptLoader'
-import { MainComposition } from '@/src/UI/compositions/Main.composition'
+import { errorTrackerScriptLoader }    from '@/src/layers/application/errorTracker'
+import { googleAnalyticsScriptLoader } from '@/src/layers/application/googleAnalytics'
+import { MainComposition }             from '@/src/UI/compositions/Main.composition'
 import '@/src/UI/styles/globals.scss'
-import { NextComponentType }      from 'next/dist/shared/lib/utils'
-import React                      from 'react'
-import {ControllersComposition} from '@msalek/controllers'
+import { ControllersComposition }   from '@msalek/controllers'
+import { NextComponentType }        from 'next/dist/shared/lib/utils'
+import React                        from 'react'
 
 
 
@@ -19,7 +20,12 @@ const App = ({Component, pageProps}: Props) => {
 
     return <>
 
-        <ControllersComposition userInteractionFunctions={[GAScriptLoader]} />
+        <ControllersComposition
+            userInteractionFunctions={
+                [
+                    googleAnalyticsScriptLoader,
+                    errorTrackerScriptLoader
+                ]}/>
 
         <MainComposition title={pageProps.title}>
 

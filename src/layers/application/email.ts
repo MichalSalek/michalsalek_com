@@ -1,4 +1,4 @@
-import { reportIssue }     from '@/src/layers/application/ErrorTracker'
+import { reportIssue }     from '@/src/layers/application/errorTracker'
 import { isProductionEnv } from '@msalek/utils'
 import axios               from 'axios'
 

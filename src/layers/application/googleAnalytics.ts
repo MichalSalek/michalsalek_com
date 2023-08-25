@@ -3,7 +3,7 @@ import { isProductionEnv } from '@msalek/utils'
 
 
 
-export const GAScriptLoader = (): void => {
+export const googleAnalyticsScriptLoader = (): void => {
     if (!isProductionEnv(true)) return undefined
 
     const __next = document.querySelector('#__next')
