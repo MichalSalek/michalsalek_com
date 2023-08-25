@@ -1,16 +1,24 @@
-import { lazy } from 'react'
+import dynamic from 'next/dynamic'
 
 
 
 
 export const InfoTextBlockMoleculeLazy =
-    lazy(() => import('./InfoTextBlock.molecule'))
+    dynamic(() => import('./InfoTextBlock.molecule'), {
+        ssr: false
+    })
 
 export const RootCardOrganismLazy =
-    lazy(() => import('./RootCard.organism'))
+    dynamic(() => import('./RootCard.organism'), {
+        ssr: false
+    })
 
 export const ContentBlockOrganismLazy =
-    lazy(() => import('./ContentBlock.organism'))
+    dynamic(() => import('./ContentBlock.organism'), {
+        ssr: false
+    })
 
 export const InternalLinkingMoleculeLazy =
-    lazy(() => import('./InternalLinking.molecule'))
+    dynamic(() => import('./InternalLinking.molecule'), {
+        ssr: false
+    })
