@@ -2,7 +2,8 @@ import { AppLinkAtom }                        from '@/src/UI/components/AppLink.
 import { CompanyNameAtom }                    from '@/src/UI/components/CompanyName.atom'
 import { appColors }                          from '@/src/UI/styles/colors'
 import { mainTheme }                          from '@/src/UI/styles/theme'
-import { Container, Typography }              from '@mui/material'
+import Container              from '@mui/material/Container'
+import Typography              from '@mui/material/Typography'
 import Stack                                  from '@mui/material/Stack'
 import React, { CSSProperties, ReactElement } from 'react'
 

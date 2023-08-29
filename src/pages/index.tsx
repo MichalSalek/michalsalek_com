@@ -1,7 +1,7 @@
 import { GeneralPageProps }                                from '@/src/pages/_app'
 import { InfoTextBlockMoleculeLazy, RootCardOrganismLazy } from '@/src/UI/components/_lazyComponents.aggregate'
 import { CompanyNameAtom }                                 from '@/src/UI/components/CompanyName.atom'
-import { Typography }                                      from '@mui/material'
+import Typography                                      from '@mui/material/Typography'
 import Box                                                 from '@mui/material/Box'
 
 

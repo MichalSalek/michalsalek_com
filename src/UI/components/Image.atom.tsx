@@ -1,4 +1,4 @@
-import { Typography }                  from '@mui/material'
+import Typography                  from '@mui/material/Typography'
 import ExportedImage                   from 'next-image-export-optimizer'
 import { StaticImageData }             from 'next/image'
 import { CSSProperties, ReactElement } from 'react'

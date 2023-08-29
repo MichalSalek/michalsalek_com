@@ -15,9 +15,11 @@ main {
 
 a {
   color: hsl(218, 89%, 51%);
+  font-weight: bold;
 
   > p, span {
     color: hsl(218, 89%, 51%);
+    font-weight: bold;
   }
 
   text-decoration: underline;

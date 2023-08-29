@@ -1,6 +1,6 @@
 import { AppRoutes }               from '@/src/layers/core/routes.config'
 import { AppLinkAtom }             from '@/src/UI/components/AppLink.atom'
-import { Typography }              from '@mui/material'
+import Typography              from '@mui/material/Typography'
 import { ReactElement, ReactNode } from 'react'
 
 

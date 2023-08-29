@@ -1,7 +1,8 @@
 import { InternalLinkingMoleculeLazy } from '@/src/UI/components/_lazyComponents.aggregate'
 import { GoToContactFormMolecule }     from '@/src/UI/components/GoToContactForm.molecule'
 import { InternalLinkingMoleculeProps }   from '@/src/UI/components/InternalLinking.molecule'
-import { Container, Divider }             from '@mui/material'
+import Container             from '@mui/material/Container'
+import Divider             from '@mui/material/Divider'
 import Typography                         from '@mui/material/Typography'
 import React, { ReactElement, ReactNode } from 'react'
 

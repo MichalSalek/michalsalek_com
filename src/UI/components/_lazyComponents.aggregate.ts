@@ -22,3 +22,8 @@ export const InternalLinkingMoleculeLazy =
     dynamic(() => import('./InternalLinking.molecule'), {
         ssr: false
     })
+
+export const ContactFormOrganismLazy =
+    dynamic(() => import('./ContactForm.organism'), {
+        ssr: true
+    })

@@ -1,6 +1,6 @@
 import { InfoTextBlockMoleculeLazy } from '@/src/UI/components/_lazyComponents.aggregate'
 import { LinkButtonAtom }            from '@/src/UI/components/LinkButton.atom'
-import { Typography }                from '@mui/material'
+import Typography                from '@mui/material/Typography'
 import { ReactElement }              from 'react'
 
 

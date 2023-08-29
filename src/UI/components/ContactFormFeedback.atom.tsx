@@ -1,7 +1,7 @@
 import { GET_CONTACT_EMAIL_ADDRESS } from '@/shared-policies/core.policy'
 import { appColors }                 from '@/src/UI/styles/colors'
 import { mainTheme }                 from '@/src/UI/styles/theme'
-import { Typography }                from '@mui/material'
+import Typography                from '@mui/material/Typography'
 import Stack                         from '@mui/material/Stack'
 import React, { ReactElement }       from 'react'
 

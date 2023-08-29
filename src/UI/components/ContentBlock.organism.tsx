@@ -1,4 +1,4 @@
-import { Typography }   from '@mui/material'
+import Typography   from '@mui/material/Typography'
 import Card             from '@mui/material/Card'
 import CardContent      from '@mui/material/CardContent'
 import { ReactElement } from 'react'

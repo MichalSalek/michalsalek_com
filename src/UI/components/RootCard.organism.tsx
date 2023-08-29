@@ -7,7 +7,7 @@ import { AppLinkAtom }                    from '@/src/UI/components/AppLink.atom
 import { ClickableCardMolecule }          from '@/src/UI/components/ClickableCard.molecule'
 import { CompanyNameAtom }                from '@/src/UI/components/CompanyName.atom'
 import { appColors }                      from '@/src/UI/styles/colors'
-import { Typography }                     from '@mui/material'
+import Typography                     from '@mui/material/Typography'
 import Stack                              from '@mui/material/Stack'
 import { useRouter }                      from 'next/router'
 import React, { ReactElement, ReactNode } from 'react'

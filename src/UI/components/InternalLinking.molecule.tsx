@@ -2,7 +2,7 @@ import { AppRoutes }                                        from '@/src/layers/c
 import { InfoTextBlockMoleculeLazy }                        from '@/src/UI/components/_lazyComponents.aggregate'
 import { InfoTextBlockMoleculeData } from '@/src/UI/components/InfoTextBlock.molecule'
 import { LinkButtonAtom }                                   from '@/src/UI/components/LinkButton.atom'
-import { Typography }                                       from '@mui/material'
+import Typography                                       from '@mui/material/Typography'
 import { useRouter }                                        from 'next/router'
 import { ReactElement }                                     from 'react'
 
