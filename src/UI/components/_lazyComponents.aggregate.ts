@@ -25,5 +25,5 @@ export const InternalLinkingMoleculeLazy =
 
 export const ContactFormOrganismLazy =
     dynamic(() => import('./ContactForm.organism'), {
-        ssr: true
+        ssr: false
     })
