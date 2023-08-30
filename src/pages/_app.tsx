@@ -1,10 +1,11 @@
+import { errorTrackerScriptLoader }           from '@/src/layers/application/errorTracker'
+import { googleAnalyticsScriptLoader }        from '@/src/layers/application/googleAnalytics'
+import { useRouteChangeTransitionController } from '@/src/layers/core/useRouteChangeTransition.controller'
+import { MainComposition }                    from '@/src/UI/compositions/Main.composition'
 import '@/src/UI/styles/globals.scss'
-import { errorTrackerScriptLoader }    from '@/src/layers/application/errorTracker'
-import { googleAnalyticsScriptLoader } from '@/src/layers/application/googleAnalytics'
-import { MainComposition }             from '@/src/UI/compositions/Main.composition'
-import { ControllersComposition }   from '@msalek/controllers'
-import { NextComponentType }        from 'next/dist/shared/lib/utils'
-import React                        from 'react'
+import { ControllersComposition }             from '@msalek/controllers'
+import { NextComponentType }                  from 'next/dist/shared/lib/utils'
+import React                                  from 'react'
 
 
 
@@ -25,7 +26,10 @@ const App = ({Component, pageProps}: Props) => {
                 [
                     googleAnalyticsScriptLoader,
                     errorTrackerScriptLoader
-                ]}/>
+                ]}
+            hookControllers={[
+                useRouteChangeTransitionController
+            ]}/>
 
         <MainComposition title={pageProps.title}>
 

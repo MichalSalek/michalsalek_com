@@ -23,7 +23,7 @@ export const useStateBlinking = (): UseStateBlinkingHook => {
         setBooleanSwitch(false)
         await freezeThreadAndWait(200)
         setBooleanSwitch(true)
-        await freezeThreadAndWait(500)
+        await freezeThreadAndWait(200)
         setBooleanSwitch(false)
     }
 

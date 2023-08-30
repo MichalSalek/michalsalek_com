@@ -91,7 +91,7 @@ const RootCardOrganism = ({version, priorityLoad}: Props): ReactElement => {
                         linkPath={'/software/architecture'}
                         image={PlanningImage}
                         alt={'software planning process'}
-                        credits={'Photo by Daria Nepriakhina on Unsplash'}
+                        credits={'Image by pressfoto on Freepik'}
                         title={'Architecture and process planning'}
                         content={<><p><CompanyNameAtom/> will help you discover and plan areas of your business.</p>
                             <p>Let&apos;s find a definite borders of a features, scopes and modules. </p></>}
@@ -116,7 +116,7 @@ const RootCardOrganism = ({version, priorityLoad}: Props): ReactElement => {
                         linkPath={'/software/backend'}
                         image={BackImage}
                         alt={'software backend development process in atomic concept'}
-                        credits={'Photo by Christina on Unsplash'}
+                        credits={'Image by frimufilms on Freepik'}
                         title={'Backend logic and operations'}
                         content={<><p> Want to process some data? Need a microservice? </p>
                             <p><CompanyNameAtom/> use an event driven solutions to keep perfect timing and &quot;time travel&quot; possibilities –

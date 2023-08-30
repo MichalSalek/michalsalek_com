@@ -1,15 +1,15 @@
-import { GeneralPageProps }       from '@/src/pages/_app'
-import { BreadcrumbsAtom }        from '@/src/UI/components/breadcrumbs/Breadcrumbs.atom'
-import { FooterPartial }          from '@/src/UI/partials/Footer.partial'
-import { HeaderPartial }          from '@/src/UI/partials/Header.partial'
-import { mainTheme }              from '@/src/UI/styles/theme'
-import Container from '@mui/material/Container'
-import CssBaseline from '@mui/material/CssBaseline'
-import Box                        from '@mui/material/Box'
-import { ThemeProvider }          from '@mui/material/styles'
-import localFont                  from 'next/font/local'
-import Head                       from 'next/head'
-import { ReactElement }           from 'react'
+import { GeneralPageProps } from '@/src/pages/_app'
+import { BreadcrumbsAtom }  from '@/src/UI/components/breadcrumbs/Breadcrumbs.atom'
+import { FooterPartial }    from '@/src/UI/partials/Footer.partial'
+import { HeaderPartial }    from '@/src/UI/partials/Header.partial'
+import { mainTheme }        from '@/src/UI/styles/theme'
+import Box                  from '@mui/material/Box'
+import Container            from '@mui/material/Container'
+import CssBaseline          from '@mui/material/CssBaseline'
+import { ThemeProvider }    from '@mui/material/styles'
+import localFont            from 'next/font/local'
+import Head                 from 'next/head'
+import { ReactElement }     from 'react'
 
 
 
@@ -51,11 +51,10 @@ export const MainComposition = ({children, title}: Props): ReactElement => {
 
             <ThemeProvider theme={mainTheme}>
 
+                <HeaderPartial/>
+
                 <Container maxWidth={'xl'}>
-
-                    <HeaderPartial/>
-
-                    <Box sx={{minHeight: '100vh'}} component={'section'}>
+                    <Box sx={{minHeight: '100vh'}} component={'section'} id={'main-app-content-box'}>
 
                         <Container><BreadcrumbsAtom/></Container>
 

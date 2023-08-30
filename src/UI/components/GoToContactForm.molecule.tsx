@@ -18,6 +18,7 @@ export const GoToContactFormMolecule = ({objectOfInterest}: Props): ReactElement
 
 
         <InfoTextBlockMoleculeLazy
+            variantDark={true}
             data={[
                 {
                     heading: <>The article interested you?</>,

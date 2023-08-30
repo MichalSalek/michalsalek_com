@@ -1,5 +1,8 @@
 import { AppRoutes }               from '@/src/layers/core/routes.config'
 import { AppLinkAtom }             from '@/src/UI/components/AppLink.atom'
+import { appColors }               from '@/src/UI/styles/colors'
+import { mainTheme }               from '@/src/UI/styles/theme'
+import Button                      from '@mui/material/Button'
 import Typography              from '@mui/material/Typography'
 import { ReactElement, ReactNode } from 'react'
 
@@ -9,13 +12,20 @@ import { ReactElement, ReactNode } from 'react'
 export const LinkButtonAtom = ({href, content}: { href: AppRoutes, content: string | ReactNode }): ReactElement =>
     <AppLinkAtom
         href={href}>
-        <Typography
-            variant={'button'}
-            width={'100%'}
-            component={'span'}
-            display={'block'}
-            textAlign={'center'}
-            color={'inherit'}>
-            {content}
-        </Typography>
+        <Button
+            variant={'contained'}
+            fullWidth
+            sx={{
+                display: 'inline-block',
+                backgroundColor: appColors.white,
+                color: mainTheme.palette.secondary.main,
+                borderWidth: '1px',
+                borderColor: 'transparent',
+                borderStyle: 'solid',
+                '&:hover': {
+                    color: appColors.white,
+                    borderColor: appColors.white
+                }
+            }}
+        >{content}</Button>
     </AppLinkAtom>

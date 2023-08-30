@@ -16,9 +16,8 @@ export default function Page() {
         <HeroMolecule
             image={backend}
             alt={'backend domain driver design'}
-            credits={'Photo by NEW DATA SERVICES on Unsplash'}
+            credits={'Photo by Daria Nepriakhina on Unsplash'}
         />
-
 
 
         <ContentBlockOrganismLazy

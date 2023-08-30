@@ -31,7 +31,9 @@ const InternalLinkingMolecule = ({itemsToShow}: InternalLinkingMoleculeProps): R
         <Typography variant="body2" mb={5}>with other creative areas:</Typography>
 
 
-        <InfoTextBlockMoleculeLazy data={[
+        <InfoTextBlockMoleculeLazy
+            variantDark={true}
+            data={[
 
 
             showThisPathLink('/software/architecture') && {
@@ -42,7 +44,7 @@ const InternalLinkingMolecule = ({itemsToShow}: InternalLinkingMoleculeProps): R
 
             showThisPathLink('/software/backend') && {
                 heading: <>Try our <strong>backend</strong> services:</>,
-                content: <LinkButtonAtom href={'/software/backend'} content={'Server solutions'}/>
+                content: <LinkButtonAtom href={'/software/backend'} content={'Server solutions'} />
             },
 
 

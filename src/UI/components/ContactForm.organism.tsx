@@ -2,14 +2,15 @@ import { sendEmail }                                         from '@/src/layers/
 import { ContactFormFeedbackAtom }                           from '@/src/UI/components/ContactFormFeedback.atom'
 import { useFakeLoadingHook }                                from '@/src/UI/hooks/useFakeLoading.hook'
 import { useStateBlinking }                                  from '@/src/UI/hooks/useStateBlinking.hook'
+import { mainTheme }                                         from '@/src/UI/styles/theme'
 import { freezeThreadAndWait }                               from '@msalek/utils'
 import Button                                                from '@mui/material/Button'
 import CircularProgress                                      from '@mui/material/CircularProgress'
 import FormControl                                           from '@mui/material/FormControl'
 import Stack                                                 from '@mui/material/Stack'
 import TextField                                             from '@mui/material/TextField'
-import { useRouter }                                         from 'next/router'
-import React, { FormEvent, ReactElement, useMemo, useState } from 'react'
+import { useRouter }                                                    from 'next/router'
+import React, { FormEvent, ReactElement, useEffect, useMemo, useState } from 'react'
 
 
 
@@ -101,6 +102,14 @@ const ContactFormOrganism = (): ReactElement => {
     }, [showFeedbackInfo, isMessageSuccessfullySent, formError])
 
 
+    const {booleanSwitch: subjectAttention, doBlinkingAnimation: doSubjectAttentionAnimation} = useStateBlinking()
+
+    useEffect(() => {
+        if (!passedEmailSubject) return void undefined
+        setTimeout(doSubjectAttentionAnimation, 800)
+    }, [passedEmailSubject])
+
+
     return <FormControl
         component={'form'}
         onSubmit={async (e: FormEvent) => {
@@ -154,6 +163,7 @@ const ContactFormOrganism = (): ReactElement => {
                     label={'Subject *'}
                     placeholder={'Email title'}
                     value={subject}
+                    sx={subjectAttention ? {filter: `drop-shadow(0px 0px 1px ${mainTheme.palette.info.main})`} : undefined}
                     onChange={(event) =>
                         setSubject(event.target.value)}
                 />

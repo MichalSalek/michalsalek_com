@@ -13,6 +13,15 @@ main {
   overflow-x: hidden;
 }
 
+#main-app-content-box {
+  transition: opacity 100ms cubic-bezier(.17,1.2,.79,.96);
+  opacity: 1;
+}
+
+#main-app-content-box.app-routing-transition {
+  opacity: 0;
+}
+
 a {
   color: hsl(218, 89%, 51%);
   font-weight: bold;
