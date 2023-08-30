@@ -16,7 +16,7 @@ export const useRouteChangeTransitionController = () => {
     const handleStop = useCallback(() => {
         setTimeout(() => {
             element.current?.classList.remove('app-routing-transition')
-        }, 50)
+        }, 30)
     }, [])
 
     useEffect(() => {
