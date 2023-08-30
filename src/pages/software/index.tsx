@@ -8,11 +8,7 @@ import Container            from '@mui/material/Container'
 const PAGE_TITLE = 'Software services'
 
 export default function Page() {
-    return <Container>
-
-        <RootCardOrganismLazy version={'software'}/>
-
-    </Container>
+    return <RootCardOrganismLazy version={'software'}/>
 }
 
 

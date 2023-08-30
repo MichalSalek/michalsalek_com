@@ -8,11 +8,7 @@ import Container            from '@mui/material/Container'
 const PAGE_TITLE = 'Sound online services'
 
 export default function Page() {
-    return <Container>
-
-        <RootCardOrganismLazy version={'sound'}/>
-
-    </Container>
+    return <RootCardOrganismLazy version={'sound'}/>
 }
 
 
