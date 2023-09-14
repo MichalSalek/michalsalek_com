@@ -1,5 +1,5 @@
-import { appColors }                                   from '@/src/UI/styles/colors'
-import { mainTheme }                                   from '@/src/UI/styles/theme'
+import { appColors } from '@/src/UI/styles/constants'
+import { mainTheme } from '@/src/UI/styles/theme'
 import Typography                                      from '@mui/material/Typography'
 import Card                                            from '@mui/material/Card'
 import CardContent                                     from '@mui/material/CardContent'

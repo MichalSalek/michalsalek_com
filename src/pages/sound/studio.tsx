@@ -1,6 +1,7 @@
 import { GeneralPageProps }         from '@/src/pages/_app'
 import music_studio                 from '@/src/UI/assets/music_studio.jpg'
 import { ContentBlockOrganismLazy } from '@/src/UI/components/_lazyComponents.aggregate'
+import { AppLinkAtom }              from '@/src/UI/components/AppLink.atom'
 import { CompanyNameAtom }          from '@/src/UI/components/CompanyName.atom'
 import { HeroMolecule }             from '@/src/UI/components/Hero.molecule'
 import { ArticleComposition }       from '@/src/UI/compositions/Article.composition'
@@ -39,10 +40,13 @@ export default function Page() {
                 We will find a way to <strong>improve your sound</strong>. We specialize in mixing and mastering pre-submitted multitracks.
                 <br/>
                 <br/>
-                If you <strong>have made recordings at home</strong> using the home-recording methods,
-                or <strong>recorded tracks in the studio</strong> and did not want to use local mixing services – you are in the right place.
-                We will advise you on <strong>how to best prepare yours multi-tracks</strong> for mailing to our studio.
+                If you recorded your music at home using the <strong>home-recording</strong> methods.
+                Or recorded tracks in the studio. Anyways – <strong>you are in the right place</strong>.
+                We can provide an advice for you in <strong>how to best prepare yours multi-tracks</strong> for mailing to our studio.
                 After reviewing the material – we will be able to price the services – <strong>mixing and mastering</strong> separately.
+                <br/>
+                <br/>
+                We can add to your music something more if you want to – <AppLinkAtom href={'/sound/soundtracks/'}> we making soundtracks also</AppLinkAtom>.
             </>}
         />
 

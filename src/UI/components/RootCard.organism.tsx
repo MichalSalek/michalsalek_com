@@ -5,9 +5,9 @@ import PlanningImage                      from '@/src/UI/assets/planning.jpg'
 import StudioImage                        from '@/src/UI/assets/studio.jpg'
 import { AppLinkAtom }                    from '@/src/UI/components/AppLink.atom'
 import { ClickableCardMolecule }          from '@/src/UI/components/ClickableCard.molecule'
-import { CompanyNameAtom }                from '@/src/UI/components/CompanyName.atom'
-import { appColors }                      from '@/src/UI/styles/colors'
-import Typography                     from '@mui/material/Typography'
+import { CompanyNameAtom } from '@/src/UI/components/CompanyName.atom'
+import { appColors }       from '@/src/UI/styles/constants'
+import Typography          from '@mui/material/Typography'
 import Stack                              from '@mui/material/Stack'
 import { useRouter }                      from 'next/router'
 import React, { ReactElement, ReactNode } from 'react'
@@ -88,18 +88,6 @@ const RootCardOrganism = ({version, priorityLoad}: Props): ReactElement => {
                 <InsideWrapper>
 
                     <ClickableCardMolecule
-                        linkPath={'/software/architecture'}
-                        image={PlanningImage}
-                        alt={'software planning process'}
-                        credits={'Image by pressfoto on Freepik'}
-                        title={'Architecture and process planning'}
-                        content={<><p><CompanyNameAtom/> will help you discover and plan areas of your business.</p>
-                            <p>Let&apos;s find a definite borders of a features, scopes and modules. </p></>}
-                        priorityLoad={priorityLoad}
-                    />
-
-
-                    <ClickableCardMolecule
                         linkPath={'/software/frontend'}
                         image={FrontImage}
                         alt={'software frontend UI development process in atomic concept'}
@@ -111,6 +99,16 @@ const RootCardOrganism = ({version, priorityLoad}: Props): ReactElement => {
                         priorityLoad={priorityLoad}
                     />
 
+                    <ClickableCardMolecule
+                        linkPath={'/software/architecture'}
+                        image={PlanningImage}
+                        alt={'software planning process'}
+                        credits={'Image by pressfoto on Freepik'}
+                        title={'Architecture and process planning'}
+                        content={<><p><CompanyNameAtom/> will help you discover and plan areas of your business.</p>
+                            <p>Let&apos;s define the specific scopes step by step and create an ecosystem for it. </p></>}
+                        priorityLoad={priorityLoad}
+                    />
 
                     <ClickableCardMolecule
                         linkPath={'/software/backend'}

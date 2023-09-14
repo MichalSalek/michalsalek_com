@@ -1,6 +1,7 @@
 import { GeneralPageProps }         from '@/src/pages/_app'
 import drumset                      from '@/src/UI/assets/drumset.jpg'
 import { ContentBlockOrganismLazy } from '@/src/UI/components/_lazyComponents.aggregate'
+import { AppLinkAtom }              from '@/src/UI/components/AppLink.atom'
 import { CompanyNameAtom }          from '@/src/UI/components/CompanyName.atom'
 import { HeroMolecule }             from '@/src/UI/components/Hero.molecule'
 import { ArticleComposition }       from '@/src/UI/compositions/Article.composition'
@@ -38,6 +39,9 @@ export default function Page() {
                 We will compose music and sound design for your materials. <strong>Specify your vision to us</strong> and we will do the rest.
                 We have the ability to use <strong>samplers and high quality processors</strong>.
                 We also have instruments such as <strong>electric guitar, bass guitar, drum set</strong>.
+                <br/>
+                <br/>
+                Our each idea always sounds top, because we have a knowledge about <AppLinkAtom href={'/sound/studio/'}> mix and mastering</AppLinkAtom> – for any sound sources.
 
             </>}
         />

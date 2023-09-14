@@ -1,8 +1,8 @@
 import { AppRoutes }               from '@/src/layers/core/routes.config'
 import { AppLinkAtom }             from '@/src/UI/components/AppLink.atom'
-import { ImageAtom }               from '@/src/UI/components/Image.atom'
-import { appColors }               from '@/src/UI/styles/colors'
-import { mainTheme }               from '@/src/UI/styles/theme'
+import { ImageAtom }            from '@/src/UI/components/Image.atom'
+import { appColors, appStyles } from '@/src/UI/styles/constants'
+import { mainTheme }            from '@/src/UI/styles/theme'
 import Typography              from '@mui/material/Typography'
 import Card                        from '@mui/material/Card'
 import CardActionArea              from '@mui/material/CardActionArea'
@@ -38,7 +38,7 @@ export const ClickableCardMolecule = ({image, alt, credits, title, content, link
     >
         <AppLinkAtom
             href={linkPath}
-            style={{textDecoration: 'none'}}
+            style={{textDecoration: 'none', height: '100%'}}
         >
 
             <CardActionArea
@@ -93,7 +93,8 @@ export const ClickableCardMolecule = ({image, alt, credits, title, content, link
                         >
                             <Typography
                                 sx={{
-                                    display: 'flex'
+                                    display: 'flex',
+                                    ...appStyles.cardBoxShadow
                                 }}
                                 variant={'button'}
                                 color={appColors.white}

@@ -1,6 +1,7 @@
 import { GeneralPageProps }         from '@/src/pages/_app'
 import backend                      from '@/src/UI/assets/backend.jpg'
 import { ContentBlockOrganismLazy } from '@/src/UI/components/_lazyComponents.aggregate'
+import { AppLinkAtom }              from '@/src/UI/components/AppLink.atom'
 import { HeroMolecule }             from '@/src/UI/components/Hero.molecule'
 import { ArticleComposition }       from '@/src/UI/compositions/Article.composition'
 import React                        from 'react'
@@ -33,7 +34,7 @@ export default function Page() {
             </>}
             body={<>
 
-                The backend technology must be created to work closely with the user interface.
+                The backend technology must be created to work closely with the <AppLinkAtom href={'/software/frontend/'}>user interface</AppLinkAtom>.
                 We know how important it is to optimize the services that <strong>fulfill your business needs</strong>,
                 so at every stage of server code development we take care of the necessary minimum needed for the application to work.
                 <br/>
@@ -58,7 +59,7 @@ export default function Page() {
             </>}
             body={<>
 
-                The best job done is the one that <strong>accomplishes your needs without doing overcomplicated solutions</strong>.
+                The best job done is the one that <strong>accomplishes your needs without overcomplicated solutions</strong>.
                 <br/>
                 The key to success is analysis. We need to understand exactly what you want to achieve –
                 that way we will code a service that accomplishes <strong>exactly what you want to achieve</strong>. No acrobatics or over-engineering.

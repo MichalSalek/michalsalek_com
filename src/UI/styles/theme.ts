@@ -1,4 +1,4 @@
-import { appColors }   from '@/src/UI/styles/colors'
+import { appColors }   from '@/src/UI/styles/constants'
 import { createTheme } from '@mui/material/styles'
 import { Theme }       from '@mui/system'
 
