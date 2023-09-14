@@ -26,7 +26,8 @@ export default function Page() {
                 Usually it is one day.
                 <br/>
                 <br/>
-                Give us your email address to enable us to respond.
+                Give us your email address to enable us to respond. <br/>
+                <strong>We will send you a copy of your message being an acknowledgment of receipt.</strong>
             </>}
         />
 

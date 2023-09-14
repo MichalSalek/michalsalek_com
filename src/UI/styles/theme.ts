@@ -82,7 +82,7 @@ export const mainTheme: Theme = createTheme({
             '@media (min-width:1200px)': {
                 fontSize: '1.1rem'
             },
-            fontWeight:                  '300',
+            fontWeight:                  '400',
             color:                       appColors.secondary,
             marginTop:                   '2rem'
         },
