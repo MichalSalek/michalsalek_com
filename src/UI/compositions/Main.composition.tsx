@@ -14,15 +14,15 @@ import { ReactElement }     from 'react'
 
 
 
-const font = localFont({
-    src:      [{
-        path: '../styles/fonts/Mona-Sans-Light.woff2', weight: '400', style: 'normal'
-    }, {
-        path: '../styles/fonts/Mona-Sans-Medium.woff2', weight: '600', style: 'bold'
-    }],
-    display:  'swap',
-    fallback: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol']
-})
+// const font = localFont({
+//     src:      [{
+//         path: '../styles/fonts/Mona-Sans-Bold.woff2', weight: '400', style: 'normal'
+//     }, {
+//         path: '../styles/fonts/Mona-Sans-Medium.woff2', weight: '600', style: 'bold'
+//     }],
+//     display:  'swap',
+//     fallback: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol']
+// })
 
 
 type Props = {
@@ -39,7 +39,7 @@ export const MainComposition = ({children, title}: Props): ReactElement => {
         <CssBaseline/>
 
         <main
-            className={font.className}
+            // className={font.className}
             style={{marginTop: '7rem'}}>
 
             <Head>
