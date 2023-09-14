@@ -12,5 +12,6 @@ export const appColors = {
 } as const
 
 export const appStyles = {
-    cardBoxShadow: {boxShadow: '14px 14px 0px -6px #000000'}
+    cardBoxShadow: {boxShadow: '14px 14px 0px -6px #000000'},
+    formFieldBoxShadow: {boxShadow: '8px 8px 0px -6px #000000'}
 } as const

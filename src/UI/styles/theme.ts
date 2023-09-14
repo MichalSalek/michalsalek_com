@@ -1,6 +1,6 @@
-import { appColors }   from '@/src/UI/styles/constants'
-import { createTheme } from '@mui/material/styles'
-import { Theme }       from '@mui/system'
+import { appColors, appStyles } from '@/src/UI/styles/constants'
+import { createTheme }          from '@mui/material/styles'
+import { Theme }                from '@mui/system'
 
 
 
@@ -142,7 +142,8 @@ export const mainTheme: Theme = createTheme({
         MuiInputBase:     {
             styleOverrides: {
                 root: {
-                    fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif'
+                    fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif',
+                    ...appStyles.formFieldBoxShadow
                 }
             }
         },
