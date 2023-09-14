@@ -7,22 +7,10 @@ import Box                  from '@mui/material/Box'
 import Container            from '@mui/material/Container'
 import CssBaseline          from '@mui/material/CssBaseline'
 import { ThemeProvider }    from '@mui/material/styles'
-import localFont            from 'next/font/local'
 import Head                 from 'next/head'
 import { ReactElement }     from 'react'
 
 
-
-
-// const font = localFont({
-//     src:      [{
-//         path: '../styles/fonts/Mona-Sans-Bold.woff2', weight: '400', style: 'normal'
-//     }, {
-//         path: '../styles/fonts/Mona-Sans-Medium.woff2', weight: '600', style: 'bold'
-//     }],
-//     display:  'swap',
-//     fallback: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol']
-// })
 
 
 type Props = {
@@ -39,7 +27,6 @@ export const MainComposition = ({children, title}: Props): ReactElement => {
         <CssBaseline/>
 
         <main
-            // className={font.className}
             style={{marginTop: '7rem'}}>
 
             <Head>
