@@ -1,5 +1,5 @@
-import { freezeThreadAndWait }                from '@msalek/utils'
-import { Dispatch, SetStateAction, useState } from 'react'
+import { freezeThreadAndWait }                             from '@msalek/utils'
+import { Dispatch, SetStateAction, useCallback, useState } from 'react'
 
 
 
@@ -13,7 +13,7 @@ type UseStateBlinkingHook = {
 export const useStateBlinking = (): UseStateBlinkingHook => {
     const [booleanSwitch, setBooleanSwitch] = useState(false)
 
-    const doBlinkingAnimation = async (): Promise<void> => {
+    const doBlinkingAnimation = useCallback(async (): Promise<void> => {
         setBooleanSwitch(true)
         await freezeThreadAndWait(100)
         setBooleanSwitch(false)
@@ -25,7 +25,7 @@ export const useStateBlinking = (): UseStateBlinkingHook => {
         setBooleanSwitch(true)
         await freezeThreadAndWait(200)
         setBooleanSwitch(false)
-    }
+    }, [setBooleanSwitch])
 
     return ({booleanSwitch, setBooleanSwitch, doBlinkingAnimation})
 }

@@ -1,14 +1,14 @@
-import { sendEmail }                                         from '@/src/layers/application/email'
-import { ContactFormFeedbackAtom }                           from '@/src/UI/components/ContactFormFeedback.atom'
-import { useFakeLoadingHook }                                from '@/src/UI/hooks/useFakeLoading.hook'
-import { useStateBlinking }                                  from '@/src/UI/hooks/useStateBlinking.hook'
-import { mainTheme }                                         from '@/src/UI/styles/theme'
-import { freezeThreadAndWait }                               from '@msalek/utils'
-import Button                                                from '@mui/material/Button'
-import CircularProgress                                      from '@mui/material/CircularProgress'
-import FormControl                                           from '@mui/material/FormControl'
-import Stack                                                 from '@mui/material/Stack'
-import TextField                                             from '@mui/material/TextField'
+import { sendEmail }                                                    from '@/src/layers/application/email'
+import { ContactFormFeedbackAtom }                                      from '@/src/UI/components/ContactFormFeedback.atom'
+import { useFakeLoadingHook }                                           from '@/src/UI/hooks/useFakeLoading.hook'
+import { useStateBlinking }                                             from '@/src/UI/hooks/useStateBlinking.hook'
+import { mainTheme }                                                    from '@/src/UI/styles/theme'
+import { freezeThreadAndWait }                                          from '@msalek/utils'
+import Button                                                           from '@mui/material/Button'
+import CircularProgress                                                 from '@mui/material/CircularProgress'
+import FormControl                                                      from '@mui/material/FormControl'
+import Stack                                                            from '@mui/material/Stack'
+import TextField                                                        from '@mui/material/TextField'
 import { useRouter }                                                    from 'next/router'
 import React, { FormEvent, ReactElement, useEffect, useMemo, useState } from 'react'
 
@@ -107,7 +107,7 @@ const ContactFormOrganism = (): ReactElement => {
     useEffect(() => {
         if (!passedEmailSubject) return void undefined
         setTimeout(doSubjectAttentionAnimation, 800)
-    }, [passedEmailSubject])
+    }, [doSubjectAttentionAnimation, passedEmailSubject])
 
 
     return <FormControl
