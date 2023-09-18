@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "build-sitemap": "next-sitemap",
     "cleanup": "rm -rf ./.next ./.out ./.standalone",
     "dev:nolint": "yarn cleanup && printf '%b\\n' '\\033[1m\n\n   -> -> -> Launching dev server -> -> ->   \n\n\\033[0m' && next",
     "dev": "yarn lint:fix && yarn dev:nolint",
     "build-images": "rm -rf ./public/optimized-images && next-image-export-optimizer",
-    "build:nolint": "yarn cleanup && next build --no-lint && yarn build-images",
+    "build:nolint": "yarn cleanup && next build --no-lint && yarn build-images && yarn build-sitemap",
     "build": "yarn lint:fix && yarn build:nolint",
     "server": "yarn build && next start -p 3100",
     "server:out": "yarn build && npx serve@latest out",
@@ -45,6 +46,7 @@
     "husky": "^8.0.3",
     "next-image-export-optimizer": "^1.8.1",
     "sass": "^1.62.0",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "next-sitemap": "^4.2.3"
   }
 }
