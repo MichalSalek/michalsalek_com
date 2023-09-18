@@ -35,8 +35,8 @@ export const AppBarOrganism = (): ReactElement => {
                 <AppBar
                     className={scss.host}
                     sx={{
-                        backgroundColor: 'rgba(255, 255, 255, 0.6)',
-                        backdropFilter:  'blur(5px) saturate(160%) contrast(45%) brightness(140%)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                        backdropFilter:  'blur(5px) saturate(200%) contrast(36%) brightness(150%)',
                         borderTop:       `4px solid ${mainTheme.palette.primary.main}`
                     }}>
                     <Toolbar
