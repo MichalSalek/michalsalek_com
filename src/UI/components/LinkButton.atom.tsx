@@ -1,5 +1,5 @@
-import { AppRoutes }               from '@/src/layers/core/routes.config'
-import { AppLinkAtom }          from '@/src/UI/components/AppLink.atom'
+import { AppRoute }    from '@/src/layers/core/routes.config'
+import { AppLinkAtom } from '@/src/UI/components/AppLink.atom'
 import { appColors, appStyles } from '@/src/UI/styles/constants'
 import { mainTheme }            from '@/src/UI/styles/theme'
 import Button                      from '@mui/material/Button'
@@ -9,7 +9,7 @@ import { ReactElement, ReactNode } from 'react'
 
 
 
-export const LinkButtonAtom = ({href, content}: { href: AppRoutes, content: string | ReactNode }): ReactElement =>
+export const LinkButtonAtom = ({href, content}: { href: AppRoute, content: string | ReactNode }): ReactElement =>
     <AppLinkAtom
         href={href}>
         <Button

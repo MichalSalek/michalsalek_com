@@ -1,5 +1,5 @@
-import { AppRoutes }               from '@/src/layers/core/routes.config'
-import { AppLinkAtom }             from '@/src/UI/components/AppLink.atom'
+import { AppRoute }    from '@/src/layers/core/routes.config'
+import { AppLinkAtom } from '@/src/UI/components/AppLink.atom'
 import { ImageAtom }            from '@/src/UI/components/Image.atom'
 import { appColors, appStyles } from '@/src/UI/styles/constants'
 import { mainTheme }            from '@/src/UI/styles/theme'
@@ -20,7 +20,7 @@ type Props = {
     credits: string
     title: string
     content: ReactNode
-    linkPath: AppRoutes
+    linkPath: AppRoute
     buttonContent?: string
     priorityLoad?: boolean
 }

@@ -1,17 +1,30 @@
+.fontSize {
+  font-size: 0.8rem;
+}
+
+.slash {
+  content: '/';
+  margin: 0 0.5rem;
+}
+
+.slashAfter {
+  &::after {
+    @extend .slash;
+  }
+}
+
 .host {
+  @extend .fontSize;
   list-style: none;
   display: flex;
-  font-size: 0.8rem;
 
   :not(:first-child) {
-
     &:before {
-      content: '/';
-      margin: 0 0.5rem;
+      @extend .slash;
     }
   }
 
-  >:last-of-type > a {
+  > :last-of-type > a {
     color: inherit;
     pointer-events: none;
     text-decoration: none;

@@ -1,12 +1,12 @@
-import { AppRoutes }       from '@/src/layers/core/routes.config'
-import Link, { LinkProps } from 'next/link'
-import { CSSProperties, ReactElement, ReactNode } from 'react'
+import { AppRoute }        from '@/src/layers/core/routes.config'
+import Link, { LinkProps }                                        from 'next/link'
+import { CSSProperties, HTMLAttributes, ReactElement, ReactNode } from 'react'
 
 
 
 
 type Props = {
-    href: AppRoutes
+    href: AppRoute
     children: ReactNode
     style?: CSSProperties
 } & LinkProps

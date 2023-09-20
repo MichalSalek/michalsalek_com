@@ -1,5 +1,5 @@
-import { AppRoutes }                                        from '@/src/layers/core/routes.config'
-import { InfoTextBlockMoleculeLazy }                        from '@/src/UI/components/_lazyComponents.aggregate'
+import { AppRoute }                  from '@/src/layers/core/routes.config'
+import { InfoTextBlockMoleculeLazy } from '@/src/UI/components/_lazyComponents.aggregate'
 import { InfoTextBlockMoleculeData } from '@/src/UI/components/InfoTextBlock.molecule'
 import { LinkButtonAtom }                                   from '@/src/UI/components/LinkButton.atom'
 import Typography                                       from '@mui/material/Typography'
@@ -10,7 +10,7 @@ import { ReactElement }                                     from 'react'
 
 
 export type InternalLinkingMoleculeProps = {
-    itemsToShow?: AppRoutes[]
+    itemsToShow?: AppRoute[]
 }
 
 
@@ -21,7 +21,7 @@ const InternalLinkingMolecule = ({itemsToShow}: InternalLinkingMoleculeProps): R
 
     if (!itemsToShow) return null
 
-    const showThisPathLink = (itemToShow: AppRoutes): boolean => itemsToShow
+    const showThisPathLink = (itemToShow: AppRoute): boolean => itemsToShow
         .filter(path => path !== router.pathname) // Guard to not show a current router internal link.
         .includes(itemToShow)
 
