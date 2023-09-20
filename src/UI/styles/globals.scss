@@ -19,7 +19,8 @@ main {
 }
 
 #main-app-content-box.app-routing-transition {
-  opacity: 0.1;
+  opacity: 0.3;
+  filter: blur(15px);
 }
 
 a {

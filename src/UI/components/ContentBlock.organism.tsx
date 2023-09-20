@@ -15,7 +15,7 @@ type Props = {
 const ContentBlockOrganism = ({title, subtitle, body}: Props): ReactElement => {
 
     return <article>
-        <Card elevation={0} sx={{minWidth: '100%'}}>
+        <Card elevation={0} sx={{minWidth: '100%', background: 'transparent'}}>
 
             <CardContent sx={{px: 0}}>
                 <Typography variant={'h2'}>{title}</Typography>
