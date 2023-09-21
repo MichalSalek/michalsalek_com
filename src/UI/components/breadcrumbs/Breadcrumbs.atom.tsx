@@ -6,7 +6,6 @@ import scss                                     from './breadcrumbs.module.scss'
 
 
 
-
 export const BreadcrumbsAtom = (): ReactElement => {
     const router = useRouter()
 
@@ -25,11 +24,11 @@ export const BreadcrumbsAtom = (): ReactElement => {
         className={scss.fontSize}
     >
         {!isSitemapRoute &&
-            <li
+            <menu><li
                 style={{listStyle: 'none'}}
                 className={scss.slashAfter}>
                 <AppLinkAtom href={'/sitemap/'}>SITEMAP</AppLinkAtom>
-            </li>
+            </li></menu>
         }
         <Breadcrumbs
             labelsToUppercase

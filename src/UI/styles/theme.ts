@@ -5,6 +5,7 @@ import { Theme }                from '@mui/system'
 
 
 
+
 export const mainTheme: Theme = createTheme({
     palette:    {
         primary:   {
@@ -15,13 +16,11 @@ export const mainTheme: Theme = createTheme({
         }
     },
     typography: {
+        ...appStyles.appFontFamily,
+        fontSize:    12,
         allVariants: {
             color: appColors.main
         },
-        fontFamily:  [
-                         'Mona Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
-                     ].join(','),
-        fontSize:    12,
         h1:          {
             fontSize:                    '12vw',
             '@media (min-width:600px)':  {
@@ -97,7 +96,8 @@ export const mainTheme: Theme = createTheme({
             '@media (min-width:1200px)': {
                 fontSize: '1rem'
             },
-            color:                       appColors.secondary
+            color:                       appColors.secondary,
+            marginTop:                   '0.3rem'
         }
     },
     components: {
