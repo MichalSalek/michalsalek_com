@@ -203,7 +203,7 @@ const ContactFormOrganism = (): ReactElement => {
                 <Button
                     color={getButtonColor}
                     type={'submit'}
-                    variant={showFeedbackInfo ? 'contained' : undefined}
+                    variant={'contained'}
                     sx={{
                         my:            '2rem',
                         height:        '3rem',

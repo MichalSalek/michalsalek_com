@@ -13,7 +13,6 @@ export const appColors = {
 
 export const appStyles = {
     cardBoxShadow:      {boxShadow: '14px 14px 0px -6px #000000'},
-    formFieldBoxShadow: {boxShadow: '8px 8px 0px -6px #000000'},
     appFontFamily:      {
         fontFamily: [
                         'Mona Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
