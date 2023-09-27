@@ -8,8 +8,7 @@ import { CSSProperties, HTMLAttributes, ReactElement, ReactNode } from 'react'
 type Props = {
     href: AppRoute
     children: ReactNode
-    style?: CSSProperties
-} & LinkProps
+} & LinkProps & HTMLAttributes<HTMLAnchorElement>
 export const AppLinkAtom = (props: Props): ReactElement => {
     const {href, children}: Props = props
 

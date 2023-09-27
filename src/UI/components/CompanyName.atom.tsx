@@ -18,7 +18,7 @@ export const CompanyNameAtom = ({redirectOnClick = false, fullName, style}: Prop
 
     const concatenatedStyle: CSSProperties = {
         whiteSpace: 'nowrap',
-        color: 'inherit',
+        color:      'inherit',
         ...style
     }
 

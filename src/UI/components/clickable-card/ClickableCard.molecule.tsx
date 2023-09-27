@@ -1,16 +1,18 @@
-import { AppRoute }    from '@/src/layers/core/routes.config'
-import { AppLinkAtom } from '@/src/UI/components/AppLink.atom'
-import { ImageAtom }            from '@/src/UI/components/Image.atom'
-import { appColors, appStyles } from '@/src/UI/styles/constants'
-import { mainTheme }            from '@/src/UI/styles/theme'
-import Typography              from '@mui/material/Typography'
+import { AppRoute }                from '@/src/layers/core/routes.config'
+import { AppLinkAtom }             from '@/src/UI/components/AppLink.atom'
+import { ImageAtom }               from '@/src/UI/components/Image.atom'
+import { appColors, appStyles }    from '@/src/UI/styles/constants'
+import { mainTheme }               from '@/src/UI/styles/theme'
+import ArrowRightIcon              from '@mui/icons-material/ArrowRight'
 import Card                        from '@mui/material/Card'
 import CardActionArea              from '@mui/material/CardActionArea'
 import CardContent                 from '@mui/material/CardContent'
 import Stack                       from '@mui/material/Stack'
+import Typography                  from '@mui/material/Typography'
 import { StaticImageData }         from 'next/image'
 import { ReactElement, ReactNode } from 'react'
-import ArrowRightIcon  from '@mui/icons-material/ArrowRight'
+import scss                        from './clickableCard.module.scss'
+
 
 
 
@@ -38,7 +40,7 @@ export const ClickableCardMolecule = ({image, alt, credits, title, content, link
     >
         <AppLinkAtom
             href={linkPath}
-            style={{textDecoration: 'none', height: '100%'}}
+            className={scss.link}
         >
 
             <CardActionArea
@@ -100,14 +102,9 @@ export const ClickableCardMolecule = ({image, alt, credits, title, content, link
                                 color={appColors.white}
                                 borderColor={appColors.white}>{buttonContent} <ArrowRightIcon/></Typography>
                         </Stack>
-
                     </Stack>
                 </CardContent>
-
             </CardActionArea>
-
         </AppLinkAtom>
-
-
     </Card>
 }

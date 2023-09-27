@@ -1,0 +1,10 @@
+.link {
+  text-decoration: none;
+  height: 100%;
+
+  transition: filter 100ms ease-in;
+
+  &:hover {
+    filter: contrast(1.2) brightness(1) saturate(1.1)
+  }
+}

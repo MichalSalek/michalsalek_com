@@ -4,14 +4,14 @@ import FrontImage                         from '@/src/UI/assets/front.jpg'
 import PlanningImage                      from '@/src/UI/assets/planning.jpg'
 import StudioImage                        from '@/src/UI/assets/studio.jpg'
 import { AppLinkAtom }                    from '@/src/UI/components/AppLink.atom'
-import { ClickableCardMolecule }          from '@/src/UI/components/ClickableCard.molecule'
-import { CompanyNameAtom } from '@/src/UI/components/CompanyName.atom'
-import { appColors }       from '@/src/UI/styles/constants'
-import Typography          from '@mui/material/Typography'
+import { ClickableCardMolecule }          from '@/src/UI/components/clickable-card/ClickableCard.molecule'
+import { CompanyNameAtom }                from '@/src/UI/components/CompanyName.atom'
+import ArrowRightIcon                     from '@mui/icons-material/ArrowRight'
 import Stack                              from '@mui/material/Stack'
+import Typography                         from '@mui/material/Typography'
 import { useRouter }                      from 'next/router'
 import React, { ReactElement, ReactNode } from 'react'
-import ArrowRightIcon  from '@mui/icons-material/ArrowRight'
+
 
 
 
@@ -37,12 +37,12 @@ const CardsSectionTitleWithCompanyName = ({content}: { content: string }) =>
     <Typography
         variant={'h2'}
         sx={{
-            width: '100%',
-            maxWidth: '390px',
-            display: 'flex',
+            width:         '100%',
+            maxWidth:      '390px',
+            display:       'flex',
             flexDirection: 'column',
-            rowGap: 2,
-            padding: '2rem 0'
+            rowGap:        2,
+            padding:       '2rem 0'
         }}>
         <CompanyNameAtom
             fullName={true}
@@ -83,7 +83,7 @@ const RootCardOrganism = ({version, priorityLoad}: Props): ReactElement => {
 
                 <CardsSectionTitleWithCompanyName content={'in your software'}/>
 
-                <CardsSectionGoToCategory content={version} />
+                <CardsSectionGoToCategory content={version}/>
 
                 <InsideWrapper>
 
@@ -123,7 +123,6 @@ const RootCardOrganism = ({version, priorityLoad}: Props): ReactElement => {
                     />
 
                 </InsideWrapper>
-
             </OutsideWrapper>
 
 
@@ -133,7 +132,7 @@ const RootCardOrganism = ({version, priorityLoad}: Props): ReactElement => {
 
                 <CardsSectionTitleWithCompanyName content={'for sound and music'}/>
 
-                <CardsSectionGoToCategory content={version} />
+                <CardsSectionGoToCategory content={version}/>
 
                 <InsideWrapper>
 
