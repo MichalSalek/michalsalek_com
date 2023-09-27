@@ -4,7 +4,6 @@ import { ContentBlockOrganismLazy } from '@/src/UI/components/_lazyComponents.ag
 import { AppLinkAtom }              from '@/src/UI/components/AppLink.atom'
 import { HeroMolecule }             from '@/src/UI/components/Hero.molecule'
 import { ArticleComposition }       from '@/src/UI/compositions/Article.composition'
-import React                        from 'react'
 
 
 

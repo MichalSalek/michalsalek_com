@@ -5,7 +5,7 @@ import { appStyles }                    from '@/src/UI/styles/constants'
 import Container                        from '@mui/material/Container'
 import Stack                            from '@mui/material/Stack'
 import Typography                       from '@mui/material/Typography'
-import React, { ReactElement, useMemo } from 'react'
+import { ReactElement, useMemo, Fragment } from 'react'
 
 
 
@@ -34,7 +34,7 @@ export default function Page() {
                             if (route === '/') return undefined
                             const shouldBreakLine: boolean = lastDetectedCategory !== getFirstCategoryFromRoute(route)
                             lastDetectedCategory = getFirstCategoryFromRoute(route)
-                            return <React.Fragment key={route}>
+                            return <Fragment key={route}>
                                 {shouldBreakLine && <br/>}
                                 <li style={isFirstCategoryRoute ? {
                                     marginLeft: '-1rem'
@@ -46,7 +46,7 @@ export default function Page() {
                                     </AppLinkAtom>
 
                                 </li>
-                            </React.Fragment>
+                            </Fragment>
                         })
                     }
                 </ol>

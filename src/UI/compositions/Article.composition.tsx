@@ -4,7 +4,7 @@ import { InternalLinkingMoleculeProps }   from '@/src/UI/components/InternalLink
 import Container             from '@mui/material/Container'
 import Divider             from '@mui/material/Divider'
 import Typography                         from '@mui/material/Typography'
-import React, { ReactElement, ReactNode } from 'react'
+import  { ReactElement, ReactNode } from 'react'
 
 
 

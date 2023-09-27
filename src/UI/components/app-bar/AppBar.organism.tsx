@@ -9,7 +9,7 @@ import IconButton                            from '@mui/material/IconButton'
 import Toolbar                               from '@mui/material/Toolbar'
 import Typography                            from '@mui/material/Typography'
 import useScrollTrigger                      from '@mui/material/useScrollTrigger'
-import React, { cloneElement, ReactElement } from 'react'
+import  { cloneElement, ReactElement } from 'react'
 
 import scss from './appBar.module.scss'
 

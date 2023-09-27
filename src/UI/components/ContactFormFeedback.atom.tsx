@@ -3,7 +3,7 @@ import { appColors }                 from '@/src/UI/styles/constants'
 import { mainTheme }                 from '@/src/UI/styles/theme'
 import Typography                from '@mui/material/Typography'
 import Stack                         from '@mui/material/Stack'
-import React, { ReactElement }       from 'react'
+import { ReactElement }       from 'react'
 
 
 type Props = {

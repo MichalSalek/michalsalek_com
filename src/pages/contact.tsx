@@ -2,7 +2,6 @@ import { GeneralPageProps }                                  from '@/src/pages/_
 import { ContactFormOrganismLazy, ContentBlockOrganismLazy } from '@/src/UI/components/_lazyComponents.aggregate'
 import Container                                             from '@mui/material/Container'
 import Typography                                            from '@mui/material/Typography'
-import React                                                 from 'react'
 
 
 

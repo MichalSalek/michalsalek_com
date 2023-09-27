@@ -5,7 +5,7 @@ import { mainTheme }                          from '@/src/UI/styles/theme'
 import Container                              from '@mui/material/Container'
 import Stack                                  from '@mui/material/Stack'
 import Typography                             from '@mui/material/Typography'
-import React, { CSSProperties, ReactElement } from 'react'
+import { CSSProperties, ReactElement } from 'react'
 
 
 

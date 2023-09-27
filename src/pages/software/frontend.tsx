@@ -5,7 +5,6 @@ import { AppLinkAtom }              from '@/src/UI/components/AppLink.atom'
 import { CompanyNameAtom }          from '@/src/UI/components/CompanyName.atom'
 import { HeroMolecule }             from '@/src/UI/components/Hero.molecule'
 import { ArticleComposition }       from '@/src/UI/compositions/Article.composition'
-import React                        from 'react'
 
 
 

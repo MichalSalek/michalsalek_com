@@ -5,7 +5,6 @@ import { MainComposition }                    from '@/src/UI/compositions/Main.c
 import '@/src/UI/styles/globals.scss'
 import { ControllersComposition }             from '@msalek/controllers'
 import { NextComponentType }                  from 'next/dist/shared/lib/utils'
-import React                                  from 'react'
 
 
 
