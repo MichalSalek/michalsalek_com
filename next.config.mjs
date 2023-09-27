@@ -12,7 +12,7 @@ const nextConfig = {
         typedRoutes: true
     },
 
-    trailingSlash: true,
+    trailingSlash: false,
 
     output: 'export',
 
