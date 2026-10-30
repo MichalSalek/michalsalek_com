@@ -2,6 +2,8 @@ import assert from 'node:assert/strict';
 import { readFile, access } from 'node:fs/promises';
 import { load } from 'cheerio';
 import { routes, site, localePath, pageUrl } from '../src/content/site.mjs';
+import { sceneByPath, visualPalette } from '../src/content/visuals.mjs';
+import { createHash } from 'node:crypto';
 
 const sitemap = await readFile('out/sitemap.xml', 'utf8');
 const titles = new Set();
@@ -42,6 +44,15 @@ for (const locale of site.locales) {
             if (src.startsWith('/')) await access(`out${src}`);
             assert($(element).attr('width') || $(element).attr('style')?.includes('position:absolute'), `${label}: reserved image geometry`);
         }
+        for (const element of $('picture source')) {
+            const source = $(element).attr('srcset');
+            assert(source?.startsWith('/service-visuals/'), `${label}: static responsive artwork`);
+            await access(`out${source}`);
+        }
+        if (sceneByPath[path]) {
+            assert.equal($('.service-artwork-hero img').length, 1, `${label}: service illustration`);
+            assert($('.service-artwork-hero source').attr('srcset').includes(`-${locale}-mobile.`), `${label}: localized mobile artwork`);
+        }
         const md = relative === '/' ? '/index.md' : `${relative.slice(0, -1)}.md`;
         const mirror = await readFile(`out${md}`, 'utf8');
         assert(mirror.includes($('h1').text()), `${label}: Markdown mirror`);
@@ -54,4 +65,15 @@ assert(notFound('meta[name="robots"]').attr('content')?.includes('noindex'), '40
 for (const asset of ['robots.txt', 'llms.txt', 'llms-full.txt', 'og-image.png', '.htaccess', 'release.json']) await access(`out/${asset}`);
 const robots = await readFile('out/robots.txt', 'utf8');
 assert(robots.includes('Allow: /') && !robots.includes('Disallow: /'), 'Crawler access');
+const release = JSON.parse(await readFile('out/release.json', 'utf8'));
+for (const [path, hash] of Object.entries(release.assets)) {
+    const source = await readFile(`out${path}`, 'utf8');
+    assert.equal(createHash('sha256').update(source).digest('hex'), hash, `${path}: release artwork hash`);
+    assert.equal(path.match(/\.([a-f0-9]{12})\.svg$/)?.[1], hash.slice(0, 12), `${path}: immutable artwork URL`);
+    const document = load(source, {xml: true});
+    assert.equal(document('script, image, foreignObject').length, 0, `${path}: self-contained vector artwork`);
+    if (path.includes('/ai-card.')) {
+        assert.equal(document('#primary-document').attr('fill'), visualPalette.paper, 'The central document must remain light against the indigo backdrop');
+    }
+}
 console.log(`Export audit passed: ${pages} localized HTML pages, links, images, metadata, sitemap, JSON-LD and Markdown.`);

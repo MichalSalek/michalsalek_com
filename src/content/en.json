@@ -9,7 +9,7 @@
     "talk": "Do you want to talk?",
     "ask": "Tell us about your project",
     "general": "General question",
-    "contactIntro": "Describe what you want to build or improve and which tools you use today. You do not need technical details. We will use that to discuss the scope and next steps.",
+    "contactIntro": "Describe the project goal, your current tools and the result you want. We will use that to agree the scope and next steps.",
     "email": "Your email",
     "name": "Your name",
     "subject": "Subject",
@@ -31,8 +31,8 @@
     "interested": "Interested in this service?",
     "generalHeading": "I just have a question",
     "relatedIntro": "See how else we can help you:",
-    "introTitle": "What would you like to improve?",
-    "introContact": "Tell us about your project",
+    "introTitle": "From first conversation to a working system",
+    "introContact": "Let's talk about your project",
     "breadcrumbHome": "Home",
     "breadcrumbSoftware": "Software",
     "breadcrumbSound": "Sound",
@@ -54,8 +54,8 @@
       "title": "AI, automation and custom software for your business",
       "description": "Atomic Concept delivers websites, applications, integrations, automation and AI for businesses, from requirements and implementation to deployment and maintenance.",
       "intro": [
-        "You know what needs improving in your business. We can build the **website, application or automation** to help you do it.",
-        "We **connect the tools you already use**, organise your data and add AI where it has a useful job to do. You do not need a technical specification to start."
+        "We start by understanding how your business runs and what it actually needs. Only then do we propose a solution. No unnecessary features and no added complexity that makes nothing easier.",
+        "**We design, build, test and deploy.** We take responsibility for the complete project, so you do not have to coordinate several contractors or explain the same thing again."
       ]
     },
     "/software/architecture/": {
@@ -183,5 +183,323 @@
         ]
       }
     ]
+  },
+  "visuals": {
+    "ai": {
+      "sidebar": "Documents and AI",
+      "headline": "Data from a document",
+      "description": "Extract, check and pass on the information.",
+      "steps": [
+        "Document",
+        "Review",
+        "Save"
+      ],
+      "panel": "Extracted fields",
+      "rows": [
+        [
+          "Document number",
+          "Recognised"
+        ],
+        [
+          "Issue date",
+          "Recognised"
+        ],
+        [
+          "Amount",
+          "Needs review"
+        ]
+      ],
+      "checkTitle": "Verification",
+      "checks": [
+        "Source identified",
+        "Missing data marked",
+        "Result ready for review"
+      ],
+      "action": "Review the result",
+      "cardAlt": "A document, extracted fields and a checked result.",
+      "heroAlt": "Example interface: data from a document"
+    },
+    "automation": {
+      "sidebar": "Workflow automation",
+      "headline": "An enquiry in progress",
+      "description": "The next steps follow the agreed rules.",
+      "steps": [
+        "Enquiry",
+        "Task",
+        "Notification"
+      ],
+      "panel": "Task progress",
+      "rows": [
+        [
+          "Enquiry",
+          "Received"
+        ],
+        [
+          "Rule",
+          "Matched"
+        ],
+        [
+          "Next step",
+          "Create a task"
+        ]
+      ],
+      "checkTitle": "Process checks",
+      "checks": [
+        "Conditions agreed",
+        "Exceptions marked",
+        "Execution history"
+      ],
+      "action": "View progress",
+      "cardAlt": "An enquiry, workflow rules and a completed task.",
+      "heroAlt": "Example interface: an enquiry in progress"
+    },
+    "integrations": {
+      "sidebar": "Connected systems",
+      "headline": "Data exchange",
+      "description": "Information reaches the tools that need it.",
+      "steps": [
+        "Source",
+        "Transfer",
+        "Confirmation"
+      ],
+      "panel": "Connected tools",
+      "rows": [
+        [
+          "Shop",
+          "Connected"
+        ],
+        [
+          "Payments",
+          "Connected"
+        ],
+        [
+          "Customer system",
+          "Connected"
+        ]
+      ],
+      "checkTitle": "Exchange checks",
+      "checks": [
+        "Fields mapped",
+        "Duplicates checked",
+        "Errors recorded"
+      ],
+      "action": "Check the connection",
+      "cardAlt": "Two systems connected by a two-way data exchange.",
+      "heroAlt": "Example interface: data exchange"
+    },
+    "websites": {
+      "sidebar": "Business website",
+      "headline": "Your offer and contact",
+      "description": "Clear information and a simple way to send an enquiry.",
+      "steps": [
+        "Offer",
+        "Services",
+        "Contact"
+      ],
+      "panel": "Enquiry form",
+      "rows": [
+        [
+          "Email address",
+          ""
+        ],
+        [
+          "Subject",
+          "Your project"
+        ],
+        [
+          "Message",
+          ""
+        ]
+      ],
+      "checkTitle": "Website content",
+      "checks": [
+        "Services offered",
+        "How we work",
+        "Contact details"
+      ],
+      "action": "Send an enquiry",
+      "cardAlt": "A business website layout and contact form.",
+      "heroAlt": "Example interface: your offer and contact"
+    },
+    "applications": {
+      "sidebar": "Job management",
+      "headline": "A job ready to start",
+      "description": "The information needed to begin work in one place.",
+      "steps": [
+        "Enquiry",
+        "In progress",
+        "Completed"
+      ],
+      "panel": "Job preparation",
+      "rows": [
+        [
+          "Scope",
+          "Confirmed"
+        ],
+        [
+          "Materials",
+          "Complete"
+        ],
+        [
+          "Next step",
+          "Start work"
+        ]
+      ],
+      "checkTitle": "Checklist",
+      "checks": [
+        "Requirements agreed",
+        "Documents collected",
+        "Task assigned"
+      ],
+      "action": "Open the job",
+      "cardAlt": "A job list and a task detail panel.",
+      "heroAlt": "Example interface: a job ready to start"
+    },
+    "reporting": {
+      "sidebar": "Business reports",
+      "headline": "Business overview",
+      "description": "Information from your existing systems in one report.",
+      "steps": [
+        "Sources",
+        "Summary",
+        "Report"
+      ],
+      "panel": "Data sources",
+      "rows": [
+        [
+          "Sales",
+          "Data collected"
+        ],
+        [
+          "Payments",
+          "Data collected"
+        ],
+        [
+          "Jobs",
+          "Data collected"
+        ]
+      ],
+      "checkTitle": "Summary",
+      "checks": [
+        "Sources described",
+        "Period defined",
+        "Missing data marked"
+      ],
+      "action": "Open the report",
+      "cardAlt": "Three data sources combined in a report with a chart.",
+      "heroAlt": "Example interface: business overview"
+    },
+    "architecture": {
+      "sidebar": "Application plan",
+      "headline": "Processes and modules",
+      "description": "Agreed responsibilities across the application.",
+      "steps": [
+        "Processes",
+        "Modules",
+        "Deployment"
+      ],
+      "panel": "Solution plan",
+      "rows": [
+        [
+          "Areas",
+          "Clear boundaries"
+        ],
+        [
+          "Data",
+          "Agreed models"
+        ],
+        [
+          "Development",
+          "Next stages"
+        ]
+      ],
+      "checkTitle": "Project scope",
+      "checks": [
+        "Module boundaries",
+        "Information flow",
+        "Deployment approach"
+      ],
+      "action": "View the plan",
+      "cardAlt": "Service illustration: application plan",
+      "heroAlt": "Example interface: processes and modules"
+    },
+    "backend": {
+      "sidebar": "System operations",
+      "headline": "Data flow",
+      "description": "Server operations with a confirmed result.",
+      "steps": [
+        "Receive",
+        "Process",
+        "Confirm"
+      ],
+      "panel": "Operation status",
+      "rows": [
+        [
+          "Request",
+          "Received"
+        ],
+        [
+          "Save",
+          "Confirmed"
+        ],
+        [
+          "Retry",
+          "No duplicate"
+        ]
+      ],
+      "checkTitle": "Operation checks",
+      "checks": [
+        "Permissions checked",
+        "Data saved",
+        "Errors recorded"
+      ],
+      "action": "Review the operation",
+      "cardAlt": "Service illustration: system operations",
+      "heroAlt": "Example interface: data flow"
+    },
+    "frontend": {
+      "sidebar": "Application interface",
+      "headline": "Enquiry form",
+      "description": "Clear fields, progress and delivery feedback.",
+      "steps": [
+        "Details",
+        "Message",
+        "Confirmation"
+      ],
+      "panel": "Your enquiry",
+      "rows": [
+        [
+          "Email address",
+          ""
+        ],
+        [
+          "Subject",
+          "Application project"
+        ],
+        [
+          "Message",
+          ""
+        ]
+      ],
+      "checkTitle": "Form behaviour",
+      "checks": [
+        "Labelled fields",
+        "Clear feedback",
+        "Text preserved"
+      ],
+      "action": "Send an enquiry",
+      "cardAlt": "Service illustration: application interface",
+      "heroAlt": "Example interface: enquiry form"
+    },
+    "common": {
+      "nav": [
+        "Jobs",
+        "Customers",
+        "Documents",
+        "Reports"
+      ],
+      "workspace": "Business workspace",
+      "example": "Example interface"
+    }
   }
 }

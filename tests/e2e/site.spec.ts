@@ -93,8 +93,7 @@ test('the original card treatment keeps readable controls, discreet credits and 
     await expect(card.locator('.read-more')).toHaveCSS('color', 'rgb(255, 255, 255)');
     await expect(card.locator('p').first()).toHaveCSS('color', 'rgb(255, 255, 255)');
     await expect(card.locator('.read-more')).toHaveCSS('text-decoration-line', 'none');
-    await expect(card.locator('figcaption')).toHaveCSS('font-size', '6px');
-    await expect(card.locator('figcaption')).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+    await expect(card.locator('figcaption')).toHaveCount(0);
     await card.scrollIntoViewIfNeeded();
     const before = await card.boundingBox();
     await card.hover();
@@ -111,6 +110,30 @@ test('the original card treatment keeps readable controls, discreet credits and 
             return Object.values(grouped);
         });
         for (const positions of rows) expect(Math.max(...positions) - Math.min(...positions)).toBeLessThan(2);
+    }
+    await page.goto('/sound/');
+    const credit = page.locator('.service-card figcaption').first();
+    await expect(credit).toHaveCSS('font-size', '6px');
+    await expect(credit).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+});
+
+test('service illustrations load and select a localized mobile detail', async ({page}) => {
+    await page.goto('/pl/');
+    const thumbnails = page.locator('.service-artwork-card img');
+    await expect(thumbnails).toHaveCount(6);
+    for (const image of await thumbnails.all()) {
+        await image.scrollIntoViewIfNeeded();
+        await expect(image).toHaveJSProperty('naturalWidth', 1200);
+        expect((await image.boundingBox())!.height).toBe(250);
+    }
+    for (const locale of site.locales) {
+        await page.goto(localePath(locale, '/software/ai-automation/'));
+        const image = page.locator('.service-artwork-hero img');
+        const mobile = page.viewportSize()!.width < 600;
+        await expect(image).toHaveJSProperty('naturalWidth', mobile ? 600 : 1200);
+        expect(await image.evaluate(node => (node as HTMLImageElement).currentSrc)).toContain(`ai-${locale}-`);
+        expect(await image.evaluate(node => (node as HTMLImageElement).currentSrc)).toContain(mobile ? '-mobile.' : '-detail.');
+        await expect(image).toHaveAttribute('alt', new RegExp(locale === 'pl' ? '^Przykładowy interfejs:' : '^Example interface:'));
     }
 });
 

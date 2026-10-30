@@ -38,27 +38,27 @@
     "title": "Frontend services",
     "sections": [
       {
-        "title": "Lightning fast User Interface",
-        "subtitle": "to help your client feel the flow.",
+        "title": "A fast, clear user interface",
+        "subtitle": "to help people complete their tasks.",
         "paragraphs": [
           "**A good application is one that helps the user.** Well-written, optimised code makes good use of modern browsers.",
-          "We do not make the user wait where it is unnecessary. When waiting is unavoidable, for example during a database operation, the interface should explain what is happening. Loading indicators and carefully chosen transitions can help the experience remain clear."
+          "We show the result as soon as it is available. When waiting is unavoidable, for example during a database operation, the interface should explain what is happening. Loading indicators and carefully chosen transitions can help the experience remain clear."
         ]
       },
       {
-        "title": "Comfort in any situation",
-        "subtitle": "because real life is not perfect.",
+        "title": "Usable when a connection fails",
+        "subtitle": "because internet access can be unreliable.",
         "paragraphs": [
           "Sometimes the internet connection drops. A failed request should not mean losing all the work a person has just done.",
           "Depending on the application, we can preserve a form draft, show a clear connection warning or queue suitable operations until the connection returns. The architecture needs to support the way people actually use the service."
         ]
       },
       {
-        "title": "Good communication is key",
-        "subtitle": "to get full speed.",
+        "title": "Interface and server working together",
+        "subtitle": "performance depends on the whole system.",
         "paragraphs": [
           "A good frontend alone is not enough. Interface behaviour, server operations and database models need consistent requirements. Sending only the information needed for a particular task also avoids unnecessary network traffic.",
-          "At Atomic Concept, we design around business processes, using approaches such as Domain-Driven Design where useful. **Technology is a tool, not a toy.**"
+          "At Atomic Concept, we design around business processes, using approaches such as Domain-Driven Design where useful. We choose technology to support the task."
         ]
       }
     ]
@@ -68,24 +68,24 @@
     "sections": [
       {
         "title": "Backend that fits the application",
-        "subtitle": "without unnecessary overhead.",
+        "subtitle": "without unnecessary system load.",
         "paragraphs": [
           "The backend must work closely with the user interface. At every stage of server development, we focus on the operations your business needs and the information your customers need to use them.",
           "We avoid unnecessary data transfer and server work. We consider performance and the ability to handle growth when planning the system."
         ]
       },
       {
-        "title": "We don't promise miracles at the beginning",
-        "subtitle": "we spend more time analyzing.",
+        "title": "Start with analysis",
+        "subtitle": "to solve the right problem.",
         "paragraphs": [
-          "**The best job done is the one that accomplishes your needs without overcomplicated solutions.**",
+          "**Good software meets your needs without unnecessary complexity.**",
           "The key to success is analysis. We need to understand exactly what you want to achieve. Then we can build a service with a clear purpose, without unnecessary complexity.",
-          "Things that are too complicated and hard to understand can seem professional at first glance. Over time, they become expensive to maintain."
+          "Complex solutions can be expensive to maintain. We choose simpler ones when they meet the requirements, and more complex ones when they bring a concrete benefit."
         ]
       },
       {
-        "title": "Digital solutions in an analog world",
-        "subtitle": "it's not that difficult.",
+        "title": "Digital solutions in everyday work",
+        "subtitle": "understandable beyond the technical team.",
         "paragraphs": [
           "Many things that seem abstract have equivalents in the real world. We can find those connections and explain them in the context of your business. That makes it easier to plan an application together and understand how it works."
         ]
@@ -142,7 +142,7 @@
       },
       {
         "title": "Check out our specialization. Kick, snare and bass",
-        "subtitle": "we are the best at this.",
+        "subtitle": "the sounds we work with most often.",
         "paragraphs": [
           "Most often we work on music from the genres of metal, hip-hop, strong electronic music, drum and bass and it works out best for us. We always try to find the power and majesty of sound, so that the recordings sound strong and wide.",
           "We are willing to try something new. it is always worth writing to us and presenting your project anyway."
@@ -150,7 +150,7 @@
       },
       {
         "title": "We use high-tech",
-        "subtitle": "do not waste time on experiments that go nowhere.",
+        "subtitle": "equipment that supports the work on your sound.",
         "paragraphs": [
           "Our listening system consists of equipment from ADAM AUDIO. ARTURIA and KLARK TEKNIK are responsible for the signal path. The signal is processed with balanced cables so that we can forget about noise and interference. We also support ourselves with listening equipment from BEYERDYNAMIC. The whole process is carried out in a professional Digital Audio Workstation."
         ]
@@ -160,19 +160,11 @@
   "": {
     "sections": [
       {
-        "title": "Start with the work you want to improve",
-        "subtitle": "You do not need to choose the technology.",
+        "title": "How we work and what you receive",
+        "subtitle": "A clear scope, implementation and deployment.",
         "paragraphs": [
-          "Tell us what you do today, which tools you use and where you need help. We will check whether an existing product is enough or whether you need something built for your business.",
-          "**We don't promise miracles at the beginning.** We spend more time analysing. The best job done is the one that accomplishes your needs without overcomplicated solutions."
-        ]
-      },
-      {
-        "title": "One useful first step",
-        "subtitle": "Then decide what comes next.",
-        "paragraphs": [
-          "We agree the scope, the way to check the result and the cost of running the solution before implementation. You can start with one process, one integration or one part of an application.",
-          "After implementation, we test it with your team and prepare the handover. Further development and maintenance can be agreed around what you actually need."
+          "We agree the scope, requirements and how to check the finished solution at the start. We can build a website, application, integration, automation or report, or extend an existing system. You approve the direction; we are responsible for delivery and quality at each stage.",
+          "After deployment, you receive the working solution, access and documentation. We show the people who will use it how to carry out their tasks. Maintenance and further development follow the needs of the business and the agreed project scope."
         ]
       }
     ]
@@ -242,7 +234,7 @@
         ]
       },
       {
-        "title": "Build on what already works",
+        "title": "Extending an existing system",
         "subtitle": "An integration does not have to replace your system.",
         "paragraphs": [
           "We can add one missing connection to an existing application or gradually improve a larger flow. Access, available interfaces and the condition of the current software determine what is possible.",
@@ -264,7 +256,7 @@
         ]
       },
       {
-        "title": "Take care of the whole application",
+        "title": "Delivering the whole application",
         "subtitle": "From the screen to the information behind it.",
         "paragraphs": [
           "A usable interface, stored data, access permissions, payments and external services need to work together. Atomic Concept can handle those parts as one project, including testing and deployment.",
@@ -347,7 +339,7 @@
       },
       {
         "title": "Plan for exceptions too",
-        "subtitle": "Missing data or a failed connection should not stop work silently.",
+        "subtitle": "Missing data and errors need a clear notification.",
         "paragraphs": [
           "We consider duplicate enquiries, unavailable systems and missed deadlines. Depending on the task, an operation can be retried or passed to a person to check.",
           "We agree who should see an error and how to resume the process. Your team should know which tasks completed and which still need attention."
@@ -375,7 +367,7 @@
       },
       {
         "title": "One report from several sources",
-        "subtitle": "Without assembling the same data by hand each time.",
+        "subtitle": "Without manually combining the data each time.",
         "paragraphs": [
           "We can bring together information from your shop, payments, customer system or spreadsheets. First we check data access and how to match records about the same customer or job.",
           "Where a connection is missing, we can build an [integration](/software/integrations/). You do not have to replace the tools your team uses to start reporting."

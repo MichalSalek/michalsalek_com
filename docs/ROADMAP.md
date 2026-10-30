@@ -20,8 +20,9 @@ needing a technical specification. The offer includes process discovery, a scope
 implementation, deployment and an agreed handover or maintenance arrangement.
 The copy retains the owner's original ideas about analysis, maintainability and
 avoiding unnecessary complexity. Present complete company delivery and responsibility. Keep personal biography,
-career history and GitHub links out of the marketing pages. Alternative copy
-packages are reviewed locally before replacing the current company messaging.
+career history and GitHub links out of the marketing pages. The approved copy
+direction uses plain language, a clear service scope and responsibility for
+delivery, without superiority, slogans or metaphors.
 
 See [the content brief](business/CONTENT-BRIEF.md) and
 [market evidence and limitations](business/MARKET-RESEARCH.md). Proposed use cases
@@ -44,11 +45,11 @@ Framework updates and content work do not imply approval for a redesign.
 
 1. Select projects or engineering examples that may be shown publicly, with any
    required client permission. Add specific outcomes only when verified.
-2. Choose original or commissioned photographs and useful service illustrations.
-   A coordinated six-scene illustration direction is available in local preview
-   for approval. Generated proposals are excluded from the production export.
-   Current photos stay until replacements are selected. Preserve reserved geometry
-   and responsive build-time image optimisation.
+2. Maintain the approved C + E visual system: flat service illustrations in cards
+   and localized interface examples in software articles. The central document in
+   C stays light against the indigo background. SVGs are generated at build time
+   with content hashes and separate mobile interface compositions. Audio pages
+   retain their photographs. Preserve image geometry and the original controls.
 3. Review actual enquiries for the requested task, existing tools, source and
    project fit. Use this evidence before choosing an industry niche or package.
 4. Decide which audio work is currently available and which samples may be shared.

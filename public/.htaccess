@@ -28,6 +28,9 @@ RewriteRule ^(?!404\.html$)(.+)\.html$ /$1/ [R=301,L]
     <FilesMatch "\.(?:js|css|woff2|WEBP|webp|avif)$">
         Header set Cache-Control "public, max-age=31536000, immutable"
     </FilesMatch>
+    <FilesMatch "\.[a-f0-9]{12}\.svg$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
     <Files "release.json">
         Header set Cache-Control "no-store"
     </Files>

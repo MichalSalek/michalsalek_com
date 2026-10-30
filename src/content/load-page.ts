@@ -1,8 +1,11 @@
 import type { Locale, PagePath } from './site.mjs';
 import type { Messages } from '@/src/i18n/context';
+import { readFile } from 'node:fs/promises';
+import type { VisualAsset } from './visuals.mjs';
+import { sceneByPath } from './visuals.mjs';
 
 export type Section = {title: string; subtitle: string; paragraphs: string[]};
-export type ServiceCard = {path: PagePath; title: string; paragraphs: string[]};
+export type ServiceCard = {path: PagePath; title: string; paragraphs: string[]; artwork: VisualAsset | null};
 export type SitePageProps = {
     locale: Locale;
     path: PagePath;
@@ -11,6 +14,7 @@ export type SitePageProps = {
     intro?: string[];
     messages: Messages;
     cards: ServiceCard[];
+    artwork: VisualAsset | null;
     sections: Section[];
     navigation: {path: PagePath; title: string}[];
 };
@@ -20,9 +24,16 @@ export async function loadPage(locale: Locale, path: PagePath): Promise<SitePage
     const articles = locale === 'pl' ? (await import('./pl-articles.json')).default : (await import('./en-articles.json')).default;
     const article = articles[path.slice(1, -1) as keyof typeof articles];
     const cards = path === '/' ? dictionary.cards.software : path === '/sound/' ? dictionary.cards.sound : [];
+    const manifest = JSON.parse(await readFile('public/service-visuals/manifest.json', 'utf8')) as Record<Locale, Partial<Record<PagePath, {card: VisualAsset | null; hero: VisualAsset}>>>;
+    const artwork = manifest[locale][path]?.hero ?? null;
+    if (sceneByPath[path] && !artwork) throw new Error(`Missing service artwork: ${locale} ${path}`);
     return {
         locale, path, ...dictionary.pages[path], messages: dictionary.ui,
-        cards: cards as ServiceCard[], sections: article?.sections ?? [],
+        cards: cards.map(card => {
+            const artwork = manifest[locale][card.path as PagePath]?.card ?? null;
+            if (path === '/' && !artwork) throw new Error(`Missing card artwork: ${locale} ${card.path}`);
+            return {...card, path: card.path as PagePath, artwork};
+        }), artwork, sections: article?.sections ?? [],
         navigation: Object.entries(dictionary.pages).map(([key, value]) => ({path: key as PagePath, title: value.title})),
     };
 }

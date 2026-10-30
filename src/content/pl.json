@@ -9,7 +9,7 @@
     "talk": "Porozmawiajmy o Twoim projekcie",
     "ask": "Opisz swój pomysł",
     "general": "Inne pytanie",
-    "contactIntro": "Opisz, co chcesz zrobić lub usprawnić i z jakich programów dziś korzystasz. Nie musisz znać technicznych szczegółów. Na tej podstawie ustalimy zakres i kolejne kroki.",
+    "contactIntro": "Opisz cel projektu, obecne narzędzia i oczekiwany efekt. Na tej podstawie ustalimy zakres i kolejne kroki.",
     "email": "Twój e-mail",
     "name": "Twoje imię",
     "subject": "Temat",
@@ -31,8 +31,8 @@
     "interested": "Interesuje Cię ta usługa?",
     "generalHeading": "Mam inne pytanie",
     "relatedIntro": "Zobacz, w czym jeszcze możemy pomóc:",
-    "introTitle": "Co chcesz usprawnić?",
-    "introContact": "Opisz swój projekt",
+    "introTitle": "Od pierwszej rozmowy do działającego systemu",
+    "introContact": "Porozmawiajmy o Twoim projekcie",
     "breadcrumbHome": "Strona główna",
     "breadcrumbSoftware": "Oprogramowanie",
     "breadcrumbSound": "Dźwięk",
@@ -54,8 +54,8 @@
       "title": "AI, automatyzacje i oprogramowanie dla firm",
       "description": "Atomic Concept: strony, aplikacje, integracje, automatyzacje i AI dla firm. Kompleksowa realizacja od analizy potrzeb przez wdrożenie po utrzymanie.",
       "intro": [
-        "Wiesz, co chcesz usprawnić w swojej firmie. Możemy przygotować **stronę, aplikację lub automatyzację**, która Ci w tym pomoże.",
-        "**Łączymy używane już programy**, porządkujemy dane i wdrażamy AI tam, gdzie ma konkretne zadanie. Na początek wystarczy opis potrzeby."
+        "Zaczynamy od zrozumienia, jak działa Twoja firma i czego naprawdę potrzebuje. Dopiero potem proponujemy rozwiązanie. Bez zbędnych funkcji i bez dokładania złożoności, która niczego nie ułatwia.",
+        "**Projektujemy, budujemy, testujemy i wdrażamy.** Bierzemy odpowiedzialność za całość, więc nie musisz koordynować kilku wykonawców ani tłumaczyć tego samego od nowa."
       ]
     },
     "/software/architecture/": {
@@ -183,5 +183,323 @@
         ]
       }
     ]
+  },
+  "visuals": {
+    "ai": {
+      "sidebar": "Dokumenty i AI",
+      "headline": "Dane z dokumentu",
+      "description": "Odczyt, sprawdzenie i przekazanie informacji.",
+      "steps": [
+        "Dokument",
+        "Sprawdzenie",
+        "Zapis"
+      ],
+      "panel": "Odczytane pola",
+      "rows": [
+        [
+          "Numer dokumentu",
+          "Rozpoznano"
+        ],
+        [
+          "Data wystawienia",
+          "Rozpoznano"
+        ],
+        [
+          "Kwota",
+          "Do sprawdzenia"
+        ]
+      ],
+      "checkTitle": "Weryfikacja",
+      "checks": [
+        "Źródło wskazane",
+        "Braki oznaczone",
+        "Wynik do zatwierdzenia"
+      ],
+      "action": "Sprawdź wynik",
+      "cardAlt": "Dokument, odczytane pola i sprawdzony wynik.",
+      "heroAlt": "Przykładowy interfejs: dane z dokumentu"
+    },
+    "automation": {
+      "sidebar": "Automatyzacja pracy",
+      "headline": "Zgłoszenie w procesie",
+      "description": "Kolejne czynności według ustalonych reguł.",
+      "steps": [
+        "Zgłoszenie",
+        "Zadanie",
+        "Powiadomienie"
+      ],
+      "panel": "Przebieg zadania",
+      "rows": [
+        [
+          "Zgłoszenie",
+          "Odebrane"
+        ],
+        [
+          "Reguła",
+          "Dopasowana"
+        ],
+        [
+          "Kolejny krok",
+          "Utwórz zadanie"
+        ]
+      ],
+      "checkTitle": "Kontrola procesu",
+      "checks": [
+        "Warunki ustalone",
+        "Wyjątki oznaczone",
+        "Historia wykonania"
+      ],
+      "action": "Zobacz przebieg",
+      "cardAlt": "Zgłoszenie, reguły procesu i wykonane zadanie.",
+      "heroAlt": "Przykładowy interfejs: zgłoszenie w procesie"
+    },
+    "integrations": {
+      "sidebar": "Połączone systemy",
+      "headline": "Przekazanie danych",
+      "description": "Informacje trafiają do odpowiednich narzędzi.",
+      "steps": [
+        "Źródło",
+        "Przekazanie",
+        "Potwierdzenie"
+      ],
+      "panel": "Połączone narzędzia",
+      "rows": [
+        [
+          "Sklep",
+          "Połączony"
+        ],
+        [
+          "Płatności",
+          "Połączone"
+        ],
+        [
+          "Obsługa klientów",
+          "Połączona"
+        ]
+      ],
+      "checkTitle": "Kontrola wymiany",
+      "checks": [
+        "Pola dopasowane",
+        "Duplikaty sprawdzone",
+        "Błędy zarejestrowane"
+      ],
+      "action": "Sprawdź połączenie",
+      "cardAlt": "Dwa systemy połączone dwukierunkową wymianą danych.",
+      "heroAlt": "Przykładowy interfejs: przekazanie danych"
+    },
+    "websites": {
+      "sidebar": "Strona firmowa",
+      "headline": "Oferta i kontakt",
+      "description": "Czytelne informacje i prosty sposób wysłania zapytania.",
+      "steps": [
+        "Oferta",
+        "Usługi",
+        "Kontakt"
+      ],
+      "panel": "Formularz zapytania",
+      "rows": [
+        [
+          "Adres e-mail",
+          ""
+        ],
+        [
+          "Temat",
+          "Twój projekt"
+        ],
+        [
+          "Wiadomość",
+          ""
+        ]
+      ],
+      "checkTitle": "Informacje na stronie",
+      "checks": [
+        "Zakres usług",
+        "Sposób współpracy",
+        "Dane kontaktowe"
+      ],
+      "action": "Wyślij zapytanie",
+      "cardAlt": "Układ strony firmowej i formularz kontaktowy.",
+      "heroAlt": "Przykładowy interfejs: oferta i kontakt"
+    },
+    "applications": {
+      "sidebar": "Obsługa zleceń",
+      "headline": "Zlecenie do realizacji",
+      "description": "Informacje potrzebne do rozpoczęcia pracy w jednym miejscu.",
+      "steps": [
+        "Zapytanie",
+        "Realizacja",
+        "Gotowe"
+      ],
+      "panel": "Przygotowanie zlecenia",
+      "rows": [
+        [
+          "Zakres",
+          "Potwierdzony"
+        ],
+        [
+          "Materiały",
+          "Kompletne"
+        ],
+        [
+          "Kolejny krok",
+          "Rozpoczęcie prac"
+        ]
+      ],
+      "checkTitle": "Lista kontrolna",
+      "checks": [
+        "Uzgodniono wymagania",
+        "Zebrano dokumenty",
+        "Przydzielono zadanie"
+      ],
+      "action": "Otwórz zlecenie",
+      "cardAlt": "Lista zleceń i panel szczegółów zadania.",
+      "heroAlt": "Przykładowy interfejs: zlecenie do realizacji"
+    },
+    "reporting": {
+      "sidebar": "Raporty firmowe",
+      "headline": "Podsumowanie działalności",
+      "description": "Informacje z używanych systemów w jednym raporcie.",
+      "steps": [
+        "Źródła",
+        "Zestawienie",
+        "Raport"
+      ],
+      "panel": "Źródła danych",
+      "rows": [
+        [
+          "Sprzedaż",
+          "Dane zebrane"
+        ],
+        [
+          "Płatności",
+          "Dane zebrane"
+        ],
+        [
+          "Zlecenia",
+          "Dane zebrane"
+        ]
+      ],
+      "checkTitle": "Zestawienie",
+      "checks": [
+        "Źródła opisane",
+        "Okres określony",
+        "Braki oznaczone"
+      ],
+      "action": "Otwórz raport",
+      "cardAlt": "Trzy źródła danych połączone w raport z wykresem.",
+      "heroAlt": "Przykładowy interfejs: podsumowanie działalności"
+    },
+    "architecture": {
+      "sidebar": "Plan aplikacji",
+      "headline": "Procesy i moduły",
+      "description": "Uzgodniony podział odpowiedzialności w aplikacji.",
+      "steps": [
+        "Procesy",
+        "Moduły",
+        "Wdrożenie"
+      ],
+      "panel": "Plan rozwiązania",
+      "rows": [
+        [
+          "Obszary",
+          "Jasny podział"
+        ],
+        [
+          "Dane",
+          "Uzgodnione modele"
+        ],
+        [
+          "Rozwój",
+          "Kolejne etapy"
+        ]
+      ],
+      "checkTitle": "Zakres projektu",
+      "checks": [
+        "Granice modułów",
+        "Przepływ informacji",
+        "Sposób wdrożenia"
+      ],
+      "action": "Zobacz plan",
+      "cardAlt": "Ilustracja usługi: plan aplikacji",
+      "heroAlt": "Przykładowy interfejs: procesy i moduły"
+    },
+    "backend": {
+      "sidebar": "Operacje systemu",
+      "headline": "Przepływ danych",
+      "description": "Operacje serwerowe z potwierdzeniem wyniku.",
+      "steps": [
+        "Odbiór",
+        "Przetworzenie",
+        "Potwierdzenie"
+      ],
+      "panel": "Stan operacji",
+      "rows": [
+        [
+          "Żądanie",
+          "Odebrane"
+        ],
+        [
+          "Zapis",
+          "Potwierdzony"
+        ],
+        [
+          "Ponowienie",
+          "Bez duplikatu"
+        ]
+      ],
+      "checkTitle": "Kontrola działania",
+      "checks": [
+        "Uprawnienia sprawdzone",
+        "Dane zapisane",
+        "Błędy zarejestrowane"
+      ],
+      "action": "Sprawdź operację",
+      "cardAlt": "Ilustracja usługi: operacje systemu",
+      "heroAlt": "Przykładowy interfejs: przepływ danych"
+    },
+    "frontend": {
+      "sidebar": "Interfejs aplikacji",
+      "headline": "Formularz zapytania",
+      "description": "Jasne pola, czytelny stan i potwierdzenie wysłania.",
+      "steps": [
+        "Dane",
+        "Wiadomość",
+        "Potwierdzenie"
+      ],
+      "panel": "Twoje zapytanie",
+      "rows": [
+        [
+          "Adres e-mail",
+          ""
+        ],
+        [
+          "Temat",
+          "Projekt aplikacji"
+        ],
+        [
+          "Wiadomość",
+          ""
+        ]
+      ],
+      "checkTitle": "Obsługa formularza",
+      "checks": [
+        "Opisane pola",
+        "Zrozumiałe komunikaty",
+        "Zachowanie treści"
+      ],
+      "action": "Wyślij zapytanie",
+      "cardAlt": "Ilustracja usługi: interfejs aplikacji",
+      "heroAlt": "Przykładowy interfejs: formularz zapytania"
+    },
+    "common": {
+      "nav": [
+        "Zlecenia",
+        "Klienci",
+        "Dokumenty",
+        "Raporty"
+      ],
+      "workspace": "Panel firmy",
+      "example": "Przykładowy interfejs"
+    }
   }
 }

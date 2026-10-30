@@ -21,6 +21,11 @@ for (const locale of site.locales) for (const path of routes) {
     const html = await (await request(relative)).text();
     assert.equal(createHash('sha256').update(html).digest('hex'), local.pages[relative], `${relative}: HTML differs from the built artifact`);
 }
+for (const [path, hash] of Object.entries(local.assets)) {
+    const response = await request(path);
+    assert(response.headers.get('content-type')?.includes('image/svg+xml'), `${path}: SVG content type`);
+    assert.equal(createHash('sha256').update(Buffer.from(await response.arrayBuffer())).digest('hex'), hash, `${path}: artwork differs from the built artifact`);
+}
 for (const path of ['/robots.txt', '/sitemap.xml', '/llms.txt', '/llms-full.txt', '/og-image.png']) await request(path);
 for (const agent of ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'GPTBot', 'ChatGPT-User', 'ClaudeBot']) {
     await request('/', {headers: {'User-Agent': agent}});
@@ -39,4 +44,4 @@ if (base === site.origin) {
     assert.equal(www.status, 301, 'www must redirect permanently');
     assert.equal(www.headers.get('location'), `${site.origin}/`, 'www canonical target');
 }
-console.log(`Live verification passed: ${expected}, ${Object.keys(local.pages).length} exact HTML artifacts, redirects, 404 and crawler access.`);
+console.log(`Live verification passed: ${expected}, ${Object.keys(local.pages).length} exact HTML artifacts, ${Object.keys(local.assets).length} exact illustrations, redirects, 404 and crawler access.`);

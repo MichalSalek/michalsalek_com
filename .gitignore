@@ -19,6 +19,7 @@
 /test-results/
 /.artifacts/
 /public/optimized-images/
+/public/service-visuals/
 /public/images/next-image-export-optimizer-hashes.json
 /.deploy.env
 .env

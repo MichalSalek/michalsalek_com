@@ -15,10 +15,10 @@ clients, certifications or delivery guarantees to create a corporate appearance.
 
 Keep the owner's original practical voice: understand the need before promising a
 solution; avoid unnecessary complexity; make future maintenance understandable;
-use technology as a tool. Preserve these original English ideas where useful:
-"We don't promise miracles at the beginning", "The best job done is the one that
-accomplishes your needs without overcomplicated solutions", and "Technology is a
-tool, not a toy". Improve grammar without replacing substance with slogans.
+use technology as a tool. The approved copy direction uses ordinary language,
+states the service scope clearly and explains responsibility for delivery. Avoid
+superiority, metaphors, slogans and language that talks down to the reader.
+Preserve the substance of the original descriptions while improving clarity.
 
 Use concrete example tasks. Examples are possibilities, never invented client
 projects. Do not publish private product identities, internal sources, client data,
@@ -52,7 +52,9 @@ quotes or automatic commitments. English and Polish carry the same scope.
 Reuse the original components and design described in `DESIGN.md`. Content work
 must not introduce new card effects, decorative captions or badges. The homepage
 introduction has an explicit owner-requested heading/body layout and emphasis;
-keep it structured. New illustrations stay in local preview until approval.
+keep it structured. The selected C + E system uses flat service scenes and
+localized interface examples, generated as lightweight SVGs. Keep a light central
+document against the indigo background. New directions need approval.
 
 ## Evidence boundary
 

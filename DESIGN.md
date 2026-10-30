@@ -15,8 +15,12 @@ and reliable contact handling. These changes must respect the original appearanc
 - Keep the introduction structured with a clear heading, readable emphasis and
   deliberate desktop/mobile composition. Two bare paragraphs are insufficient.
 - Software services have six distinct cards and pages. Preserve the original
-  card treatment. Proposed illustration sets require owner approval before
-  replacing production photography.
+  card treatment. The owner approved directions C + E: flat indigo/paper service
+  illustrations in the cards and restrained interface examples in articles.
+  The central document in C must have a light fill, visibly separate from its
+  indigo backdrop. Avoid gradients, blurred effects and clay-like rendering.
+  Keep the six service scenes distinct and the mobile interfaces readable.
+  Other illustration directions still require approval before publication.
 - No card movement on hover. Preserve the original contrast/saturation effect.
 - Photo credits stay at the top right, 6px, without a background panel.
 - Breadcrumbs retain Sitemap, Home, the category and the current page. Keep the
@@ -28,6 +32,9 @@ and reliable contact handling. These changes must respect the original appearanc
 - Keep real links and buttons, with no nested interactive elements.
 - Keep meaningful text and language links in the initial static HTML.
 - Reserve image geometry. Prioritize only the first visible card or article hero.
+- Generate software artwork with `npm run generate:visuals`, using the shared
+  palette and localized labels. SVG URLs contain content hashes. Interface
+  examples are illustrations, not claims about client projects or working forms.
 - Keep the existing system font fallback; do not load additional fonts.
 - Fit header controls and content at 320px without horizontal scrolling.
 - Preserve the software-first homepage and separate `/sound/` services.

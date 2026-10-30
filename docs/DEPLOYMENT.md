@@ -30,8 +30,9 @@ connection itself is unavailable, rollback cannot be confirmed; inspect the root
 and `.deploy-lock/owner` over SSH after reconnecting. Do not clear a lock owned by
 an active deployment.
 
-`release.json` identifies the source SHA, dirty state and HTML hashes. The live
-check compares every public HTML page with the local build, and checks crawler
+`release.json` identifies the source SHA, dirty state, HTML hashes and generated
+illustration hashes. The live check compares every public HTML page and software
+illustration with the local build, and checks crawler
 access, static discovery files, old URL redirects and an actual HTTP 404. Both
 canonical URLs and an uncached release marker are checked. A cache must not hide
 an outdated release.

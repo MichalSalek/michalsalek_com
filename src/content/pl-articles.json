@@ -39,7 +39,7 @@
     "sections": [
       {
         "title": "Backend dopasowany do aplikacji",
-        "subtitle": "bez zbędnego narzutu.",
+        "subtitle": "bez niepotrzebnego obciążenia systemu.",
         "paragraphs": [
           "Backend powinien ściśle współpracować z interfejsem użytkownika. Na każdym etapie rozwoju kodu serwerowego dbamy o to, by usługi odpowiadały na potrzeby Twojej firmy i wykonywały potrzebne operacje.",
           "Unikamy rozwiązań, które niepotrzebnie zużywają transfer i zasoby serwera. Wydajność oraz możliwość skalowania uwzględniamy już na etapie projektu."
@@ -50,7 +50,7 @@
         "subtitle": "żeby rozwiązać właściwy problem.",
         "paragraphs": [
           "Dobrze wykonana praca realizuje Twoje potrzeby bez nadmiernej komplikacji. Najpierw musimy zrozumieć, co chcesz osiągnąć. Dzięki temu powstaje usługa o jasno określonym celu.",
-          "Złożone i trudne do zrozumienia rozwiązania mogą początkowo wyglądać profesjonalnie. Z czasem jednak bywają kosztowne w utrzymaniu. Dbamy o prostotę tam, gdzie jest możliwa."
+          "Złożone rozwiązania bywają kosztowne w utrzymaniu. Wybieramy prostsze, gdy spełniają wymagania, a bardziej złożone wtedy, gdy dają konkretną korzyść."
         ]
       },
       {
@@ -70,7 +70,7 @@
         "subtitle": "który pomaga płynnie wykonać zadanie.",
         "paragraphs": [
           "Dobra aplikacja pomaga użytkownikowi. Poprawnie napisany i zoptymalizowany kod pozwala wykorzystać możliwości współczesnych przeglądarek.",
-          "Nie każemy czekać tam, gdzie nie jest to potrzebne. Gdy oczekiwanie jest nieuniknione, na przykład przy zapisie w bazie lub operacji serwerowej, interfejs powinien jasno pokazać, co się dzieje. Odpowiednie stany ładowania, przejścia i drobne animacje pomagają zachować płynność obsługi."
+          "Wynik pokazujemy, gdy jest już dostępny. Gdy oczekiwanie jest nieuniknione, na przykład przy zapisie w bazie lub operacji serwerowej, interfejs powinien jasno pokazać, co się dzieje. Odpowiednie stany ładowania, przejścia i drobne animacje pomagają zachować płynność obsługi."
         ]
       },
       {
@@ -86,7 +86,7 @@
         "subtitle": "wydajność to praca całego systemu.",
         "paragraphs": [
           "Sam frontend nie wystarczy. Sposób działania interfejsu trzeba uzgodnić z architekturą serwera i modelami danych. Spójne wymagania oraz niewielkie porcje przesyłanych danych pozwalają uniknąć zbędnego ruchu sieciowego.",
-          "W Atomic Concept projektujemy aplikacje z uwzględnieniem procesów biznesowych, korzystając między innymi z Domain-Driven Design. Technologia jest narzędziem do realizacji celu."
+          "W Atomic Concept projektujemy aplikacje z uwzględnieniem procesów biznesowych, korzystając między innymi z Domain-Driven Design. Wybór technologii wynika z zadania, które ma rozwiązać."
         ]
       }
     ]
@@ -159,19 +159,11 @@
   "": {
     "sections": [
       {
-        "title": "Zacznij od tego, co chcesz usprawnić",
-        "subtitle": "Nie musisz wybierać technologii.",
+        "title": "Jak pracujemy i co przekazujemy",
+        "subtitle": "Jasny zakres, realizacja i wdrożenie.",
         "paragraphs": [
-          "Opisz, jak dziś pracujesz, z jakich programów korzystasz i gdzie potrzebujesz pomocy. Sprawdzimy, czy wystarczy gotowe narzędzie, czy potrzebujesz rozwiązania przygotowanego dla Twojej firmy.",
-          "**Nie obiecujemy cudów na początku.** Najpierw analizujemy potrzeby. Dobre rozwiązanie to takie, które pozwala osiągnąć cel bez zbędnego komplikowania."
-        ]
-      },
-      {
-        "title": "Najpierw jeden przydatny etap",
-        "subtitle": "Potem zdecydujesz, co dalej.",
-        "paragraphs": [
-          "Przed realizacją ustalimy zakres, sposób sprawdzenia efektu i koszty działania rozwiązania. Możesz zacząć od jednego procesu, integracji lub części aplikacji.",
-          "Po wdrożeniu sprawdzimy działanie z Twoim zespołem i przygotujemy przekazanie rozwiązania. Dalszy rozwój i utrzymanie ustalimy według rzeczywistych potrzeb."
+          "Na początku ustalamy zakres projektu, wymagania i sposób sprawdzenia gotowego rozwiązania. Możemy przygotować stronę, aplikację, integrację, automatyzację lub raport, a także rozbudować istniejący system. Ty zatwierdzasz kierunek, my odpowiadamy za wykonanie i jakość poszczególnych etapów.",
+          "Po wdrożeniu przekazujemy działające rozwiązanie, dostępy i dokumentację. Pokazujemy osobom, które będą z niego korzystać, jak wykonywać potrzebne zadania. Utrzymanie i dalszy rozwój ustalamy zgodnie z potrzebami firmy i zakresem projektu."
         ]
       }
     ]
@@ -241,7 +233,7 @@
         ]
       },
       {
-        "title": "Rozwijaj to, co już działa",
+        "title": "Rozbudowa istniejącego systemu",
         "subtitle": "Integracja nie musi oznaczać wymiany systemu.",
         "paragraphs": [
           "Możemy dodać jedno brakujące połączenie do istniejącej aplikacji albo stopniowo usprawniać większy proces. Możliwości zależą od dostępów, sposobu komunikacji między programami i stanu obecnego oprogramowania.",
@@ -346,7 +338,7 @@
       },
       {
         "title": "Proces obejmuje też wyjątki",
-        "subtitle": "Brak danych lub awaria nie powinny zatrzymać pracy bez informacji.",
+        "subtitle": "Braki danych i błędy wymagają czytelnego powiadomienia.",
         "paragraphs": [
           "Sprawdzimy, jak obsłużyć duplikat zgłoszenia, niedostępny program albo brak odpowiedzi w terminie. Zależnie od zadania można ponowić operację lub przekazać ją do ręcznego sprawdzenia.",
           "Ustalimy, kto zobaczy błąd i jak wznowić proces. Dzięki temu wiadomo, które zadania zostały wykonane, a które nadal wymagają uwagi."
@@ -374,7 +366,7 @@
       },
       {
         "title": "Jeden raport z kilku źródeł",
-        "subtitle": "Bez ręcznego składania danych za każdym razem.",
+        "subtitle": "Bez ręcznego łączenia danych za każdym razem.",
         "paragraphs": [
           "Możemy zebrać informacje ze sklepu, płatności, systemu obsługi klientów lub firmowych arkuszy. Najpierw sprawdzimy dostęp do danych i ustalimy, jak połączyć wpisy dotyczące tej samej sprawy.",
           "Jeżeli potrzebnego połączenia brakuje, przygotujemy [integrację](/software/integrations/). Nie musisz od razu wymieniać programów, w których pracuje zespół."

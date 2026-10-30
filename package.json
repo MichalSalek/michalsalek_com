@@ -8,8 +8,9 @@
   },
   "packageManager": "npm@11.12.1",
   "scripts": {
-    "dev": "next dev --hostname 0.0.0.0",
-    "build": "next build --webpack && next-image-export-optimizer && node scripts/generate-site-files.mjs",
+    "dev": "npm run generate:visuals && next dev --hostname 0.0.0.0",
+    "build": "npm run generate:visuals && next build --webpack && next-image-export-optimizer && node scripts/generate-site-files.mjs",
+    "generate:visuals": "node scripts/generate-service-visuals.mjs",
     "preview": "serve out --listen 3100",
     "start": "npm run preview",
     "typecheck": "next typegen && node node_modules/@typescript/native/bin/tsc --noEmit",

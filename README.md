@@ -54,6 +54,13 @@ redirects permanently to `/` on production.
 - Shared page rendering: `src/UI/components/SitePage.tsx`.
 - Visual constraints: [DESIGN.md](DESIGN.md).
 
+Software service artwork is generated from `src/content/visuals.mjs` and the
+localized `visuals` labels. Both `dev` and `build` generate the SVGs automatically.
+After editing illustration labels during a dev session, run
+`npm run generate:visuals` again. Generated files in `public/service-visuals/` are
+not tracked. Their URLs contain content hashes; article illustrations have a
+separate mobile composition.
+
 Every language is rendered at build time, including its title, description,
 canonical URL, hreflang links and structured data. No browser-language redirects
 or runtime translation service are required.
