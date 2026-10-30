@@ -8,7 +8,7 @@ import { site, routes, localePath, pageUrl } from '../src/content/site.mjs';
 const xml = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
 const sitemap = [];
 const full = [];
-const index = [`# ${site.name}`, '', `> Software and audio services by ${site.owner}.`, '', `Contact: ${site.email}`, '', '## Pages', ''];
+const index = [`# ${site.name}`, '', `> AI automation, integrations and custom software for small and medium businesses by ${site.owner}. Audio services are available separately under /sound/.`, '', `Contact: ${site.email}`, '', '## Pages', ''];
 const hashes = {};
 await sharp('public/og-image.svg').png().toFile('out/og-image.png');
 // MyDevil also discovers static error pages through its errors directory.

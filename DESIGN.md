@@ -9,6 +9,8 @@ Do not replace these with a new visual system during content or tooling changes.
 The October 2026 refresh adds static English/Polish routes, accessible navigation
 and reliable contact handling. These changes must respect the original appearance.
 
+- Preserve the delayed three-pulse subject highlight after a service CTA, the
+  page transition and the contact feedback/OK interaction. Respect reduced motion.
 - No card movement on hover. Preserve the original contrast/saturation effect.
 - Photo credits stay at the top right, 6px, without a background panel.
 - Keep real links and buttons, with no nested interactive elements.

@@ -6,11 +6,13 @@ import type { SitePageProps } from '@/src/content/load-page';
 import en from '@/src/content/en.json';
 import { useEffect } from 'react';
 import '@/src/UI/styles/globals.scss';
+import { useRouteChangeTransitionController } from '@/src/layers/core/useRouteChangeTransition.controller';
 
 export type GeneralPageProps = SitePageProps;
 
 export default function App(props: AppProps<SitePageProps>) {
     const { Component, pageProps } = props;
+    useRouteChangeTransitionController();
     const locale = pageProps.locale ?? 'en';
     const path = pageProps.path ?? '/';
     const messages = pageProps.messages ?? en.ui;

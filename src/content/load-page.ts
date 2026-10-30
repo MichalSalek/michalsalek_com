@@ -8,6 +8,7 @@ export type SitePageProps = {
     path: PagePath;
     title: string;
     description: string;
+    intro?: string[];
     messages: Messages;
     cards: ServiceCard[];
     sections: Section[];

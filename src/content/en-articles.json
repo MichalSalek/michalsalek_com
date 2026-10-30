@@ -13,24 +13,23 @@
         "title": "Easy and understandable project maintenance",
         "subtitle": "if you want to outsource the code to another development team in the future.",
         "paragraphs": [
-          "The structure of the files and directories of the source code will remain clear and documented in an appropriate place. This will give your team full visibility and freedom, to make improvements and modifications with ease."
+          "The structure of the source code will remain clear and documented where needed. This gives your team visibility and makes future improvements easier, including a handover to another development team."
         ]
       },
       {
         "title": "High scalability through modularization",
         "subtitle": "in case of rapid growth of your business.",
         "paragraphs": [
-          "Learn the advantages of the DDD model and CQRS in practice. An application written according to Atomic Concept guidelines has a modular structure with clearly defined input and output models. so you can, if necessary, separate the most loaded functionality of your application through more servers.",
-          "Modular frontend give to you great Google Page Speed Web Vitals scores.",
-          "Modular backend give to you great speed across the world with individual deploy strategy like a stacking blocks.",
-          "In addition, most components can be reused multiple times, even in other projects."
+          "A modular application has clear boundaries between its parts. Domain-Driven Design and separating changes from queries (CQRS) can help establish those boundaries when the project needs them. If a particular operation becomes heavily used, we can consider scaling that part independently.",
+          "Modular frontend code helps us control what the browser needs to load. On the backend, separate modules can make changes and deployment easier. These choices support performance work, but do not guarantee a particular speed or score.",
+          "Where it makes sense, components can be reused in other parts of the application or in another project."
         ]
       },
       {
         "title": "Time is always flowing",
         "subtitle": "let's not forget that.",
         "paragraphs": [
-          "When designing complex networks of systems. we do not mindlessly push data. Everything that can happen in your application is an event. one single thing in given time. Each event happens at a specific point in time. Software created in this convention allows you to do more. easily travel back in time when dealing with a claim, for example."
+          "When designing connected systems, we consider **what happened and when**. An event records a particular change at a particular time. An appropriate event history can help reconstruct the sequence of operations when investigating a claim or a missing record."
         ]
       }
     ]
@@ -42,25 +41,24 @@
         "title": "Lightning fast User Interface",
         "subtitle": "to help your client feel the flow.",
         "paragraphs": [
-          "A good application is one that helps the user. Properly written, optimized source code allows today's modern browser technologies to spread their wings.",
-          "We don't force the user to wait senselessly where it is not necessary. Sometimes, however, waiting is unavoidable. for example: for database reads/writes, to perform operations on the backend, or when a network traffic is heavy loaded. then the frontend takes responsibility for the whole user experience. Proper manipulation of loaders, transitions, or micro-animations makes the application seem to have a flow and anyway. it feels to runs smoothly."
+          "**A good application is one that helps the user.** Well-written, optimised code makes good use of modern browsers.",
+          "We do not make the user wait where it is unnecessary. When waiting is unavoidable, for example during a database operation, the interface should explain what is happening. Loading indicators and carefully chosen transitions can help the experience remain clear."
         ]
       },
       {
         "title": "Comfort in any situation",
         "subtitle": "because real life is not perfect.",
         "paragraphs": [
-          "Sometimes there are situations in which the Internet temporarily goes down.",
-          "There are many clever ways to get out of this situation with class and show professionalism to the customer. A user filled out a form and can't send it? Let's cache it in case he wants to refresh the page. User moves and uses unstable mobile internet? Let's detect it and inform him or her about it. In addition, let's queue the events he performed. to be executed when the connection returns to normal. We can easy do that, having proper frontend architecture.",
-          "We are aware of these and many other solutions to simply help the person who wants to use your services."
+          "Sometimes the internet connection drops. A failed request should not mean losing all the work a person has just done.",
+          "Depending on the application, we can preserve a form draft, show a clear connection warning or queue suitable operations until the connection returns. The architecture needs to support the way people actually use the service."
         ]
       },
       {
         "title": "Good communication is key",
         "subtitle": "to get full speed.",
         "paragraphs": [
-          "To achieve optimal speed in the performance of your app. a good frontend alone is not enough. Planned concepts must be followed at the level of both server architecture and database models. This is not possible when different teams deal with different layers of the application. Moreover. when they do not consistently set requirements. Also, it is very important to set minimalist portions of data so as not to overload network traffic and waste transfer. To address this. at Atomic Concept we model applications using Domain Driven Design and Behavior Driver Design. business flow over technology.",
-          "Technology is a tool, not a toy."
+          "A good frontend alone is not enough. Interface behaviour, server operations and database models need consistent requirements. Sending only the information needed for a particular task also avoids unnecessary network traffic.",
+          "At Atomic Concept, we design around business processes, using approaches such as Domain-Driven Design where useful. **Technology is a tool, not a toy.**"
         ]
       }
     ]
@@ -69,27 +67,27 @@
     "title": "Backend services",
     "sections": [
       {
-        "title": "Backend perfect fit for a real-time experience",
-        "subtitle": "without unnecessary markup.",
+        "title": "Backend that fits the application",
+        "subtitle": "without unnecessary overhead.",
         "paragraphs": [
-          "The backend technology must be created to work closely with the user interface. We know how important it is to optimize the services that fulfill your business needs, so at every stage of server code development we take care of the necessary minimum needed for the application to work.",
-          "We do not use omni-channel solutions that cause unnecessary overhead. consuming your transfer and the resources of your servers. We always think about performance and a high scalability factor to maintain the highest efficiency."
+          "The backend must work closely with the user interface. At every stage of server development, we focus on the operations your business needs and the information your customers need to use them.",
+          "We avoid unnecessary data transfer and server work. We consider performance and the ability to handle growth when planning the system."
         ]
       },
       {
         "title": "We don't promise miracles at the beginning",
         "subtitle": "we spend more time analyzing.",
         "paragraphs": [
-          "The best job done is the one that accomplishes your needs without overcomplicated solutions.",
-          "The key to success is analysis. We need to understand exactly what you want to achieve. that way we will code a service that accomplishes exactly what you want to achieve. No acrobatics or over-engineering.",
-          "Things that are too complicated and hard to understand seem professional at first glance, but over time they become impossible to maintain and incredibly expensive."
+          "**The best job done is the one that accomplishes your needs without overcomplicated solutions.**",
+          "The key to success is analysis. We need to understand exactly what you want to achieve. Then we can build a service with a clear purpose, without unnecessary complexity.",
+          "Things that are too complicated and hard to understand can seem professional at first glance. Over time, they become expensive to maintain."
         ]
       },
       {
         "title": "Digital solutions in an analog world",
         "subtitle": "it's not that difficult.",
         "paragraphs": [
-          "Many things that seem abstract. have many analogies in the real world. We can find them and rearrange them for you. This makes the understanding of how a web application works much clearer, and thus becomes much more digestible."
+          "Many things that seem abstract have equivalents in the real world. We can find those connections and explain them in the context of your business. That makes it easier to plan an application together and understand how it works."
         ]
       }
     ]
@@ -155,6 +153,145 @@
         "subtitle": "do not waste time on experiments that go nowhere.",
         "paragraphs": [
           "Our listening system consists of equipment from ADAM AUDIO. ARTURIA and KLARK TEKNIK are responsible for the signal path. The signal is processed with balanced cables so that we can forget about noise and interference. We also support ourselves with listening equipment from BEYERDYNAMIC. The whole process is carried out in a professional Digital Audio Workstation."
+        ]
+      }
+    ]
+  },
+  "": {
+    "sections": [
+      {
+        "title": "Start with the work you want to improve",
+        "subtitle": "You do not need to choose the technology.",
+        "paragraphs": [
+          "Tell us what you do today, which tools you use and where you need help. We will check whether an existing product is enough or whether you need something built for your business.",
+          "**We don't promise miracles at the beginning.** We spend more time analysing. The best job done is the one that accomplishes your needs without overcomplicated solutions."
+        ]
+      },
+      {
+        "title": "One useful first step",
+        "subtitle": "Then decide what comes next.",
+        "paragraphs": [
+          "We agree the scope, the way to check the result and the cost of running the solution before implementation. You can start with one process, one integration or one part of an application.",
+          "After implementation, we test it with your team and prepare the handover. Further development and maintenance can be agreed around what you actually need."
+        ]
+      },
+      {
+        "title": "Michał Sałek, the person behind Atomic Concept",
+        "subtitle": "From understanding the problem to running the application.",
+        "paragraphs": [
+          "I have worked professionally in software development since 2019. I build complete applications, connect external services and integrate AI. I also take care of deployment and maintenance.",
+          "You discuss the project directly with the person who builds it. I work remotely from Kraków with clients in Poland and abroad. You can see my [public engineering work](https://github.com/MichalSalek)."
+        ]
+      }
+    ]
+  },
+  "software/ai-automation": {
+    "sections": [
+      {
+        "title": "Which repeated task would you like to stop doing by hand?",
+        "subtitle": "Start with a specific piece of work.",
+        "paragraphs": [
+          "Examples include reading information from documents, sorting incoming enquiries, preparing a draft response or finding an answer in company materials. We can connect those steps to the tools your team already uses.",
+          "A fixed rule or a ready-made integration may be enough. AI is useful when the task involves interpreting text, recognising information or working with material that does not always follow the same format."
+        ]
+      },
+      {
+        "title": "Your documents and systems",
+        "subtitle": "A useful result in the place where you work.",
+        "paragraphs": [
+          "An automation can take information from an email or form, check what is missing and prepare a record in your customer system. A search tool can find relevant passages in the documents you allow it to use.",
+          "These are examples of possible implementations. The choice depends on your data, access to the existing systems and the quality you need. We agree what to do when information is missing or uncertain."
+        ]
+      },
+      {
+        "title": "AI prepares. You decide what needs approval.",
+        "subtitle": "Check the result before taking an important action.",
+        "paragraphs": [
+          "For a customer reply, a quote or a change to business data, we can prepare a draft for a person to approve. We define which tasks may run automatically and where your team should make the final decision.",
+          "We test on representative examples, check mistakes and estimate the ongoing cost. We also agree which data may be sent to an external AI provider and what should remain inside your systems."
+        ]
+      },
+      {
+        "title": "A working process, with a clear handover",
+        "subtitle": "Implementation is more than access to a model.",
+        "paragraphs": [
+          "The work can include mapping the process, connecting services, testing outputs, recording failures and showing your team how to use the solution. Monitoring and ongoing support are scoped to the implementation.",
+          "Describe one repeated task in the contact form. Tell us how you do it now and what you would like to happen instead.",
+          "For more engineering background, read about [planning and maintaining an application](/software/architecture/)."
+        ]
+      }
+    ]
+  },
+  "software/integrations": {
+    "sections": [
+      {
+        "title": "Let your existing tools exchange information",
+        "subtitle": "Without copying the same data again.",
+        "paragraphs": [
+          "A website form can create an enquiry in your customer system. A shop can pass order and payment information to another service. A completed task can update a report or notify the person responsible.",
+          "We first check which connections the existing products support. Where their built-in features are enough, we use them. A custom integration fills the part that is missing."
+        ]
+      },
+      {
+        "title": "Reports you can use to run your business",
+        "subtitle": "Choose the information before building the dashboard.",
+        "paragraphs": [
+          "We can bring together information about sales, orders, payments or the progress of work. The result might be a regular email, a spreadsheet or a panel with the figures you actually use.",
+          "We agree the data source, what each figure means and how often it should update. A report is useful when you can understand where a number came from and notice when something is missing."
+        ]
+      },
+      {
+        "title": "When a connection fails",
+        "subtitle": "The missing record should not disappear quietly.",
+        "paragraphs": [
+          "External systems sometimes time out or send the same information twice. We account for retries, duplicate records and errors when designing the integration.",
+          "Depending on the scope, we can keep a history of changes, flag records that need attention and provide a way to resume work after a failure. Your team should know what succeeded and what still needs checking."
+        ]
+      },
+      {
+        "title": "Build on what already works",
+        "subtitle": "An integration does not have to replace your system.",
+        "paragraphs": [
+          "We can add one missing connection to an existing application or gradually improve a larger flow. Access, available interfaces and the condition of the current software determine what is possible.",
+          "Tell us which programs you use and where you currently re-enter or reconcile information. We will use that as the starting point.",
+          "For more engineering background, read about [server operations and data processing](/software/backend/)."
+        ]
+      }
+    ]
+  },
+  "software/custom-software": {
+    "sections": [
+      {
+        "title": "A website, an application or a complete system",
+        "subtitle": "Build around what your customer or team needs to do.",
+        "paragraphs": [
+          "You may need a clear service website, a quotation form, a customer portal, a booking flow or an internal tool for managing orders. We can build a focused website or develop the application behind it.",
+          "The first step is understanding the task. We check whether a ready-made product can do the job before recommending a custom system."
+        ]
+      },
+      {
+        "title": "Take care of the whole application",
+        "subtitle": "From the screen to the information behind it.",
+        "paragraphs": [
+          "A usable interface, stored data, access permissions, payments and external services need to work together. Atomic Concept can handle those parts as one project, including testing and deployment.",
+          "We also work on existing software. A new feature, an integration or a performance improvement may be a better next step than starting again."
+        ]
+      },
+      {
+        "title": "Fast and comfortable to use",
+        "subtitle": "Because real life is not perfect.",
+        "paragraphs": [
+          "A good application is one that helps the user. We pay attention to mobile screens, loading time, clear feedback and what happens when a request fails.",
+          "A customer should not have to guess whether a form was sent or lose everything after an unsuccessful attempt. We include those situations in the design and testing of the agreed features."
+        ]
+      },
+      {
+        "title": "Easy and understandable project maintenance",
+        "subtitle": "Leave room for the next change.",
+        "paragraphs": [
+          "We keep the structure of the source code clear and document the parts needed to run and develop the application. That also helps if you choose another development team in the future.",
+          "We agree the handover, hosting and support arrangements as part of the project. Start by describing who will use the solution and what they need to accomplish.",
+          "For more engineering background, read about [the user interface](/software/frontend/)."
         ]
       }
     ]

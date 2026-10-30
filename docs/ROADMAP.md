@@ -7,48 +7,46 @@ static hosting and the minimal visual direction. It adds English and Polish
 exports, shared metadata and URLs, crawlable content, generated discovery files,
 repeatable checks, CI and a versioned static deployment with rollback.
 
-The homepage now focuses on software. Sound remains a separate destination.
-Existing photos are retained. Translations adapt the previous text; they are not
-the final sales copy. The architecture text no longer confuses event sourcing
-with UDP transport.
+The homepage focuses on AI and software for small and medium businesses. Sound
+remains a separate destination. Both languages include three service pages:
+AI/automation, integrations/reporting, and websites/custom applications. Existing
+engineering articles remain available as background, with their original URLs.
 
-## Next: make the offer concrete
+## Current offer
 
-The existing frontend/backend/architecture categories describe technical layers.
-They do not yet explain which customer problem is worth bringing to this business.
-The next stage should choose a primary customer and entry service before rewriting
-the homepage.
+The audience is a business owner who wants a particular task improved, without
+needing a technical specification. The offer includes process discovery, a scoped
+implementation, deployment and an agreed handover or maintenance arrangement.
+The copy retains the owner's original ideas about analysis, maintainability and
+avoiding unnecessary complexity. A short profile identifies the responsible
+engineer, with a link to public engineering work.
 
-The owner confirmed Atomic Concept as a distinct brand for AI services,
-business-process automation and software engineering. The next offer should
-connect independent software delivery, backend work and integrations to that
-positioning. Connect each service to a clear
-problem, a deliverable and the next contact step. Keep frontend skills as part of
-delivering complete products.
+See [the content brief](business/CONTENT-BRIEF.md) and
+[market evidence and limitations](business/MARKET-RESEARCH.md). Proposed use cases
+are not presented as customer results. No fixed prices, deadlines or ROI claims
+have been invented. Research supports the first offer structure; actual enquiries
+should determine the next specialisation.
 
-Decisions for the next stage:
+## Visual reference
 
-1. Which customers and project sizes should the website attract?
-2. Which existing work can be shown publicly, with whose permission?
-3. What is the first engagement: a scoped implementation, an existing-system review
-   or ongoing product development?
-4. Should production enquiries use an external form service or direct email?
-5. What audio work is currently available, and which samples can be published?
+The original site at `b5ed0e1` is the design reference, as defined in `../DESIGN.md`.
+Retain its cards, thumbnails, subtle credits, bordered Read More controls, contrast
+hover, article panels and contact form. Also retain the delayed subject highlight
+after a CTA, the page transition and the feedback/OK flow. Respect reduced motion.
+Framework updates and content work do not imply approval for a redesign.
 
-## Content and proof
+## Next: proof, imagery and enquiries
 
-Write a short, specific PL/EN homepage with a clear contact action. Replace broad
-technical promises with examples, constraints and verified outcomes. Add a human
-profile and selected public work. Publish no client figures or private product
-identities without explicit permission.
-
-Plan replacement imagery around each section's actual subject. Prefer original
-work, a portrait or relevant visuals over unrelated stock imagery. Keep current
-image dimensions, responsive formats and build-time optimization.
-
-Useful interaction should help visitors describe their project or choose a
-service. Add it only when the enquiry path and the information it needs are clear.
-A backend is not a prerequisite for these interactions.
+1. Select projects or engineering examples that may be shown publicly, with any
+   required client permission. Add specific outcomes only when verified.
+2. Choose original or commissioned photographs and useful service illustrations.
+   Current photos stay until replacements are selected. Preserve reserved geometry
+   and responsive build-time image optimisation.
+3. Review actual enquiries for the requested task, existing tools, source and
+   project fit. Use this evidence before choosing an industry niche or package.
+4. Decide which audio work is currently available and which samples may be shared.
+5. Add lightweight conversion measurement and verify indexing using the owner's
+   search accounts. Avoid overlapping trackers.
 
 ## Search and AI visibility
 

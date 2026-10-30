@@ -91,4 +91,4 @@ npm run deploy:rollback
 See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for connection configuration,
 verification, rollback and the optional GitHub deployment workflow.
 
-The next content and positioning work is recorded in [docs/ROADMAP.md](docs/ROADMAP.md).
+Offer research, design boundaries and the next content work are recorded in [docs/ROADMAP.md](docs/ROADMAP.md).

@@ -8,7 +8,8 @@ import { HeroMolecule } from '@/src/UI/components/Hero.molecule';
 import { AppLinkAtom } from '@/src/UI/components/AppLink.atom';
 import type { SitePageProps } from '@/src/content/load-page';
 import { GoToContactFormMolecule } from './GoToContactForm.molecule';
-import { site } from '@/src/content/site.mjs';
+import { RichTextAtom } from './RichText.atom';
+import { site, primaryServices } from '@/src/content/site.mjs';
 import molecules from '@/src/UI/assets/molecules.jpg';
 import backend from '@/src/UI/assets/backend.jpg';
 import frontend from '@/src/UI/assets/frontend.jpg';
@@ -18,6 +19,9 @@ import drumset from '@/src/UI/assets/drumset.jpg';
 const ContactFormOrganism = dynamic(() => import('@/src/UI/components/ContactForm.organism'));
 
 const heroes = {
+    '/software/ai-automation/': {image: frontend, credits: 'Photo by Kelly Sikkema on Unsplash'},
+    '/software/integrations/': {image: backend, credits: 'Photo by Daria Nepriakhina on Unsplash'},
+    '/software/custom-software/': {image: molecules, credits: 'Photo by Ashraful Islam on Unsplash'},
     '/software/architecture/': {image: molecules, credits: 'Photo by Ashraful Islam on Unsplash'},
     '/software/backend/': {image: backend, credits: 'Photo by Daria Nepriakhina on Unsplash'},
     '/software/frontend/': {image: frontend, credits: 'Photo by Kelly Sikkema on Unsplash'},
@@ -25,14 +29,14 @@ const heroes = {
     '/sound/soundtracks/': {image: drumset, credits: 'Photo by ASBA DRUMS'},
 };
 
-export default function SitePage({path, title, cards, sections, messages, navigation}: SitePageProps) {
+export default function SitePage({path, title, cards, sections, messages, navigation, intro}: SitePageProps) {
     if (path === '/' || path === '/sound/') return <>
-        <Typography variant="h1">{title}</Typography>
-        <RootCardOrganism version={path === '/' ? 'software' : 'sound'} cards={cards}/>
+        <RootCardOrganism version={path === '/' ? 'software' : 'sound'} cards={cards} intro={intro}/>
+        {sections.length > 0 && <Container>{sections.map(section => <ContentBlockOrganism key={section.title} title={section.title} subtitle={section.subtitle} body={<>{section.paragraphs.map(text => <p key={text}><RichTextAtom text={text}/></p>)}</>}/>)}</Container>}
         <Container><GoToContactFormMolecule objectOfInterest={title}/></Container>
     </>;
     if (path === '/contact/') return <Container>
-        <Typography variant="h1">{title}</Typography><p className="page-intro">{messages.contactIntro}</p>
+        <Typography variant="h1">{title}</Typography><Typography variant="body1" component="p" sx={{mb: 3}}>{messages.contactIntro}</Typography>
         <p>{messages.directEmail} <a href={`mailto:${site.email}`}>{site.email}</a></p>
         <ContactFormOrganism/>
     </Container>;
@@ -42,10 +46,11 @@ export default function SitePage({path, title, cards, sections, messages, naviga
     </Container>;
     const hero = heroes[path as keyof typeof heroes];
     const prefix = path.startsWith('/sound/') ? '/sound/' : '/software/';
-    const links = navigation.filter(link => link.path.startsWith(prefix) && link.path !== path);
+    const primary = primaryServices.includes(path);
+    const links = navigation.filter(link => link.path.startsWith(prefix) && link.path !== path && (primary ? primaryServices.includes(link.path) : !primaryServices.includes(link.path)));
     return <ArticleComposition title={title} links={links}>
         {hero && <HeroMolecule {...hero} alt={title}/>}
         {sections.map(section => <ContentBlockOrganism key={section.title} title={section.title} subtitle={section.subtitle}
-            body={<>{section.paragraphs.map(text => <p key={text}>{text}</p>)}</>}/>) }
+            body={<>{section.paragraphs.map(text => <p key={text}><RichTextAtom text={text}/></p>)}</>}/>) }
     </ArticleComposition>;
 }

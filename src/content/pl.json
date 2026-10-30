@@ -7,9 +7,9 @@
     "readMore": "Czytaj więcej",
     "related": "Powiązane usługi",
     "talk": "Porozmawiajmy o Twoim projekcie",
-    "ask": "Zapytaj o tę usługę",
+    "ask": "Opisz swój pomysł",
     "general": "Inne pytanie",
-    "contactIntro": "Opisz swój projekt lub proces, który chcesz usprawnić.",
+    "contactIntro": "Opisz, co chcesz zrobić lub usprawnić i z jakich programów dziś korzystasz. Nie musisz znać technicznych szczegółów. Na tej podstawie ustalimy zakres i kolejne kroki.",
     "email": "Twój e-mail",
     "name": "Twoje imię",
     "subject": "Temat",
@@ -25,7 +25,7 @@
     "notFound": "Nie znaleziono strony",
     "backHome": "Wróć na stronę główną",
     "directEmail": "Możesz też napisać bezpośrednio:",
-    "softwareCategory": "w Twoim oprogramowaniu",
+    "softwareCategory": "AI i oprogramowanie",
     "soundCategory": "dla dźwięku i muzyki",
     "talkIntro": "Napisz, czego potrzebujesz. Odpowiemy i ustalimy, jak możemy pomóc.",
     "interested": "Interesuje Cię ta usługa?",
@@ -34,9 +34,12 @@
   },
   "pages": {
     "/": {
-      "title": "Usługi programistyczne",
-      "description": "Tworzenie oprogramowania, architektura, frontend i backend. Atomic Concept, Michał Sałek. Porozmawiajmy o Twojej aplikacji lub procesie biznesowym.",
-      "intro": []
+      "title": "AI, automatyzacje i oprogramowanie dla firm",
+      "description": "Atomic Concept: automatyzacje AI, integracje systemów, raporty, strony i aplikacje na zamówienie dla małych i średnich firm. Michał Sałek, Kraków, współpraca zdalna.",
+      "intro": [
+        "Wiesz, co chcesz usprawnić w swojej firmie. Możemy przygotować stronę, aplikację lub automatyzację, która Ci w tym pomoże.",
+        "Łączymy używane już programy, porządkujemy dane i wdrażamy AI tam, gdzie ma konkretne zadanie. Na początek wystarczy opis potrzeby."
+      ]
     },
     "/software/architecture/": {
       "title": "Architektura oprogramowania",
@@ -69,32 +72,44 @@
     "/sitemap/": {
       "title": "Mapa strony",
       "description": "Poznaj usługi programistyczne i dźwiękowe Atomic Concept. Strona dostępna w języku polskim i angielskim."
+    },
+    "/software/ai-automation/": {
+      "title": "Automatyzacje AI dla Twojej firmy",
+      "description": "Automatyzacja pracy z dokumentami, zapytaniami i firmową wiedzą. Atomic Concept wdraża AI i łączy je z procesami małych i średnich firm."
+    },
+    "/software/integrations/": {
+      "title": "Integracje systemów i raporty dla firmy",
+      "description": "Połącz używane programy, zautomatyzuj wymianę danych i otrzymuj przydatne raporty. Integracje na zamówienie od Atomic Concept."
+    },
+    "/software/custom-software/": {
+      "title": "Strony i aplikacje na zamówienie",
+      "description": "Strony internetowe, portale klienta i systemy wewnętrzne dopasowane do Twojej firmy. Atomic Concept: planowanie, wykonanie, wdrożenie i utrzymanie."
     }
   },
   "cards": {
     "software": [
       {
-        "path": "/software/frontend/",
-        "title": "Frontend i interfejs użytkownika",
+        "path": "/software/ai-automation/",
+        "title": "Automatyzacje i AI",
         "paragraphs": [
-          "Atomic Concept tworzy solidne i spójne interfejsy z komponentów, które można wykorzystać ponownie.",
-          "Od pierwszego wczytania strony po wieloletni rozwój aplikacji dbamy o SEO i wydajność."
+          "Ręcznie porządkujesz zapytania, czytasz dokumenty lub przygotowujesz podobne odpowiedzi?",
+          "Możemy zautomatyzować konkretną czynność i połączyć AI z informacjami Twojej firmy. Zadbamy też o sprawdzanie wyników."
         ]
       },
       {
-        "path": "/software/architecture/",
-        "title": "Architektura i planowanie procesów",
+        "path": "/software/integrations/",
+        "title": "Integracje i raporty",
         "paragraphs": [
-          "Atomic Concept pomoże Ci rozpoznać i zaplanować obszary Twojej firmy.",
-          "Krok po kroku określimy zakresy odpowiedzialności i stworzymy dla nich oprogramowanie."
+          "Przepisujesz te same dane między sklepem, systemem obsługi klientów i arkuszami?",
+          "Połączymy używane programy i przygotujemy raporty, dzięki którym sprawdzisz, co dzieje się w firmie."
         ]
       },
       {
-        "path": "/software/backend/",
-        "title": "Backend i logika aplikacji",
+        "path": "/software/custom-software/",
+        "title": "Strony, aplikacje i systemy",
         "paragraphs": [
-          "Potrzebujesz przetwarzać dane lub stworzyć mikroserwis?",
-          "Atomic Concept korzysta z rozwiązań opartych na zdarzeniach, aby zachować spójność procesów w Twojej firmie."
+          "Potrzebujesz strony, portalu dla klientów lub narzędzia dopasowanego do pracy firmy?",
+          "Od pierwszego ekranu po płatności i wdrożenie zajmiemy się całą aplikacją."
         ]
       }
     ],

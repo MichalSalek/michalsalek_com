@@ -2,43 +2,297 @@
   "software/architecture": {
     "title": "Architektura oprogramowania",
     "sections": [
-      {"title": "Wysoka wydajność", "subtitle": "aby Twoi klienci nie musieli czekać.", "paragraphs": ["W Atomic Concept dobieramy architekturę aplikacji do potrzeb projektu. Podejście oparte na zdarzeniach pomaga rozdzielać odpowiedzialności i śledzić zmiany. Wydajność zależy od całego systemu: interfejsu, operacji serwerowych i sposobu przechowywania danych."]},
-      {"title": "Kod zrozumiały w utrzymaniu", "subtitle": "także gdy w przyszłości przekażesz go innemu zespołowi.", "paragraphs": ["Struktura plików i katalogów pozostaje czytelna i udokumentowana. Dzięki temu Twój zespół ma wgląd w działanie projektu i może swobodnie go rozwijać."]},
-      {"title": "Skalowanie dzięki modułom", "subtitle": "gdy Twoja firma zacznie szybko rosnąć.", "paragraphs": ["Podejście Domain-Driven Design i rozdzielenie komend od zapytań (CQRS) pomagają wyznaczyć granice modułów. Jasne modele wejścia i wyjścia ułatwiają przeniesienie najbardziej obciążonej części aplikacji na osobny serwer, gdy będzie to potrzebne.", "Modułowy frontend ułatwia pracę nad wydajnością strony, a modułowy backend pozwala wdrażać poszczególne usługi zgodnie z ich potrzebami. Wiele komponentów można wykorzystać ponownie, również w innych projektach."]},
-      {"title": "Zdarzenia mają swoją kolejność", "subtitle": "czas jest częścią działania aplikacji.", "paragraphs": ["Projektując złożone systemy, uwzględniamy, co i kiedy się wydarzyło. Zdarzenie opisuje konkretną zmianę w określonym momencie. Odpowiednio zaprojektowany rejestr zdarzeń pomaga odtworzyć przebieg operacji, na przykład podczas rozpatrywania reklamacji."]}
+      {
+        "title": "Wysoka wydajność",
+        "subtitle": "aby Twoi klienci nie musieli czekać.",
+        "paragraphs": [
+          "W Atomic Concept dobieramy architekturę aplikacji do potrzeb projektu. Podejście oparte na zdarzeniach pomaga rozdzielać odpowiedzialności i śledzić zmiany. Wydajność zależy od całego systemu: interfejsu, operacji serwerowych i sposobu przechowywania danych."
+        ]
+      },
+      {
+        "title": "Kod zrozumiały w utrzymaniu",
+        "subtitle": "także gdy w przyszłości przekażesz go innemu zespołowi.",
+        "paragraphs": [
+          "Struktura plików i katalogów pozostaje czytelna i udokumentowana. Dzięki temu Twój zespół ma wgląd w działanie projektu i może swobodnie go rozwijać."
+        ]
+      },
+      {
+        "title": "Skalowanie dzięki modułom",
+        "subtitle": "gdy Twoja firma zacznie szybko rosnąć.",
+        "paragraphs": [
+          "Modułowa aplikacja ma jasno wyznaczone granice między częściami. Domain-Driven Design i rozdzielenie komend od zapytań (CQRS) mogą pomóc je ustalić, gdy projekt tego potrzebuje. Jeśli konkretna operacja staje się mocno obciążona, można rozważyć osobne skalowanie tej części.",
+          "Modułowy frontend ułatwia kontrolę nad tym, co ładuje przeglądarka. Po stronie backendu podział na moduły może ułatwić zmiany i wdrożenia. To wspiera pracę nad wydajnością, ale nie gwarantuje konkretnego czasu ładowania ani wyniku testu.",
+          "Tam, gdzie ma to sens, komponenty można wykorzystać w innych częściach aplikacji lub w kolejnym projekcie."
+        ]
+      },
+      {
+        "title": "Zdarzenia mają swoją kolejność",
+        "subtitle": "czas jest częścią działania aplikacji.",
+        "paragraphs": [
+          "Projektując złożone systemy, uwzględniamy, co i kiedy się wydarzyło. Zdarzenie opisuje konkretną zmianę w określonym momencie. Odpowiednio zaprojektowany rejestr zdarzeń pomaga odtworzyć przebieg operacji, na przykład podczas rozpatrywania reklamacji."
+        ]
+      }
     ]
   },
   "software/backend": {
     "title": "Backend i logika aplikacji",
     "sections": [
-      {"title": "Backend dopasowany do aplikacji", "subtitle": "bez zbędnego narzutu.", "paragraphs": ["Backend powinien ściśle współpracować z interfejsem użytkownika. Na każdym etapie rozwoju kodu serwerowego dbamy o to, by usługi odpowiadały na potrzeby Twojej firmy i wykonywały potrzebne operacje.", "Unikamy rozwiązań, które niepotrzebnie zużywają transfer i zasoby serwera. Wydajność oraz możliwość skalowania uwzględniamy już na etapie projektu."]},
-      {"title": "Zaczynamy od analizy", "subtitle": "żeby rozwiązać właściwy problem.", "paragraphs": ["Dobrze wykonana praca realizuje Twoje potrzeby bez nadmiernej komplikacji. Najpierw musimy zrozumieć, co chcesz osiągnąć. Dzięki temu powstaje usługa o jasno określonym celu.", "Złożone i trudne do zrozumienia rozwiązania mogą początkowo wyglądać profesjonalnie. Z czasem jednak bywają kosztowne w utrzymaniu. Dbamy o prostotę tam, gdzie jest możliwa."]},
-      {"title": "Cyfrowe rozwiązania w codziennej pracy", "subtitle": "zrozumiałe także poza zespołem technicznym.", "paragraphs": ["Wiele pozornie abstrakcyjnych mechanizmów ma odpowiedniki w codziennym działaniu firmy. Szukamy tych powiązań, aby wspólnie zaplanować aplikację i jasno wyjaśnić sposób jej działania."]}
+      {
+        "title": "Backend dopasowany do aplikacji",
+        "subtitle": "bez zbędnego narzutu.",
+        "paragraphs": [
+          "Backend powinien ściśle współpracować z interfejsem użytkownika. Na każdym etapie rozwoju kodu serwerowego dbamy o to, by usługi odpowiadały na potrzeby Twojej firmy i wykonywały potrzebne operacje.",
+          "Unikamy rozwiązań, które niepotrzebnie zużywają transfer i zasoby serwera. Wydajność oraz możliwość skalowania uwzględniamy już na etapie projektu."
+        ]
+      },
+      {
+        "title": "Zaczynamy od analizy",
+        "subtitle": "żeby rozwiązać właściwy problem.",
+        "paragraphs": [
+          "Dobrze wykonana praca realizuje Twoje potrzeby bez nadmiernej komplikacji. Najpierw musimy zrozumieć, co chcesz osiągnąć. Dzięki temu powstaje usługa o jasno określonym celu.",
+          "Złożone i trudne do zrozumienia rozwiązania mogą początkowo wyglądać profesjonalnie. Z czasem jednak bywają kosztowne w utrzymaniu. Dbamy o prostotę tam, gdzie jest możliwa."
+        ]
+      },
+      {
+        "title": "Cyfrowe rozwiązania w codziennej pracy",
+        "subtitle": "zrozumiałe także poza zespołem technicznym.",
+        "paragraphs": [
+          "Wiele pozornie abstrakcyjnych mechanizmów ma odpowiedniki w codziennym działaniu firmy. Szukamy tych powiązań, aby wspólnie zaplanować aplikację i jasno wyjaśnić sposób jej działania."
+        ]
+      }
     ]
   },
   "software/frontend": {
     "title": "Frontend i interfejsy użytkownika",
     "sections": [
-      {"title": "Szybki interfejs użytkownika", "subtitle": "który pomaga płynnie wykonać zadanie.", "paragraphs": ["Dobra aplikacja pomaga użytkownikowi. Poprawnie napisany i zoptymalizowany kod pozwala wykorzystać możliwości współczesnych przeglądarek.", "Nie każemy czekać tam, gdzie nie jest to potrzebne. Gdy oczekiwanie jest nieuniknione, na przykład przy zapisie w bazie lub operacji serwerowej, interfejs powinien jasno pokazać, co się dzieje. Odpowiednie stany ładowania, przejścia i drobne animacje pomagają zachować płynność obsługi."]},
-      {"title": "Wygoda także przy problemach", "subtitle": "bo połączenie z internetem bywa niestabilne.", "paragraphs": ["Utrata połączenia nie powinna oznaczać utraty pracy. Wypełniony formularz można zachować, a o problemach z siecią czytelnie poinformować użytkownika.", "W odpowiednio zaprojektowanej aplikacji część operacji można też umieścić w kolejce i wykonać po przywróceniu połączenia. Architekturę dobieramy tak, aby wspierała rzeczywisty sposób korzystania z usługi."]},
-      {"title": "Dobra komunikacja między warstwami", "subtitle": "wydajność to praca całego systemu.", "paragraphs": ["Sam frontend nie wystarczy. Sposób działania interfejsu trzeba uzgodnić z architekturą serwera i modelami danych. Spójne wymagania oraz niewielkie porcje przesyłanych danych pozwalają uniknąć zbędnego ruchu sieciowego.", "W Atomic Concept projektujemy aplikacje z uwzględnieniem procesów biznesowych, korzystając między innymi z Domain-Driven Design. Technologia jest narzędziem do realizacji celu."]}
+      {
+        "title": "Szybki interfejs użytkownika",
+        "subtitle": "który pomaga płynnie wykonać zadanie.",
+        "paragraphs": [
+          "Dobra aplikacja pomaga użytkownikowi. Poprawnie napisany i zoptymalizowany kod pozwala wykorzystać możliwości współczesnych przeglądarek.",
+          "Nie każemy czekać tam, gdzie nie jest to potrzebne. Gdy oczekiwanie jest nieuniknione, na przykład przy zapisie w bazie lub operacji serwerowej, interfejs powinien jasno pokazać, co się dzieje. Odpowiednie stany ładowania, przejścia i drobne animacje pomagają zachować płynność obsługi."
+        ]
+      },
+      {
+        "title": "Wygoda także przy problemach",
+        "subtitle": "bo połączenie z internetem bywa niestabilne.",
+        "paragraphs": [
+          "Utrata połączenia nie powinna oznaczać utraty pracy. Wypełniony formularz można zachować, a o problemach z siecią czytelnie poinformować użytkownika.",
+          "W odpowiednio zaprojektowanej aplikacji część operacji można też umieścić w kolejce i wykonać po przywróceniu połączenia. Architekturę dobieramy tak, aby wspierała rzeczywisty sposób korzystania z usługi."
+        ]
+      },
+      {
+        "title": "Dobra komunikacja między warstwami",
+        "subtitle": "wydajność to praca całego systemu.",
+        "paragraphs": [
+          "Sam frontend nie wystarczy. Sposób działania interfejsu trzeba uzgodnić z architekturą serwera i modelami danych. Spójne wymagania oraz niewielkie porcje przesyłanych danych pozwalają uniknąć zbędnego ruchu sieciowego.",
+          "W Atomic Concept projektujemy aplikacje z uwzględnieniem procesów biznesowych, korzystając między innymi z Domain-Driven Design. Technologia jest narzędziem do realizacji celu."
+        ]
+      }
     ]
   },
   "sound/studio": {
     "title": "Studio miksu i masteringu online",
     "sections": [
-      {"title": "Miks Twoich nagrań przez internet", "subtitle": "pomożemy również przygotować ślady.", "paragraphs": ["W Atomic Concept zajmujemy się miksem i masteringiem dostarczonych nagrań wielośladowych.", "Nagrywasz w domu lub w studiu? Doradzimy, jak przygotować ślady do przesłania. Po zapoznaniu się z materiałem osobno wycenimy miks i mastering.", "Jeśli Twój projekt potrzebuje czegoś więcej, możemy również przygotować dodatkową muzykę i podkłady."]},
-      {"title": "Opowiedz, jak ma brzmieć Twoja muzyka", "subtitle": "ustalmy wspólny punkt odniesienia.", "paragraphs": ["Podziel się z nami celem swojego nagrania. Przygotuj odnośniki do utworów, które Cię inspirują. Wskaż brzmienie perkusji, efekt na wokalu lub ogólne wrażenie, na którym Ci zależy.", "Odsłuchamy materiały i ustalimy kierunek pracy nad utworem lub albumem. Przygotowany materiał otrzymasz w rozdzielonych częściach, aby w razie potrzeby móc go dalej opracować."]},
-      {"title": "Stopa, werbel i bas", "subtitle": "nasze najczęstsze obszary pracy.", "paragraphs": ["Najczęściej pracujemy z metalem, hip-hopem, mocną elektroniką i drum and bassem. Szukamy siły i przestrzeni, aby nagrania brzmiały mocno i szeroko.", "Jesteśmy otwarci także na inne gatunki. Napisz i przedstaw swój projekt."]},
-      {"title": "Zaplecze techniczne studia", "subtitle": "sprzęt wspierający pracę nad brzmieniem.", "paragraphs": ["Korzystamy z odsłuchów ADAM AUDIO oraz urządzeń ARTURIA i KLARK TEKNIK w torze sygnałowym. Połączenia symetryczne ograniczają szumy i zakłócenia. Wspieramy się także sprzętem BEYERDYNAMIC. Materiał opracowujemy w profesjonalnej cyfrowej stacji roboczej (DAW)."]}
+      {
+        "title": "Miks Twoich nagrań przez internet",
+        "subtitle": "pomożemy również przygotować ślady.",
+        "paragraphs": [
+          "W Atomic Concept zajmujemy się miksem i masteringiem dostarczonych nagrań wielośladowych.",
+          "Nagrywasz w domu lub w studiu? Doradzimy, jak przygotować ślady do przesłania. Po zapoznaniu się z materiałem osobno wycenimy miks i mastering.",
+          "Jeśli Twój projekt potrzebuje czegoś więcej, możemy również przygotować dodatkową muzykę i podkłady."
+        ]
+      },
+      {
+        "title": "Opowiedz, jak ma brzmieć Twoja muzyka",
+        "subtitle": "ustalmy wspólny punkt odniesienia.",
+        "paragraphs": [
+          "Podziel się z nami celem swojego nagrania. Przygotuj odnośniki do utworów, które Cię inspirują. Wskaż brzmienie perkusji, efekt na wokalu lub ogólne wrażenie, na którym Ci zależy.",
+          "Odsłuchamy materiały i ustalimy kierunek pracy nad utworem lub albumem. Przygotowany materiał otrzymasz w rozdzielonych częściach, aby w razie potrzeby móc go dalej opracować."
+        ]
+      },
+      {
+        "title": "Stopa, werbel i bas",
+        "subtitle": "nasze najczęstsze obszary pracy.",
+        "paragraphs": [
+          "Najczęściej pracujemy z metalem, hip-hopem, mocną elektroniką i drum and bassem. Szukamy siły i przestrzeni, aby nagrania brzmiały mocno i szeroko.",
+          "Jesteśmy otwarci także na inne gatunki. Napisz i przedstaw swój projekt."
+        ]
+      },
+      {
+        "title": "Zaplecze techniczne studia",
+        "subtitle": "sprzęt wspierający pracę nad brzmieniem.",
+        "paragraphs": [
+          "Korzystamy z odsłuchów ADAM AUDIO oraz urządzeń ARTURIA i KLARK TEKNIK w torze sygnałowym. Połączenia symetryczne ograniczają szumy i zakłócenia. Wspieramy się także sprzętem BEYERDYNAMIC. Materiał opracowujemy w profesjonalnej cyfrowej stacji roboczej (DAW)."
+        ]
+      }
     ]
   },
   "sound/soundtracks": {
     "title": "Muzyka gotowa i na zamówienie",
     "sections": [
-      {"title": "Zamów podkład muzyczny", "subtitle": "do filmów, reklam i zwiastunów.", "paragraphs": ["Przygotujemy muzykę i oprawę dźwiękową do Twojego materiału. Opisz swoją wizję. Korzystamy z samplerów, procesorów dźwięku oraz instrumentów: gitary elektrycznej, basowej i perkusji.", "Znajomość miksu i masteringu pozwala nam pracować nad spójnym brzmieniem całej produkcji."]},
-      {"title": "Śpiewasz lub rapujesz?", "subtitle": "stwórzmy podkład do Twojej wizji.", "paragraphs": ["Przeglądanie gotowych paczek beatów nie zawsze prowadzi do znalezienia właściwego podkładu. Muzyka powinna pasować do Twojego pomysłu.", "Przygotujemy podkład w klimacie, w którym czujesz się najlepiej. Przy zamówieniu na wyłączność ustalimy warunki tak, aby nikt inny nie nagrywał do tej samej muzyki."]},
-      {"title": "Licencja na gotową muzykę", "subtitle": "alternatywa dla indywidualnego zamówienia.", "paragraphs": ["Możesz również zapytać o licencję na gotowy podkład Atomic Concept. Taka opcja może być korzystniejsza cenowo. Tworzymy muzykę do wokalu i produkcji wideo. Warunki wykorzystania ustalamy przed zakupem."]}
+      {
+        "title": "Zamów podkład muzyczny",
+        "subtitle": "do filmów, reklam i zwiastunów.",
+        "paragraphs": [
+          "Przygotujemy muzykę i oprawę dźwiękową do Twojego materiału. Opisz swoją wizję. Korzystamy z samplerów, procesorów dźwięku oraz instrumentów: gitary elektrycznej, basowej i perkusji.",
+          "Znajomość miksu i masteringu pozwala nam pracować nad spójnym brzmieniem całej produkcji."
+        ]
+      },
+      {
+        "title": "Śpiewasz lub rapujesz?",
+        "subtitle": "stwórzmy podkład do Twojej wizji.",
+        "paragraphs": [
+          "Przeglądanie gotowych paczek beatów nie zawsze prowadzi do znalezienia właściwego podkładu. Muzyka powinna pasować do Twojego pomysłu.",
+          "Przygotujemy podkład w klimacie, w którym czujesz się najlepiej. Przy zamówieniu na wyłączność ustalimy warunki tak, aby nikt inny nie nagrywał do tej samej muzyki."
+        ]
+      },
+      {
+        "title": "Licencja na gotową muzykę",
+        "subtitle": "alternatywa dla indywidualnego zamówienia.",
+        "paragraphs": [
+          "Możesz również zapytać o licencję na gotowy podkład Atomic Concept. Taka opcja może być korzystniejsza cenowo. Tworzymy muzykę do wokalu i produkcji wideo. Warunki wykorzystania ustalamy przed zakupem."
+        ]
+      }
+    ]
+  },
+  "": {
+    "sections": [
+      {
+        "title": "Zacznij od tego, co chcesz usprawnić",
+        "subtitle": "Nie musisz wybierać technologii.",
+        "paragraphs": [
+          "Opisz, jak dziś pracujesz, z jakich programów korzystasz i gdzie potrzebujesz pomocy. Sprawdzimy, czy wystarczy gotowe narzędzie, czy potrzebujesz rozwiązania przygotowanego dla Twojej firmy.",
+          "**Nie obiecujemy cudów na początku.** Najpierw analizujemy potrzeby. Dobre rozwiązanie to takie, które pozwala osiągnąć cel bez zbędnego komplikowania."
+        ]
+      },
+      {
+        "title": "Najpierw jeden przydatny etap",
+        "subtitle": "Potem zdecydujesz, co dalej.",
+        "paragraphs": [
+          "Przed realizacją ustalimy zakres, sposób sprawdzenia efektu i koszty działania rozwiązania. Możesz zacząć od jednego procesu, integracji lub części aplikacji.",
+          "Po wdrożeniu sprawdzimy działanie z Twoim zespołem i przygotujemy przekazanie rozwiązania. Dalszy rozwój i utrzymanie ustalimy według rzeczywistych potrzeb."
+        ]
+      },
+      {
+        "title": "Michał Sałek, twórca Atomic Concept",
+        "subtitle": "Od zrozumienia problemu po działającą aplikację.",
+        "paragraphs": [
+          "Zawodowo tworzę oprogramowanie od 2019 roku. Buduję kompletne aplikacje, łączę zewnętrzne usługi i wdrażam AI. Zajmuję się również publikacją i utrzymaniem rozwiązań.",
+          "O projekcie rozmawiasz bezpośrednio z osobą, która go realizuje. Pracuję zdalnie z Krakowa, dla klientów z Polski i zagranicy. Możesz zobaczyć mój [publiczny kod](https://github.com/MichalSalek)."
+        ]
+      }
+    ]
+  },
+  "software/ai-automation": {
+    "sections": [
+      {
+        "title": "Której powtarzalnej czynności nie chcesz już robić ręcznie?",
+        "subtitle": "Zacznijmy od konkretnego zadania.",
+        "paragraphs": [
+          "Może to być odczytywanie danych z dokumentów, porządkowanie zapytań, przygotowywanie odpowiedzi lub wyszukiwanie informacji w firmowych materiałach. Możemy połączyć te czynności z programami, których używa Twój zespół.",
+          "Czasem wystarczy prosta reguła lub gotowa integracja. AI przydaje się wtedy, gdy trzeba zrozumieć tekst, rozpoznać informacje lub pracować z materiałami, które mają różną postać."
+        ]
+      },
+      {
+        "title": "Twoje dokumenty i programy",
+        "subtitle": "Wynik tam, gdzie z niego skorzystasz.",
+        "paragraphs": [
+          "Automatyzacja może zebrać informacje z wiadomości lub formularza, sprawdzić braki i przygotować wpis w systemie obsługi klientów. Wyszukiwarka może znaleźć odpowiedni fragment w dokumentach, do których otrzyma dostęp.",
+          "To przykłady możliwych wdrożeń. Wybór zależy od Twoich danych, dostępu do używanych systemów i wymaganej jakości. Ustalimy też, co zrobić, gdy informacji brakuje lub wynik jest niepewny."
+        ]
+      },
+      {
+        "title": "AI przygotowuje. Ty zatwierdzasz ważne decyzje.",
+        "subtitle": "Sprawdź wynik przed wykonaniem operacji.",
+        "paragraphs": [
+          "Odpowiedź dla klienta, wycenę lub zmianę danych możemy najpierw przygotować do zatwierdzenia przez człowieka. Ustalimy, które zadania mogą działać automatycznie, a gdzie ostateczną decyzję powinien podjąć Twój zespół.",
+          "Przetestujemy rozwiązanie na typowych przykładach, sprawdzimy błędy i oszacujemy koszty działania. Uzgodnimy również, jakie dane można wysyłać do zewnętrznego dostawcy AI, a jakie powinny pozostać w Twoich systemach."
+        ]
+      },
+      {
+        "title": "Działający proces i jasne przekazanie",
+        "subtitle": "Wdrożenie to więcej niż dostęp do modelu.",
+        "paragraphs": [
+          "Zakres może obejmować opisanie procesu, połączenie usług, sprawdzanie wyników, rejestrowanie błędów i pokazanie zespołowi, jak korzystać z rozwiązania. Monitoring i dalsze wsparcie dobierzemy do wdrożenia.",
+          "Opisz w formularzu jedną powtarzalną czynność. Napisz, jak wykonujesz ją teraz i jak chciałbyś pracować po zmianie.",
+          "Więcej o zapleczu technicznym przeczytasz w artykule o [planowaniu i utrzymaniu aplikacji](/software/architecture/)."
+        ]
+      }
+    ]
+  },
+  "software/integrations": {
+    "sections": [
+      {
+        "title": "Połącz programy, których już używasz",
+        "subtitle": "Bez ponownego przepisywania tych samych danych.",
+        "paragraphs": [
+          "Formularz na stronie może utworzyć zapytanie w systemie obsługi klientów. Sklep może przekazać dane o zamówieniu i płatności do kolejnej usługi. Zakończenie zadania może zaktualizować raport lub powiadomić odpowiednią osobę.",
+          "Najpierw sprawdzimy dostępne połączenia między produktami. Jeśli wystarczą ich wbudowane funkcje, skorzystamy z nich. Indywidualną integrację przygotujemy tam, gdzie brakuje potrzebnego połączenia."
+        ]
+      },
+      {
+        "title": "Raporty przydatne w prowadzeniu firmy",
+        "subtitle": "Najpierw wybierz informacje, potem sposób prezentacji.",
+        "paragraphs": [
+          "Możemy zebrać informacje o sprzedaży, zamówieniach, płatnościach lub postępie pracy. Wynikiem może być regularny e-mail, arkusz albo panel ze wskaźnikami, z których rzeczywiście korzystasz.",
+          "Ustalimy źródło danych, znaczenie poszczególnych liczb i częstotliwość aktualizacji. Raport ma być zrozumiały: powinieneś wiedzieć, skąd pochodzi wynik i kiedy czegoś w nim brakuje."
+        ]
+      },
+      {
+        "title": "Gdy połączenie zawiedzie",
+        "subtitle": "Brakujący wpis nie powinien pozostać niezauważony.",
+        "paragraphs": [
+          "Zewnętrzny system może chwilowo nie odpowiadać albo wysłać tę samą informację dwa razy. Przy projektowaniu integracji uwzględniamy ponowienia, powtórzone wpisy i błędy.",
+          "Zależnie od zakresu możemy zapisywać historię zmian, oznaczać dane wymagające sprawdzenia i umożliwić wznowienie pracy po awarii. Twój zespół powinien wiedzieć, co się udało, a co wymaga uwagi."
+        ]
+      },
+      {
+        "title": "Rozwijaj to, co już działa",
+        "subtitle": "Integracja nie musi oznaczać wymiany systemu.",
+        "paragraphs": [
+          "Możemy dodać jedno brakujące połączenie do istniejącej aplikacji albo stopniowo usprawniać większy proces. Możliwości zależą od dostępów, sposobu komunikacji między programami i stanu obecnego oprogramowania.",
+          "Napisz, z jakich programów korzystasz i gdzie ręcznie przenosisz lub uzgadniasz dane. Od tego zaczniemy.",
+          "Więcej o zapleczu technicznym przeczytasz w artykule o [operacjach serwerowych i przetwarzaniu danych](/software/backend/)."
+        ]
+      }
+    ]
+  },
+  "software/custom-software": {
+    "sections": [
+      {
+        "title": "Strona, aplikacja lub cały system",
+        "subtitle": "Dopasowane do zadań klienta i Twojego zespołu.",
+        "paragraphs": [
+          "Możesz potrzebować czytelnej strony usługowej, formularza wyceny, portalu klienta, obsługi rezerwacji lub narzędzia do prowadzenia zleceń. Przygotujemy prostą stronę albo aplikację potrzebną do obsługi tych działań.",
+          "Zaczynamy od zrozumienia zadania. Zanim zaproponujemy własny system, sprawdzimy, czy wystarczy gotowy produkt."
+        ]
+      },
+      {
+        "title": "Zajmiemy się całą aplikacją",
+        "subtitle": "Od ekranu po dane, na których pracuje.",
+        "paragraphs": [
+          "Interfejs, zapis danych, uprawnienia, płatności i zewnętrzne usługi muszą ze sobą współpracować. Atomic Concept może przygotować te elementy w ramach jednego projektu, razem z testami i wdrożeniem.",
+          "Pracujemy również z istniejącym oprogramowaniem. Nowa funkcja, integracja lub poprawa wydajności może być lepszym kolejnym krokiem niż budowanie wszystkiego od początku."
+        ]
+      },
+      {
+        "title": "Szybko i wygodnie",
+        "subtitle": "Bo codzienna praca nie zawsze przebiega idealnie.",
+        "paragraphs": [
+          "Dobra aplikacja pomaga osobie, która z niej korzysta. Dbamy o działanie na telefonie, szybkość ładowania, zrozumiałe komunikaty i obsługę nieudanych operacji.",
+          "Klient nie powinien zgadywać, czy wysłał formularz, ani tracić całej treści po nieudanej próbie. Uwzględniamy takie sytuacje w projekcie i testach uzgodnionych funkcji."
+        ]
+      },
+      {
+        "title": "Z myślą o późniejszym utrzymaniu",
+        "subtitle": "Zostaw miejsce na kolejną zmianę.",
+        "paragraphs": [
+          "Dbamy o czytelną strukturę kodu i dokumentujemy informacje potrzebne do uruchomienia oraz rozwoju aplikacji. Ułatwia to również przekazanie projektu innemu zespołowi w przyszłości.",
+          "Sposób przekazania, hosting i dalsze wsparcie ustalimy w ramach projektu. Na początek opisz, kto będzie korzystał z rozwiązania i co ma dzięki niemu zrobić.",
+          "Więcej o zapleczu technicznym przeczytasz w artykule o [interfejsach użytkownika](/software/frontend/)."
+        ]
+      }
     ]
   }
 }

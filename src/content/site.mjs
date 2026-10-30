@@ -8,7 +8,9 @@ export const site = {
 };
 
 // Public routes, sitemap, language links and export checks share this registry.
-export const routes = ['/', '/software/architecture/', '/software/backend/', '/software/frontend/', '/sound/', '/sound/studio/', '/sound/soundtracks/', '/contact/', '/sitemap/'];
+export const routes = ['/', '/software/architecture/', '/software/backend/', '/software/frontend/', '/sound/', '/sound/studio/', '/sound/soundtracks/', '/contact/', '/sitemap/', '/software/ai-automation/', '/software/integrations/', '/software/custom-software/'];
+
+export const primaryServices = ['/software/ai-automation/', '/software/integrations/', '/software/custom-software/'];
 
 export function localePath(locale, path = '/') {
     if (!site.locales.includes(locale) || !routes.includes(path)) throw new Error(`Unknown page: ${locale} ${path}`);

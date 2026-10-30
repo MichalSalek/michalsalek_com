@@ -7,9 +7,9 @@
     "readMore": "Read More",
     "related": "Related services",
     "talk": "Do you want to talk?",
-    "ask": "Ask about this service",
+    "ask": "Tell us about your project",
     "general": "General question",
-    "contactIntro": "Write about your project or the process you would like to improve.",
+    "contactIntro": "Describe what you want to build or improve and which tools you use today. You do not need technical details. We will use that to discuss the scope and next steps.",
     "email": "Your email",
     "name": "Your name",
     "subject": "Subject",
@@ -25,7 +25,7 @@
     "notFound": "Page not found",
     "backHome": "Back to home",
     "directEmail": "You can also email us directly:",
-    "softwareCategory": "in your software",
+    "softwareCategory": "AI and software",
     "soundCategory": "for sound and music",
     "talkIntro": "Use the links below to ask for details. We will respond as soon as possible.",
     "interested": "Interested in this service?",
@@ -34,9 +34,12 @@
   },
   "pages": {
     "/": {
-      "title": "Software services",
-      "description": "Software development, architecture, frontend and backend services by Atomic Concept, Michał Sałek. Discuss your application or business process.",
-      "intro": []
+      "title": "AI, automation and custom software for your business",
+      "description": "Atomic Concept builds AI automations, system integrations, reports, websites and custom applications for small and medium businesses. Michał Sałek, Kraków, Poland.",
+      "intro": [
+        "You know what needs improving in your business. We can build the website, application or automation to help you do it.",
+        "We connect the tools you already use, organise your data and add AI where it has a useful job to do. You do not need a technical specification to start."
+      ]
     },
     "/software/architecture/": {
       "title": "Software architecture",
@@ -69,32 +72,44 @@
     "/sitemap/": {
       "title": "Sitemap",
       "description": "Browse software development and audio services from Atomic Concept in English and Polish."
+    },
+    "/software/ai-automation/": {
+      "title": "AI automation for your business",
+      "description": "AI-assisted document processing, enquiry handling and internal knowledge tools. Atomic Concept designs and integrates automation around your business process."
+    },
+    "/software/integrations/": {
+      "title": "System integrations and business reports",
+      "description": "Connect your existing systems, automate data exchange and build useful reports. Custom integrations for small and medium businesses by Atomic Concept."
+    },
+    "/software/custom-software/": {
+      "title": "Websites and custom business applications",
+      "description": "Websites, customer portals and internal systems tailored to your business. Atomic Concept handles planning, development, deployment and maintenance."
     }
   },
   "cards": {
     "software": [
       {
-        "path": "/software/frontend/",
-        "title": "Frontend User Interface",
+        "path": "/software/ai-automation/",
+        "title": "AI and automation",
         "paragraphs": [
-          "With Atomic Concept, the UI of your business will be solid, reusable and coherent.",
-          "From the first byte after page load to a long-lived application, SEO and performance are key."
+          "Still sorting enquiries, reading documents or preparing the same replies by hand?",
+          "We can automate a defined task and connect AI to your own information, with a way to check the result."
         ]
       },
       {
-        "path": "/software/architecture/",
-        "title": "Architecture and process planning",
+        "path": "/software/integrations/",
+        "title": "Integrations and reports",
         "paragraphs": [
-          "Atomic Concept will help you discover and plan areas of your business.",
-          "Let us define specific scopes step by step and create an ecosystem for them."
+          "Copying the same data between your shop, customer system and spreadsheets?",
+          "We connect existing tools and prepare reports so you can see what is happening in your business."
         ]
       },
       {
-        "path": "/software/backend/",
-        "title": "Backend logic and operations",
+        "path": "/software/custom-software/",
+        "title": "Websites, apps and systems",
         "paragraphs": [
-          "Want to process some data? Need a microservice?",
-          "Atomic Concept uses event-driven solutions to keep your business processes coherent."
+          "Need a website, a customer portal or a tool built around the way your company works?",
+          "From the first screen to payments and deployment, we take care of the whole application."
         ]
       }
     ],
