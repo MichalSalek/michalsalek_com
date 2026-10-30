@@ -206,6 +206,8 @@ test('breadcrumbs keep the original hierarchy and a distinct current page', asyn
     await page.goto('/software/backend/');
     const trail = page.getByRole('navigation', {name: 'Breadcrumb', exact: true});
     await expect(trail.locator('li')).toHaveText(['Sitemap', 'Home', 'Software', 'Backend']);
+    await expect(trail).toHaveCSS('font-family', 'Roboto, Helvetica, Arial, sans-serif');
+    await expect(trail.locator('[aria-current="page"]')).toHaveCSS('color', 'rgba(0, 0, 0, 0.87)');
     await expect(trail.locator('[aria-current="page"]')).toHaveCSS('font-weight', '700');
     await expect(trail.locator('[aria-current="page"]')).toHaveCSS('text-decoration-line', 'none');
     await expect(trail.locator('[aria-current="page"] a, a[aria-current="page"]')).toHaveCount(0);

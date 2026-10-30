@@ -20,7 +20,9 @@ and reliable contact handling. These changes must respect the original appearanc
 - No card movement on hover. Preserve the original contrast/saturation effect.
 - Photo credits stay at the top right, 6px, without a background panel.
 - Breadcrumbs retain Sitemap, Home, the category and the current page. Keep the
-  original small uppercase type, slash separators and bold unlinked current item.
+  original 12.8px uppercase type (Roboto/Helvetica/Arial fallback), dark neutral
+  text, slash separators and bold unlinked current item. Breadcrumbs must not
+  inherit the brown body text or the page typography font stack.
 - The homepage presents the implementation company, without a personal profile
   or links to source-code profiles.
 - Keep real links and buttons, with no nested interactive elements.
