@@ -23,12 +23,21 @@ unsupported savings, deadlines, testimonials or ranking/citation guarantees.
 
 ## Offer structure
 
-- AI and automation: repetitive document, enquiry and information tasks, with
-  verification, explicit human decisions and proportionate running costs.
-- Integrations and reporting: connect existing tools, reduce repeated data entry,
-  reconcile errors and make business information available to the owner.
-- Websites and custom applications: from a useful service website to a customer
-  portal or internal system; assess existing tools before writing new software.
+- AI integrations: interpret documents, classify enquiries and search permitted
+  company materials, with verification and scoped running costs.
+- Workflow automation: repeated sequences, reminders and approvals following
+  agreed rules; AI is optional.
+- Existing-system integrations: exchange data between tools that stay in use,
+  account for missing information, duplicate records and failures.
+- Business websites: a clear public offer, content, contact, language versions and
+  technical discovery foundations.
+- Custom applications and systems: accounts, permissions, job records, portals,
+  bookings and payments, with deployment and handover.
+- Reports and dashboards: useful consolidated information, defined measures,
+  sources, access and update frequency.
+
+These scopes can be combined within one project. Keep two relevant service links
+per article rather than repeating the complete catalogue at every page ending.
 
 Keep the existing engineering articles as deeper background. Do not redirect their
 URLs to unrelated new pages. Preserve separate audio services under `/sound/`.
@@ -38,7 +47,9 @@ quotes or automatic commitments. English and Polish carry the same scope.
 ## Visual boundary
 
 Reuse the original components and design described in `DESIGN.md`. Content work
-must not introduce new card effects, decorative captions, badges or a new layout.
+must not introduce new card effects, decorative captions or badges. The homepage
+introduction has an explicit owner-requested heading/body layout and emphasis;
+keep it structured. New illustrations stay in local preview until approval.
 
 ## Evidence boundary
 

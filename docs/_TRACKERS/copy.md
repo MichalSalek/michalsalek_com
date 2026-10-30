@@ -1,6 +1,6 @@
 # Content review
 
-Scope: first SME-oriented PL/EN offer, three service pages and shared enquiry copy.
+Scope: first SME-oriented PL/EN offer, six distinct service pages and shared enquiry copy.
 Brief: `docs/business/CONTENT-BRIEF.md`. Evidence: `docs/business/MARKET-RESEARCH.md`.
 
 Keep the original practical ideas about analysis, maintainability and avoiding

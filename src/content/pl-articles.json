@@ -219,7 +219,8 @@
           "Więcej o zapleczu technicznym przeczytasz w artykule o [planowaniu i utrzymaniu aplikacji](/software/architecture/)."
         ]
       }
-    ]
+    ],
+    "title": "AI w pracy Twojej firmy"
   },
   "software/integrations": {
     "sections": [
@@ -232,11 +233,11 @@
         ]
       },
       {
-        "title": "Raporty przydatne w prowadzeniu firmy",
-        "subtitle": "Najpierw wybierz informacje, potem sposób prezentacji.",
+        "title": "Które dane powinny być wspólne?",
+        "subtitle": "Jedno źródło informacji dla każdej sprawy.",
         "paragraphs": [
-          "Możemy zebrać informacje o sprzedaży, zamówieniach, płatnościach lub postępie pracy. Wynikiem może być regularny e-mail, arkusz albo panel ze wskaźnikami, z których rzeczywiście korzystasz.",
-          "Ustalimy źródło danych, znaczenie poszczególnych liczb i częstotliwość aktualizacji. Raport ma być zrozumiały: powinieneś wiedzieć, skąd pochodzi wynik i kiedy czegoś w nim brakuje."
+          "Ustalimy, gdzie powstaje zamówienie lub wpis klienta i które programy mają otrzymać jego kopię. Określimy również, gdzie można wprowadzać zmiany i jak połączyć odpowiadające sobie rekordy.",
+          "Samo przeniesienie danych nie zawsze wystarcza. Przygotujemy mapowanie pól i obsługę braków, a potrzebne [raporty](/software/reporting/) lub [automatyzacje procesu](/software/automation/) możemy dołączyć jako kolejne elementy."
         ]
       },
       {
@@ -256,16 +257,17 @@
           "Więcej o zapleczu technicznym przeczytasz w artykule o [operacjach serwerowych i przetwarzaniu danych](/software/backend/)."
         ]
       }
-    ]
+    ],
+    "title": "Integracje z istniejącymi systemami"
   },
   "software/custom-software": {
     "sections": [
       {
-        "title": "Strona, aplikacja lub cały system",
-        "subtitle": "Dopasowane do zadań klienta i Twojego zespołu.",
+        "title": "Aplikacja dopasowana do sposobu pracy",
+        "subtitle": "Zadania klienta i Twojego zespołu w jednym systemie.",
         "paragraphs": [
-          "Możesz potrzebować czytelnej strony usługowej, formularza wyceny, portalu klienta, obsługi rezerwacji lub narzędzia do prowadzenia zleceń. Przygotujemy prostą stronę albo aplikację potrzebną do obsługi tych działań.",
-          "Zaczynamy od zrozumienia zadania. Zanim zaproponujemy własny system, sprawdzimy, czy wystarczy gotowy produkt."
+          "Możesz potrzebować portalu klienta, obsługi rezerwacji, narzędzia do prowadzenia zleceń lub panelu dla pracowników. Aplikacja pozwala zapisywać informacje, zmieniać statusy i udostępniać je odpowiednim osobom.",
+          "Zaczynamy od zrozumienia zadania. Zanim zaproponujemy własny system, sprawdzimy, czy wystarczy gotowy produkt. Jeśli potrzebujesz przede wszystkim prezentacji oferty i kontaktu, zobacz [strony internetowe](/software/websites/)."
         ]
       },
       {
@@ -291,6 +293,115 @@
           "Dbamy o czytelną strukturę kodu i dokumentujemy informacje potrzebne do uruchomienia oraz rozwoju aplikacji. Ułatwia to również przekazanie projektu innemu zespołowi w przyszłości.",
           "Sposób przekazania, hosting i dalsze wsparcie ustalimy w ramach projektu. Na początek opisz, kto będzie korzystał z rozwiązania i co ma dzięki niemu zrobić.",
           "Więcej o zapleczu technicznym przeczytasz w artykule o [interfejsach użytkownika](/software/frontend/)."
+        ]
+      }
+    ],
+    "title": "Aplikacje i systemy na zamówienie"
+  },
+  "software/websites": {
+    "sections": [
+      {
+        "title": "Co klient ma znaleźć na Twojej stronie?",
+        "subtitle": "Oferta, którą można zrozumieć i łatwo zapytać o szczegóły.",
+        "paragraphs": [
+          "Strona firmy może wyjaśniać zakres usług, pokazywać realizacje i ułatwiać kontakt. Zacznijmy od tego, po co odwiedzający ma na nią wejść i co powinien zrobić dalej.",
+          "Ułożymy treści i podstrony wokół tych pytań. Przykładowo firma usługowa może potrzebować osobnych opisów usług, obszaru działania, wybranych realizacji i formularza zapytania."
+        ]
+      },
+      {
+        "title": "Czytelnie na telefonie i komputerze",
+        "subtitle": "Bez czekania i skaczącego układu.",
+        "paragraphs": [
+          "Dbamy o szybkość ładowania, czytelny tekst i stabilne miejsce na zdjęcia. Formularze oraz nawigację sprawdzamy na małych ekranach, a nie tylko w widoku komputerowym.",
+          "Jeśli potrzebujesz kilku języków, przygotujemy osobne adresy i pełne treści każdej wersji. Strona może być statyczna, gdy nie potrzebujesz funkcji wymagających serwera."
+        ]
+      },
+      {
+        "title": "Treść dostępna dla wyszukiwarek i systemów AI",
+        "subtitle": "Najpierw zrozumiała oferta i poprawna technika.",
+        "paragraphs": [
+          "Przygotujemy tytuły, opisy, uporządkowane dane, odnośniki między podstronami i mapę witryny. Ważne informacje powinny być dostępne również bez uruchamiania skryptów.",
+          "To ułatwia odczytanie i zrozumienie treści. Nie oznacza gwarancji pozycji w Google ani polecenia przez model AI. Materiały o firmie, rzeczywiste realizacje i konkretne odpowiedzi dla klientów nadal są potrzebne."
+        ]
+      },
+      {
+        "title": "Wdrożenie i późniejsze zmiany",
+        "subtitle": "Z zachowaniem tego, co już masz.",
+        "paragraphs": [
+          "Możemy wykorzystać istniejącą domenę, pocztę i hosting albo ustalić nowe miejsce publikacji. Uzgodnimy też, kto będzie zmieniał treści i jak będzie to robił.",
+          "Jeśli oprócz prezentacji oferty potrzebujesz kont klientów lub obsługi zleceń, zobacz [aplikacje i systemy](/software/custom-software/). Formularz można też [połączyć z obecnym systemem obsługi klientów](/software/integrations/)."
+        ]
+      }
+    ]
+  },
+  "software/automation": {
+    "sections": [
+      {
+        "title": "Którą czynność powtarzasz każdego dnia?",
+        "subtitle": "Zapiszmy, co rozpoczyna zadanie i co powinno wydarzyć się dalej.",
+        "paragraphs": [
+          "Nowe zgłoszenie może utworzyć zadanie dla właściwej osoby, otrzymać numer i uruchomić potwierdzenie dla klienta. Zbliżający się termin może wywołać przypomnienie, a zakończenie pracy zmienić status zlecenia.",
+          "To przykłady możliwych procesów. Najpierw sprawdzimy sposób pracy Twojego zespołu i wybierzemy jeden fragment, który warto usprawnić."
+        ]
+      },
+      {
+        "title": "Jasne reguły zamiast ręcznego pilnowania",
+        "subtitle": "Każdy krok ma warunek i oczekiwany wynik.",
+        "paragraphs": [
+          "Ustalimy, skąd przychodzi zgłoszenie, jakie informacje są potrzebne, kto ma otrzymać zadanie i co zrobić przy brakach. Automatyzacja może obejmować również etap zatwierdzenia przez człowieka.",
+          "Nie każda automatyzacja potrzebuje AI. Gdy wystarczy ustalona reguła, prostsze rozwiązanie może być łatwiejsze do sprawdzenia i utrzymania. Do interpretowania swobodnego tekstu można dołączyć [AI](/software/ai-automation/)."
+        ]
+      },
+      {
+        "title": "Proces obejmuje też wyjątki",
+        "subtitle": "Brak danych lub awaria nie powinny zatrzymać pracy bez informacji.",
+        "paragraphs": [
+          "Sprawdzimy, jak obsłużyć duplikat zgłoszenia, niedostępny program albo brak odpowiedzi w terminie. Zależnie od zadania można ponowić operację lub przekazać ją do ręcznego sprawdzenia.",
+          "Ustalimy, kto zobaczy błąd i jak wznowić proces. Dzięki temu wiadomo, które zadania zostały wykonane, a które nadal wymagają uwagi."
+        ]
+      },
+      {
+        "title": "Zacznij od jednego procesu",
+        "subtitle": "Rozbudowa po sprawdzeniu działania.",
+        "paragraphs": [
+          "Przed realizacją ustalimy zakres, koszt działania i sposób weryfikacji. Wykorzystamy gotowe funkcje używanych produktów, jeśli wystarczą do wykonania zadania.",
+          "Opisz, jakie czynności wykonujesz po kolei i między jakimi programami przenosisz informacje. Gdy potrzebne jest samo przekazywanie danych, sprawdź [integracje systemów](/software/integrations/)."
+        ]
+      }
+    ]
+  },
+  "software/reporting": {
+    "sections": [
+      {
+        "title": "Które informacje są Ci potrzebne do prowadzenia firmy?",
+        "subtitle": "Najpierw pytanie, potem wykres.",
+        "paragraphs": [
+          "Ile zamówień czeka na realizację? Które płatności są zaległe? Jak wygląda sprzedaż w poszczególnych usługach? Od takich pytań zaczynamy planowanie raportu.",
+          "Wybierzemy informacje, z których rzeczywiście korzystasz. Wynikiem może być regularny e-mail, arkusz lub panel otwierany w przeglądarce."
+        ]
+      },
+      {
+        "title": "Jeden raport z kilku źródeł",
+        "subtitle": "Bez ręcznego składania danych za każdym razem.",
+        "paragraphs": [
+          "Możemy zebrać informacje ze sklepu, płatności, systemu obsługi klientów lub firmowych arkuszy. Najpierw sprawdzimy dostęp do danych i ustalimy, jak połączyć wpisy dotyczące tej samej sprawy.",
+          "Jeżeli potrzebnego połączenia brakuje, przygotujemy [integrację](/software/integrations/). Nie musisz od razu wymieniać programów, w których pracuje zespół."
+        ]
+      },
+      {
+        "title": "Wiesz, skąd pochodzi liczba",
+        "subtitle": "I kiedy dane były ostatnio aktualizowane.",
+        "paragraphs": [
+          "Ustalimy znaczenie wskaźników, źródła i częstotliwość odświeżania. Raport powinien jasno pokazywać, jakiego okresu dotyczy i czy udało się pobrać komplet informacji.",
+          "Nieaktualne lub niepełne dane wymagają oznaczenia. Przed wdrożeniem porównamy wyniki z materiałem źródłowym i sprawdzimy przypadki, które mogą zniekształcić podsumowanie."
+        ]
+      },
+      {
+        "title": "Raport dla odpowiednich osób",
+        "subtitle": "Taki zakres, jaki jest im potrzebny.",
+        "paragraphs": [
+          "Właściciel może potrzebować podsumowania całej firmy, a pracownik informacji o swoich zleceniach. Jeśli przygotujemy panel, uzgodnimy również sposób logowania i zakres dostępu.",
+          "Napisz, jaki raport dziś przygotowujesz ręcznie i do jakiej decyzji go używasz. Jeżeli potrzebujesz także zapisywania zleceń i obsługi pracy, zobacz [aplikacje i systemy](/software/custom-software/)."
         ]
       }
     ]

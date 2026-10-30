@@ -64,7 +64,7 @@ test('contact mode is explicit and delivery feedback reflects the service respon
 
 test('software owns the homepage while sound stays separately accessible', async ({page}) => {
     await page.goto('/');
-    await expect(page.locator('main .service-card')).toHaveCount(3);
+    await expect(page.locator('main .service-card')).toHaveCount(6);
     await expect(page.locator('main .service-card[href*="/sound/"]')).toHaveCount(0);
     await page.locator('footer').getByRole('link', {name: 'Sound services'}).click();
     await expect(page.locator('main .service-card')).toHaveCount(2);
@@ -101,8 +101,15 @@ test('the original card treatment keeps readable controls, discreet credits and 
     expect(await card.boundingBox()).toEqual(before);
     await expect(card.locator('img')).toBeVisible();
     if (test.info().project.name === 'desktop') {
-        const positions = await page.locator('.read-more').evaluateAll(nodes => nodes.map(node => node.getBoundingClientRect().bottom));
-        expect(Math.max(...positions) - Math.min(...positions)).toBeLessThan(2);
+        const rows = await page.locator('.read-more').evaluateAll(nodes => {
+            const grouped: Record<string, number[]> = {};
+            for (const node of nodes) {
+                const row = String(Math.round(node.closest('.service-card')!.getBoundingClientRect().top));
+                (grouped[row] ??= []).push(node.getBoundingClientRect().bottom);
+            }
+            return Object.values(grouped);
+        });
+        for (const positions of rows) expect(Math.max(...positions) - Math.min(...positions)).toBeLessThan(2);
     }
 });
 
@@ -120,26 +127,75 @@ test('article contact panels keep both enquiry paths and prefill the service', a
     }
 });
 
-test('a CTA highlights the prefilled subject and respects reduced motion', async ({page}) => {
-    await page.goto('/pl/software/ai-automation/');
-    await page.locator('.contact-cta .link-button').first().click();
-    const subject = page.locator('[name="subject"]');
-    await expect(subject).toHaveValue('Automatyzacje AI dla Twojej firmy');
-    const field = subject.locator('xpath=ancestor::*[contains(@class,"MuiFormControl-root")]');
-    await expect.poll(() => field.evaluate(el => el.getAnimations().length)).toBeGreaterThan(0);
-    const filters = await field.evaluate(el => {
-        const animation = el.getAnimations()[0];
-        animation.pause();
-        animation.currentTime = 850;
-        const lit = getComputedStyle(el).filter;
-        animation.currentTime = 950;
-        const unlit = getComputedStyle(el).filter;
-        return {lit, unlit};
+type CueSample = {background: string; width: number; height: number};
+type CueRecording = {started: boolean; ended: boolean; visible: boolean; opacity: string; focused: boolean; scroll: number; samples: CueSample[]};
+declare global { interface Window { __subjectCue: CueRecording } }
+
+async function recordSubjectCue(page: import('@playwright/test').Page) {
+    await page.addInitScript(() => {
+        window.__subjectCue = {started: false, ended: false, visible: false, opacity: '', focused: false, scroll: 0, samples: []};
+        document.addEventListener('animationstart', event => {
+            if (event.animationName !== 'subject-attention') return;
+            const box = event.target as HTMLElement;
+            const rect = box.getBoundingClientRect();
+            const state = window.__subjectCue;
+            state.started = true;
+            state.visible = rect.top >= (document.querySelector('header')?.getBoundingClientRect().bottom ?? 0) && rect.bottom <= innerHeight;
+            state.opacity = getComputedStyle(document.getElementById('main-app-content-box')!).opacity;
+            state.focused = document.activeElement?.getAttribute('name') === 'subject';
+            state.scroll = scrollY;
+            const sample = () => {
+                const bounds = box.getBoundingClientRect();
+                state.samples.push({background: getComputedStyle(box).backgroundColor, width: bounds.width, height: bounds.height});
+                if (!state.ended) requestAnimationFrame(sample);
+            };
+            sample();
+        });
+        document.addEventListener('animationend', event => {
+            if (event.animationName === 'subject-attention') window.__subjectCue.ended = true;
+        });
     });
-    expect(filters.lit).toContain('drop-shadow');
-    expect(filters.unlit).not.toBe(filters.lit);
-    expect(filters.unlit === 'none' || filters.unlit.includes('rgba(0, 0, 0, 0)')).toBe(true);
+}
+
+test('a real service CTA produces three visible pulses without moving or focusing the input', async ({page}) => {
+    await recordSubjectCue(page);
+    await page.goto('/pl/software/ai-automation/');
+    const service = await page.locator('h1').innerText();
+    await page.locator('.contact-cta .link-button').first().click();
+    await expect(page.locator('[name="subject"]')).toHaveValue(service);
+    await expect.poll(() => page.evaluate(() => window.__subjectCue.ended)).toBe(true);
+    const cue = await page.evaluate(() => window.__subjectCue);
+    expect(cue.visible).toBe(true);
+    expect(cue.opacity).toBe('1');
+    expect(cue.focused).toBe(false);
+    const changes = cue.samples.filter((sample, index, all) => index === 0 || sample.background !== all[index - 1].background);
+    expect(changes.filter(sample => sample.background === 'rgb(232, 234, 246)')).toHaveLength(3);
+    expect(new Set(cue.samples.map(sample => `${sample.width}:${sample.height}`)).size).toBe(1);
+    expect(await page.evaluate(() => scrollY)).toBe(cue.scroll);
+});
+
+test('an offscreen subject waits for the reader to reveal it before pulsing', async ({page}) => {
+    await recordSubjectCue(page);
+    await page.setViewportSize({width: 320, height: 480});
+    await page.goto('/pl/contact/?about=Integracje');
+    await expect(page.locator('[name="subject"]')).toHaveValue('Integracje');
+    expect((await page.locator('[name="subject"]').boundingBox())!.y).toBeGreaterThan(480);
+    await page.waitForTimeout(1500);
+    expect(await page.evaluate(() => window.__subjectCue.started)).toBe(false);
+    expect(await page.evaluate(() => scrollY)).toBe(0);
+    await page.locator('[name="subject"]').scrollIntoViewIfNeeded();
+    await expect.poll(() => page.evaluate(() => window.__subjectCue.ended)).toBe(true);
+    expect(await page.evaluate(() => window.__subjectCue.visible)).toBe(true);
+});
+
+test('reduced motion retains a static subject cue without animation', async ({page}) => {
+    await recordSubjectCue(page);
     await page.emulateMedia({reducedMotion: 'reduce'});
-    await expect(field).toHaveCSS('animation-duration', '0s');
-    await expect(subject).toHaveValue('Automatyzacje AI dla Twojej firmy');
+    await page.goto('/pl/contact/?about=Test');
+    await expect(page.locator('[name="subject"]')).toHaveValue('Test');
+    const inputBox = page.locator('.subject-attention .MuiOutlinedInput-root');
+    await expect(inputBox).toHaveCSS('background-color', 'rgb(232, 234, 246)');
+    await page.waitForTimeout(1500);
+    await expect(inputBox).toHaveCSS('background-color', 'rgb(232, 234, 246)');
+    expect(await page.evaluate(() => window.__subjectCue.started)).toBe(false);
 });

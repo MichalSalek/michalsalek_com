@@ -30,15 +30,17 @@
     "talkIntro": "Napisz, czego potrzebujesz. Odpowiemy i ustalimy, jak możemy pomóc.",
     "interested": "Interesuje Cię ta usługa?",
     "generalHeading": "Mam inne pytanie",
-    "relatedIntro": "Zobacz, w czym jeszcze możemy pomóc:"
+    "relatedIntro": "Zobacz, w czym jeszcze możemy pomóc:",
+    "introTitle": "Co chcesz usprawnić?",
+    "introContact": "Opisz swój projekt"
   },
   "pages": {
     "/": {
       "title": "AI, automatyzacje i oprogramowanie dla firm",
       "description": "Atomic Concept: automatyzacje AI, integracje systemów, raporty, strony i aplikacje na zamówienie dla małych i średnich firm. Michał Sałek, Kraków, współpraca zdalna.",
       "intro": [
-        "Wiesz, co chcesz usprawnić w swojej firmie. Możemy przygotować stronę, aplikację lub automatyzację, która Ci w tym pomoże.",
-        "Łączymy używane już programy, porządkujemy dane i wdrażamy AI tam, gdzie ma konkretne zadanie. Na początek wystarczy opis potrzeby."
+        "Wiesz, co chcesz usprawnić w swojej firmie. Możemy przygotować **stronę, aplikację lub automatyzację**, która Ci w tym pomoże.",
+        "**Łączymy używane już programy**, porządkujemy dane i wdrażamy AI tam, gdzie ma konkretne zadanie. Na początek wystarczy opis potrzeby."
       ]
     },
     "/software/architecture/": {
@@ -74,42 +76,78 @@
       "description": "Poznaj usługi programistyczne i dźwiękowe Atomic Concept. Strona dostępna w języku polskim i angielskim."
     },
     "/software/ai-automation/": {
-      "title": "Automatyzacje AI dla Twojej firmy",
-      "description": "Automatyzacja pracy z dokumentami, zapytaniami i firmową wiedzą. Atomic Concept wdraża AI i łączy je z procesami małych i średnich firm."
+      "title": "AI w pracy Twojej firmy",
+      "description": "Odczytywanie dokumentów, porządkowanie zapytań i wyszukiwanie firmowej wiedzy z AI. Atomic Concept dobiera zastosowanie, łączy systemy i sprawdza wyniki."
     },
     "/software/integrations/": {
-      "title": "Integracje systemów i raporty dla firmy",
-      "description": "Połącz używane programy, zautomatyzuj wymianę danych i otrzymuj przydatne raporty. Integracje na zamówienie od Atomic Concept."
+      "title": "Integracje z istniejącymi systemami",
+      "description": "Połącz sklep, płatności, system obsługi klientów i inne narzędzia. Atomic Concept przygotowuje integracje dopasowane do Twoich danych i sposobu pracy."
     },
     "/software/custom-software/": {
-      "title": "Strony i aplikacje na zamówienie",
-      "description": "Strony internetowe, portale klienta i systemy wewnętrzne dopasowane do Twojej firmy. Atomic Concept: planowanie, wykonanie, wdrożenie i utrzymanie."
+      "title": "Aplikacje i systemy na zamówienie",
+      "description": "Portale klienta, obsługa zleceń, rezerwacje i aplikacje wewnętrzne. Atomic Concept: planowanie, wykonanie, wdrożenie i utrzymanie systemu dla Twojej firmy."
+    },
+    "/software/websites/": {
+      "title": "Strony internetowe dla firm",
+      "description": "Strony internetowe z czytelną ofertą, kontaktem i wersjami językowymi. Atomic Concept: projekt, wykonanie i wdrożenie witryny dopasowanej do Twojej firmy."
+    },
+    "/software/automation/": {
+      "title": "Automatyzacja procesów w firmie",
+      "description": "Automatyzacja zgłoszeń, powiadomień, terminów i powtarzalnych czynności. Atomic Concept łączy narzędzia w proces dopasowany do pracy Twojego zespołu."
+    },
+    "/software/reporting/": {
+      "title": "Raporty i panele dla firmy",
+      "description": "Raporty sprzedaży, płatności i postępu pracy z używanych już systemów. Atomic Concept przygotowuje arkusze, raporty e-mail i panele dopasowane do firmy."
     }
   },
   "cards": {
     "software": [
       {
         "path": "/software/ai-automation/",
-        "title": "Automatyzacje i AI",
+        "title": "AI w pracy firmy",
         "paragraphs": [
-          "Ręcznie porządkujesz zapytania, czytasz dokumenty lub przygotowujesz podobne odpowiedzi?",
-          "Możemy zautomatyzować konkretną czynność i połączyć AI z informacjami Twojej firmy. Zadbamy też o sprawdzanie wyników."
+          "Dokumenty w różnych formatach, pytania od klientów i informacje rozproszone w plikach?",
+          "Wdrożymy AI do odczytywania, porządkowania i wyszukiwania informacji. Ustalimy też, jak sprawdzać wyniki."
+        ]
+      },
+      {
+        "path": "/software/automation/",
+        "title": "Automatyzacje procesów",
+        "paragraphs": [
+          "Wciąż ręcznie przekazujesz te same zgłoszenia, pilnujesz terminów i wysyłasz podobne wiadomości?",
+          "Ułożymy kolejne kroki procesu i zautomatyzujemy powtarzalne czynności według ustalonych reguł."
         ]
       },
       {
         "path": "/software/integrations/",
-        "title": "Integracje i raporty",
+        "title": "Integracje systemów",
         "paragraphs": [
-          "Przepisujesz te same dane między sklepem, systemem obsługi klientów i arkuszami?",
-          "Połączymy używane programy i przygotujemy raporty, dzięki którym sprawdzisz, co dzieje się w firmie."
+          "Przepisujesz dane między sklepem, systemem obsługi klientów i innymi programami?",
+          "Połączymy istniejące narzędzia, żeby przekazywały potrzebne informacje. Uwzględnimy błędy i powtórzone wpisy."
+        ]
+      },
+      {
+        "path": "/software/websites/",
+        "title": "Strony internetowe",
+        "paragraphs": [
+          "Potrzebujesz czytelnej strony z ofertą, kontaktem i treścią zrozumiałą dla klientów?",
+          "Przygotujemy szybką witrynę dopasowaną do firmy. Zadbamy o telefony, wersje językowe i podstawy widoczności w internecie."
         ]
       },
       {
         "path": "/software/custom-software/",
-        "title": "Strony, aplikacje i systemy",
+        "title": "Aplikacje i systemy",
         "paragraphs": [
-          "Potrzebujesz strony, portalu dla klientów lub narzędzia dopasowanego do pracy firmy?",
-          "Od pierwszego ekranu po płatności i wdrożenie zajmiemy się całą aplikacją."
+          "Chcesz udostępnić klientom status zlecenia, obsługiwać rezerwacje albo uporządkować pracę zespołu?",
+          "Zbudujemy aplikację dopasowaną do Twoich zasad: od ekranu i uprawnień po dane, płatności i wdrożenie."
+        ]
+      },
+      {
+        "path": "/software/reporting/",
+        "title": "Raporty i panele",
+        "paragraphs": [
+          "Zebranie informacji o sprzedaży, płatnościach lub postępie zleceń zajmuje za dużo czasu?",
+          "Przygotujemy raport, arkusz lub panel z danymi potrzebnymi do prowadzenia firmy. Ustalimy źródła i sposób aktualizacji."
         ]
       }
     ],

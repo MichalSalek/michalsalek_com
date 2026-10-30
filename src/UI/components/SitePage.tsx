@@ -9,7 +9,7 @@ import { AppLinkAtom } from '@/src/UI/components/AppLink.atom';
 import type { SitePageProps } from '@/src/content/load-page';
 import { GoToContactFormMolecule } from './GoToContactForm.molecule';
 import { RichTextAtom } from './RichText.atom';
-import { site, primaryServices } from '@/src/content/site.mjs';
+import { site, primaryServices, relatedServices } from '@/src/content/site.mjs';
 import molecules from '@/src/UI/assets/molecules.jpg';
 import backend from '@/src/UI/assets/backend.jpg';
 import frontend from '@/src/UI/assets/frontend.jpg';
@@ -22,6 +22,9 @@ const heroes = {
     '/software/ai-automation/': {image: frontend, credits: 'Photo by Kelly Sikkema on Unsplash'},
     '/software/integrations/': {image: backend, credits: 'Photo by Daria Nepriakhina on Unsplash'},
     '/software/custom-software/': {image: molecules, credits: 'Photo by Ashraful Islam on Unsplash'},
+    '/software/websites/': {image: frontend, credits: 'Photo by Kelly Sikkema on Unsplash'},
+    '/software/automation/': {image: molecules, credits: 'Photo by Ashraful Islam on Unsplash'},
+    '/software/reporting/': {image: backend, credits: 'Photo by Daria Nepriakhina on Unsplash'},
     '/software/architecture/': {image: molecules, credits: 'Photo by Ashraful Islam on Unsplash'},
     '/software/backend/': {image: backend, credits: 'Photo by Daria Nepriakhina on Unsplash'},
     '/software/frontend/': {image: frontend, credits: 'Photo by Kelly Sikkema on Unsplash'},
@@ -47,7 +50,7 @@ export default function SitePage({path, title, cards, sections, messages, naviga
     const hero = heroes[path as keyof typeof heroes];
     const prefix = path.startsWith('/sound/') ? '/sound/' : '/software/';
     const primary = primaryServices.includes(path);
-    const links = navigation.filter(link => link.path.startsWith(prefix) && link.path !== path && (primary ? primaryServices.includes(link.path) : !primaryServices.includes(link.path)));
+    const links = navigation.filter(link => link.path.startsWith(prefix) && link.path !== path && (primary ? relatedServices[path]?.includes(link.path) : !primaryServices.includes(link.path)));
     return <ArticleComposition title={title} links={links}>
         {hero && <HeroMolecule {...hero} alt={title}/>}
         {sections.map(section => <ContentBlockOrganism key={section.title} title={section.title} subtitle={section.subtitle}

@@ -220,7 +220,8 @@
           "For more engineering background, read about [planning and maintaining an application](/software/architecture/)."
         ]
       }
-    ]
+    ],
+    "title": "AI in your business"
   },
   "software/integrations": {
     "sections": [
@@ -233,11 +234,11 @@
         ]
       },
       {
-        "title": "Reports you can use to run your business",
-        "subtitle": "Choose the information before building the dashboard.",
+        "title": "Which data should be shared?",
+        "subtitle": "Agree a source of truth for each record.",
         "paragraphs": [
-          "We can bring together information about sales, orders, payments or the progress of work. The result might be a regular email, a spreadsheet or a panel with the figures you actually use.",
-          "We agree the data source, what each figure means and how often it should update. A report is useful when you can understand where a number came from and notice when something is missing."
+          "We decide where an order or customer record originates and which tools should receive a copy. We also agree where changes are made and how to match corresponding records.",
+          "Copying data alone is not always enough. We map fields and handle missing information. Useful [reports](/software/reporting/) or [workflow automation](/software/automation/) can be added around that connection."
         ]
       },
       {
@@ -257,16 +258,17 @@
           "For more engineering background, read about [server operations and data processing](/software/backend/)."
         ]
       }
-    ]
+    ],
+    "title": "Integrations with existing systems"
   },
   "software/custom-software": {
     "sections": [
       {
-        "title": "A website, an application or a complete system",
-        "subtitle": "Build around what your customer or team needs to do.",
+        "title": "An application built around the way you work",
+        "subtitle": "Tasks for customers and your team in one system.",
         "paragraphs": [
-          "You may need a clear service website, a quotation form, a customer portal, a booking flow or an internal tool for managing orders. We can build a focused website or develop the application behind it.",
-          "The first step is understanding the task. We check whether a ready-made product can do the job before recommending a custom system."
+          "You may need a customer portal, a booking flow, a job management tool or an employee panel. An application stores records, tracks their status and makes them available to the appropriate people.",
+          "The first step is understanding the task. We check whether an existing product can do the job before recommending a custom system. If you mainly need to present an offer and receive enquiries, see [business websites](/software/websites/)."
         ]
       },
       {
@@ -292,6 +294,115 @@
           "We keep the structure of the source code clear and document the parts needed to run and develop the application. That also helps if you choose another development team in the future.",
           "We agree the handover, hosting and support arrangements as part of the project. Start by describing who will use the solution and what they need to accomplish.",
           "For more engineering background, read about [the user interface](/software/frontend/)."
+        ]
+      }
+    ],
+    "title": "Custom applications and business systems"
+  },
+  "software/websites": {
+    "sections": [
+      {
+        "title": "What should a customer find on your website?",
+        "subtitle": "An offer they can understand and easily ask about.",
+        "paragraphs": [
+          "A business website can explain your services, show selected work and make contact straightforward. We start by asking why a person would visit and what they should be able to do next.",
+          "We organise pages and content around those questions. For example, a service business might need separate service descriptions, its coverage area, selected work and an enquiry form."
+        ]
+      },
+      {
+        "title": "Clear on a phone and a computer",
+        "subtitle": "Without unnecessary waiting or a shifting layout.",
+        "paragraphs": [
+          "We pay attention to loading speed, readable text and reserved space for images. Forms and navigation are checked on small screens as well as desktop.",
+          "If you need several languages, we prepare distinct URLs and complete content for each version. A site can remain static when you do not need server-dependent features."
+        ]
+      },
+      {
+        "title": "Content that search and AI systems can read",
+        "subtitle": "Start with a clear offer and sound technical foundations.",
+        "paragraphs": [
+          "We prepare titles, descriptions, structured data, links between pages and a sitemap. Important information should also be available without running scripts.",
+          "These measures make the content easier to read and understand. They do not guarantee a Google position or a recommendation from an AI model. Real work examples and useful answers for customers still matter."
+        ]
+      },
+      {
+        "title": "Deployment and future changes",
+        "subtitle": "Keep the parts you already have.",
+        "paragraphs": [
+          "We can use your existing domain, email and hosting, or agree a new publishing setup. We also decide who will update the content and how they will do it.",
+          "If you need customer accounts or job management as well as an offer website, see [applications and systems](/software/custom-software/). A form can also [connect to your existing customer system](/software/integrations/)."
+        ]
+      }
+    ]
+  },
+  "software/automation": {
+    "sections": [
+      {
+        "title": "Which task do you repeat every day?",
+        "subtitle": "Map what starts the work and what should happen next.",
+        "paragraphs": [
+          "A new enquiry can create a task for the right person, receive a reference number and trigger an acknowledgement. An approaching deadline can prompt a reminder, while completed work can update an order status.",
+          "These are examples of possible workflows. We first examine how your team works and choose one useful part to improve."
+        ]
+      },
+      {
+        "title": "Clear rules for the next step",
+        "subtitle": "Each step has a condition and an expected result.",
+        "paragraphs": [
+          "We agree where an enquiry comes from, which information is required, who should receive the task and what happens when something is missing. The process can include approval by a person.",
+          "Not every automation needs AI. When a fixed rule is enough, a simpler solution can be easier to verify and maintain. [AI](/software/ai-automation/) can help with tasks that require interpreting free text."
+        ]
+      },
+      {
+        "title": "Plan for exceptions too",
+        "subtitle": "Missing data or a failed connection should not stop work silently.",
+        "paragraphs": [
+          "We consider duplicate enquiries, unavailable systems and missed deadlines. Depending on the task, an operation can be retried or passed to a person to check.",
+          "We agree who should see an error and how to resume the process. Your team should know which tasks completed and which still need attention."
+        ]
+      },
+      {
+        "title": "Start with one process",
+        "subtitle": "Expand after checking it works.",
+        "paragraphs": [
+          "Before implementation, we agree the scope, running cost and way to check the result. We use built-in product features where they are enough for the task.",
+          "Describe the steps you follow and the tools between which you move information. If you only need data exchange, see [system integrations](/software/integrations/)."
+        ]
+      }
+    ]
+  },
+  "software/reporting": {
+    "sections": [
+      {
+        "title": "Which information do you need to run the business?",
+        "subtitle": "Choose the question before the chart.",
+        "paragraphs": [
+          "How many orders are waiting? Which payments are overdue? How are sales distributed across services? These are the kinds of questions we use to plan a report.",
+          "We choose the information you actually use. The result might be a recurring email, a spreadsheet or a dashboard in your browser."
+        ]
+      },
+      {
+        "title": "One report from several sources",
+        "subtitle": "Without assembling the same data by hand each time.",
+        "paragraphs": [
+          "We can bring together information from your shop, payments, customer system or spreadsheets. First we check data access and how to match records about the same customer or job.",
+          "Where a connection is missing, we can build an [integration](/software/integrations/). You do not have to replace the tools your team uses to start reporting."
+        ]
+      },
+      {
+        "title": "Know where the number came from",
+        "subtitle": "And when it was last updated.",
+        "paragraphs": [
+          "We agree what each measure means, its source and the update frequency. A report should clearly show the period it covers and whether all information was retrieved.",
+          "Incomplete or outdated information needs to be marked. Before deployment, we compare the results with the sources and check cases that could distort the summary."
+        ]
+      },
+      {
+        "title": "Information for the people who need it",
+        "subtitle": "With an appropriate level of access.",
+        "paragraphs": [
+          "An owner may need a company-wide summary while an employee needs their own jobs. If we build a dashboard, we also agree how people sign in and what they may see.",
+          "Tell us which report you prepare by hand and which decision it supports. If you also need to record jobs and manage the work itself, see [applications and systems](/software/custom-software/)."
         ]
       }
     ]

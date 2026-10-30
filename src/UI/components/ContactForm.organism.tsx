@@ -1,10 +1,11 @@
-import { useState, useSyncExternalStore, type FormEvent } from 'react';
+import { useState, useSyncExternalStore, useRef, type FormEvent } from 'react';
 import { useRouter } from 'next/router';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useLocale } from '@/src/i18n/context';
 import { site } from '@/src/content/site.mjs';
+import { useSubjectAttention } from '@/src/UI/hooks/useSubjectAttention.hook';
 import { sendEmail } from '@/src/layers/application/email';
 
 const subscribe = () => () => {};
@@ -19,6 +20,8 @@ export default function ContactFormOrganism() {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'failed'>('idle');
+    const subjectRef = useRef<HTMLDivElement>(null);
+    useSubjectAttention(subjectRef, Boolean(about) && subject === null && status === 'idle', about);
     const external = Boolean(process.env.NEXT_PUBLIC_CONTACT_ENDPOINT);
     const currentSubject = subject ?? about;
     const feedback = status === 'sent' || status === 'failed';
@@ -50,7 +53,7 @@ export default function ContactFormOrganism() {
                 <TextField label={messages.email} name="email" type="email" autoComplete="email" required={external} fullWidth disabled={locked} error={status === 'failed'} value={email} onChange={event => setEmail(event.target.value)}/>
             </div>
             <div className="contact-message">
-                <TextField key={about} className={about ? 'subject-attention' : undefined} label={messages.subject} name="subject" required fullWidth disabled={locked} error={status === 'failed'} value={currentSubject} onChange={event => setSubject(event.target.value)}/>
+                <TextField ref={subjectRef} key={about} className={about ? 'subject-attention' : undefined} label={messages.subject} name="subject" required fullWidth disabled={locked} error={status === 'failed'} value={currentSubject} onChange={event => setSubject(event.target.value)}/>
                 <div className="contact-message-body">
                     <TextField label={messages.message} name="message" required fullWidth multiline minRows={12} disabled={locked} error={status === 'failed'} value={text} onChange={event => setText(event.target.value)}/>
                     <div role="status" aria-live="polite" className={feedback ? `contact-feedback ${status}` : undefined}>{status === 'sent' ? messages.sent : status === 'failed' ? messages.failed : ''}</div>

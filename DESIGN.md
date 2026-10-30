@@ -10,7 +10,13 @@ The October 2026 refresh adds static English/Polish routes, accessible navigatio
 and reliable contact handling. These changes must respect the original appearance.
 
 - Preserve the delayed three-pulse subject highlight after a service CTA, the
-  page transition and the contact feedback/OK interaction. Respect reduced motion.
+  page transition and the contact feedback/OK interaction. Start the cue only
+  when its input is fully visible; use a static cue with reduced motion.
+- Keep the introduction structured with a clear heading, readable emphasis and
+  deliberate desktop/mobile composition. Two bare paragraphs are insufficient.
+- Software services have six distinct cards and pages. Preserve the original
+  card treatment. Proposed illustration sets require owner approval before
+  replacing production photography.
 - No card movement on hover. Preserve the original contrast/saturation effect.
 - Photo credits stay at the top right, 6px, without a background panel.
 - Keep real links and buttons, with no nested interactive elements.

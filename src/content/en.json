@@ -30,15 +30,17 @@
     "talkIntro": "Use the links below to ask for details. We will respond as soon as possible.",
     "interested": "Interested in this service?",
     "generalHeading": "I just have a question",
-    "relatedIntro": "See how else we can help you:"
+    "relatedIntro": "See how else we can help you:",
+    "introTitle": "What would you like to improve?",
+    "introContact": "Tell us about your project"
   },
   "pages": {
     "/": {
       "title": "AI, automation and custom software for your business",
       "description": "Atomic Concept builds AI automations, system integrations, reports, websites and custom applications for small and medium businesses. Michał Sałek, Kraków, Poland.",
       "intro": [
-        "You know what needs improving in your business. We can build the website, application or automation to help you do it.",
-        "We connect the tools you already use, organise your data and add AI where it has a useful job to do. You do not need a technical specification to start."
+        "You know what needs improving in your business. We can build the **website, application or automation** to help you do it.",
+        "We **connect the tools you already use**, organise your data and add AI where it has a useful job to do. You do not need a technical specification to start."
       ]
     },
     "/software/architecture/": {
@@ -74,42 +76,78 @@
       "description": "Browse software development and audio services from Atomic Concept in English and Polish."
     },
     "/software/ai-automation/": {
-      "title": "AI automation for your business",
-      "description": "AI-assisted document processing, enquiry handling and internal knowledge tools. Atomic Concept designs and integrates automation around your business process."
+      "title": "AI in your business",
+      "description": "AI-assisted document extraction, enquiry classification and company knowledge search. Atomic Concept finds the use case, connects services and checks results."
     },
     "/software/integrations/": {
-      "title": "System integrations and business reports",
-      "description": "Connect your existing systems, automate data exchange and build useful reports. Custom integrations for small and medium businesses by Atomic Concept."
+      "title": "Integrations with existing systems",
+      "description": "Connect your shop, payments, customer system and other business tools. Atomic Concept builds integrations around your data and existing workflow."
     },
     "/software/custom-software/": {
-      "title": "Websites and custom business applications",
-      "description": "Websites, customer portals and internal systems tailored to your business. Atomic Concept handles planning, development, deployment and maintenance."
+      "title": "Custom applications and business systems",
+      "description": "Customer portals, bookings, job management and internal applications. Atomic Concept plans, builds, deploys and maintains software for your business."
+    },
+    "/software/websites/": {
+      "title": "Business websites",
+      "description": "Business websites with a clear offer, contact forms and language versions. Atomic Concept plans, builds and deploys a site tailored to your company."
+    },
+    "/software/automation/": {
+      "title": "Workflow automation for your business",
+      "description": "Automate enquiries, notifications, deadlines and repeated tasks. Atomic Concept connects your tools into a workflow designed around your team."
+    },
+    "/software/reporting/": {
+      "title": "Business reports and dashboards",
+      "description": "Sales, payment and work-progress reporting from your existing systems. Atomic Concept builds tailored spreadsheets, email reports and dashboards."
     }
   },
   "cards": {
     "software": [
       {
         "path": "/software/ai-automation/",
-        "title": "AI and automation",
+        "title": "AI in your business",
         "paragraphs": [
-          "Still sorting enquiries, reading documents or preparing the same replies by hand?",
-          "We can automate a defined task and connect AI to your own information, with a way to check the result."
+          "Documents in different formats, customer questions and information spread across files?",
+          "We integrate AI to extract, organise and find information. We also agree how the results should be checked."
+        ]
+      },
+      {
+        "path": "/software/automation/",
+        "title": "Workflow automation",
+        "paragraphs": [
+          "Still passing on the same enquiries, tracking deadlines and sending similar messages by hand?",
+          "We map the steps and automate repeated tasks according to rules agreed with your team."
         ]
       },
       {
         "path": "/software/integrations/",
-        "title": "Integrations and reports",
+        "title": "System integrations",
         "paragraphs": [
-          "Copying the same data between your shop, customer system and spreadsheets?",
-          "We connect existing tools and prepare reports so you can see what is happening in your business."
+          "Copying data between your shop, customer system and other business tools?",
+          "We connect existing software so it can exchange the information you need, with failures and duplicate records accounted for."
+        ]
+      },
+      {
+        "path": "/software/websites/",
+        "title": "Business websites",
+        "paragraphs": [
+          "Need a clear website that explains your offer and makes it easy for customers to contact you?",
+          "We build a fast site around your business, with mobile layouts, language versions and the technical foundations for discovery."
         ]
       },
       {
         "path": "/software/custom-software/",
-        "title": "Websites, apps and systems",
+        "title": "Applications and systems",
         "paragraphs": [
-          "Need a website, a customer portal or a tool built around the way your company works?",
-          "From the first screen to payments and deployment, we take care of the whole application."
+          "Want customers to check an order, make a booking or work with your team through a portal?",
+          "We build around your rules, from the interface and permissions to data, payments and deployment."
+        ]
+      },
+      {
+        "path": "/software/reporting/",
+        "title": "Reports and dashboards",
+        "paragraphs": [
+          "Does bringing together sales, payment or work-progress information take too much time?",
+          "We prepare a report, spreadsheet or dashboard with the information you use to run your business, with clear sources and updates."
         ]
       }
     ],

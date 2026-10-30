@@ -41,7 +41,10 @@ when configuration of an existing product meets the actual need.
 ## Offer decision
 
 Use three complementary pillars: AI/automation; integrations/reporting; websites,
-applications and custom systems. Show tasks a business owner recognizes, such as
+applications and custom systems. For navigation, expose six distinct service pages:
+AI integrations, workflow automation, existing-system integrations, business
+websites, custom applications and reporting. This is an information architecture
+decision, not a claim of measured demand for six categories. Show tasks a business owner recognizes, such as
 handling enquiries, extracting document data, consolidating a sales report or
 letting a customer check an order status. These are proposed use cases, not cases
 from past customers.

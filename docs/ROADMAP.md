@@ -8,8 +8,9 @@ exports, shared metadata and URLs, crawlable content, generated discovery files,
 repeatable checks, CI and a versioned static deployment with rollback.
 
 The homepage focuses on AI and software for small and medium businesses. Sound
-remains a separate destination. Both languages include three service pages:
-AI/automation, integrations/reporting, and websites/custom applications. Existing
+remains a separate destination. Both languages include six service pages:
+AI integrations, workflow automation, existing-system integrations, business
+websites, custom applications and reporting. Existing
 engineering articles remain available as background, with their original URLs.
 
 ## Current offer
@@ -32,7 +33,10 @@ should determine the next specialisation.
 The original site at `b5ed0e1` is the design reference, as defined in `../DESIGN.md`.
 Retain its cards, thumbnails, subtle credits, bordered Read More controls, contrast
 hover, article panels and contact form. Also retain the delayed subject highlight
-after a CTA, the page transition and the feedback/OK flow. Respect reduced motion.
+after a CTA, the page transition and the feedback/OK flow. Start the subject cue
+only once the field is in view and the page transition has finished. Reduced
+motion keeps a static highlight. The introduction uses a heading/body layout
+and emphasis rather than isolated paragraphs.
 Framework updates and content work do not imply approval for a redesign.
 
 ## Next: proof, imagery and enquiries
@@ -40,6 +44,8 @@ Framework updates and content work do not imply approval for a redesign.
 1. Select projects or engineering examples that may be shown publicly, with any
    required client permission. Add specific outcomes only when verified.
 2. Choose original or commissioned photographs and useful service illustrations.
+   A coordinated six-scene illustration direction is available in local preview
+   for approval. Generated proposals are excluded from the production export.
    Current photos stay until replacements are selected. Preserve reserved geometry
    and responsive build-time image optimisation.
 3. Review actual enquiries for the requested task, existing tools, source and
