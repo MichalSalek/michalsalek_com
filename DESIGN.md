@@ -8,7 +8,8 @@ are a separate step.
 
 - Use the existing palette in `src/UI/styles/constants.ts` and the CSS variables in
   `src/UI/styles/globals.scss`. Keep text contrast clear in both languages.
-- Use the locally hosted Mona Sans family with system fallbacks.
+- Retain the system font stack. The existing font sources remain available for
+  a future design step; loading them is not part of this technical refresh.
 - Reserve image geometry before loading. Only the first visible card or article
   hero gets loading priority. Generate responsive WebP files at build time.
 - Keep links as links and actions as buttons. Do not nest interactive elements.

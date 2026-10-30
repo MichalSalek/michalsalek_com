@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+import { useState, useSyncExternalStore, type FormEvent } from 'react';
 import { useRouter } from 'next/router';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -6,8 +6,11 @@ import { useLocale } from '@/src/i18n/context';
 import { site } from '@/src/content/site.mjs';
 import { sendEmail } from '@/src/layers/application/email';
 
+const subscribe = () => () => {};
+
 export default function ContactFormOrganism() {
     const {messages} = useLocale();
+    const hydrated = useSyncExternalStore(subscribe, () => true, () => false);
     const {query} = useRouter();
     const about = typeof query.about === 'string' ? query.about : '';
     const [subject, setSubject] = useState<string | null>(null);
@@ -40,7 +43,7 @@ export default function ContactFormOrganism() {
         <TextField label={messages.name} name="name" autoComplete="name" fullWidth value={name} onChange={event => setName(event.target.value)}/>
         {!external && <p id="email-hint">{messages.emailHint}</p>}
         <div role="status" aria-live="polite">{status === 'sent' ? messages.sent : status === 'failed' ? messages.failed : ''}</div>
-        <Button type="submit" variant="contained" disabled={status === 'sending'} aria-describedby={!external ? 'email-hint' : undefined}>
+        <Button type="submit" variant="contained" disabled={!hydrated || status === 'sending'} aria-describedby={!external ? 'email-hint' : undefined}>
             {status === 'sending' ? messages.sending : external ? messages.send : messages.openEmail}
         </Button>
     </form>;

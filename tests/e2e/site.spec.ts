@@ -70,5 +70,8 @@ test('static content and language links work without JavaScript', async ({browse
     await expect(page.getByText('Na każdym etapie', {exact: false})).toBeVisible();
     await page.getByRole('link', {name: 'EN: Switch language to English'}).click();
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+    await page.goto('http://127.0.0.1:4318/pl/contact/');
+    await expect(page.getByRole('link', {name: site.email})).toBeVisible();
+    await expect(page.locator('button[type="submit"]')).toBeDisabled();
     await context.close();
 });

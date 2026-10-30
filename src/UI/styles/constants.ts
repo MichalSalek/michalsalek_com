@@ -15,7 +15,7 @@ export const appStyles = {
 
     appFontFamily: {
         fontFamily: [
-                        'var(--font-mona)', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
+                        '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
                     ].join(',')
     }
 } as const

@@ -12,7 +12,7 @@ export const ImageAtom = ({image, alt, credits, height, priority = false, fill =
     return <figure className="service-image" style={fill ? {position: 'absolute', inset: 0} : {height: height ?? 'auto'}}>
         <ExportedImage src={image} alt={typeof alt === 'string' ? alt : alt[locale]}
             height={fill ? undefined : height} preload={priority} fetchPriority={priority ? 'high' : undefined} fill={fill}
-            sizes={fill ? '(max-width: 1200px) 100vw, 1200px' : '(max-width: 600px) 100vw, (max-width: 900px) 50vw, 375px'}
+            sizes={fill ? '(max-width: 1200px) 100vw, 1200px' : '375px'}
             style={{...style, objectFit: asCover || height ? 'cover' : 'contain', width: fill ? undefined : '100%', height: fill ? undefined : height}}/>
         <figcaption>{credits}</figcaption>
     </figure>;

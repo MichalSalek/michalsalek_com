@@ -7,8 +7,7 @@
 * { box-sizing: border-box; padding: 0; margin: 0; border-radius: 0 !important; }
 html { scroll-behavior: smooth; }
 body { color: var(--color-text); background: var(--color-surface); }
-body, button, input, textarea { font-family: var(--font-mona, -apple-system), BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-.site-shell { font-family: var(--font-mona), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+body, button, input, textarea, .site-shell { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
 a { color: #175bba; text-underline-offset: .2em; transition: color 150ms ease, background-color 150ms ease; }
 a:focus-visible, button:focus-visible { outline: 3px solid #175bba; outline-offset: 4px; }
 p { margin: 0 0 1rem; }

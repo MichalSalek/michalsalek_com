@@ -1,8 +1,8 @@
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import dynamic from 'next/dynamic';
 import RootCardOrganism from '@/src/UI/components/RootCard.organism';
 import ContentBlockOrganism from '@/src/UI/components/ContentBlock.organism';
-import ContactFormOrganism from '@/src/UI/components/ContactForm.organism';
 import { ArticleComposition } from '@/src/UI/compositions/Article.composition';
 import { HeroMolecule } from '@/src/UI/components/Hero.molecule';
 import { AppLinkAtom } from '@/src/UI/components/AppLink.atom';
@@ -13,6 +13,8 @@ import backend from '@/src/UI/assets/backend.jpg';
 import frontend from '@/src/UI/assets/frontend.jpg';
 import studio from '@/src/UI/assets/music_studio.jpg';
 import drumset from '@/src/UI/assets/drumset.jpg';
+
+const ContactFormOrganism = dynamic(() => import('@/src/UI/components/ContactForm.organism'));
 
 const heroes = {
     '/software/architecture/': {image: molecules, credits: 'Photo by Ashraful Islam on Unsplash'},
