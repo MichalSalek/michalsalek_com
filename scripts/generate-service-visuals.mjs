@@ -10,16 +10,18 @@ const escape = value => String(value).replace(/[&<>"']/g, character => ({'&': '&
 const rect = (x, y, width, height, fill = c.surface, stroke = 'none', weight = 1) => `<rect x="${x}" y="${y}" width="${width}" height="${height}" fill="${fill}" stroke="${stroke}" stroke-width="${weight}"/>`;
 const line = (x1, y1, x2, y2, stroke = c.ink, weight = 5) => `<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${stroke}" stroke-width="${weight}"/>`;
 const path = (d, stroke = c.ink, weight = 6, fill = 'none') => `<path d="${d}" stroke="${stroke}" stroke-width="${weight}" fill="${fill}"/>`;
+const indigoGround = 'M0 0H1200V160L0 610Z';
+const connector = (d, weight = 7) => path(d, c.ink, weight) + `<g clip-path="url(#indigo-ground)">${path(d, c.paper, weight)}</g>`;
 const text = (x, y, content, size = 22, fill = c.ink, weight = 400) => `<text x="${x}" y="${y}" font-family="Arial, Helvetica, sans-serif" font-size="${size}" font-weight="${weight}" fill="${fill}">${escape(content)}</text>`;
 const svg = (width, height, content, label) => `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img"><title>${escape(label)}</title>${content}</svg>\n`;
 const check = (x, y, size = 28, stroke = c.navy, weight = 5) => path(`M${x} ${y+size*.5}l${size*.32} ${size*.32}L${x+size} ${y}`, stroke, weight);
-const arrow = (x, y, length = 64, stroke = c.ink) => path(`M${x} ${y}h${length}m-20 -20l20 20-20 20`, stroke, 7);
+const arrow = (x, y, length = 64) => connector(`M${x} ${y}h${length}m-20 -20l20 20-20 20`);
 const paper = (x, y, w, h, id) => rect(x, y, w, h, c.paper, c.ink, 6).replace('<rect ', `<rect ${id ? `id="${id}" ` : ''}`);
 const browser = (x, y, w, h) => paper(x, y, w, h) + line(x, y+48, x+w, y+48, c.ink, 5) + [0, 1, 2].map(i => rect(x+22+i*24, y+18, 10, 10, c.ink)).join('');
 const rows = (x, y, width, count = 4, stroke = c.ink) => Array.from({length: count}, (_, i) => line(x, y+i*46, x+width*(i % 2 ? .76 : 1), y+i*46, stroke, 9)).join('');
 
 function card(scene) {
-    const backdrop = rect(0, 0, 1200, 800, c.paper) + path('M0 0H1200V160L0 610Z', 'none', 0, c.navy);
+    const backdrop = `<defs><clipPath id="indigo-ground"><path d="${indigoGround}"/></clipPath></defs>` + rect(0, 0, 1200, 800, c.paper) + path(indigoGround, 'none', 0, c.navy);
     let subject;
     if (scene === 'ai') {
         subject = paper(76, 277, 244, 350) + rows(110, 325, 170, 5)
@@ -35,7 +37,7 @@ function card(scene) {
         subject = browser(76, 272, 350, 356) + rows(112, 370, 158, 3) + rect(304, 363, 74, 74, c.navy)
             + browser(770, 272, 366, 356) + rows(808, 370, 280, 3)
             + rect(486, 350, 224, 202, c.accent) + path('M523 424h147m-23-23l23 23-23 23m23 40H523m23-23l-23 23 23 23', c.paper, 10)
-            + path('M426 401h60M710 501h60', c.ink, 7);
+            + connector('M426 401h60M710 501h60');
     } else if (scene === 'websites') {
         subject = browser(76, 244, 790, 400) + rect(112, 334, 292, 76, c.navy) + rows(112, 452, 288, 2) + rect(112, 560, 166, 40, c.navy)
             + rect(450, 334, 372, 266, c.tint) + rect(486, 370, 122, 194, c.navy) + rect(642, 370, 144, 84, c.paper, c.ink, 4) + rows(642, 500, 144, 2)
@@ -46,7 +48,7 @@ function card(scene) {
             + paper(798, 300, 338, 344) + rect(834, 336, 266, 48, c.navy) + rows(834, 438, 184, 2) + check(1044, 416, 48, c.navy, 7) + rect(834, 564, 266, 42, c.accent);
     } else if (scene === 'reporting') {
         subject = [0, 1, 2].map(i => paper(76, 274+i*126, 204, 96) + rows(103, 310+i*126, 148, 1)).join('')
-            + path('M280 322h66v126h70M280 448h136M280 574h66V448', c.ink, 6)
+            + connector('M280 322h66v126h70M280 448h136M280 574h66V448', 6)
             + browser(416, 244, 720, 400) + path('M464 582h620M464 582V336', c.ink, 5)
             + [112, 174, 142, 224].map((h,i) => rect(506+i*142, 582-h, 78, h, i === 3 ? c.accent : c.navy)).join('');
     } else throw new Error(`No card illustration for ${scene}`);
