@@ -26,7 +26,11 @@
     "backHome": "Wróć na stronę główną",
     "directEmail": "Możesz też napisać bezpośrednio:",
     "softwareCategory": "w Twoim oprogramowaniu",
-    "soundCategory": "dla dźwięku i muzyki"
+    "soundCategory": "dla dźwięku i muzyki",
+    "talkIntro": "Napisz, czego potrzebujesz. Odpowiemy i ustalimy, jak możemy pomóc.",
+    "interested": "Interesuje Cię ta usługa?",
+    "generalHeading": "Mam inne pytanie",
+    "relatedIntro": "Zobacz, w czym jeszcze możemy pomóc:"
   },
   "pages": {
     "/": {

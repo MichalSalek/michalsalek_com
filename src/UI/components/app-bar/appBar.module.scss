@@ -1,0 +1,9 @@
+%drop-shadow {
+  filter: drop-shadow(0 0 2px rgba(255,255,255,0.7));
+}
+
+.host {
+  span, h6, svg {
+    @extend %drop-shadow
+  }
+}

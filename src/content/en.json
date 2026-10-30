@@ -4,7 +4,7 @@
     "sound": "Sound services",
     "contact": "Contact",
     "sitemap": "Sitemap",
-    "readMore": "Read more",
+    "readMore": "Read More",
     "related": "Related services",
     "talk": "Do you want to talk?",
     "ask": "Ask about this service",
@@ -26,7 +26,11 @@
     "backHome": "Back to home",
     "directEmail": "You can also email us directly:",
     "softwareCategory": "in your software",
-    "soundCategory": "for sound and music"
+    "soundCategory": "for sound and music",
+    "talkIntro": "Use the links below to ask for details. We will respond as soon as possible.",
+    "interested": "Interested in this service?",
+    "generalHeading": "I just have a question",
+    "relatedIntro": "See how else we can help you:"
   },
   "pages": {
     "/": {

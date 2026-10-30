@@ -1,21 +1,22 @@
 # Design constraints
 
-This refresh keeps the existing white canvas, indigo palette, square geometry,
-readable typography and photography. A new visual identity and replacement images
-are a separate step.
+The owner's original design at commit `b5ed0e1` is the visual reference. Keep its
+indigo cards, square geometry, typography, spacing, subtle photo credits, bordered
+Read More control with arrow, contrast-based card hover, article link panels and
+two-column contact form. Keep the original header treatment and button shadows.
+Do not replace these with a new visual system during content or tooling changes.
 
-## Style policy
+The October 2026 refresh adds static English/Polish routes, accessible navigation
+and reliable contact handling. These changes must respect the original appearance.
 
-- Use the existing palette in `src/UI/styles/constants.ts` and the CSS variables in
-  `src/UI/styles/globals.scss`. Keep text contrast clear in both languages.
-- Retain the system font stack. The existing font sources remain available for
-  a future design step; loading them is not part of this technical refresh.
-- Reserve image geometry before loading. Only the first visible card or article
-  hero gets loading priority. Generate responsive WebP files at build time.
-- Keep links as links and actions as buttons. Do not nest interactive elements.
-- Header controls must fit at 320px. Controls have at least 44px touch targets.
-- Preserve the software-first homepage. Sound services remain under `/sound/`.
-- Keep every public paragraph and language link in the initial static HTML.
-- Use restrained interaction transitions, flat surfaces and no decorative shadows.
-
-Check the production export on mobile and desktop after changing shared styles.
+- No card movement on hover. Preserve the original contrast/saturation effect.
+- Photo credits stay at the top right, 6px, without a background panel.
+- Keep real links and buttons, with no nested interactive elements.
+- Keep meaningful text and language links in the initial static HTML.
+- Reserve image geometry. Prioritize only the first visible card or article hero.
+- Keep the existing system font fallback; do not load additional fonts.
+- Fit header controls and content at 320px without horizontal scrolling.
+- Preserve the software-first homepage and separate `/sound/` services.
+- Verify desktop, mobile, hover, contact and article layouts against the original
+  export after changing shared components. Content improvements are not approval
+  to redesign established components.

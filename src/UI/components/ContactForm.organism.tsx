@@ -37,14 +37,15 @@ export default function ContactFormOrganism() {
         }
     }
     return <form className="contact-form" onSubmit={submit} aria-busy={status === 'sending'}>
-        <TextField label={messages.email} name="email" type="email" autoComplete="email" required={external} fullWidth value={email} onChange={event => setEmail(event.target.value)}/>
+        <div className="contact-fields"><div className="contact-email"><TextField label={messages.email} name="email" type="email" autoComplete="email" required={external} fullWidth value={email} onChange={event => setEmail(event.target.value)}/></div>
+        <div className="contact-message">
         <TextField label={messages.subject} name="subject" required fullWidth value={currentSubject} onChange={event => setSubject(event.target.value)}/>
-        <TextField label={messages.message} name="message" required fullWidth multiline minRows={8} value={text} onChange={event => setText(event.target.value)}/>
+        <TextField label={messages.message} name="message" required fullWidth multiline minRows={12} value={text} onChange={event => setText(event.target.value)}/>
         <TextField label={messages.name} name="name" autoComplete="name" fullWidth value={name} onChange={event => setName(event.target.value)}/>
         {!external && <p id="email-hint">{messages.emailHint}</p>}
         <div role="status" aria-live="polite">{status === 'sent' ? messages.sent : status === 'failed' ? messages.failed : ''}</div>
-        <Button type="submit" variant="contained" disabled={!hydrated || status === 'sending'} aria-describedby={!external ? 'email-hint' : undefined}>
+        <Button sx={{my: '2rem', height: '3rem', alignItems: 'center'}} size="large" type="submit" variant="contained" disabled={!hydrated || status === 'sending'} aria-describedby={!external ? 'email-hint' : undefined}>
             {status === 'sending' ? messages.sending : external ? messages.send : messages.openEmail}
-        </Button>
+        </Button></div></div>
     </form>;
 }

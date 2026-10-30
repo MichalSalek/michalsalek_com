@@ -75,3 +75,34 @@ test('static content and language links work without JavaScript', async ({browse
     await expect(page.locator('button[type="submit"]')).toBeDisabled();
     await context.close();
 });
+
+test('the original card treatment keeps readable controls, discreet credits and a stationary hover', async ({page}) => {
+    await page.goto('/');
+    const card = page.locator('.service-card').first();
+    const title = card.locator('h2');
+    await expect(title).toHaveCSS('color', 'rgb(255, 255, 255)');
+    await expect(card.locator('.read-more')).toHaveCSS('color', 'rgb(255, 255, 255)');
+    await expect(card.locator('.read-more')).toHaveCSS('text-decoration-line', 'none');
+    await expect(card.locator('figcaption')).toHaveCSS('font-size', '6px');
+    await expect(card.locator('figcaption')).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+    await card.scrollIntoViewIfNeeded();
+    const before = await card.boundingBox();
+    await card.hover();
+    await page.waitForTimeout(160);
+    expect(await card.boundingBox()).toEqual(before);
+    await expect(card.locator('img')).toBeVisible();
+});
+
+test('article contact panels keep both enquiry paths and prefill the service', async ({page}) => {
+    await page.goto('/software/backend/');
+    await expect(page.locator('.contact-cta .link-button')).toHaveCount(2);
+    const enquiry = page.locator('.contact-cta .link-button').first();
+    await enquiry.click();
+    await expect(page.locator('[name="subject"]')).not.toHaveValue('');
+    if (test.info().project.name === 'desktop') {
+        const email = await page.locator('[name="email"]').boundingBox();
+        const subject = await page.locator('[name="subject"]').boundingBox();
+        expect(Math.abs(email!.y - subject!.y)).toBeLessThan(2);
+        expect(email!.x).toBeLessThan(subject!.x);
+    }
+});

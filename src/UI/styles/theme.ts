@@ -100,6 +100,12 @@ export const mainTheme: Theme = createTheme({
         }
     },
     components: {
+        MuiStack: {
+            styleOverrides: {root: {
+                minHeight: '100%', alignItems: 'center', justifyContent: 'center',
+                flexDirection: 'row', flexWrap: 'wrap', columnGap: '32px', rowGap: '16px'
+            }}
+        },
         MuiDivider:       {
             styleOverrides: {
                 root: {
@@ -134,7 +140,7 @@ export const mainTheme: Theme = createTheme({
         MuiCard:          {
             styleOverrides: {
                 root: {
-                    minWidth: 310,
+                    minWidth: 'min(310px, 100%)',
                     maxWidth: 375,
                     width:    '100%'
                 }

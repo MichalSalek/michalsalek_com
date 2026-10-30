@@ -7,6 +7,7 @@ import { ArticleComposition } from '@/src/UI/compositions/Article.composition';
 import { HeroMolecule } from '@/src/UI/components/Hero.molecule';
 import { AppLinkAtom } from '@/src/UI/components/AppLink.atom';
 import type { SitePageProps } from '@/src/content/load-page';
+import { GoToContactFormMolecule } from './GoToContactForm.molecule';
 import { site } from '@/src/content/site.mjs';
 import molecules from '@/src/UI/assets/molecules.jpg';
 import backend from '@/src/UI/assets/backend.jpg';
@@ -28,7 +29,7 @@ export default function SitePage({path, title, cards, sections, messages, naviga
     if (path === '/' || path === '/sound/') return <>
         <Typography variant="h1">{title}</Typography>
         <RootCardOrganism version={path === '/' ? 'software' : 'sound'} cards={cards}/>
-        <section className="contact-cta"><h2>{messages.talk}</h2><AppLinkAtom href="/contact/">{messages.contact}</AppLinkAtom></section>
+        <Container><GoToContactFormMolecule objectOfInterest={title}/></Container>
     </>;
     if (path === '/contact/') return <Container>
         <Typography variant="h1">{title}</Typography><p className="page-intro">{messages.contactIntro}</p>

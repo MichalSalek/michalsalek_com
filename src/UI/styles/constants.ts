@@ -12,10 +12,10 @@ export const appColors = {
 } as const
 
 export const appStyles = {
-
+    cardBoxShadow: {boxShadow: '14px 14px 0px -6px #000000'},
     appFontFamily: {
         fontFamily: [
-                        '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
+                        'Mona Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'
                     ].join(',')
     }
 } as const
