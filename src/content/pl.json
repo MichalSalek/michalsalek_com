@@ -1,0 +1,115 @@
+{
+  "ui": {
+    "home": "Usługi programistyczne",
+    "sound": "Usługi dźwiękowe",
+    "contact": "Kontakt",
+    "sitemap": "Mapa strony",
+    "readMore": "Czytaj więcej",
+    "related": "Powiązane usługi",
+    "talk": "Porozmawiajmy o Twoim projekcie",
+    "ask": "Zapytaj o tę usługę",
+    "general": "Inne pytanie",
+    "contactIntro": "Opisz swój projekt lub proces, który chcesz usprawnić.",
+    "email": "Twój e-mail",
+    "name": "Twoje imię",
+    "subject": "Temat",
+    "message": "Wiadomość",
+    "send": "Wyślij wiadomość",
+    "openEmail": "Otwórz pocztę",
+    "emailHint": "Otworzymy szkic w Twoim programie pocztowym. Wyślij go stamtąd, aby się z nami skontaktować.",
+    "sent": "Wiadomość została wysłana. Dziękujemy.",
+    "failed": "Nie udało się wysłać wiadomości. Twój tekst pozostał w formularzu. Spróbuj ponownie lub napisz bezpośrednio na e-mail.",
+    "sending": "Wysyłanie...",
+    "switchLanguage": "Switch language to English",
+    "skip": "Przejdź do treści",
+    "notFound": "Nie znaleziono strony",
+    "backHome": "Wróć na stronę główną",
+    "directEmail": "Możesz też napisać bezpośrednio:",
+    "softwareCategory": "w Twoim oprogramowaniu",
+    "soundCategory": "dla dźwięku i muzyki"
+  },
+  "pages": {
+    "/": {
+      "title": "Usługi programistyczne",
+      "description": "Tworzenie oprogramowania, architektura, frontend i backend. Atomic Concept, Michał Sałek. Porozmawiajmy o Twojej aplikacji lub procesie biznesowym.",
+      "intro": []
+    },
+    "/software/architecture/": {
+      "title": "Architektura oprogramowania",
+      "description": "Architektura oprogramowania i planowanie procesów. Atomic Concept: modułowe aplikacje, jasno określone granice i kod łatwy w utrzymaniu."
+    },
+    "/software/backend/": {
+      "title": "Backend i logika aplikacji",
+      "description": "Tworzenie backendu w Atomic Concept. Logika serwerowa, przetwarzanie danych i usługi dopasowane do potrzeb Twojej firmy."
+    },
+    "/software/frontend/": {
+      "title": "Frontend i interfejsy użytkownika",
+      "description": "Tworzenie frontendu w Atomic Concept. Responsywne interfejsy, wydajność stron internetowych i niezawodne działanie aplikacji."
+    },
+    "/sound/": {
+      "title": "Usługi dźwiękowe online",
+      "description": "Usługi dźwiękowe Atomic Concept: miks, mastering, podkłady i autorska muzyka do nagrań oraz produkcji wideo."
+    },
+    "/sound/studio/": {
+      "title": "Studio miksu i masteringu online",
+      "description": "Miks i mastering online w Atomic Concept. Przygotuj ślady i porozmawiajmy o brzmieniu Twojego nagrania."
+    },
+    "/sound/soundtracks/": {
+      "title": "Muzyka gotowa i na zamówienie",
+      "description": "Autorskie podkłady, ścieżki dźwiękowe i beaty Atomic Concept dla wokalistów, do filmów, reklam i zwiastunów."
+    },
+    "/contact/": {
+      "title": "Kontakt",
+      "description": "Skontaktuj się z Atomic Concept, Michałem Sałkiem. Porozmawiajmy o oprogramowaniu, procesach w Twojej firmie lub projekcie dźwiękowym."
+    },
+    "/sitemap/": {
+      "title": "Mapa strony",
+      "description": "Poznaj usługi programistyczne i dźwiękowe Atomic Concept. Strona dostępna w języku polskim i angielskim."
+    }
+  },
+  "cards": {
+    "software": [
+      {
+        "path": "/software/frontend/",
+        "title": "Frontend i interfejs użytkownika",
+        "paragraphs": [
+          "Atomic Concept tworzy solidne i spójne interfejsy z komponentów, które można wykorzystać ponownie.",
+          "Od pierwszego wczytania strony po wieloletni rozwój aplikacji dbamy o SEO i wydajność."
+        ]
+      },
+      {
+        "path": "/software/architecture/",
+        "title": "Architektura i planowanie procesów",
+        "paragraphs": [
+          "Atomic Concept pomoże Ci rozpoznać i zaplanować obszary Twojej firmy.",
+          "Krok po kroku określimy zakresy odpowiedzialności i stworzymy dla nich oprogramowanie."
+        ]
+      },
+      {
+        "path": "/software/backend/",
+        "title": "Backend i logika aplikacji",
+        "paragraphs": [
+          "Potrzebujesz przetwarzać dane lub stworzyć mikroserwis?",
+          "Atomic Concept korzysta z rozwiązań opartych na zdarzeniach, aby zachować spójność procesów w Twojej firmie."
+        ]
+      }
+    ],
+    "sound": [
+      {
+        "path": "/sound/studio/",
+        "title": "Miks i mastering",
+        "paragraphs": [
+          "Chcesz poprawić swoje nagranie? Szukasz konkretnego brzmienia?"
+        ]
+      },
+      {
+        "path": "/sound/soundtracks/",
+        "title": "Ścieżki dźwiękowe i beaty",
+        "paragraphs": [
+          "W Atomic Concept możesz zamówić autorską muzykę.",
+          "Śpiewasz, rapujesz lub potrzebujesz muzyki do filmu? Sprawdź, co możemy przygotować."
+        ]
+      }
+    ]
+  }
+}

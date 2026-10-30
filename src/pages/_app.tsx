@@ -1,44 +1,26 @@
-import { errorTrackerScriptLoader }           from '@/src/layers/application/errorTracker'
-import { googleAnalyticsScriptLoader }        from '@/src/layers/application/googleAnalytics'
-import { useRouteChangeTransitionController } from '@/src/layers/core/useRouteChangeTransition.controller'
-import { MainComposition }                    from '@/src/UI/compositions/Main.composition'
-import '@/src/UI/styles/globals.scss'
-import { ControllersComposition }             from '@msalek/controllers'
-import { NextComponentType }                  from 'next/dist/shared/lib/utils'
+import type { AppProps } from 'next/app';
+import { AppCacheProvider } from '@mui/material-nextjs/v16-pagesRouter';
+import { MainComposition } from '@/src/UI/compositions/Main.composition';
+import { LocaleContext } from '@/src/i18n/context';
+import type { SitePageProps } from '@/src/content/load-page';
+import en from '@/src/content/en.json';
+import { useEffect } from 'react';
+import '@/src/UI/styles/globals.scss';
 
+export type GeneralPageProps = SitePageProps;
 
-
-
-export type GeneralPageProps = { title: string }
-
-type Props = {
-    Component: any | NextComponentType<GeneralPageProps>
-    pageProps: GeneralPageProps
+export default function App(props: AppProps<SitePageProps>) {
+    const { Component, pageProps } = props;
+    const locale = pageProps.locale ?? 'en';
+    const path = pageProps.path ?? '/';
+    const messages = pageProps.messages ?? en.ui;
+    // _document only renders on full loads; client navigation must update lang too.
+    useEffect(() => { document.documentElement.lang = locale; }, [locale]);
+    return <AppCacheProvider {...props}>
+        <LocaleContext.Provider value={{locale, path, messages}}>
+            <MainComposition {...pageProps}>
+                <Component {...pageProps}/>
+            </MainComposition>
+        </LocaleContext.Provider>
+    </AppCacheProvider>;
 }
-
-const App = ({Component, pageProps}: Props) => {
-
-    return <>
-
-        <ControllersComposition
-            userInteractionFunctions={
-                [
-                    googleAnalyticsScriptLoader,
-                    errorTrackerScriptLoader
-                ]}
-            hookControllers={[
-                useRouteChangeTransitionController
-            ]}/>
-
-        <MainComposition title={pageProps.title}>
-
-            <Component {...pageProps}/>
-
-        </MainComposition>
-
-
-
-    </>
-}
-
-export default App

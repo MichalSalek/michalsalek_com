@@ -1,232 +1,47 @@
-import { sendEmail }                                                    from '@/src/layers/application/email'
-import { ContactFormFeedbackAtom }                                      from '@/src/UI/components/ContactFormFeedback.atom'
-import { useFakeLoadingHook }                                           from '@/src/UI/hooks/useFakeLoading.hook'
-import { useStateBlinking }                                             from '@/src/UI/hooks/useStateBlinking.hook'
-import { mainTheme }                                                    from '@/src/UI/styles/theme'
-import { freezeThreadAndWait }                                          from '@msalek/utils'
-import Button                                                           from '@mui/material/Button'
-import CircularProgress                                                 from '@mui/material/CircularProgress'
-import FormControl                                                      from '@mui/material/FormControl'
-import Stack                                                            from '@mui/material/Stack'
-import TextField                                                        from '@mui/material/TextField'
-import { useRouter }                                                    from 'next/router'
-import { FormEvent, ReactElement, useEffect, useMemo, useState } from 'react'
+import { useState, type FormEvent } from 'react';
+import { useRouter } from 'next/router';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import { useLocale } from '@/src/i18n/context';
+import { site } from '@/src/content/site.mjs';
+import { sendEmail } from '@/src/layers/application/email';
 
-
-
-
-const ContactFormOrganism = (): ReactElement => {
-
-    const router = useRouter()
-    const {about} = router.query
-    const passedEmailSubject = about ? `[ ${about as string} ]` : ''
-
-    const [yourEmail, setYourEmail] = useState('')
-    const [yourName, setYourName] = useState('')
-    const [subject, setSubject] = useState(passedEmailSubject)
-    const [text, setText] = useState('')
-
-    const isFormValid = useMemo(() => Boolean(subject && text), [subject, text])
-
-    const clearFormAction = () => {
-        setSubject('')
-        setText('')
-    }
-
-
-    const [formDisabled, setFormDisabled] = useState(false)
-    const [isMessageSuccessfullySent, setIsMessageSuccessfullySent] = useState(true)
-    const [showFeedbackInfo, setShowFeedbackInfo] = useState(false)
-
-
-    const {
-        loading,
-        setLoading,
-        loadingProgressValue,
-        resetLoadingProgressValue
-    } = useFakeLoadingHook()
-
-
-    const [disableButtonAction, setDisableButtonAction] = useState(false)
-
-    const {booleanSwitch: formError, setBooleanSwitch: setFormError, doBlinkingAnimation: doErrorAnimation} = useStateBlinking()
-
-    const unlockFormAction = async () => {
-        setShowFeedbackInfo(false)
-        setFormDisabled(false)
-        await freezeThreadAndWait(100)
-        isMessageSuccessfullySent && clearFormAction()
-        setFormError(false)
-        resetLoadingProgressValue()
-    }
-
-
-    const submitHandler = async () => {
-        setFormDisabled(true)
-        if (!isFormValid) {
-            setFormDisabled(false)
-            await doErrorAnimation()
-            return void undefined
+export default function ContactFormOrganism() {
+    const {messages} = useLocale();
+    const {query} = useRouter();
+    const about = typeof query.about === 'string' ? query.about : '';
+    const [subject, setSubject] = useState<string | null>(null);
+    const [text, setText] = useState('');
+    const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
+    const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'failed'>('idle');
+    const external = Boolean(process.env.NEXT_PUBLIC_CONTACT_ENDPOINT);
+    const currentSubject = subject ?? about;
+    async function submit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        if (status === 'sending') return;
+        if (!external) {
+            const body = `${text}\n\n${name}${email ? `\n${email}` : ''}`;
+            window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(currentSubject)}&body=${encodeURIComponent(body)}`;
+            return;
         }
-
-        setDisableButtonAction(true)
-        setLoading(true)
-        await freezeThreadAndWait(700)
-
+        setStatus('sending');
         try {
-            await sendEmail({
-                subject, replyTo: yourEmail, text, signature: yourName
-            })
-
-            setIsMessageSuccessfullySent(true)
-
-        } catch (e) {
-            setIsMessageSuccessfullySent(false)
-            setFormError(true)
+            await sendEmail({subject: currentSubject, text, replyTo: email, signature: name});
+            setStatus('sent');
+        } catch {
+            setStatus('failed');
         }
-
-        setLoading(false)
-        setShowFeedbackInfo(true)
-        setDisableButtonAction(false)
     }
-
-
-    const getButtonColor = useMemo(() => {
-        if (showFeedbackInfo && isMessageSuccessfullySent) {
-            return 'success'
-        } else if (formError) {
-            return 'error'
-        } else {
-            return 'primary'
-        }
-    }, [showFeedbackInfo, isMessageSuccessfullySent, formError])
-
-
-    const {booleanSwitch: subjectAttention, doBlinkingAnimation: doSubjectAttentionAnimation} = useStateBlinking()
-
-    useEffect(() => {
-        if (!passedEmailSubject) return void undefined
-        setTimeout(doSubjectAttentionAnimation, 800)
-    }, [doSubjectAttentionAnimation, passedEmailSubject])
-
-
-    return <FormControl
-        component={'form'}
-        onSubmit={async (e: FormEvent) => {
-            e?.preventDefault()
-            showFeedbackInfo ? await unlockFormAction() : await submitHandler()
-        }}
-        sx={{
-            width: '100%'
-        }}
-    >
-        <Stack
-            maxWidth={'1000px'}
-            justifyContent={'center'}
-            flexWrap={'wrap'}
-            alignItems={'baseline'}
-            rowGap={0}
-        >
-
-            <Stack
-                flexDirection={'column'}
-                rowGap={0}
-                flex={1}
-                alignItems={'stretch'}
-                minWidth={'320px'}
-            >
-                <TextField
-                    error={formError}
-                    disabled={formDisabled}
-                    label={'Email to reply *'}
-                    placeholder={'Reply to'}
-                    type={'email'}
-                    autoComplete={'email'}
-                    value={yourEmail}
-                    onChange={(event) =>
-                        setYourEmail(event.target.value)}
-                />
-            </Stack>
-
-
-            <Stack
-                flexDirection={'column'}
-                flex={2}
-                rowGap={0}
-                alignItems={'stretch'}
-                minWidth={'320px'}
-            >
-
-                <TextField
-                    error={formError}
-                    disabled={formDisabled}
-                    label={'Subject *'}
-                    placeholder={'Email title'}
-                    value={subject}
-                    sx={subjectAttention ? {filter: `drop-shadow(0px 0px 1px ${mainTheme.palette.info.main})`} : undefined}
-                    onChange={(event) =>
-                        setSubject(event.target.value)}
-                />
-
-                <Stack
-                    sx={{
-                        position: 'relative'
-                    }}>
-                    <TextField
-                        error={formError}
-                        disabled={formDisabled}
-                        multiline={true}
-                        minRows={12}
-                        label={'Message *'}
-                        placeholder={'Email body'}
-                        value={text}
-                        onChange={(event) =>
-                            setText(event.target.value)}
-                        sx={{width: '100%'}}
-                    />
-
-                    {showFeedbackInfo && <ContactFormFeedbackAtom isSuccessfully={isMessageSuccessfullySent}/>}
-
-                </Stack>
-
-
-                <TextField
-                    disabled={formDisabled}
-                    label={'Your name'}
-                    autoComplete={'given-name'}
-                    value={yourName}
-                    onChange={(event) =>
-                        setYourName(event.target.value)}
-                />
-
-
-                <Button
-                    color={getButtonColor}
-                    type={'submit'}
-                    variant={'contained'}
-                    sx={{
-                        my:            '2rem',
-                        height:        '3rem',
-                        alignItems:    'center',
-                        pointerEvents: disableButtonAction ? 'none' : 'all'
-                    }}
-                    size={'large'}
-                >{loading ?
-
-                  <CircularProgress
-                      thickness={20}
-                      size={24}
-                      color={'inherit'}
-                      variant="determinate"
-                      value={loadingProgressValue}
-                  />
-                          :
-                  showFeedbackInfo ? 'OK' : 'SEND'}</Button>
-
-            </Stack>
-
-        </Stack>
-    </FormControl>
+    return <form className="contact-form" onSubmit={submit} aria-busy={status === 'sending'}>
+        <TextField label={messages.email} name="email" type="email" autoComplete="email" required={external} fullWidth value={email} onChange={event => setEmail(event.target.value)}/>
+        <TextField label={messages.subject} name="subject" required fullWidth value={currentSubject} onChange={event => setSubject(event.target.value)}/>
+        <TextField label={messages.message} name="message" required fullWidth multiline minRows={8} value={text} onChange={event => setText(event.target.value)}/>
+        <TextField label={messages.name} name="name" autoComplete="name" fullWidth value={name} onChange={event => setName(event.target.value)}/>
+        {!external && <p id="email-hint">{messages.emailHint}</p>}
+        <div role="status" aria-live="polite">{status === 'sent' ? messages.sent : status === 'failed' ? messages.failed : ''}</div>
+        <Button type="submit" variant="contained" disabled={status === 'sending'} aria-describedby={!external ? 'email-hint' : undefined}>
+            {status === 'sending' ? messages.sending : external ? messages.send : messages.openEmail}
+        </Button>
+    </form>;
 }
-
-export default ContactFormOrganism

@@ -1,59 +1,38 @@
-import { GeneralPageProps } from '@/src/pages/_app'
-import { BreadcrumbsAtom }  from '@/src/UI/components/breadcrumbs/Breadcrumbs.atom'
-import { FooterPartial }    from '@/src/UI/partials/Footer.partial'
-import { HeaderPartial }    from '@/src/UI/partials/Header.partial'
-import { mainTheme }        from '@/src/UI/styles/theme'
-import Box                  from '@mui/material/Box'
-import Container            from '@mui/material/Container'
-import CssBaseline          from '@mui/material/CssBaseline'
-import { ThemeProvider }    from '@mui/material/styles'
-import Head                 from 'next/head'
-import { ReactElement }     from 'react'
+import type { ReactNode } from 'react';
+import Head from 'next/head';
+import localFont from 'next/font/local';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
+import Container from '@mui/material/Container';
+import { mainTheme } from '@/src/UI/styles/theme';
+import { HeaderPartial } from '@/src/UI/partials/Header.partial';
+import { FooterPartial } from '@/src/UI/partials/Footer.partial';
+import { BreadcrumbsAtom } from '@/src/UI/components/breadcrumbs/Breadcrumbs.atom';
+import { SeoHead } from '@/src/UI/components/SeoHead';
+import { useLocale } from '@/src/i18n/context';
+import type { SitePageProps } from '@/src/content/load-page';
+import { Analytics } from '@/src/layers/application/Analytics';
 
+const font = localFont({src: [
+    {path: '../fonts/Mona-Sans-Light.woff2', weight: '300'},
+    {path: '../fonts/Mona-Sans-Regular.woff2', weight: '400'},
+    {path: '../fonts/Mona-Sans-SemiBold.woff2', weight: '600'},
+], display: 'swap', variable: '--font-mona'});
 
-
-
-type Props = {
-    children: ReactElement,
-} & GeneralPageProps
-
-
-export const MainComposition = ({children, title}: Props): ReactElement => {
-
-    const getTitle = (): string => title ? '– ' + title : ''
-
-    return <>
-
+export const MainComposition = ({children, title, description}: Partial<SitePageProps> & {children: ReactNode}) => {
+    const {messages} = useLocale();
+    return <ThemeProvider theme={mainTheme}>
         <CssBaseline/>
-
-        <main
-            style={{marginTop: '7rem'}}>
-
-            <Head>
-                <title>{String('Atomic Concept ' + getTitle())}</title>
-                <meta name="description" content="Digital services"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                <link rel="icon" href="/favicon.ico"/>
-            </Head>
-
-            <ThemeProvider theme={mainTheme}>
-
-                <HeaderPartial/>
-
-                <Container maxWidth={'xl'}>
-                    <Box sx={{minHeight: '100vh'}} component={'section'} id={'main-app-content-box'}>
-
-                        <Container><BreadcrumbsAtom/></Container>
-
-                        {children}
-                    </Box>
-
-                </Container>
-
-                <FooterPartial/>
-
-            </ThemeProvider>
-
-        </main>
-    </>
-}
+        <Head><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="icon" href="/favicon.ico"/></Head>
+        <SeoHead title={title} description={description}/>
+        <div className={`${font.variable} site-shell`}>
+            <a className="skip-link" href="#main-app-content-box">{messages.skip}</a>
+            <HeaderPartial/>
+            <main id="main-app-content-box" tabIndex={-1}>
+                <Container maxWidth="xl"><BreadcrumbsAtom/>{children}</Container>
+            </main>
+            <FooterPartial/>
+        </div>
+        <Analytics/>
+    </ThemeProvider>;
+};

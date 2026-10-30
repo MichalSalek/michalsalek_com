@@ -1,40 +1,10 @@
-import { AppLinkAtom }                          from '@/src/UI/components/AppLink.atom'
-import { useRouter }                            from 'next/router'
-import Breadcrumbs                              from 'nextjs-breadcrumbs2'
-import { CSSProperties, ReactElement, useMemo } from 'react'
-import scss                                     from './breadcrumbs.module.scss'
+import { useLocale } from '@/src/i18n/context';
+import { AppLinkAtom } from '@/src/UI/components/AppLink.atom';
 
-
-
-export const BreadcrumbsAtom = (): ReactElement => {
-    const router = useRouter()
-
-    const isHomeRoute = router.asPath === '/'
-
-    const isSitemapRoute = router.asPath === '/sitemap/'
-
-    const visibilityStyle: CSSProperties | undefined = useMemo(() =>
-        isHomeRoute || isSitemapRoute ? {visibility: 'hidden'} : undefined, [isHomeRoute, isSitemapRoute])
-
-    return <section
-        style={{
-            height:  '40px',
-            display: 'flex', ...visibilityStyle
-        }}
-        className={scss.fontSize}
-    >
-        {!isSitemapRoute &&
-            <menu><li
-                style={{listStyle: 'none'}}
-                className={scss.slashAfter}>
-                <AppLinkAtom href={'/sitemap/'}>SITEMAP</AppLinkAtom>
-            </li></menu>
-        }
-        <Breadcrumbs
-            labelsToUppercase
-            rootLabel="Home"
-            listClassName={scss.host}
-        />
-
-    </section>
-}
+export const BreadcrumbsAtom = () => {
+    const {path, messages} = useLocale();
+    return <nav className="breadcrumbs" aria-label={messages.sitemap}>
+        {path !== '/' && <AppLinkAtom href="/">{messages.home}</AppLinkAtom>}
+        {path.startsWith('/sound/') && path !== '/sound/' && <AppLinkAtom href="/sound/">{messages.sound}</AppLinkAtom>}
+    </nav>;
+};

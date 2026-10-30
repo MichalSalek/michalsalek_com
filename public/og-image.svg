@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1a237e"/>
+  <g fill="#fff" font-family="Arial, sans-serif">
+    <text x="80" y="150" font-size="32">michalsalek.com</text>
+    <text x="80" y="310" font-size="84" font-weight="700">Atomic Concept</text>
+    <text x="80" y="400" font-size="40">Software development</text>
+    <text x="80" y="540" font-size="30">Michał Sałek</text>
+  </g>
+</svg>

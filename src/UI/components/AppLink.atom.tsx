@@ -1,17 +1,10 @@
-import { AppRoute }        from '@/src/layers/core/routes.config'
-import Link, { LinkProps }                                        from 'next/link'
-import { CSSProperties, HTMLAttributes, ReactElement, ReactNode } from 'react'
+import Link, { type LinkProps } from 'next/link';
+import type { AnchorHTMLAttributes, ReactNode } from 'react';
+import { pageHref } from '@/src/content/site.mjs';
+import { useLocale } from '@/src/i18n/context';
 
-
-
-
-type Props = {
-    href: AppRoute
-    children: ReactNode
-} & LinkProps & HTMLAttributes<HTMLAnchorElement>
-export const AppLinkAtom = (props: Props): ReactElement => {
-    const {href, children}: Props = props
-
-
-    return <Link {...props} href={href}>{children}</Link>
-}
+type Props = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & Omit<LinkProps, 'href'> & {href: string; children: ReactNode};
+export const AppLinkAtom = ({href, children, ...props}: Props) => {
+    const {locale} = useLocale();
+    return <Link {...props} href={pageHref(locale, href)}>{children}</Link>;
+};

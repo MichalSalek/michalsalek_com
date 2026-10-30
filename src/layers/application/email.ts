@@ -1,33 +1,11 @@
-import { reportIssue }     from '@/src/layers/application/errorTracker'
-import { isProductionEnv } from '@msalek/utils'
-import axios               from 'axios'
+export type SendEmailDTO = {subject: string; text: string; replyTo: string; signature: string};
 
-
-
-
-export type SendEmailDTO = {
-    subject: string
-    text: string
-    replyTo: string
-    signature: string
-}
-
-export const sendEmail = async (payload: SendEmailDTO): Promise<void> => {
-
-    if (process.env.NEXT_PUBLIC_MAILING_SERVICE_URL_PROD || process.env.NEXT_PUBLIC_MAILING_SERVICE_URL_DEV) {
-
-        const URL = isProductionEnv(true) ?
-                    process.env.NEXT_PUBLIC_MAILING_SERVICE_URL_PROD :
-                    process.env.NEXT_PUBLIC_MAILING_SERVICE_URL_DEV
-
-        try {
-            await axios.post(URL as string, payload)
-            await Promise.resolve()
-        } catch (e) {
-            reportIssue(e)
-            await Promise.reject(e)
-        }
-    } else {
-        console.warn('No email provider.')
-    }
+export async function sendEmail(payload: SendEmailDTO): Promise<void> {
+    const endpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT;
+    if (!endpoint) throw new Error('Contact endpoint is not configured');
+    const response = await fetch(endpoint, {
+        method: 'POST', headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload), signal: AbortSignal.timeout(15000),
+    });
+    if (!response.ok) throw new Error(`Contact service returned ${response.status}`);
 }

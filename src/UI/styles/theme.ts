@@ -107,27 +107,6 @@ export const mainTheme: Theme = createTheme({
                 }
             }
         },
-        MuiContainer:     {
-            defaultProps: {
-
-                // @ts-ignore
-                component: 'section'
-            }
-        },
-        MuiStack:         {
-            defaultProps: {
-                minHeight:      '100%',
-                alignItems:     'center',
-                justifyContent: 'center',
-                flexDirection:  'row',
-                flexWrap:       'wrap',
-                columnGap:      4,
-                rowGap:         2,
-
-                // @ts-ignore
-                component: 'section'
-            }
-        },
         MuiButton:        {
             defaultProps:   {
                 variant: 'outlined'

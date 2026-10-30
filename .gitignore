@@ -13,6 +13,17 @@
 
 # production
 /build
+/out/
+/.playwright-mcp/
+/playwright-report/
+/test-results/
+/.artifacts/
+/public/optimized-images/
+/public/images/next-image-export-optimizer-hashes.json
+/.deploy.env
+.env
+.env.*
+!.env.example
 
 # misc
 .DS_Store

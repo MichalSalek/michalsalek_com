@@ -1,0 +1,115 @@
+{
+  "ui": {
+    "home": "Software services",
+    "sound": "Sound services",
+    "contact": "Contact",
+    "sitemap": "Sitemap",
+    "readMore": "Read more",
+    "related": "Related services",
+    "talk": "Do you want to talk?",
+    "ask": "Ask about this service",
+    "general": "General question",
+    "contactIntro": "Write about your project or the process you would like to improve.",
+    "email": "Your email",
+    "name": "Your name",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send message",
+    "openEmail": "Open email app",
+    "emailHint": "This opens a draft in your email app. Send it there to contact us.",
+    "sent": "Your message has been sent. Thank you.",
+    "failed": "The message could not be sent. Your text is still here. Please try again or email us directly.",
+    "sending": "Sending...",
+    "switchLanguage": "Zmień język na polski",
+    "skip": "Skip to content",
+    "notFound": "Page not found",
+    "backHome": "Back to home",
+    "directEmail": "You can also email us directly:",
+    "softwareCategory": "in your software",
+    "soundCategory": "for sound and music"
+  },
+  "pages": {
+    "/": {
+      "title": "Software services",
+      "description": "Software development, architecture, frontend and backend services by Atomic Concept, Michał Sałek. Discuss your application or business process.",
+      "intro": []
+    },
+    "/software/architecture/": {
+      "title": "Software architecture",
+      "description": "Software architecture and process planning by Atomic Concept. Modular applications, documented boundaries and maintainable code."
+    },
+    "/software/backend/": {
+      "title": "Backend services",
+      "description": "Backend development by Atomic Concept. Server logic, data processing and services designed around your business needs."
+    },
+    "/software/frontend/": {
+      "title": "Frontend services",
+      "description": "Frontend development by Atomic Concept. Responsive interfaces, web performance and reliable application behaviour."
+    },
+    "/sound/": {
+      "title": "Sound online services",
+      "description": "Online audio services by Atomic Concept. Mixing, mastering, backing tracks and original music for your recordings and video."
+    },
+    "/sound/studio/": {
+      "title": "Online studio services",
+      "description": "Online mixing and mastering by Atomic Concept. Prepare your multitracks and discuss the sound of your recording."
+    },
+    "/sound/soundtracks/": {
+      "title": "Music to buy or order",
+      "description": "Original backing tracks, soundtracks and beats by Atomic Concept for performers, videos, commercials and trailers."
+    },
+    "/contact/": {
+      "title": "Contact",
+      "description": "Contact Atomic Concept, Michał Sałek. Discuss software development, your business process or an audio project."
+    },
+    "/sitemap/": {
+      "title": "Sitemap",
+      "description": "Browse software development and audio services from Atomic Concept in English and Polish."
+    }
+  },
+  "cards": {
+    "software": [
+      {
+        "path": "/software/frontend/",
+        "title": "Frontend User Interface",
+        "paragraphs": [
+          "With Atomic Concept, the UI of your business will be solid, reusable and coherent.",
+          "From the first byte after page load to a long-lived application, SEO and performance are key."
+        ]
+      },
+      {
+        "path": "/software/architecture/",
+        "title": "Architecture and process planning",
+        "paragraphs": [
+          "Atomic Concept will help you discover and plan areas of your business.",
+          "Let us define specific scopes step by step and create an ecosystem for them."
+        ]
+      },
+      {
+        "path": "/software/backend/",
+        "title": "Backend logic and operations",
+        "paragraphs": [
+          "Want to process some data? Need a microservice?",
+          "Atomic Concept uses event-driven solutions to keep your business processes coherent."
+        ]
+      }
+    ],
+    "sound": [
+      {
+        "path": "/sound/studio/",
+        "title": "Mixing and mastering services",
+        "paragraphs": [
+          "Want to improve your music? Looking for a particular sound?"
+        ]
+      },
+      {
+        "path": "/sound/soundtracks/",
+        "title": "Soundtracks and beats",
+        "paragraphs": [
+          "You can order original music from Atomic Concept.",
+          "Are you a singer or rapper? Do you need music for a video? Take a look."
+        ]
+      }
+    ]
+  }
+}

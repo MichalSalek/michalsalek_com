@@ -1,110 +1,14 @@
-import { AppRoute }                from '@/src/layers/core/routes.config'
-import { AppLinkAtom }             from '@/src/UI/components/AppLink.atom'
-import { ImageAtom }               from '@/src/UI/components/Image.atom'
-import { appColors, appStyles }    from '@/src/UI/styles/constants'
-import { mainTheme }               from '@/src/UI/styles/theme'
-import ArrowRightIcon              from '@mui/icons-material/ArrowRight'
-import Card                        from '@mui/material/Card'
-import CardActionArea              from '@mui/material/CardActionArea'
-import CardContent                 from '@mui/material/CardContent'
-import Stack                       from '@mui/material/Stack'
-import Typography                  from '@mui/material/Typography'
-import { StaticImageData }         from 'next/image'
-import { ReactElement, ReactNode } from 'react'
-import scss                        from './clickableCard.module.scss'
+import type { ReactNode } from 'react';
+import type { StaticImageData } from 'next/image';
+import { AppLinkAtom } from '@/src/UI/components/AppLink.atom';
+import { ImageAtom } from '@/src/UI/components/Image.atom';
+import { useLocale } from '@/src/i18n/context';
 
-
-
-
-type Props = {
-    image: StaticImageData
-    alt: string
-    credits: string
-    title: string
-    content: ReactNode
-    linkPath: AppRoute
-    buttonContent?: string
-    priorityLoad?: boolean
-}
-
-
-export const ClickableCardMolecule = ({image, alt, credits, title, content, linkPath, buttonContent = 'Read More', priorityLoad = true}: Props): ReactElement => {
-
-    return <Card
-        elevation={0}
-        sx={{
-            display:        'flex',
-            flexDirection:  'column',
-            justifyContent: 'space-between'
-        }}
-    >
-        <AppLinkAtom
-            href={linkPath}
-            className={scss.link}
-        >
-
-            <CardActionArea
-                sx={{
-                    display:         'flex',
-                    flexDirection:   'column',
-                    backgroundColor: mainTheme.palette.primary.main,
-                    p:               0,
-                    height:          '100%',
-                    minHeight:       '570px'
-                }}
-            >
-                <ImageAtom
-                    image={image}
-                    alt={alt}
-                    credits={credits}
-                    priority={priorityLoad}
-                    height={250}
-                />
-                <CardContent sx={{
-                    height:        '100%',
-                    display:       'flex',
-                    flexDirection: 'column'
-                }}>
-                    <Stack columnGap={0} rowGap={0} justifyContent={'flex-start'} alignItems={'flex-start'} flexDirection={'column'}>
-
-                        <Typography
-                            variant="h3"
-                            component="div"
-                            color={appColors.white}
-                            sx={{
-                                minHeight: '4rem'
-                            }}
-                        >
-                            {title}
-                        </Typography>
-                        <Typography
-                            component={'span'}
-                            variant="body2"
-                            color={appColors.white}
-                        >
-                            <>{content}</>
-                        </Typography>
-
-
-                        <Stack
-                            justifyContent={'flex-end'}
-                            flex={1}
-                            minHeight={'unset'}
-                            alignItems={'flex-end'}
-                            width={'100%'}
-                        >
-                            <Typography
-                                sx={{
-                                    display: 'flex',
-                                    ...appStyles.cardBoxShadow
-                                }}
-                                variant={'button'}
-                                color={appColors.white}
-                                borderColor={appColors.white}>{buttonContent} <ArrowRightIcon/></Typography>
-                        </Stack>
-                    </Stack>
-                </CardContent>
-            </CardActionArea>
-        </AppLinkAtom>
-    </Card>
-}
+type Props = {image: StaticImageData; alt: string | {en: string; pl: string}; credits: string; title: string; content: ReactNode; linkPath: string; priorityLoad?: boolean};
+export const ClickableCardMolecule = ({image, alt, credits, title, content, linkPath, priorityLoad}: Props) => {
+    const {messages} = useLocale();
+    return <AppLinkAtom href={linkPath} className="service-card">
+        <ImageAtom image={image} alt={alt} credits={credits} height={250} priority={priorityLoad}/>
+        <div className="service-card-content"><h2>{title}</h2>{content}<span className="read-more">{messages.readMore} <span aria-hidden="true">→</span></span></div>
+    </AppLinkAtom>;
+};

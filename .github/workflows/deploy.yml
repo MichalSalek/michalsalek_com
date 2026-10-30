@@ -1,0 +1,40 @@
+name: Deploy production
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: production
+    env:
+      NEXT_PUBLIC_CONTACT_ENDPOINT: ${{ vars.CONTACT_ENDPOINT }}
+      NEXT_PUBLIC_GA_ID: ${{ vars.GA_ID }}
+      DEPLOY_SSH: ${{ secrets.MYDEVIL_SSH_TARGET }}
+      DEPLOY_SSH_KEY: ${{ secrets.MYDEVIL_SSH_KEY }}
+      DEPLOY_KNOWN_HOSTS: ${{ secrets.MYDEVIL_KNOWN_HOSTS }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Configure SSH
+        shell: bash
+        run: |
+          test -n "$DEPLOY_SSH" && test -n "$DEPLOY_SSH_KEY" && test -n "$DEPLOY_KNOWN_HOSTS" || {
+            echo 'Configure the three MyDevil deployment secrets before running this workflow.' >&2
+            exit 1
+          }
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run deploy

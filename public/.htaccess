@@ -1,0 +1,37 @@
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.michalsalek\.com$ [NC]
+RewriteRule ^ https://michalsalek.com%{REQUEST_URI} [R=301,L]
+# Preserve old entry URLs while making software the primary home page.
+RewriteRule ^software/?$ / [R=301,L]
+RewriteRule ^pl/software/?$ /pl/ [R=301,L]
+RewriteRule ^en(?:/(.*))?$ /$1 [R=301,L]
+RewriteRule ^sitemap-0\.xml$ /sitemap.xml [R=301,L]
+
+# Redirect only external HTML requests, never internal DirectoryIndex resolution.
+RewriteCond %{THE_REQUEST} \s/+index\.html[?\s] [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+[^?\s]+\.html[?\s] [NC]
+RewriteRule ^(.+)/index\.html$ /$1/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+[^?\s]+\.html[?\s] [NC]
+RewriteRule ^(?!404\.html$)(.+)\.html$ /$1/ [R=301,L]
+
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    <FilesMatch "\.(html|json|xml|txt|md)$">
+        Header set Cache-Control "public, max-age=0, must-revalidate"
+    </FilesMatch>
+    <FilesMatch "\.(?:js|css|woff2|WEBP|webp|avif)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    <Files "release.json">
+        Header set Cache-Control "no-store"
+    </Files>
+    <Files "404.html">
+        Header set X-Robots-Tag "noindex"
+    </Files>
+</IfModule>

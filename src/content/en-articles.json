@@ -1,0 +1,162 @@
+{
+  "software/architecture": {
+    "title": "Software architecture",
+    "sections": [
+      {
+        "title": "High performance",
+        "subtitle": "so your customers don't have to wait.",
+        "paragraphs": [
+          "At Atomic Concept, we design application architecture around the needs of each project. Event-driven patterns can help separate responsibilities and track changes. Performance depends on the complete system, from the interface to server operations and data storage."
+        ]
+      },
+      {
+        "title": "Easy and understandable project maintenance",
+        "subtitle": "if you want to outsource the code to another development team in the future.",
+        "paragraphs": [
+          "The structure of the files and directories of the source code will remain clear and documented in an appropriate place. This will give your team full visibility and freedom, to make improvements and modifications with ease."
+        ]
+      },
+      {
+        "title": "High scalability through modularization",
+        "subtitle": "in case of rapid growth of your business.",
+        "paragraphs": [
+          "Learn the advantages of the DDD model and CQRS in practice. An application written according to Atomic Concept guidelines has a modular structure with clearly defined input and output models. so you can, if necessary, separate the most loaded functionality of your application through more servers.",
+          "Modular frontend give to you great Google Page Speed Web Vitals scores.",
+          "Modular backend give to you great speed across the world with individual deploy strategy like a stacking blocks.",
+          "In addition, most components can be reused multiple times, even in other projects."
+        ]
+      },
+      {
+        "title": "Time is always flowing",
+        "subtitle": "let's not forget that.",
+        "paragraphs": [
+          "When designing complex networks of systems. we do not mindlessly push data. Everything that can happen in your application is an event. one single thing in given time. Each event happens at a specific point in time. Software created in this convention allows you to do more. easily travel back in time when dealing with a claim, for example."
+        ]
+      }
+    ]
+  },
+  "software/frontend": {
+    "title": "Frontend services",
+    "sections": [
+      {
+        "title": "Lightning fast User Interface",
+        "subtitle": "to help your client feel the flow.",
+        "paragraphs": [
+          "A good application is one that helps the user. Properly written, optimized source code allows today's modern browser technologies to spread their wings.",
+          "We don't force the user to wait senselessly where it is not necessary. Sometimes, however, waiting is unavoidable. for example: for database reads/writes, to perform operations on the backend, or when a network traffic is heavy loaded. then the frontend takes responsibility for the whole user experience. Proper manipulation of loaders, transitions, or micro-animations makes the application seem to have a flow and anyway. it feels to runs smoothly."
+        ]
+      },
+      {
+        "title": "Comfort in any situation",
+        "subtitle": "because real life is not perfect.",
+        "paragraphs": [
+          "Sometimes there are situations in which the Internet temporarily goes down.",
+          "There are many clever ways to get out of this situation with class and show professionalism to the customer. A user filled out a form and can't send it? Let's cache it in case he wants to refresh the page. User moves and uses unstable mobile internet? Let's detect it and inform him or her about it. In addition, let's queue the events he performed. to be executed when the connection returns to normal. We can easy do that, having proper frontend architecture.",
+          "We are aware of these and many other solutions to simply help the person who wants to use your services."
+        ]
+      },
+      {
+        "title": "Good communication is key",
+        "subtitle": "to get full speed.",
+        "paragraphs": [
+          "To achieve optimal speed in the performance of your app. a good frontend alone is not enough. Planned concepts must be followed at the level of both server architecture and database models. This is not possible when different teams deal with different layers of the application. Moreover. when they do not consistently set requirements. Also, it is very important to set minimalist portions of data so as not to overload network traffic and waste transfer. To address this. at Atomic Concept we model applications using Domain Driven Design and Behavior Driver Design. business flow over technology.",
+          "Technology is a tool, not a toy."
+        ]
+      }
+    ]
+  },
+  "software/backend": {
+    "title": "Backend services",
+    "sections": [
+      {
+        "title": "Backend perfect fit for a real-time experience",
+        "subtitle": "without unnecessary markup.",
+        "paragraphs": [
+          "The backend technology must be created to work closely with the user interface. We know how important it is to optimize the services that fulfill your business needs, so at every stage of server code development we take care of the necessary minimum needed for the application to work.",
+          "We do not use omni-channel solutions that cause unnecessary overhead. consuming your transfer and the resources of your servers. We always think about performance and a high scalability factor to maintain the highest efficiency."
+        ]
+      },
+      {
+        "title": "We don't promise miracles at the beginning",
+        "subtitle": "we spend more time analyzing.",
+        "paragraphs": [
+          "The best job done is the one that accomplishes your needs without overcomplicated solutions.",
+          "The key to success is analysis. We need to understand exactly what you want to achieve. that way we will code a service that accomplishes exactly what you want to achieve. No acrobatics or over-engineering.",
+          "Things that are too complicated and hard to understand seem professional at first glance, but over time they become impossible to maintain and incredibly expensive."
+        ]
+      },
+      {
+        "title": "Digital solutions in an analog world",
+        "subtitle": "it's not that difficult.",
+        "paragraphs": [
+          "Many things that seem abstract. have many analogies in the real world. We can find them and rearrange them for you. This makes the understanding of how a web application works much clearer, and thus becomes much more digestible."
+        ]
+      }
+    ]
+  },
+  "sound/soundtracks": {
+    "title": "Music to buy or order",
+    "sections": [
+      {
+        "title": "Order a backing track",
+        "subtitle": "for your videos, commercials and trailers.",
+        "paragraphs": [
+          "We will compose music and sound design for your materials. Specify your vision to us and we will do the rest. We have the ability to use samplers and high quality processors. We also have instruments such as electric guitar, bass guitar, drum set.",
+          "Our each idea always sounds top, because we have a knowledge about mix and mastering. for any sound sources."
+        ]
+      },
+      {
+        "title": "Singing? Do you rap? You are a creative performer",
+        "subtitle": "and you need a producer.",
+        "paragraphs": [
+          "You've certainly happened to sift through huge packages of beats and backing tracks. We know it. It's hard to hit a backing track that will suit us one 100 percent. That's what music is all about. to perfectly realize your vision. without using half-measures.",
+          "We will create a primer for you in the climate you feel best in. You will also be assured that the primer will be special and unique. No one else will record to it."
+        ]
+      },
+      {
+        "title": "Lease an Atomic Concept original music",
+        "subtitle": "which we are working on.",
+        "paragraphs": [
+          "You also have the option to purchase a lease license and use the already finished primer, which comes out more favorably priced. We create music that is equally suitable for your vocals and soundtrack for video productions. Check out our services and achieve your goal without obstacles. technology is on our side."
+        ]
+      }
+    ]
+  },
+  "sound/studio": {
+    "title": "Online studio services",
+    "sections": [
+      {
+        "title": "Atomic Concept can mix your tracks online",
+        "subtitle": "and help you to prepare them properly.",
+        "paragraphs": [
+          "We will find a way to improve your sound. We specialize in mixing and mastering pre-submitted multitracks.",
+          "If you recorded your music at home using the home-recording methods. Or recorded tracks in the studio. Anyways. you are in the right place. We can provide an advice for you in how to best prepare yours multi-tracks for mailing to our studio. After reviewing the material. we will be able to price the services. mixing and mastering separately.",
+          "We can add to your music something more if you want to. we making soundtracks also."
+        ]
+      },
+      {
+        "title": "Let us know your vision to sound good",
+        "subtitle": "we need to receive on the same waves.",
+        "paragraphs": [
+          "When recording your music, you certainly set a specific goal. Share it with us so that together we can strive for the same. Prepare links to the songs you were inspired by. Mark the tracks that you appreciate for: the sound of the drums, an interesting effect on the vocals, or the general perception of the whole. We will listen to everything and bring it down to a common denominator. producing a track or an entire album for you.",
+          "You always receive the material we prepare as a fully modular package, so that you can rework the accompaniment yourself as needed."
+        ]
+      },
+      {
+        "title": "Check out our specialization. Kick, snare and bass",
+        "subtitle": "we are the best at this.",
+        "paragraphs": [
+          "Most often we work on music from the genres of metal, hip-hop, strong electronic music, drum and bass and it works out best for us. We always try to find the power and majesty of sound, so that the recordings sound strong and wide.",
+          "We are willing to try something new. it is always worth writing to us and presenting your project anyway."
+        ]
+      },
+      {
+        "title": "We use high-tech",
+        "subtitle": "do not waste time on experiments that go nowhere.",
+        "paragraphs": [
+          "Our listening system consists of equipment from ADAM AUDIO. ARTURIA and KLARK TEKNIK are responsible for the signal path. The signal is processed with balanced cables so that we can forget about noise and interference. We also support ourselves with listening equipment from BEYERDYNAMIC. The whole process is carried out in a professional Digital Audio Workstation."
+        ]
+      }
+    ]
+  }
+}
