@@ -19,8 +19,10 @@ They do not yet explain which customer problem is worth bringing to this busines
 The next stage should choose a primary customer and entry service before rewriting
 the homepage.
 
-Proposed direction: independent software delivery, backend and integrations,
-AI integrations and business-process automation. Connect each service to a clear
+The owner confirmed Atomic Concept as a distinct brand for AI services,
+business-process automation and software engineering. The next offer should
+connect independent software delivery, backend work and integrations to that
+positioning. Connect each service to a clear
 problem, a deliverable and the next contact step. Keep frontend skills as part of
 delivering complete products.
 
@@ -65,3 +67,35 @@ References:
 - [Google: AI features and websites](https://developers.google.com/search/docs/appearance/ai-features)
 - [OpenAI crawler controls](https://developers.openai.com/api/docs/bots)
 - [Next.js static exports](https://nextjs.org/docs/pages/guides/static-exports)
+
+## Lightweight measurement
+
+The existing GA4 property is retained. A later measurement step should define
+contact-link clicks, contact submission results and service-to-contact navigation,
+with page language and source context. Keep one analytics owner per event. GTM
+can manage tags if it simplifies maintenance; evaluate PostHog only when its
+additional product or event analysis answers a concrete question. Do not install
+several overlapping trackers by default.
+
+AI referrals, human enquiries and crawler visits are different measures. Track
+human conversions by referrer or UTM when available, and crawler requests through
+server logs. Missing referrers must remain unknown. Search Console measures search
+visibility; Bing Webmaster Tools has a separate AI Performance report for the
+Microsoft experiences it covers, not a universal count of all LLM citations.
+
+## Multilingual discovery
+
+Every locale has a stable public URL and a self-referencing canonical. Hreflang
+links identify the translations; the sitemap lists both versions. A crawler does
+not need to negotiate a language with cookies, browser preferences or a language
+switcher implemented only in JavaScript. English is language-wide, without
+separate US and UK copies.
+
+Search and training are separate channels. OAI-SearchBot serves ChatGPT search,
+GPTBot may collect training content, and ChatGPT-User fetches pages for user
+actions. Access does not guarantee inclusion or a recommendation. Maintain clear
+public evidence, specific service pages and useful answers in both languages.
+Markdown mirrors and llms.txt supplement the HTML; they do not replace indexing
+or guarantee that an assistant will read them.
+
+[Microsoft AI Performance report](https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/)
