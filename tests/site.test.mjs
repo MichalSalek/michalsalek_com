@@ -27,8 +27,8 @@ test('every locale covers the same pages and interface messages', async () => {
     for (const locale of site.locales) {
         const articles = JSON.parse(await readFile(`src/content/${locale}-articles.json`, 'utf8'));
         assert.deepEqual(Object.keys(articles).sort(), routes.filter(path => path === '/' || path.startsWith('/software/') || /^\/sound\/.+\/$/.test(path)).map(path => path.slice(1,-1)).sort());
-        for (const article of Object.values(articles)) {
-            assert(article.sections.length >= 3);
+        for (const [path, article] of Object.entries(articles)) {
+            assert(article.sections.length >= (path === '' ? 1 : 3));
             for (const section of article.sections) assert(section.title && section.subtitle && section.paragraphs.length);
         }
     }

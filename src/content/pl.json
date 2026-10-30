@@ -32,12 +32,27 @@
     "generalHeading": "Mam inne pytanie",
     "relatedIntro": "Zobacz, w czym jeszcze możemy pomóc:",
     "introTitle": "Co chcesz usprawnić?",
-    "introContact": "Opisz swój projekt"
+    "introContact": "Opisz swój projekt",
+    "breadcrumbHome": "Strona główna",
+    "breadcrumbSoftware": "Oprogramowanie",
+    "breadcrumbSound": "Dźwięk",
+    "breadcrumbArchitecture": "Architektura",
+    "breadcrumbBackend": "Backend",
+    "breadcrumbFrontend": "Frontend",
+    "breadcrumbAI": "AI",
+    "breadcrumbAutomation": "Automatyzacje",
+    "breadcrumbIntegrations": "Integracje",
+    "breadcrumbWebsites": "Strony internetowe",
+    "breadcrumbApplications": "Aplikacje",
+    "breadcrumbReports": "Raporty",
+    "breadcrumbStudio": "Studio",
+    "breadcrumbSoundtracks": "Muzyka",
+    "breadcrumbNavigation": "Ścieżka nawigacji"
   },
   "pages": {
     "/": {
       "title": "AI, automatyzacje i oprogramowanie dla firm",
-      "description": "Atomic Concept: automatyzacje AI, integracje systemów, raporty, strony i aplikacje na zamówienie dla małych i średnich firm. Michał Sałek, Kraków, współpraca zdalna.",
+      "description": "Atomic Concept: strony, aplikacje, integracje, automatyzacje i AI dla firm. Kompleksowa realizacja od analizy potrzeb przez wdrożenie po utrzymanie.",
       "intro": [
         "Wiesz, co chcesz usprawnić w swojej firmie. Możemy przygotować **stronę, aplikację lub automatyzację**, która Ci w tym pomoże.",
         "**Łączymy używane już programy**, porządkujemy dane i wdrażamy AI tam, gdzie ma konkretne zadanie. Na początek wystarczy opis potrzeby."
@@ -69,7 +84,7 @@
     },
     "/contact/": {
       "title": "Kontakt",
-      "description": "Skontaktuj się z Atomic Concept, Michałem Sałkiem. Porozmawiajmy o oprogramowaniu, procesach w Twojej firmie lub projekcie dźwiękowym."
+      "description": "Skontaktuj się z Atomic Concept. Porozmawiajmy o wdrożeniu oprogramowania, integracji systemów, automatyzacji procesów lub projekcie dźwiękowym."
     },
     "/sitemap/": {
       "title": "Mapa strony",

@@ -32,12 +32,27 @@
     "generalHeading": "I just have a question",
     "relatedIntro": "See how else we can help you:",
     "introTitle": "What would you like to improve?",
-    "introContact": "Tell us about your project"
+    "introContact": "Tell us about your project",
+    "breadcrumbHome": "Home",
+    "breadcrumbSoftware": "Software",
+    "breadcrumbSound": "Sound",
+    "breadcrumbArchitecture": "Architecture",
+    "breadcrumbBackend": "Backend",
+    "breadcrumbFrontend": "Frontend",
+    "breadcrumbAI": "AI",
+    "breadcrumbAutomation": "Automation",
+    "breadcrumbIntegrations": "Integrations",
+    "breadcrumbWebsites": "Websites",
+    "breadcrumbApplications": "Applications",
+    "breadcrumbReports": "Reports",
+    "breadcrumbStudio": "Studio",
+    "breadcrumbSoundtracks": "Soundtracks",
+    "breadcrumbNavigation": "Breadcrumb"
   },
   "pages": {
     "/": {
       "title": "AI, automation and custom software for your business",
-      "description": "Atomic Concept builds AI automations, system integrations, reports, websites and custom applications for small and medium businesses. Michał Sałek, Kraków, Poland.",
+      "description": "Atomic Concept delivers websites, applications, integrations, automation and AI for businesses, from requirements and implementation to deployment and maintenance.",
       "intro": [
         "You know what needs improving in your business. We can build the **website, application or automation** to help you do it.",
         "We **connect the tools you already use**, organise your data and add AI where it has a useful job to do. You do not need a technical specification to start."
@@ -69,7 +84,7 @@
     },
     "/contact/": {
       "title": "Contact",
-      "description": "Contact Atomic Concept, Michał Sałek. Discuss software development, your business process or an audio project."
+      "description": "Contact Atomic Concept to discuss software delivery, system integrations, process automation or an audio project."
     },
     "/sitemap/": {
       "title": "Sitemap",

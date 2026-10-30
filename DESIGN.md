@@ -19,6 +19,10 @@ and reliable contact handling. These changes must respect the original appearanc
   replacing production photography.
 - No card movement on hover. Preserve the original contrast/saturation effect.
 - Photo credits stay at the top right, 6px, without a background panel.
+- Breadcrumbs retain Sitemap, Home, the category and the current page. Keep the
+  original small uppercase type, slash separators and bold unlinked current item.
+- The homepage presents the implementation company, without a personal profile
+  or links to source-code profiles.
 - Keep real links and buttons, with no nested interactive elements.
 - Keep meaningful text and language links in the initial static HTML.
 - Reserve image geometry. Prioritize only the first visible card or article hero.

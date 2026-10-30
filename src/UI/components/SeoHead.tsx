@@ -1,23 +1,26 @@
 import Head from 'next/head';
 import { site, pageUrl } from '@/src/content/site.mjs';
+import { getBreadcrumbs } from '@/src/content/breadcrumbs';
 import { useLocale } from '@/src/i18n/context';
 
 export function SeoHead({title, description}: {title?: string; description?: string}) {
-    const {locale, path} = useLocale();
+    const {locale, path, messages} = useLocale();
     const canonical = pageUrl(locale, path);
     const graph: Record<string, unknown>[] = [
-        {'@type': 'Organization', '@id': `${site.origin}/#organization`, name: site.name, legalName: `${site.name} - ${site.owner}`, url: site.origin, email: site.email, founder: {'@id': `${site.origin}/#person`}},
-        {'@type': 'Person', '@id': `${site.origin}/#person`, name: site.owner, url: site.origin},
+        {'@type': 'Organization', '@id': `${site.origin}/#organization`, name: site.name, legalName: `${site.name} - ${site.owner}`, url: site.origin, email: site.email},
         {'@type': 'WebSite', '@id': `${site.origin}/#website`, name: site.name, url: site.origin, inLanguage: site.locales, publisher: {'@id': `${site.origin}/#organization`}},
         {'@type': path === '/contact/' ? 'ContactPage' : 'WebPage', '@id': `${canonical}#page`, url: canonical, name: title, description, inLanguage: locale, isPartOf: {'@id': `${site.origin}/#website`}},
     ];
     if (path.includes('/software/') || path === '/sound/' || path.includes('/sound/')) {
         graph.push({'@type': 'Service', '@id': `${canonical}#service`, name: title, description, url: canonical, provider: {'@id': `${site.origin}/#organization`}});
     }
-    if (path !== '/' && title) graph.push({'@type': 'BreadcrumbList', itemListElement: [
-        {'@type': 'ListItem', position: 1, name: locale === 'pl' ? 'Usługi programistyczne' : 'Software services', item: pageUrl(locale)},
-        {'@type': 'ListItem', position: 2, name: title, item: canonical},
-    ]});
+    if (path !== '/' && title) {
+        // The legacy software category and Home share a URL; avoid duplicate schema items.
+        const breadcrumbs = getBreadcrumbs(path, messages).filter((item, index, items) => !items.slice(0, index).some(previous => previous.path === item.path));
+        graph.push({'@type': 'BreadcrumbList', itemListElement: breadcrumbs.map((item, index) => ({
+            '@type': 'ListItem', position: index + 1, name: item.label, item: pageUrl(locale, item.path),
+        }))});
+    }
     return <Head>
         <title>{title ? `${title} | ${site.name}` : `${site.name} | ${site.owner}`}</title>
         {description && <meta name="description" content={description}/>}

@@ -19,8 +19,9 @@ The audience is a business owner who wants a particular task improved, without
 needing a technical specification. The offer includes process discovery, a scoped
 implementation, deployment and an agreed handover or maintenance arrangement.
 The copy retains the owner's original ideas about analysis, maintainability and
-avoiding unnecessary complexity. A short profile identifies the responsible
-engineer, with a link to public engineering work.
+avoiding unnecessary complexity. Present complete company delivery and responsibility. Keep personal biography,
+career history and GitHub links out of the marketing pages. Alternative copy
+packages are reviewed locally before replacing the current company messaging.
 
 See [the content brief](business/CONTENT-BRIEF.md) and
 [market evidence and limitations](business/MARKET-RESEARCH.md). Proposed use cases

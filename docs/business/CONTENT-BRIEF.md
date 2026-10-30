@@ -4,9 +4,12 @@ Atomic Concept helps owners of small and medium businesses commission software
 that fits their work: AI-assisted automation, integrations and reporting, websites,
 applications and custom systems. The audience should not need technical knowledge.
 
-Michał Sałek is the person responsible for discovery, engineering, deployment and
-maintenance. Professional software experience dates from 2019. Present capabilities
-plainly; do not turn a recruitment profile into a list of tools or imply a large team.
+Present Atomic Concept as an implementation company responsible for a complete
+engagement: discovery, design, engineering, integration, testing, deployment and
+agreed maintenance. Use company voice. No founder biography, career timeline,
+recruitment framing, personal remote-work narrative or GitHub links in marketing.
+Legal company identification can remain in the footer. Do not invent staff size,
+clients, certifications or delivery guarantees to create a corporate appearance.
 
 ## Voice and evidence
 

@@ -11,6 +11,7 @@ for (const locale of site.locales) for (const path of routes) {
         await page.evaluate(() => document.fonts.ready);
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
         expect(await page.locator('a a, a button, button a, a [role="button"], a [tabindex="0"], p p').count()).toBe(0);
+        await expect(page.locator('main a[href*="github.com"]')).toHaveCount(0);
         expect(errors).toEqual([]);
     });
 }
@@ -198,4 +199,16 @@ test('reduced motion retains a static subject cue without animation', async ({pa
     await page.waitForTimeout(1500);
     await expect(inputBox).toHaveCSS('background-color', 'rgb(232, 234, 246)');
     expect(await page.evaluate(() => window.__subjectCue.started)).toBe(false);
+});
+
+
+test('breadcrumbs keep the original hierarchy and a distinct current page', async ({page}) => {
+    await page.goto('/software/backend/');
+    const trail = page.getByRole('navigation', {name: 'Breadcrumb', exact: true});
+    await expect(trail.locator('li')).toHaveText(['Sitemap', 'Home', 'Software', 'Backend']);
+    await expect(trail.locator('[aria-current="page"]')).toHaveCSS('font-weight', '700');
+    await expect(trail.locator('[aria-current="page"]')).toHaveCSS('text-decoration-line', 'none');
+    await expect(trail.locator('[aria-current="page"] a, a[aria-current="page"]')).toHaveCount(0);
+    await page.goto('/pl/sound/studio/');
+    await expect(page.getByRole('navigation', {name: 'Ścieżka nawigacji'}).locator('li')).toHaveText(['Mapa strony', 'Strona główna', 'Dźwięk', 'Studio']);
 });

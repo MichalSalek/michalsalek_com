@@ -174,14 +174,6 @@
           "We agree the scope, the way to check the result and the cost of running the solution before implementation. You can start with one process, one integration or one part of an application.",
           "After implementation, we test it with your team and prepare the handover. Further development and maintenance can be agreed around what you actually need."
         ]
-      },
-      {
-        "title": "Michał Sałek, the person behind Atomic Concept",
-        "subtitle": "From understanding the problem to running the application.",
-        "paragraphs": [
-          "I have worked professionally in software development since 2019. I build complete applications, connect external services and integrate AI. I also take care of deployment and maintenance.",
-          "You discuss the project directly with the person who builds it. I work remotely from Kraków with clients in Poland and abroad. You can see my [public engineering work](https://github.com/MichalSalek)."
-        ]
       }
     ]
   },
