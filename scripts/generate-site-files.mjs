@@ -12,7 +12,7 @@ const index = [`# ${site.name}`, '', `> AI automation, integrations and custom s
 const hashes = {};
 const assets = {};
 const visuals = JSON.parse(await readFile('public/service-visuals/manifest.json', 'utf8'));
-const assetPaths = new Set(Object.values(visuals).flatMap(pages => Object.values(pages).flatMap(({card, hero}) => [card?.src, hero.src, hero.mobile.src])).filter(Boolean));
+const assetPaths = new Set(Object.values(visuals).flatMap(pages => Object.values(pages).flatMap(({card, hero}) => [card?.src, hero?.src, hero?.mobile?.src])).filter(Boolean));
 for (const path of assetPaths) assets[path] = createHash('sha256').update(await readFile(`out${path}`)).digest('hex');
 await sharp('public/og-image.svg').png().toFile('out/og-image.png');
 // MyDevil also discovers static error pages through its errors directory.
@@ -27,7 +27,16 @@ for (const locale of site.locales) {
         $('script, style, noscript').remove();
         const title = $('h1').first().text().trim();
         const lines = [`# ${title}`, '', `HTML: ${pageUrl(locale, path)}`, `Language: ${locale}`, ''];
-        $('main h2, main h3, main p, main li').each((_, element) => {
+        $('main h2, main h3, main p, main li, main table').each((_, element) => {
+            if (element.tagName === 'table') {
+                const rows = $(element).find('tr').toArray().map(row => $(row).find('th, td').toArray().map(cell => $(cell).text().replace(/\s+/g, ' ').trim().replaceAll('|', '\\|')));
+                rows.forEach((row, index) => {
+                    lines.push(`| ${row.join(' | ')} |`);
+                    if (index === 0) lines.push(`| ${row.map(() => '---').join(' | ')} |`);
+                });
+                lines.push('');
+                return;
+            }
             const text = $(element).text().replace(/\s+/g, ' ').trim();
             if (text) lines.push(`${element.tagName.startsWith('h') ? '## ' : ''}${text}`, '');
         });

@@ -12,6 +12,7 @@ remains a separate destination. Both languages include six service pages:
 AI integrations, workflow automation, existing-system integrations, business
 websites, custom applications and reporting. Existing
 engineering articles remain available as background, with their original URLs.
+The last homepage row links to a technical full-stack overview and sound services.
 
 ## Current offer
 
@@ -23,6 +24,10 @@ avoiding unnecessary complexity. Present complete company delivery and responsib
 career history and GitHub links out of the marketing pages. The approved copy
 direction uses plain language, a clear service scope and responsibility for
 delivery, without superiority, slogans or metaphors.
+Service articles use at most three main sections and include practical workflows,
+scope, data or failure cases, acceptance and handover. English and Polish retain
+the same meaning. The full-stack overview can name technologies and engineering
+practices for technically literate readers, without becoming a personal CV.
 
 See [the content brief](business/CONTENT-BRIEF.md) and
 [market evidence and limitations](business/MARKET-RESEARCH.md). Proposed use cases
@@ -45,11 +50,12 @@ Framework updates and content work do not imply approval for a redesign.
 
 1. Select projects or engineering examples that may be shown publicly, with any
    required client permission. Add specific outcomes only when verified.
-2. Maintain the approved C + E visual system: flat service illustrations in cards
-   and localized interface examples in software articles. The central document in
-   C stays light against the indigo background. SVGs are generated at build time
-   with content hashes and separate mobile interface compositions. Audio pages
-   retain their photographs. Preserve image geometry and the original controls.
+2. Select replacement article artwork from the local proposals. The published
+   interface examples were rejected because they looked interactive. Cards use
+   sparse, distinct illustrations on a light neutral background, without large
+   indigo fields or diagonal divisions. Software articles remain text-only while
+   the replacement direction is selected. Audio articles retain their photographs.
+   Preserve image geometry and the original controls.
 3. Review actual enquiries for the requested task, existing tools, source and
    project fit. Use this evidence before choosing an industry niche or package.
 4. Decide which audio work is currently available and which samples may be shared.

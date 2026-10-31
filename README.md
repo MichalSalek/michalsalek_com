@@ -54,12 +54,16 @@ redirects permanently to `/` on production.
 - Shared page rendering: `src/UI/components/SitePage.tsx`.
 - Visual constraints: [DESIGN.md](DESIGN.md).
 
-Software service artwork is generated from `src/content/visuals.mjs` and the
-localized `visuals` labels. Both `dev` and `build` generate the SVGs automatically.
-After editing illustration labels during a dev session, run
+Service artwork is generated from `src/content/visuals.mjs` and the
+localized `visuals` descriptions. Both `dev` and `build` generate the SVGs automatically.
+After editing illustration descriptions during a dev session, run
 `npm run generate:visuals` again. Generated files in `public/service-visuals/` are
-not tracked. Their URLs contain content hashes; article illustrations have a
-separate mobile composition.
+not tracked. Their URLs contain content hashes. Replacement article artwork is
+reviewed before publication; interface-like hero illustrations are not used.
+
+The homepage ends with full-stack engineering and sound services. The technical
+overview is at `/software/fullstack/`. Service articles use at most three main
+sections, with scope, practical examples and delivery details in both languages.
 
 Every language is rendered at build time, including its title, description,
 canonical URL, hreflang links and structured data. No browser-language redirects

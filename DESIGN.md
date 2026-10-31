@@ -14,13 +14,17 @@ and reliable contact handling. These changes must respect the original appearanc
   when its input is fully visible; use a static cue with reduced motion.
 - Keep the introduction structured with a clear heading, readable emphasis and
   deliberate desktop/mobile composition. Two bare paragraphs are insufficient.
-- Software services have six distinct cards and pages. Preserve the original
-  card treatment. The owner approved directions C + E: flat indigo/paper service
-  illustrations in the cards and restrained interface examples in articles.
-  The central document in C must have a light fill, visibly separate from its
-  indigo backdrop. Avoid gradients, blurred effects and clay-like rendering.
-  Keep the six service scenes distinct and the mobile interfaces readable.
-  Other illustration directions still require approval before publication.
+- Keep six main software cards, followed by a separate row with full-stack
+  engineering and sound services, in that order. Preserve the original cards.
+- Service illustrations are sparse and context-specific on a light neutral
+  background. No large indigo fields, diagonal backdrop divisions, gradients,
+  blurred effects or clay-like rendering. The former C + E treatment was rejected
+  after publication: its backdrop was too strong and its interface examples
+  looked interactive. Software articles currently use text without those heroes.
+  Replacement article artwork requires review in the real page layout before
+  publication.
+- Article content has at most three main sections. Paragraph indentation is 2rem,
+  shared through `.article-copy`. Headings and sublines make sense independently.
 - No card movement on hover. Preserve the original contrast/saturation effect.
 - Photo credits stay at the top right, 6px, without a background panel.
 - Breadcrumbs retain Sitemap, Home, the category and the current page. Keep the
@@ -33,8 +37,10 @@ and reliable contact handling. These changes must respect the original appearanc
 - Keep meaningful text and language links in the initial static HTML.
 - Reserve image geometry. Prioritize only the first visible card or article hero.
 - Generate software artwork with `npm run generate:visuals`, using the shared
-  palette and localized labels. SVG URLs contain content hashes. Interface
-  examples are illustrations, not claims about client projects or working forms.
+  palette and localized descriptions. SVG URLs contain content hashes.
+- The full-stack page uses a concise technical reference format: technologies,
+  architecture and delivery practices, without a personal biography, marketing
+  claims or code dumps. Stack tables become labelled rows on small screens.
 - Keep the existing system font fallback; do not load additional fonts.
 - Fit header controls and content at 320px without horizontal scrolling.
 - Preserve the software-first homepage and separate `/sound/` services.

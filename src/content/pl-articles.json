@@ -3,33 +3,30 @@
     "title": "Architektura oprogramowania",
     "sections": [
       {
-        "title": "Wysoka wydajność",
-        "subtitle": "aby Twoi klienci nie musieli czekać.",
+        "title": "Architektura zaczyna się od wymagań",
+        "subtitle": "Najpierw ustalamy, co system ma robić i w jakich warunkach.",
         "paragraphs": [
-          "W Atomic Concept dobieramy architekturę aplikacji do potrzeb projektu. Podejście oparte na zdarzeniach pomaga rozdzielać odpowiedzialności i śledzić zmiany. Wydajność zależy od całego systemu: interfejsu, operacji serwerowych i sposobu przechowywania danych."
+          "Projektując lub rozwijając aplikację, zaczynamy od jej użytkowników, procesów i ograniczeń. Ustalamy, jakie dane przetwarza, kto ma do nich dostęp i z którymi narzędziami musi współpracować. W istniejącym systemie sprawdzamy także zależności, które mogą utrudnić zmianę.",
+          "Wydajność rozpatrujemy w całym przepływie: od działania w przeglądarce, przez zapytanie do serwera, po odczyt i zapis danych. Uzgadniamy najważniejsze scenariusze oraz sposób ich sprawdzenia. Pomiary pomagają ustalić, czy problemem jest wielkość odpowiedzi, zapytanie do bazy czy długie przetwarzanie.",
+          "Wynikiem są decyzje potrzebne do realizacji: granice odpowiedzialności, przepływ danych, wymagania dostępu i kryteria odbioru. Architekturę opracowujemy w ramach budowy lub rozwoju [aplikacji i systemu](/software/custom-software/), z uwzględnieniem wdrożenia oraz późniejszego utrzymania."
         ]
       },
       {
-        "title": "Kod zrozumiały w utrzymaniu",
-        "subtitle": "także gdy w przyszłości przekażesz go innemu zespołowi.",
+        "title": "Moduły odpowiadają konkretnym zadaniom",
+        "subtitle": "Podział ma ułatwiać zmiany i kontrolę zależności.",
         "paragraphs": [
-          "Struktura plików i katalogów pozostaje czytelna i udokumentowana. Dzięki temu Twój zespół ma wgląd w działanie projektu i może swobodnie go rozwijać."
+          "Moduł grupuje powiązane reguły i dane, na przykład obsługę zamówień albo płatności. Określamy, za co odpowiada i jak inne części mogą z niego korzystać. Powtarzalne elementy współdzielimy tam, gdzie rzeczywiście mają te same zasady działania.",
+          "Przykładowy system rezerwacji może potrzebować szybkiego potwierdzenia terminu, podczas gdy wysłanie wiadomości może nastąpić później. Oddzielenie tych zadań pozwala ponowić wysyłkę bez ponownego tworzenia rezerwacji. Trzeba przy tym ustalić obsługę błędów i sposób pokazania statusu użytkownikowi.",
+          "Domain-Driven Design pomaga porządkować złożone reguły biznesowe. CQRS rozdziela komendy zmieniające dane od zapytań odczytujących je. Stosujemy te podejścia, gdy rozwiązują określony problem; prosta aplikacja nie wymaga ich pełnego zestawu. Osobne skalowanie modułu rozważamy dopiero przy uzasadnionym obciążeniu i z uwzględnieniem kosztu utrzymania."
         ]
       },
       {
-        "title": "Skalowanie dzięki modułom",
-        "subtitle": "gdy Twoja firma zacznie szybko rosnąć.",
+        "title": "Decyzje i historia zmian pozostają zrozumiałe",
+        "subtitle": "Dokumentacja wspiera utrzymanie i przekazanie projektu.",
         "paragraphs": [
-          "Modułowa aplikacja ma jasno wyznaczone granice między częściami. Domain-Driven Design i rozdzielenie komend od zapytań (CQRS) mogą pomóc je ustalić, gdy projekt tego potrzebuje. Jeśli konkretna operacja staje się mocno obciążona, można rozważyć osobne skalowanie tej części.",
-          "Modułowy frontend ułatwia kontrolę nad tym, co ładuje przeglądarka. Po stronie backendu podział na moduły może ułatwić zmiany i wdrożenia. To wspiera pracę nad wydajnością, ale nie gwarantuje konkretnego czasu ładowania ani wyniku testu.",
-          "Tam, gdzie ma to sens, komponenty można wykorzystać w innych częściach aplikacji lub w kolejnym projekcie."
-        ]
-      },
-      {
-        "title": "Zdarzenia mają swoją kolejność",
-        "subtitle": "czas jest częścią działania aplikacji.",
-        "paragraphs": [
-          "Projektując złożone systemy, uwzględniamy, co i kiedy się wydarzyło. Zdarzenie opisuje konkretną zmianę w określonym momencie. Odpowiednio zaprojektowany rejestr zdarzeń pomaga odtworzyć przebieg operacji, na przykład podczas rozpatrywania reklamacji."
+          "Opisujemy ważne decyzje, zależności i sposób uruchomienia aplikacji. Dokumentacja przekazania obejmuje uzgodniony zakres: konfigurację środowisk, wdrożenie, testy oraz obsługę typowych awarii. Dzięki temu kolejna osoba może sprawdzić działanie systemu i przygotować zmianę.",
+          "Gdy potrzebna jest historia operacji, ustalamy, jakie zmiany rejestrować, z jakim czasem i powiązaniem z danym procesem. Taki zapis pomaga wyjaśnić przebieg reklamacji czy zmianę statusu. Rejestr historii nie wymaga automatycznie architektury, w której cały stan odtwarza się ze zdarzeń.",
+          "Kluczowe reguły i przepływy sprawdzamy testami, a po wdrożeniu korzystamy z uzgodnionego monitorowania. Dobór narzędzi opisujemy szerzej na stronie [fullstack](/software/fullstack/). Technologia ma wspierać wymagania, a dokumentacja wyjaśniać także ograniczenia przyjętego rozwiązania."
         ]
       }
     ]
@@ -38,26 +35,30 @@
     "title": "Backend i logika aplikacji",
     "sections": [
       {
-        "title": "Backend dopasowany do aplikacji",
-        "subtitle": "bez niepotrzebnego obciążenia systemu.",
+        "title": "Backend realizuje reguły aplikacji",
+        "subtitle": "Zakres wynika z procesów, danych i uprawnień.",
         "paragraphs": [
-          "Backend powinien ściśle współpracować z interfejsem użytkownika. Na każdym etapie rozwoju kodu serwerowego dbamy o to, by usługi odpowiadały na potrzeby Twojej firmy i wykonywały potrzebne operacje.",
-          "Unikamy rozwiązań, które niepotrzebnie zużywają transfer i zasoby serwera. Wydajność oraz możliwość skalowania uwzględniamy już na etapie projektu."
+          "Projektujemy i rozwijamy backend dla nowych oraz istniejących aplikacji. Obejmuje to logikę operacji, przechowywanie danych i API, przez które interfejs lub inny system zleca zadania. Zakres może obejmować konta, role, płatności, zadania wykonywane w tle i połączenia z usługami zewnętrznymi.",
+          "Przed implementacją ustalamy, kto może wykonać daną operację, jakie informacje są wymagane i kiedy zmiana zostaje uznana za zakończoną. Rozpatrujemy także odmowę dostępu, brak danych i błąd usługi zewnętrznej. Te ustalenia przekładamy na reguły oraz kryteria odbioru.",
+          "Backend i interfejs korzystają z uzgodnionego kontraktu API: formatu danych, dostępnych operacji oraz odpowiedzi na błędy. Walidacja danych na serwerze i kontrola uprawnień obowiązują niezależnie od tego, co wcześniej sprawdził formularz. Ułatwia to rozwijanie aplikacji bez rozbieżnych zasad w różnych miejscach."
         ]
       },
       {
-        "title": "Zaczynamy od analizy",
-        "subtitle": "żeby rozwiązać właściwy problem.",
+        "title": "Poprawność operacji wymaga obsługi wyjątków",
+        "subtitle": "Ponowienie żądania i przerwanie procesu też są częścią projektu.",
         "paragraphs": [
-          "Dobrze wykonana praca realizuje Twoje potrzeby bez nadmiernej komplikacji. Najpierw musimy zrozumieć, co chcesz osiągnąć. Dzięki temu powstaje usługa o jasno określonym celu.",
-          "Złożone rozwiązania bywają kosztowne w utrzymaniu. Wybieramy prostsze, gdy spełniają wymagania, a bardziej złożone wtedy, gdy dają konkretną korzyść."
+          "Przykładowo sklep może otrzymać to samo powiadomienie o opłaceniu zamówienia kilka razy. Backend powinien rozpoznać powtórzenie i uniknąć ponownej realizacji tego samego skutku. Ustalamy identyfikatory operacji, dozwolone zmiany statusu i sposób uzgodnienia stanu z dostawcą płatności.",
+          "Zmiany danych, które muszą zajść razem, łączymy w transakcję. Dłuższe zadania można wykonywać poza żądaniem użytkownika, z określonym statusem i zasadami ponawiania. Awaria wymaga rozróżnienia między operacją niewykonaną a taką, której wynik trzeba dopiero potwierdzić.",
+          "W [integracjach między systemami](/software/integrations/) ustalamy również, które źródło rozstrzyga o poprawnej wartości i jak obsługiwać niepełne informacje. Rejestrowane błędy oraz historia zmian mają pomóc w wyjaśnieniu problemu bez ujawniania zbędnych danych w logach."
         ]
       },
       {
-        "title": "Cyfrowe rozwiązania w codziennej pracy",
-        "subtitle": "zrozumiałe także poza zespołem technicznym.",
+        "title": "Wydajność i utrzymanie sprawdzamy w praktyce",
+        "subtitle": "Rozwiązanie powinno być możliwe do uruchomienia, oceny i dalszego rozwoju.",
         "paragraphs": [
-          "Wiele pozornie abstrakcyjnych mechanizmów ma odpowiedniki w codziennym działaniu firmy. Szukamy tych powiązań, aby wspólnie zaplanować aplikację i jasno wyjaśnić sposób jej działania."
+          "Ograniczamy zbędny transfer i pracę serwera: dobieramy zakres odpowiedzi API, sposób pobierania rekordów i zapytania do bazy. Decyzje o dodatkowej pamięci podręcznej czy osobnych usługach wynikają z potrzeb oraz pomiarów. Każdy taki element zwiększa też zakres utrzymania.",
+          "Testy obejmują najważniejsze reguły, dostęp do danych i współpracę z usługami zewnętrznymi w uzgodnionym zakresie. Sprawdzamy scenariusz poprawny oraz istotne błędy, takie jak ponowione powiadomienie czy brak uprawnień. Kryteria odbioru pozwalają ocenić działanie przez rezultat operacji.",
+          "Przy przekazaniu opisujemy konfigurację, wdrożenie i sposób diagnozowania typowych problemów. Ustalamy także zakres monitorowania i dalszego utrzymania. Backend może powstać jako część całej [aplikacji na zamówienie](/software/custom-software/) albo jako rozwój konkretnego obszaru działającego systemu."
         ]
       }
     ]
@@ -66,27 +67,30 @@
     "title": "Frontend i interfejsy użytkownika",
     "sections": [
       {
-        "title": "Szybki interfejs użytkownika",
-        "subtitle": "który pomaga płynnie wykonać zadanie.",
+        "title": "Interfejs prowadzi przez konkretne zadanie",
+        "subtitle": "Projektujemy i wdrażamy obsługę aplikacji internetowych.",
         "paragraphs": [
-          "Dobra aplikacja pomaga użytkownikowi. Poprawnie napisany i zoptymalizowany kod pozwala wykorzystać możliwości współczesnych przeglądarek.",
-          "Wynik pokazujemy, gdy jest już dostępny. Gdy oczekiwanie jest nieuniknione, na przykład przy zapisie w bazie lub operacji serwerowej, interfejs powinien jasno pokazać, co się dzieje. Odpowiednie stany ładowania, przejścia i drobne animacje pomagają zachować płynność obsługi."
+          "Tworzymy interfejsy nowych aplikacji i rozwijamy te, które już działają. Zaczynamy od czynności użytkownika: znalezienia informacji, wypełnienia formularza, zatwierdzenia zmiany czy sprawdzenia statusu. Ustalamy potrzebne widoki, dane i uprawnienia, a następnie łączymy projekt obsługi z implementacją.",
+          "Dla każdego ważnego działania określamy stany: oczekiwanie, powodzenie, brak wyników i błąd. Komunikat powinien wyjaśniać rezultat oraz dostępny następny krok. Potwierdzenie zapisu pokazujemy po uzyskaniu wiarygodnego wyniku, a przy dłuższej operacji informujemy, że nadal trwa.",
+          "Uzgadniamy urządzenia i przeglądarki objęte sprawdzeniem. Czytelne etykiety, widoczny fokus, obsługa klawiatury oraz powiązanie błędów z polami pomagają korzystać z formularzy. Zakres takich wymagań ustalamy przed odbiorem, zamiast oceniać interfejs wyłącznie na podstawie wyglądu."
         ]
       },
       {
-        "title": "Wygoda także przy problemach",
-        "subtitle": "bo połączenie z internetem bywa niestabilne.",
+        "title": "Problem z siecią nie powinien kasować pracy",
+        "subtitle": "Sposób zachowania danych zależy od rodzaju operacji.",
         "paragraphs": [
-          "Utrata połączenia nie powinna oznaczać utraty pracy. Wypełniony formularz można zachować, a o problemach z siecią czytelnie poinformować użytkownika.",
-          "W odpowiednio zaprojektowanej aplikacji część operacji można też umieścić w kolejce i wykonać po przywróceniu połączenia. Architekturę dobieramy tak, aby wspierała rzeczywisty sposób korzystania z usługi."
+          "Pracownik może na przykład wypełniać formularz zlecenia i stracić połączenie tuż przed zapisem. Interfejs może zachować wpisane wartości, wyraźnie oznaczyć brak potwierdzenia i umożliwić ponowienie. Po odzyskaniu połączenia trzeba ustalić, czy poprzednia próba dotarła do serwera.",
+          "Zapis roboczy wymaga decyzji, gdzie i jak długo przechowywać dane oraz kiedy je usunąć. Nie każdy formularz powinien pozostawiać treść na współdzielonym urządzeniu. Ochronę pracy dobieramy do rodzaju informacji, zasad dostępu i rzeczywistego sposobu używania aplikacji.",
+          "Wybrane operacje można umieszczać w kolejce do późniejszego wykonania. Wymaga to współpracy z backendem, ochrony przed powtórzeniem skutku i zasad rozstrzygania zmian wykonanych w międzyczasie. Dla innych operacji właściwe będzie zachowanie formularza oraz prośba o ponowne zatwierdzenie aktualnych danych."
         ]
       },
       {
-        "title": "Dobra komunikacja między warstwami",
-        "subtitle": "wydajność to praca całego systemu.",
+        "title": "Płynna obsługa zależy od całego systemu",
+        "subtitle": "Interfejs, API i dane muszą realizować te same wymagania.",
         "paragraphs": [
-          "Sam frontend nie wystarczy. Sposób działania interfejsu trzeba uzgodnić z architekturą serwera i modelami danych. Spójne wymagania oraz niewielkie porcje przesyłanych danych pozwalają uniknąć zbędnego ruchu sieciowego.",
-          "W Atomic Concept projektujemy aplikacje z uwzględnieniem procesów biznesowych, korzystając między innymi z Domain-Driven Design. Wybór technologii wynika z zadania, które ma rozwiązać."
+          "Kontrolujemy ilość kodu i danych pobieranych przez przeglądarkę. Dzielimy większe widoki, pobieramy potrzebne fragmenty informacji i uzgadniamy odświeżanie danych z backendem. Ograniczenie zbędnych żądań pomaga, ale czas działania zależy także od sieci, serwera i bazy danych.",
+          "Podział interfejsu na moduły ułatwia rozwijanie powiązanych funkcji. Wspólne komponenty stosujemy tam, gdzie zachowanie ma pozostać spójne. Opisy ekranów i reguły procesu powinny odpowiadać terminologii używanej w firmie, także gdy w systemie pracują osoby o różnych uprawnieniach.",
+          "Najważniejsze ścieżki sprawdzamy w przeglądarce, uwzględniając zapis, błędy, uprawnienia i uzgodnione rozmiary ekranów. Przy przekazaniu opisujemy uruchomienie i wdrożenie. Taki interfejs może być częścią [aplikacji na zamówienie](/software/custom-software/); dobór narzędzi przedstawiamy na stronie [fullstack](/software/fullstack/)."
         ]
       }
     ]
@@ -95,35 +99,31 @@
     "title": "Studio miksu i masteringu online",
     "sections": [
       {
-        "title": "Miks Twoich nagrań przez internet",
-        "subtitle": "pomożemy również przygotować ślady.",
+        "title": "Miks i mastering nagrań przez internet",
+        "subtitle": "Praca z materiałem nagranym w domu lub w studiu.",
         "paragraphs": [
-          "W Atomic Concept zajmujemy się miksem i masteringiem dostarczonych nagrań wielośladowych.",
-          "Nagrywasz w domu lub w studiu? Doradzimy, jak przygotować ślady do przesłania. Po zapoznaniu się z materiałem osobno wycenimy miks i mastering.",
-          "Jeśli Twój projekt potrzebuje czegoś więcej, możemy również przygotować dodatkową muzykę i podkłady."
+          "Atomic Concept zajmuje się miksem i masteringiem dostarczonych nagrań wielośladowych. Możesz zgłosić pojedynczy utwór albo większy materiał. Na początku słuchamy nagrań i ustalamy, jakiego opracowania potrzebują, a miks i mastering wyceniamy osobno.",
+          "Do rozpoczęcia rozmowy wystarczy opis projektu i informacja, w jakiej postaci masz nagrania. Doradzimy, jak przygotować ślady do przesłania, aby można było poprawnie odtworzyć ich układ i pracować nad poszczególnymi instrumentami. Sposób przekazania plików ustalimy z Tobą przed rozpoczęciem pracy.",
+          "Przy miksie pracujemy nad wzajemną relacją instrumentów i wokalu, ich czytelnością oraz przestrzenią nagrania. Mastering dotyczy przygotowania uzgodnionego miksu do dalszego wykorzystania. Jeśli potrzebne są również dodatkowe partie muzyczne lub podkład, możemy omówić je jako odrębny element projektu."
         ]
       },
       {
-        "title": "Opowiedz, jak ma brzmieć Twoja muzyka",
-        "subtitle": "ustalmy wspólny punkt odniesienia.",
+        "title": "Kierunek brzmienia i odsłuch",
+        "subtitle": "Referencje pomagają ustalić, na czym Ci zależy.",
         "paragraphs": [
-          "Podziel się z nami celem swojego nagrania. Przygotuj odnośniki do utworów, które Cię inspirują. Wskaż brzmienie perkusji, efekt na wokalu lub ogólne wrażenie, na którym Ci zależy.",
-          "Odsłuchamy materiały i ustalimy kierunek pracy nad utworem lub albumem. Przygotowany materiał otrzymasz w rozdzielonych częściach, aby w razie potrzeby móc go dalej opracować."
+          "Przygotuj odnośniki do utworów, które są dla Ciebie punktem odniesienia. Wskaż konkretny element: brzmienie stopy i werbla, pozycję wokalu, ilość przestrzeni lub charakter basu. Dzięki temu rozmawiamy o słyszalnym efekcie, zamiast opierać cały opis na ogólnym określeniu gatunku.",
+          "Przykładowo w ciężkim utworze można skupić się na relacji stopy z basem i czytelności wokalu przy gęstych gitarach. W spokojniejszym materiale ważniejsze mogą być naturalność instrumentów i ich dynamika. Kierunek dobieramy do Twojego nagrania oraz referencji.",
+          "Najczęściej pracujemy z metalem, hip-hopem, mocną elektroniką i drum and bassem. Stopa, werbel i bas to częste obszary tej pracy, ale jesteśmy otwarci również na inne gatunki. Jeśli materiał różni się od tych przykładów, przedstaw go do omówienia.",
+          "Zaplecze studia obejmuje odsłuchy ADAM AUDIO, urządzenia ARTURIA i KLARK TEKNIK w torze sygnałowym oraz sprzęt BEYERDYNAMIC. Korzystamy z połączeń symetrycznych i cyfrowej stacji roboczej. O kierunku zmian decyduje jednak odsłuch materiału i uzgodniony cel nagrania."
         ]
       },
       {
-        "title": "Stopa, werbel i bas",
-        "subtitle": "nasze najczęstsze obszary pracy.",
+        "title": "Zakres pracy i przekazanie materiału",
+        "subtitle": "Ustalenia dotyczą także wersji plików i sposobu zgłaszania uwag.",
         "paragraphs": [
-          "Najczęściej pracujemy z metalem, hip-hopem, mocną elektroniką i drum and bassem. Szukamy siły i przestrzeni, aby nagrania brzmiały mocno i szeroko.",
-          "Jesteśmy otwarci także na inne gatunki. Napisz i przedstaw swój projekt."
-        ]
-      },
-      {
-        "title": "Zaplecze techniczne studia",
-        "subtitle": "sprzęt wspierający pracę nad brzmieniem.",
-        "paragraphs": [
-          "Korzystamy z odsłuchów ADAM AUDIO oraz urządzeń ARTURIA i KLARK TEKNIK w torze sygnałowym. Połączenia symetryczne ograniczają szumy i zakłócenia. Wspieramy się także sprzętem BEYERDYNAMIC. Materiał opracowujemy w profesjonalnej cyfrowej stacji roboczej (DAW)."
+          "Przed wyceną ustalamy liczbę utworów, stan nagrań oraz potrzebny zakres opracowania. Jeśli wiesz już, gdzie materiał będzie wykorzystany i jaki termin jest dla Ciebie istotny, uwzględnij te informacje w opisie. Możliwość realizacji i harmonogram potwierdzamy po zapoznaniu się z projektem.",
+          "Uzgodnimy sposób odsłuchiwania kolejnych wersji i przekazywania uwag. Najłatwiej odnieść zmianę do konkretnego miejsca w utworze i wskazanego wcześniej brzmienia. Zakres poprawek ustalamy razem z pozostałymi warunkami pracy, aby było wiadomo, które zmiany obejmuje zlecenie.",
+          "Gotowy materiał przekazujemy w uzgodnionych formatach i wersjach. Jeżeli potrzebujesz również wersji instrumentalnej lub oddzielnych grup instrumentów do dalszego opracowania, zaznacz to przed wyceną. W [wiadomości o miksie lub masteringu](/contact/?about=Studio%20miksu%20i%20masteringu%20online) opisz nagrania, dołącz referencje i napisz, czego oczekujesz od brzmienia."
         ]
       }
     ]
@@ -132,26 +132,30 @@
     "title": "Muzyka gotowa i na zamówienie",
     "sections": [
       {
-        "title": "Zamów podkład muzyczny",
-        "subtitle": "do filmów, reklam i zwiastunów.",
+        "title": "Muzyka do filmu, reklamy i innych materiałów",
+        "subtitle": "Kompozycja i oprawa dźwiękowa dopasowane do zastosowania.",
         "paragraphs": [
-          "Przygotujemy muzykę i oprawę dźwiękową do Twojego materiału. Opisz swoją wizję. Korzystamy z samplerów, procesorów dźwięku oraz instrumentów: gitary elektrycznej, basowej i perkusji.",
-          "Znajomość miksu i masteringu pozwala nam pracować nad spójnym brzmieniem całej produkcji."
+          "Atomic Concept przygotowuje muzykę i oprawę dźwiękową do filmów, reklam i zwiastunów. Punktem wyjścia jest materiał, w którym muzyka ma się pojawić: jego długość, rytm i nastrój. Ustalamy również, czy utwór ma stanowić główne tło, wspierać narrację, czy podkreślać wybrane momenty.",
+          "Przykładowo w krótkim filmie firmowym muzyka może pozostawiać miejsce na głos lektora, a przy końcowej planszy potrzebować wyraźnego zakończenia. W zwiastunie istotne mogą być narastanie napięcia i akcenty zsynchronizowane z montażem. To przykłady zastosowań, które omawiamy przed przygotowaniem materiału.",
+          "Pracujemy z samplerami, procesorami dźwięku oraz instrumentami, w tym gitarą elektryczną, basową i perkusją. Znajomość miksu i masteringu pozwala opracować brzmienie całej produkcji. Jeśli masz już montaż lub utwory referencyjne, pomogą ustalić kierunek, zanim powstanie gotowa muzyka."
         ]
       },
       {
-        "title": "Śpiewasz lub rapujesz?",
-        "subtitle": "stwórzmy podkład do Twojej wizji.",
+        "title": "Podkład do wokalu lub rapu",
+        "subtitle": "Tempo, aranżacja i charakter wynikają z Twojego pomysłu.",
         "paragraphs": [
-          "Przeglądanie gotowych paczek beatów nie zawsze prowadzi do znalezienia właściwego podkładu. Muzyka powinna pasować do Twojego pomysłu.",
-          "Przygotujemy podkład w klimacie, w którym czujesz się najlepiej. Przy zamówieniu na wyłączność ustalimy warunki tak, aby nikt inny nie nagrywał do tej samej muzyki."
+          "Możesz zamówić podkład z myślą o swoim wokalu, tekście albo określonej stylistyce. Zamiast ograniczać rozmowę do nazwy gatunku, warto wskazać tempo, energię, instrumenty i utwory, które odpowiadają Twojej wizji. Jeżeli masz szkic wokalu, ułatwi on zaplanowanie miejsca dla zwrotek i refrenów.",
+          "Przed rozpoczęciem ustalamy strukturę utworu i sposób pracy nad kolejnymi wersjami. Omówimy, które elementy są już określone, a które wymagają opracowania. Zakres może obejmować przygotowanie samego podkładu albo dalszą pracę nad wspólnym brzmieniem muzyki i dostarczonego nagrania.",
+          "Przy zamówieniu na wyłączność warunki ustalamy przed realizacją, w tym możliwość udostępniania tej samej muzyki innym osobom. Sposób wykorzystania nagrania, potrzebne wersje plików i zakres poprawek powinny być częścią ustaleń, aby gotowy utwór nadawał się do Twojego zastosowania."
         ]
       },
       {
-        "title": "Licencja na gotową muzykę",
-        "subtitle": "alternatywa dla indywidualnego zamówienia.",
+        "title": "Gotowe podkłady i ustalenia przed zamówieniem",
+        "subtitle": "Licencja na istniejącą muzykę jest osobną możliwością.",
         "paragraphs": [
-          "Możesz również zapytać o licencję na gotowy podkład Atomic Concept. Taka opcja może być korzystniejsza cenowo. Tworzymy muzykę do wokalu i produkcji wideo. Warunki wykorzystania ustalamy przed zakupem."
+          "Możesz także zapytać o licencję na gotowy podkład Atomic Concept do wokalu lub produkcji wideo. Wtedy najpierw sprawdzamy, czy jest dostępny materiał odpowiadający Twojemu pomysłowi i czy można go wykorzystać w planowany sposób. Zakres licencji oraz ewentualne dopasowanie utworu ustalamy przed zakupem.",
+          "Porównując gotową muzykę z indywidualnym zamówieniem, bierzemy pod uwagę nie tylko długość nagrania, ale też potrzebę zmian aranżacji, synchronizacji z obrazem i wyłączności. Cena i termin wynikają z ustalonego zakresu. Nie trzeba wybierać formy zamówienia przed pierwszą rozmową.",
+          "W [zapytaniu o muzykę](/contact/?about=Muzyka%20gotowa%20i%20na%20zam%C3%B3wienie) opisz, do czego ma posłużyć utwór, jakiej długości potrzebujesz i jaki nastrój chcesz uzyskać. Dołącz referencje, materiał wideo lub szkic wokalu, jeśli je masz. Na tej podstawie ustalimy, czy odpowiedni będzie gotowy podkład, czy praca nad nową kompozycją."
         ]
       }
     ]
@@ -171,36 +175,32 @@
   "software/ai-automation": {
     "sections": [
       {
-        "title": "Której powtarzalnej czynności nie chcesz już robić ręcznie?",
-        "subtitle": "Zacznijmy od konkretnego zadania.",
+        "title": "Aplikacje z funkcjami AI",
+        "subtitle": "Odczytywanie dokumentów, porządkowanie zapytań i wyszukiwanie informacji w firmie.",
         "paragraphs": [
-          "Może to być odczytywanie danych z dokumentów, porządkowanie zapytań, przygotowywanie odpowiedzi lub wyszukiwanie informacji w firmowych materiałach. Możemy połączyć te czynności z programami, których używa Twój zespół.",
-          "Czasem wystarczy prosta reguła lub gotowa integracja. AI przydaje się wtedy, gdy trzeba zrozumieć tekst, rozpoznać informacje lub pracować z materiałami, które mają różną postać."
+          "W Atomic Concept projektujemy i wdrażamy rozwiązania, w których AI pomaga wykonać określone zadanie. Możesz zamówić nową aplikację z funkcjami AI albo rozbudowę programu, którego już używasz. Zakres obejmuje potrzebny interfejs, połączenia z danymi, testy i uruchomienie rozwiązania do pracy.",
+          "AI przydaje się przy interpretowaniu swobodnego tekstu, odczytywaniu dokumentów o różnych układach czy przygotowywaniu odpowiedzi na podstawie dozwolonych materiałów. Zaczynamy od tego, co ma otrzymać użytkownik i jak sprawdzi poprawność wyniku. Sam dostęp do modelu nie wystarcza do obsługi całego zadania.",
+          "Jeśli kolejne kroki da się opisać jednoznaczną regułą, możemy zastosować [automatyzację procesu](/software/automation/). Gdy potrzebujesz też kont użytkowników, uprawnień lub obsługi zleceń, funkcje AI mogą być częścią większej [aplikacji firmowej](/software/custom-software/). Dobieramy zakres do sposobu pracy Twojego zespołu."
         ]
       },
       {
-        "title": "Twoje dokumenty i programy",
-        "subtitle": "Wynik tam, gdzie z niego skorzystasz.",
+        "title": "Od wiadomości do zatwierdzonego wpisu",
+        "subtitle": "Przykładowy proces z miejscem na sprawdzenie wyniku przez człowieka.",
         "paragraphs": [
-          "Automatyzacja może zebrać informacje z wiadomości lub formularza, sprawdzić braki i przygotować wpis w systemie obsługi klientów. Wyszukiwarka może znaleźć odpowiedni fragment w dokumentach, do których otrzyma dostęp.",
-          "To przykłady możliwych wdrożeń. Wybór zależy od Twoich danych, dostępu do używanych systemów i wymaganej jakości. Ustalimy też, co zrobić, gdy informacji brakuje lub wynik jest niepewny."
+          "Załóżmy, że firma otrzymuje zapytania z opisem zlecenia i załączonym dokumentem. Aplikacja pobiera wiadomość, a AI proponuje kategorię sprawy i odczytuje uzgodnione informacje. Pracownik widzi wynik obok materiału źródłowego, poprawia go i zatwierdza wpis do systemu obsługi klientów.",
+          "Jeżeli w dokumencie brakuje terminu lub dane są sprzeczne, sprawa trafia do wyjaśnienia. Braki oznaczamy do sprawdzenia przed zapisaniem wpisu. Osobno ustalamy, czy aplikacja ma przygotować szkic odpowiedzi, kto może go wysłać i które zmiany zawsze wymagają akceptacji.",
+          "Określamy, z jakich dokumentów wolno korzystać oraz jakie informacje mogą trafić do dostawcy AI. Miejsce przetwarzania, przechowywanie danych i zasady dostępu uzgadniamy dla projektu. Wyszukiwanie w firmowych materiałach powinno uwzględniać uprawnienia osoby, która z niego korzysta.",
+          "Uwzględniamy też niedostępność usługi AI, niepoprawny format odpowiedzi i ponowne przetwarzanie tej samej wiadomości. Uzgadniamy, kiedy ponowić próbę, kiedy powiadomić pracownika i jak zapobiec utworzeniu dwóch wpisów dla jednej sprawy."
         ]
       },
       {
-        "title": "AI przygotowuje. Ty zatwierdzasz ważne decyzje.",
-        "subtitle": "Sprawdź wynik przed wykonaniem operacji.",
+        "title": "Testy, wdrożenie i dalsze utrzymanie",
+        "subtitle": "Uzgodnione kryteria jakości oraz instrukcja dla osób korzystających z aplikacji.",
         "paragraphs": [
-          "Odpowiedź dla klienta, wycenę lub zmianę danych możemy najpierw przygotować do zatwierdzenia przez człowieka. Ustalimy, które zadania mogą działać automatycznie, a gdzie ostateczną decyzję powinien podjąć Twój zespół.",
-          "Przetestujemy rozwiązanie na typowych przykładach, sprawdzimy błędy i oszacujemy koszty działania. Uzgodnimy również, jakie dane można wysyłać do zewnętrznego dostawcy AI, a jakie powinny pozostać w Twoich systemach."
-        ]
-      },
-      {
-        "title": "Działający proces i jasne przekazanie",
-        "subtitle": "Wdrożenie to więcej niż dostęp do modelu.",
-        "paragraphs": [
-          "Zakres może obejmować opisanie procesu, połączenie usług, sprawdzanie wyników, rejestrowanie błędów i pokazanie zespołowi, jak korzystać z rozwiązania. Monitoring i dalsze wsparcie dobierzemy do wdrożenia.",
-          "Opisz w formularzu jedną powtarzalną czynność. Napisz, jak wykonujesz ją teraz i jak chciałbyś pracować po zmianie.",
-          "Więcej o zapleczu technicznym przeczytasz w artykule o [planowaniu i utrzymaniu aplikacji](/software/architecture/)."
+          "Przed wdrożeniem sprawdzamy aplikację z funkcjami AI na uzgodnionym zestawie przykładów, także niepełnych i nietypowych. Oceniamy poprawność danych, możliwość odnalezienia źródła odpowiedzi i działanie zatwierdzania. Wyniki pomagają ustalić, które zadania można wykonywać automatycznie, a które nadal wymagają kontroli.",
+          "Szacujemy koszty korzystania z modelu i infrastruktury przy przewidywanej liczbie dokumentów lub zapytań. Uzgadniamy sposób obserwowania błędów i zużycia usług, odpowiedzialność za utrzymanie oraz zakres ponownych testów po zmianie modelu, dokumentów lub połączonych systemów.",
+          "Przekazujemy aplikację wraz z uzgodnionymi dostępami i dokumentacją. Pokazujemy zespołowi obsługę wyników, poprawek i błędów. O zasadach rozwoju rozwiązania przeczytasz też w materiale o [planowaniu i utrzymaniu aplikacji](/software/architecture/).",
+          "W [wiadomości do nas](/contact/?about=AI%20w%20pracy%20Twojej%20firmy) opisz jedną czynność, obecne programy i oczekiwany rezultat. Wskaż rodzaje materiałów oraz decyzje wymagające zatwierdzenia. Na tej podstawie ustalimy, jakie przykłady i dostępy będą potrzebne do oceny zakresu."
         ]
       }
     ],
@@ -209,36 +209,32 @@
   "software/integrations": {
     "sections": [
       {
-        "title": "Połącz programy, których już używasz",
-        "subtitle": "Bez ponownego przepisywania tych samych danych.",
+        "title": "Integracje programów używanych w firmie",
+        "subtitle": "Wymiana danych między systemami bez ponownego wpisywania tych samych informacji.",
         "paragraphs": [
-          "Formularz na stronie może utworzyć zapytanie w systemie obsługi klientów. Sklep może przekazać dane o zamówieniu i płatności do kolejnej usługi. Zakończenie zadania może zaktualizować raport lub powiadomić odpowiednią osobę.",
-          "Najpierw sprawdzimy dostępne połączenia między produktami. Jeśli wystarczą ich wbudowane funkcje, skorzystamy z nich. Indywidualną integrację przygotujemy tam, gdzie brakuje potrzebnego połączenia."
+          "Integracja pozwala przekazywać dane między programami, które nadal pozostają w użyciu. Formularz może tworzyć zapytanie w systemie obsługi klientów, sklep przekazywać zamówienia do realizacji, a zakończone zadanie aktualizować raport. W Atomic Concept projektujemy potrzebne połączenie, wdrażamy je i sprawdzamy cały uzgodniony przepływ.",
+          "Najpierw oceniamy dostępne sposoby wymiany informacji: wbudowane połączenia, API, czyli interfejs do komunikacji między programami, albo import i eksport plików. Możliwości zależą także od wersji produktów, posiadanych licencji i dostępów. Dopiero po ich sprawdzeniu proponujemy wykorzystanie gotowej funkcji lub przygotowanie indywidualnej integracji.",
+          "Możemy dodać jedno brakujące połączenie do istniejącej aplikacji albo stopniowo rozbudować większy proces. Ustalamy, czy dane mają pojawiać się po każdym zdarzeniu, czy wystarczy okresowa aktualizacja. Zebrane informacje można też wykorzystać w [raportach](/software/reporting/) lub dołączyć do [automatyzacji pracy](/software/automation/)."
         ]
       },
       {
-        "title": "Które dane powinny być wspólne?",
-        "subtitle": "Jedno źródło informacji dla każdej sprawy.",
+        "title": "Dane, zgodność wpisów i ponowienia",
+        "subtitle": "Przykładowa integracja zamówień z obsługą braków i przerw w połączeniu.",
         "paragraphs": [
-          "Ustalimy, gdzie powstaje zamówienie lub wpis klienta i które programy mają otrzymać jego kopię. Określimy również, gdzie można wprowadzać zmiany i jak połączyć odpowiadające sobie rekordy.",
-          "Samo przeniesienie danych nie zawsze wystarcza. Przygotujemy mapowanie pól i obsługę braków, a potrzebne [raporty](/software/reporting/) lub [automatyzacje procesu](/software/automation/) możemy dołączyć jako kolejne elementy."
+          "Załóżmy, że sklep internetowy ma przekazywać opłacone zamówienia do programu obsługi realizacji. Integracja odbiera informację o płatności, sprawdza numer zamówienia i wymagane dane, a następnie tworzy zlecenie. Zwrócony numer zlecenia zapisuje przy zamówieniu, aby pracownik mógł powiązać wpisy w obu programach.",
+          "Ustalamy, który system jest źródłem informacji o płatności, adresie i etapie realizacji. Dopasowujemy pola oraz oznaczenia, na przykład różne nazwy tego samego statusu. Określamy też, co zrobić, gdy adres jest niepełny, produkt nie ma odpowiednika lub ktoś zmieni dane w obu systemach.",
+          "Program zewnętrzny może chwilowo nie odpowiadać albo ponownie wysłać tę samą informację. Projektujemy sprawdzanie duplikatów i zasady ponawiania, żeby ponowne odebranie zdarzenia nie tworzyło kolejnego zlecenia. Uzgadniamy sposób oznaczania nieudanych operacji oraz ich wznowienia po usunięciu przyczyny.",
+          "Dostępy do połączonych programów uzgadniamy z osobami odpowiedzialnymi za nie po Twojej stronie. Określamy niezbędne uprawnienia, zakres przekazywanych danych i miejsce zapisu informacji pomocniczych. Osobno ustalamy, kto może zobaczyć historię operacji i kto ma otrzymywać zgłoszenia błędów."
         ]
       },
       {
-        "title": "Gdy połączenie zawiedzie",
-        "subtitle": "Brakujący wpis nie powinien pozostać niezauważony.",
+        "title": "Uruchomienie i utrzymanie połączenia",
+        "subtitle": "Sprawdzony przepływ danych i uzgodniona odpowiedzialność za dalsze działanie.",
         "paragraphs": [
-          "Zewnętrzny system może chwilowo nie odpowiadać albo wysłać tę samą informację dwa razy. Przy projektowaniu integracji uwzględniamy ponowienia, powtórzone wpisy i błędy.",
-          "Zależnie od zakresu możemy zapisywać historię zmian, oznaczać dane wymagające sprawdzenia i umożliwić wznowienie pracy po awarii. Twój zespół powinien wiedzieć, co się udało, a co wymaga uwagi."
-        ]
-      },
-      {
-        "title": "Rozbudowa istniejącego systemu",
-        "subtitle": "Integracja nie musi oznaczać wymiany systemu.",
-        "paragraphs": [
-          "Możemy dodać jedno brakujące połączenie do istniejącej aplikacji albo stopniowo usprawniać większy proces. Możliwości zależą od dostępów, sposobu komunikacji między programami i stanu obecnego oprogramowania.",
-          "Napisz, z jakich programów korzystasz i gdzie ręcznie przenosisz lub uzgadniasz dane. Od tego zaczniemy.",
-          "Więcej o zapleczu technicznym przeczytasz w artykule o [operacjach serwerowych i przetwarzaniu danych](/software/backend/)."
+          "Przed uruchomieniem integracji sprawdzamy poprawne przekazanie danych, brakujące pola, powtórzone zdarzenie i przerwę w połączeniu. Porównujemy wynik w obu systemach oraz weryfikujemy wznowienie po błędzie. Uzgadniamy kryteria odbioru, częstotliwość aktualizacji i sposób rozpoznania, że część danych nie została jeszcze przekazana.",
+          "Na koszty działania mogą składać się licencje produktów, opłaty za użycie ich interfejsów i infrastruktura integracji. Utrzymanie uzgadniamy osobno: kto obserwuje błędy, reaguje na zmianę interfejsu dostawcy oraz sprawdza połączenie po aktualizacji programu. Integracja wymaga takiego przeglądu, gdy zmieniają się jej zależności.",
+          "Przekazujemy uzgodnione dostępy, opis połączenia i instrukcję postępowania z nieudanymi operacjami. Więcej o zapleczu takich rozwiązań przeczytasz w materiale o [operacjach serwerowych i przetwarzaniu danych](/software/backend/).",
+          "W [wiadomości do nas](/contact/?about=Integracje%20z%20istniej%C4%85cymi%20systemami) podaj nazwy programów, dane do wymiany i obecny sposób ich ręcznego przenoszenia lub uzgadniania. Wskaż, kto odpowiada za dostępy oraz jak szybko informacje powinny pojawiać się po drugiej stronie. Na tej podstawie ustalimy, jakie połączenia trzeba sprawdzić i jaki zakres ma sens."
         ]
       }
     ],
@@ -247,36 +243,30 @@
   "software/custom-software": {
     "sections": [
       {
-        "title": "Aplikacja dopasowana do sposobu pracy",
-        "subtitle": "Zadania klienta i Twojego zespołu w jednym systemie.",
+        "title": "Aplikacja do codziennej pracy",
+        "subtitle": "Klienci i pracownicy mogą korzystać z jednego systemu z różnymi uprawnieniami.",
         "paragraphs": [
-          "Możesz potrzebować portalu klienta, obsługi rezerwacji, narzędzia do prowadzenia zleceń lub panelu dla pracowników. Aplikacja pozwala zapisywać informacje, zmieniać statusy i udostępniać je odpowiednim osobom.",
-          "Zaczynamy od zrozumienia zadania. Zanim zaproponujemy własny system, sprawdzimy, czy wystarczy gotowy produkt. Jeśli potrzebujesz przede wszystkim prezentacji oferty i kontaktu, zobacz [strony internetowe](/software/websites/)."
+          "Tworzymy aplikacje dla firm, które potrzebują zapisywać informacje, prowadzić zlecenia i udostępniać dane odpowiednim osobom. Zakres może obejmować portal klienta, rezerwacje, panel pracowników lub płatności. Zaczynamy od rozmowy o zadaniach i sprawdzenia, czy istniejący produkt może je obsłużyć.",
+          "Przykładowo firma serwisowa może potrzebować przyjmowania zgłoszeń ze zdjęciami. Klient widzi swoje sprawy, pracownik otrzymuje przydzielone zlecenia i zmienia ich statusy, a osoba zarządzająca przegląda całość. Ustalamy, kto może zmienić termin, zatwierdzić wykonanie i zobaczyć dokumenty. Zakres dopasowujemy do rzeczywistej pracy.",
+          "Możemy również rozbudować istniejące oprogramowanie: dodać funkcję, połączyć je z innym narzędziem lub usunąć potwierdzone problemy z wydajnością. Jeśli potrzebujesz przede wszystkim prezentacji oferty i zapytań od klientów, właściwym zakresem mogą być [strony internetowe](/software/websites/)."
         ]
       },
       {
-        "title": "Zajmiemy się całą aplikacją",
-        "subtitle": "Od ekranu po dane, na których pracuje.",
+        "title": "Dane, funkcje i sytuacje wyjątkowe",
+        "subtitle": "Uzgodnione zadania sprawdzamy razem z uprawnieniami i obsługą błędów.",
         "paragraphs": [
-          "Interfejs, zapis danych, uprawnienia, płatności i zewnętrzne usługi muszą ze sobą współpracować. Atomic Concept może przygotować te elementy w ramach jednego projektu, razem z testami i wdrożeniem.",
-          "Pracujemy również z istniejącym oprogramowaniem. Nowa funkcja, integracja lub poprawa wydajności może być lepszym kolejnym krokiem niż budowanie wszystkiego od początku."
+          "Projekt obejmuje współpracujące elementy aplikacji: ekrany, zapis danych, logowanie oraz uzgodnione płatności i połączenia z zewnętrznymi usługami. Określamy wymagane informacje i dozwolone zmiany. Walidacja danych oraz kontrola dostępu muszą działać także po stronie systemu, niezależnie od tego, co pokazuje formularz.",
+          "Sprawdzamy działanie na telefonie, czytelność komunikatów i nieudane operacje. Co stanie się po przerwaniu połączenia, ponownym kliknięciu przycisku albo opóźnieniu płatności? Dla uzgodnionych funkcji ustalamy oczekiwane zachowanie i sposób odzyskania pracy. Zagadnienia dotyczące ekranów opisujemy szerzej w materiale o [interfejsach użytkownika](/software/frontend/).",
+          "Jeżeli zadanie na tym korzysta, aplikację można rozszerzyć o AI, na przykład wstępne odczytanie zgłoszenia lub wyszukiwanie w dozwolonych materiałach. Ustalamy dostęp modelu do danych, ocenę odpowiedzi i miejsca wymagające zatwierdzenia przez człowieka. Taka funkcja wymaga integracji, testów i obsługi błędów tak samo jak pozostałe części systemu."
         ]
       },
       {
-        "title": "Szybko i wygodnie",
-        "subtitle": "Bo codzienna praca nie zawsze przebiega idealnie.",
+        "title": "Od zakresu do przekazania",
+        "subtitle": "Odbiór obejmuje przebieg pracy, dane i gotowość do uruchomienia.",
         "paragraphs": [
-          "Dobra aplikacja pomaga osobie, która z niej korzysta. Dbamy o działanie na telefonie, szybkość ładowania, zrozumiałe komunikaty i obsługę nieudanych operacji.",
-          "Klient nie powinien zgadywać, czy wysłał formularz, ani tracić całej treści po nieudanej próbie. Uwzględniamy takie sytuacje w projekcie i testach uzgodnionych funkcji."
-        ]
-      },
-      {
-        "title": "Z myślą o późniejszym utrzymaniu",
-        "subtitle": "Zostaw miejsce na kolejną zmianę.",
-        "paragraphs": [
-          "Dbamy o czytelną strukturę kodu i dokumentujemy informacje potrzebne do uruchomienia oraz rozwoju aplikacji. Ułatwia to również przekazanie projektu innemu zespołowi w przyszłości.",
-          "Sposób przekazania, hosting i dalsze wsparcie ustalimy w ramach projektu. Na początek opisz, kto będzie korzystał z rozwiązania i co ma dzięki niemu zrobić.",
-          "Więcej o zapleczu technicznym przeczytasz w artykule o [interfejsach użytkownika](/software/frontend/)."
+          "Przed rozpoczęciem ustalamy użytkowników, podstawowe zadania, źródła danych i granice pierwszej wersji. Zapisujemy kryteria odbioru na konkretnych przykładach: kto wykonuje czynność, co zapisuje system i jaki wynik widzi użytkownik. Jeżeli przenosimy istniejące dane, osobno uzgadniamy ich przygotowanie, próbę importu i weryfikację.",
+          "Przygotowaną aplikację sprawdzamy na uzgodnionych scenariuszach, w tym błędnych danych i próbach dostępu bez uprawnień. Ustalamy sposób publikacji, konta usług, dostęp administracyjny i wymagany monitoring. Zasady przechowywania danych oraz kopii zapasowych dobieramy do projektu i potwierdzamy przed uruchomieniem.",
+          "Przekazujemy uzgodniony kod i dokumentację potrzebną do uruchomienia oraz dalszego rozwoju. Określamy odpowiedzialność za aktualizacje, zgłoszenia błędów i zmiany po wdrożeniu; utrzymanie może być osobnym uzgodnionym zakresem. Na początek [napisz do nas](/contact/?about=Aplikacje%20i%20systemy%20na%20zam%C3%B3wienie), kto będzie korzystał z aplikacji, jakie zadanie dziś sprawia trudność i z jakimi narzędziami ma współpracować."
         ]
       }
     ],
@@ -285,35 +275,30 @@
   "software/websites": {
     "sections": [
       {
-        "title": "Co klient ma znaleźć na Twojej stronie?",
-        "subtitle": "Oferta, którą można zrozumieć i łatwo zapytać o szczegóły.",
+        "title": "Oferta i kontakt",
+        "subtitle": "Strona pomaga klientowi zrozumieć usługę i wysłać zapytanie.",
         "paragraphs": [
-          "Strona firmy może wyjaśniać zakres usług, pokazywać realizacje i ułatwiać kontakt. Zacznijmy od tego, po co odwiedzający ma na nią wejść i co powinien zrobić dalej.",
-          "Ułożymy treści i podstrony wokół tych pytań. Przykładowo firma usługowa może potrzebować osobnych opisów usług, obszaru działania, wybranych realizacji i formularza zapytania."
+          "Przygotowujemy strony dla firm, które chcą przedstawić ofertę, pokazać realizacje i ułatwić kontakt. Na początku ustalamy, do kogo kierujesz usługi, jakie pytania zadają klienci i co odwiedzający powinien móc zrobić. Z tego wynika układ podstron, treść oraz sposób wysłania zapytania.",
+          "Przykładowo firma montażowa może potrzebować osobnych opisów usług, obszaru działania, zdjęć wykonanych prac i formularza. Osoba zainteresowana montażem wybiera usługę, sprawdza wymagania i przesyła opis swojej sprawy. Ustalamy, jakie informacje są potrzebne w formularzu oraz do kogo ma trafić wiadomość.",
+          "Przed realizacją uzgadniamy listę podstron, zakres opracowania tekstów i materiałów oraz funkcje formularzy. Zdjęcia, opisy realizacji i informacje o firmie wymagają Twojej weryfikacji. Dodatkowe języki, przenoszenie treści ze starej strony czy połączenie formularza z innym programem uwzględniamy w zakresie, jeśli są potrzebne."
         ]
       },
       {
-        "title": "Czytelnie na telefonie i komputerze",
-        "subtitle": "Bez czekania i skaczącego układu.",
+        "title": "Czytelność i dostęp do treści",
+        "subtitle": "Treść, nawigacja i formularze działają również na małych ekranach.",
         "paragraphs": [
-          "Dbamy o szybkość ładowania, czytelny tekst i stabilne miejsce na zdjęcia. Formularze oraz nawigację sprawdzamy na małych ekranach, a nie tylko w widoku komputerowym.",
-          "Jeśli potrzebujesz kilku języków, przygotujemy osobne adresy i pełne treści każdej wersji. Strona może być statyczna, gdy nie potrzebujesz funkcji wymagających serwera."
+          "Projektujemy czytelny tekst, nawigację i układ zdjęć na telefonie oraz komputerze. Sprawdzamy szybkość ładowania, obsługę klawiaturą i komunikaty formularzy. Użytkownik powinien wiedzieć, które pole wymaga poprawy oraz czy zapytanie zostało przyjęte do wysłania; ustalamy też sposób obsługi błędu dostarczenia wiadomości.",
+          "Gdy strona potrzebuje kilku języków, przygotowujemy osobne adresy i komplet treści dla uzgodnionych wersji. Sprawdzamy także odnośniki i formularze w każdej z nich. Strona może być statyczna, jeśli jej funkcje nie wymagają osobnego systemu obsługującego dane i konta użytkowników.",
+          "Przygotowujemy tytuły, opisy, uporządkowane dane, powiązania między podstronami i mapę witryny. Kluczowe informacje udostępniamy w treści odczytywanej bez uruchamiania skryptów. To pomaga wyszukiwarkom i systemom AI odczytać ofertę; pozycje w Google i rekomendacje modeli zależą również od czynników poza stroną i nie są gwarantowane."
         ]
       },
       {
-        "title": "Treść dostępna dla wyszukiwarek i systemów AI",
-        "subtitle": "Najpierw zrozumiała oferta i poprawna technika.",
+        "title": "Publikacja i przekazanie",
+        "subtitle": "Przed uruchomieniem ustalamy, jak strona będzie obsługiwana.",
         "paragraphs": [
-          "Przygotujemy tytuły, opisy, uporządkowane dane, odnośniki między podstronami i mapę witryny. Ważne informacje powinny być dostępne również bez uruchamiania skryptów.",
-          "To ułatwia odczytanie i zrozumienie treści. Nie oznacza gwarancji pozycji w Google ani polecenia przez model AI. Materiały o firmie, rzeczywiste realizacje i konkretne odpowiedzi dla klientów nadal są potrzebne."
-        ]
-      },
-      {
-        "title": "Wdrożenie i późniejsze zmiany",
-        "subtitle": "Z zachowaniem tego, co już masz.",
-        "paragraphs": [
-          "Możemy wykorzystać istniejącą domenę, pocztę i hosting albo ustalić nowe miejsce publikacji. Uzgodnimy też, kto będzie zmieniał treści i jak będzie to robił.",
-          "Jeśli oprócz prezentacji oferty potrzebujesz kont klientów lub obsługi zleceń, zobacz [aplikacje i systemy](/software/custom-software/). Formularz można też [połączyć z obecnym systemem obsługi klientów](/software/integrations/)."
+          "Na przygotowanej wersji sprawdzamy uzgodnione podstrony, treści, linki i formularze. Możesz przejść drogę klienta od wyboru usługi do odebrania testowego zapytania. Przed publikacją potwierdzamy poprawność danych firmy, adresatów wiadomości i materiałów, a przy zmianie strony również przekierowania istotnych starych adresów.",
+          "Możemy wykorzystać istniejącą domenę, pocztę i hosting albo uzgodnić inne miejsce publikacji. Ustalamy, na czyich kontach będą działały usługi, jakie dostępy są potrzebne oraz kto później aktualizuje treści. Przekazanie obejmuje uzgodnione pliki i instrukcje obsługi; dalsze zmiany, aktualizacje i nadzór wymagają ustalonego zakresu współpracy.",
+          "Jeśli potrzebujesz kont klientów lub prowadzenia zleceń, sprawdź [aplikacje i systemy](/software/custom-software/). Formularz możemy też [połączyć z obecnym systemem obsługi klientów](/software/integrations/). Na początek [napisz do nas](/contact/?about=Strony%20internetowe%20dla%20firm), podaj adres obecnej strony, główne usługi i zmianę, na której Ci zależy. To pozwoli przygotować propozycję zakresu."
         ]
       }
     ]
@@ -321,35 +306,32 @@
   "software/automation": {
     "sections": [
       {
-        "title": "Którą czynność powtarzasz każdego dnia?",
-        "subtitle": "Zapiszmy, co rozpoczyna zadanie i co powinno wydarzyć się dalej.",
+        "title": "Automatyzacja powtarzalnych czynności",
+        "subtitle": "Zadania, przypomnienia i zatwierdzenia wykonywane według uzgodnionych reguł.",
         "paragraphs": [
-          "Nowe zgłoszenie może utworzyć zadanie dla właściwej osoby, otrzymać numer i uruchomić potwierdzenie dla klienta. Zbliżający się termin może wywołać przypomnienie, a zakończenie pracy zmienić status zlecenia.",
-          "To przykłady możliwych procesów. Najpierw sprawdzimy sposób pracy Twojego zespołu i wybierzemy jeden fragment, który warto usprawnić."
+          "Automatyzujemy procesy, w których po określonym zdarzeniu trzeba wykonać kolejne czynności. Nowe zgłoszenie może utworzyć zadanie, zbliżający się termin uruchomić przypomnienie, a zakończenie pracy zmienić status zlecenia. W Atomic Concept zajmujemy się opisaniem takiego procesu, jego wdrożeniem, sprawdzeniem i przekazaniem do użytkowania.",
+          "Zaczynamy od jednej czynności, którą zespół wykonuje regularnie. Ustalamy, co ją uruchamia, jakie informacje są potrzebne i po czym poznać, że została zakończona. Efektem analizy jest opis proponowanego zakresu: kolejnych kroków, warunków, odpowiedzialnych osób i sposobu sprawdzenia działania.",
+          "Automatyzacja nie musi korzystać z AI. Ustalona reguła wystarczy na przykład do przypisania zgłoszenia według wybranej usługi. [AI](/software/ai-automation/) można dołączyć, gdy trzeba zinterpretować swobodny opis. Sprawdzamy też gotowe funkcje obecnych programów, zanim zaproponujemy budowę dodatkowego rozwiązania."
         ]
       },
       {
-        "title": "Jasne reguły zamiast ręcznego pilnowania",
-        "subtitle": "Każdy krok ma warunek i oczekiwany wynik.",
+        "title": "Od zgłoszenia do zakończenia zadania",
+        "subtitle": "Przykładowy proces z czytelnymi warunkami i obsługą wyjątków.",
         "paragraphs": [
-          "Ustalimy, skąd przychodzi zgłoszenie, jakie informacje są potrzebne, kto ma otrzymać zadanie i co zrobić przy brakach. Automatyzacja może obejmować również etap zatwierdzenia przez człowieka.",
-          "Nie każda automatyzacja potrzebuje AI. Gdy wystarczy ustalona reguła, prostsze rozwiązanie może być łatwiejsze do sprawdzenia i utrzymania. Do interpretowania swobodnego tekstu można dołączyć [AI](/software/ai-automation/)."
+          "Załóżmy, że firma przyjmuje zgłoszenia serwisowe przez formularz. Po wysłaniu formularza system sprawdza wymagane pola, nadaje numer sprawy i tworzy zadanie dla osoby odpowiedzialnej za daną usługę. Klient otrzymuje potwierdzenie przyjęcia, a pracownik widzi dane potrzebne do rozpoczęcia obsługi.",
+          "Jeśli realizacja wymaga zgody przełożonego, proces zatrzymuje się na etapie zatwierdzania. Dopiero po decyzji wykonuje następny uzgodniony krok. Brak reakcji w określonym czasie może uruchomić przypomnienie. Ustalamy, kto może zatwierdzić, odrzucić lub ponownie otworzyć sprawę.",
+          "Opisujemy również sytuacje, w których nie należy kontynuować automatycznie: brak danych, ponowne wysłanie zgłoszenia czy niedostępność programu. Uzgadniamy, kiedy ponowić operację i jak rozpoznać, że zadanie już powstało. Pracownik powinien móc sprawdzić przyczynę zatrzymania i wznowić pracę po jej usunięciu.",
+          "Dostęp do zgłoszeń i wykonywania operacji dobieramy do ról w zespole. Określamy też, jakie informacje przekazujemy między programami i kto otrzymuje powiadomienia o błędach. Jeżeli potrzebujesz wyłącznie wymiany danych, punktem wyjścia mogą być [integracje systemów](/software/integrations/)."
         ]
       },
       {
-        "title": "Proces obejmuje też wyjątki",
-        "subtitle": "Braki danych i błędy wymagają czytelnego powiadomienia.",
+        "title": "Weryfikacja i przekazanie automatyzacji",
+        "subtitle": "Zespół wie, jak korzystać z automatyzacji i co zrobić, gdy wymaga uwagi.",
         "paragraphs": [
-          "Sprawdzimy, jak obsłużyć duplikat zgłoszenia, niedostępny program albo brak odpowiedzi w terminie. Zależnie od zadania można ponowić operację lub przekazać ją do ręcznego sprawdzenia.",
-          "Ustalimy, kto zobaczy błąd i jak wznowić proces. Dzięki temu wiadomo, które zadania zostały wykonane, a które nadal wymagają uwagi."
-        ]
-      },
-      {
-        "title": "Zacznij od jednego procesu",
-        "subtitle": "Rozbudowa po sprawdzeniu działania.",
-        "paragraphs": [
-          "Przed realizacją ustalimy zakres, koszt działania i sposób weryfikacji. Wykorzystamy gotowe funkcje używanych produktów, jeśli wystarczą do wykonania zadania.",
-          "Opisz, jakie czynności wykonujesz po kolei i między jakimi programami przenosisz informacje. Gdy potrzebne jest samo przekazywanie danych, sprawdź [integracje systemów](/software/integrations/)."
+          "Przed uruchomieniem sprawdzamy uzgodniony przebieg automatyzacji oraz wyjątki: niepełne zgłoszenie, odmowę zatwierdzenia, duplikat i błąd połączenia. Weryfikujemy, czy zadania trafiają do właściwych osób i czy ponowienie nie powoduje podwójnej operacji. Kryteria odbioru wynikają z opisanego procesu.",
+          "Ustalamy koszty licencji, wykorzystania usług i infrastruktury, które będą potrzebne do działania. Osobno określamy utrzymanie, sposób zgłaszania problemów i odpowiedzialność za zmiany reguł. Zmiana formularza, uprawnień lub połączonego programu może wymagać ponownego sprawdzenia automatyzacji.",
+          "Przekazanie obejmuje uzgodnione dostępy, opis działania i instrukcję obsługi wyjątków. Pokazujemy, gdzie sprawdzić stan zadania oraz jak wstrzymać lub wznowić proces w przewidzianych sytuacjach. Kolejne etapy można dołączyć po ocenie działania pierwszego zakresu.",
+          "W [wiadomości do nas](/contact/?about=Automatyzacja%20proces%C3%B3w%20w%20firmie) opisz czynności wykonywane po kolei, używane programy i oczekiwany wynik. Dodaj, co rozpoczyna proces, kto zatwierdza decyzje oraz gdzie najczęściej trzeba interweniować ręcznie. To pozwoli ustalić pierwszy zakres i potrzebne dostępy."
         ]
       }
     ]
@@ -357,35 +339,86 @@
   "software/reporting": {
     "sections": [
       {
-        "title": "Które informacje są Ci potrzebne do prowadzenia firmy?",
-        "subtitle": "Najpierw pytanie, potem wykres.",
+        "title": "Raport potrzebny do decyzji",
+        "subtitle": "Zaczynamy od pytania, odbiorcy i danych, które mają mu pomóc.",
         "paragraphs": [
-          "Ile zamówień czeka na realizację? Które płatności są zaległe? Jak wygląda sprzedaż w poszczególnych usługach? Od takich pytań zaczynamy planowanie raportu.",
-          "Wybierzemy informacje, z których rzeczywiście korzystasz. Wynikiem może być regularny e-mail, arkusz lub panel otwierany w przeglądarce."
+          "Przygotowujemy raporty dla właścicieli firm i osób, które regularnie zestawiają dane ze sklepu, płatności, systemu obsługi klientów lub arkuszy. Wynikiem może być cykliczny e-mail, arkusz albo panel w przeglądarce. Forma wynika z tego, kto korzysta z informacji i do jakiej decyzji ich potrzebuje.",
+          "Przykładowo właściciel sklepu może chcieć co rano sprawdzać, które opłacone zamówienia nadal czekają na wysyłkę. Raport łączy wtedy status płatności i realizacji po numerze zamówienia, pokazuje czas oczekiwania oraz moment aktualizacji. Osobno trzeba ustalić traktowanie zwrotów, częściowych płatności i anulowanych zamówień.",
+          "Zakres dopasowujemy do pytań, na które potrzebujesz odpowiedzi. Pierwszym krokiem może być jedno zestawienie dla jednej osoby. Uzgadniamy jego kolumny, filtry i sposób dostarczenia, zanim rozszerzymy zakres o kolejne źródła czy widoki."
         ]
       },
       {
-        "title": "Jeden raport z kilku źródeł",
-        "subtitle": "Bez ręcznego łączenia danych za każdym razem.",
+        "title": "Źródła i znaczenie liczb",
+        "subtitle": "Każdy wskaźnik ma ustaloną definicję, okres i częstotliwość odświeżania.",
         "paragraphs": [
-          "Możemy zebrać informacje ze sklepu, płatności, systemu obsługi klientów lub firmowych arkuszy. Najpierw sprawdzimy dostęp do danych i ustalimy, jak połączyć wpisy dotyczące tej samej sprawy.",
-          "Jeżeli potrzebnego połączenia brakuje, przygotujemy [integrację](/software/integrations/). Nie musisz od razu wymieniać programów, w których pracuje zespół."
+          "Sprawdzamy, skąd można pobrać dane i jak rozpoznać wpisy dotyczące tej samej sprawy. Ustalamy znaczenie kwot, dat i statusów, na przykład czy sprzedaż obejmuje zwroty i podatek. Jeżeli brakuje połączenia między narzędziami, możemy przygotować [integrację](/software/integrations/), zachowując obecne programy w użyciu.",
+          "Raport pokazuje okres, którego dotyczy, i stan aktualizacji. Uzgadniamy sposób oznaczania brakujących wpisów, opóźnionych źródeł i nieudanego pobrania danych. Brak informacji o płatności nie powinien automatycznie stać się kwotą zero. Określamy także, czy odbiorca zobaczy ostatni poprawny wynik z ostrzeżeniem, czy wstrzymamy zestawienie do wyjaśnienia błędu.",
+          "Zakres dostępu wynika z roli odbiorcy. Właściciel może widzieć całe podsumowanie, a pracownik tylko przypisane sprawy. Dla panelu uzgadniamy logowanie i uprawnienia, a dla wysyłek listę adresatów. Przed podłączeniem źródeł określamy potrzebne uprawnienia odczytu, miejsce przechowywania danych oraz zasady ich usuwania odpowiednie dla projektu."
         ]
       },
       {
-        "title": "Wiesz, skąd pochodzi liczba",
-        "subtitle": "I kiedy dane były ostatnio aktualizowane.",
+        "title": "Sprawdzenie i uruchomienie",
+        "subtitle": "Pierwszą wersję porównujemy z danymi źródłowymi przed regularnym użyciem.",
         "paragraphs": [
-          "Ustalimy znaczenie wskaźników, źródła i częstotliwość odświeżania. Raport powinien jasno pokazywać, jakiego okresu dotyczy i czy udało się pobrać komplet informacji.",
-          "Nieaktualne lub niepełne dane wymagają oznaczenia. Przed wdrożeniem porównamy wyniki z materiałem źródłowym i sprawdzimy przypadki, które mogą zniekształcić podsumowanie."
+          "Do przygotowania zakresu potrzebne są obecny raport lub jego opis, pytanie biznesowe i lista źródeł. Możesz zacząć od przykładu z usuniętymi danymi osobowymi. Dopiero po ustaleniu potrzeb uzgadniamy bezpieczny sposób nadania dostępu. Ustalamy też, kto po Twojej stronie potwierdzi znaczenie danych i poprawność wyniku.",
+          "Przy odbiorze porównujemy wybrane okresy i pozycje z materiałem źródłowym. Sprawdzamy uzgodnione przypadki, takie jak duplikat, brak identyfikatora, korekta albo niedostępne źródło. Potwierdzamy definicje wskaźników, harmonogram odświeżania i uprawnienia. Dzięki temu można ocenić wynik na znanych danych przed uruchomieniem cyklicznego raportu.",
+          "Przy publikacji przekazujemy uzgodnione opisy wskaźników i instrukcje obsługi. Sposób monitorowania odświeżeń, zgłaszania awarii i zmian po aktualizacji źródeł ustalamy w zakresie utrzymania. Jeśli potrzebujesz także rejestrowania zleceń i prowadzenia ich przez kolejne etapy, zobacz [aplikacje i systemy](/software/custom-software/). Na początek [napisz do nas](/contact/?about=Raporty%20i%20panele%20dla%20firmy), jaki raport przygotowujesz ręcznie i do jakiej decyzji go używasz."
+        ]
+      }
+    ]
+  },
+  "software/fullstack": {
+    "title": "Rozwój full-stack",
+    "sections": [
+      {
+        "title": "Zakres prac i technologie",
+        "subtitle": "Backend, frontend i integracje w jednym projekcie.",
+        "paragraphs": [
+          "Prace obejmują logikę serwerową, modele danych, interfejsy użytkownika oraz połączenia z usługami zewnętrznymi. Możemy rozwijać wybrany obszar produktu albo przeprowadzić zmianę przez wszystkie warstwy aplikacji. W istniejącym projekcie najpierw sprawdzamy jego architekturę, kontrakty i sposób publikowania wersji."
+        ],
+        "facts": [
+          {
+            "term": "Backend",
+            "detail": "Node.js, TypeScript, REST API, Zod, zadania asynchroniczne i webhooki."
+          },
+          {
+            "term": "Dane",
+            "detail": "PostgreSQL, SQL, Prisma, transakcje i migracje schematu."
+          },
+          {
+            "term": "Frontend",
+            "detail": "React, Next.js, TanStack Query, MUI, responsywność i Core Web Vitals."
+          },
+          {
+            "term": "Integracje",
+            "detail": "Stripe, Shopify, OAuth 2.0, uwierzytelnianie, autoryzacja i klucze API."
+          },
+          {
+            "term": "AI",
+            "detail": "Integracje modeli, odpowiedzi według schematu, MCP, obsługa błędów dostawców i kontrola kosztów."
+          },
+          {
+            "term": "Testy i wdrożenia",
+            "detail": "Vitest, Playwright, GitHub Actions, Docker, Vercel, Cloudflare, logi i monitoring."
+          }
         ]
       },
       {
-        "title": "Raport dla odpowiednich osób",
-        "subtitle": "Taki zakres, jaki jest im potrzebny.",
+        "title": "Architektura i niezawodność",
+        "subtitle": "Jawne kontrakty danych i kontrola skutków operacji.",
         "paragraphs": [
-          "Właściciel może potrzebować podsumowania całej firmy, a pracownik informacji o swoich zleceniach. Jeśli przygotujemy panel, uzgodnimy również sposób logowania i zakres dostępu.",
-          "Napisz, jaki raport dziś przygotowujesz ręcznie i do jakiej decyzji go używasz. Jeżeli potrzebujesz także zapisywania zleceń i obsługi pracy, zobacz [aplikacje i systemy](/software/custom-software/)."
+          "Moduły aplikacji dzielimy według odpowiedzialności i procesów biznesowych. W większych systemach wykorzystujemy DDD oraz rozdzielenie operacji zapisu i odczytu, czyli CQRS. Nie każdy projekt wymaga takiego podziału. Istotne jest, aby granice modułów były zrozumiałe, a zmiana jednego obszaru nie wymuszała przypadkowych zmian w pozostałych.",
+          "Wspólne kontrakty TypeScript i schematy Zod opisują wejścia i odpowiedzi API. Typy danych przekazywanych między warstwami (DTO) możemy generować ze schematu Prisma, a zgodność walidacji i odpowiedzi sprawdzać podczas kompilacji i w CI. Walidacja danych przychodzących pozostaje potrzebna także wtedy, gdy frontend i backend używają tych samych typów.",
+          "Integracje uwzględniają ponowienia, duplikaty i częściowe awarie. Webhook płatności nie powinien ponownie naliczyć tej samej operacji. Zmiany powiązanych danych obejmujemy transakcją, a wysyłkę wiadomości i inne skutki zewnętrzne planujemy po jej zatwierdzeniu. Zadania działające w tle wymagają kontroli wykonania, historii błędów i sposobu wznowienia."
+        ]
+      },
+      {
+        "title": "Od zmiany w kodzie do wdrożenia",
+        "subtitle": "Przegląd, testy i sprawdzenie działającej wersji.",
+        "paragraphs": [
+          "Przed realizacją ustalamy zachowanie funkcji i sposób weryfikacji. Zmiany przechodzą kontrolę typów, code review i testy dobrane do ryzyka: jednostkowe, integracyjne lub e2e. Sprawdzamy również uprawnienia, niepoprawne dane, zachowanie formularzy i skutki nieudanego żądania.",
+          "Proces publikacji obejmuje konfigurację środowiska, sprawdzenie migracji, wdrożenie i weryfikację działającej wersji. Uzgadniamy sposób wycofania zmiany oraz obserwacji błędów po publikacji. Logi powinny pozwalać powiązać problem z operacją, środowiskiem i wersją aplikacji.",
+          "W pracy z agentami kodującymi zadania, kontekst i granice zmian są określone z góry. Wygenerowany kod podlega takim samym przeglądom i testom jak pozostałe zmiany. Współpraca B2B może dotyczyć samodzielnego zadania, rozwoju modułu lub stałego wsparcia technicznego produktu. Aby ustalić zakres, opisz obecny system, potrzebną zmianę i istotne ograniczenia techniczne."
         ]
       }
     ]

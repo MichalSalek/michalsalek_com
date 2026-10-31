@@ -47,7 +47,11 @@
     "breadcrumbReports": "Raporty",
     "breadcrumbStudio": "Studio",
     "breadcrumbSoundtracks": "Muzyka",
-    "breadcrumbNavigation": "Ścieżka nawigacji"
+    "breadcrumbNavigation": "Ścieżka nawigacji",
+    "breadcrumbFullstack": "Full-stack",
+    "technicalScope": "Obszar",
+    "technicalTechnologies": "Technologie i praktyki",
+    "technicalContact": "Kontakt w sprawie współpracy technicznej"
   },
   "pages": {
     "/": {
@@ -60,15 +64,15 @@
     },
     "/software/architecture/": {
       "title": "Architektura oprogramowania",
-      "description": "Architektura oprogramowania i planowanie procesów. Atomic Concept: modułowe aplikacje, jasno określone granice i kod łatwy w utrzymaniu."
+      "description": "Projektowanie architektury aplikacji: wymagania, granice modułów, przepływ danych i kryteria odbioru. Dokumentacja oraz rozwój istniejących systemów."
     },
     "/software/backend/": {
       "title": "Backend i logika aplikacji",
-      "description": "Tworzenie backendu w Atomic Concept. Logika serwerowa, przetwarzanie danych i usługi dopasowane do potrzeb Twojej firmy."
+      "description": "Backend i logika aplikacji: API, dane, uprawnienia, transakcje, płatności i zadania asynchroniczne. Testy, wdrożenie oraz utrzymanie usług."
     },
     "/software/frontend/": {
       "title": "Frontend i interfejsy użytkownika",
-      "description": "Tworzenie frontendu w Atomic Concept. Responsywne interfejsy, wydajność stron internetowych i niezawodne działanie aplikacji."
+      "description": "Interfejsy aplikacji internetowych: formularze, komunikaty, zachowanie przy błędach i współpraca z API. Responsywność, wydajność i weryfikacja w przeglądarce."
     },
     "/sound/": {
       "title": "Usługi dźwiękowe online",
@@ -92,27 +96,34 @@
     },
     "/software/ai-automation/": {
       "title": "AI w pracy Twojej firmy",
-      "description": "Odczytywanie dokumentów, porządkowanie zapytań i wyszukiwanie firmowej wiedzy z AI. Atomic Concept dobiera zastosowanie, łączy systemy i sprawdza wyniki."
+      "description": "Projektowanie aplikacji z AI i rozbudowa istniejących systemów: odczyt dokumentów, wyszukiwanie w danych, integracje, kontrola wyników i wdrożenie."
     },
     "/software/integrations/": {
       "title": "Integracje z istniejącymi systemami",
-      "description": "Połącz sklep, płatności, system obsługi klientów i inne narzędzia. Atomic Concept przygotowuje integracje dopasowane do Twoich danych i sposobu pracy."
+      "description": "Integracje programów używanych w firmie. Wymiana danych, dopasowanie wpisów, duplikaty i ponowienia. Projekt, testy, wdrożenie oraz utrzymanie połączenia."
     },
     "/software/custom-software/": {
       "title": "Aplikacje i systemy na zamówienie",
-      "description": "Portale klienta, obsługa zleceń, rezerwacje i aplikacje wewnętrzne. Atomic Concept: planowanie, wykonanie, wdrożenie i utrzymanie systemu dla Twojej firmy."
+      "description": "Aplikacje firmowe, portale klientów, rezerwacje i obsługa zleceń. Dane, uprawnienia, płatności, opcjonalne AI, testy, wdrożenie i dokumentacja."
     },
     "/software/websites/": {
       "title": "Strony internetowe dla firm",
-      "description": "Strony internetowe z czytelną ofertą, kontaktem i wersjami językowymi. Atomic Concept: projekt, wykonanie i wdrożenie witryny dopasowanej do Twojej firmy."
+      "description": "Strony internetowe dla firm: oferta, treści, formularze, wersje językowe i czytelność na telefonie. Przygotowanie, testy, publikacja i przekazanie."
     },
     "/software/automation/": {
       "title": "Automatyzacja procesów w firmie",
-      "description": "Automatyzacja zgłoszeń, powiadomień, terminów i powtarzalnych czynności. Atomic Concept łączy narzędzia w proces dopasowany do pracy Twojego zespołu."
+      "description": "Automatyzacja procesów w firmie: zgłoszenia, zadania, przypomnienia i zatwierdzanie. Reguły, obsługa wyjątków, testy i przekazanie zespołowi."
     },
     "/software/reporting/": {
       "title": "Raporty i panele dla firmy",
-      "description": "Raporty sprzedaży, płatności i postępu pracy z używanych już systemów. Atomic Concept przygotowuje arkusze, raporty e-mail i panele dopasowane do firmy."
+      "description": "Raporty i panele z danych firmowych: źródła, definicje wskaźników, aktualizacja i dostęp. Zestawienia w arkuszu, wiadomości lub przeglądarce."
+    },
+    "/software/fullstack/": {
+      "title": "Rozwój full-stack",
+      "description": "Rozwój i utrzymanie aplikacji w TypeScript, Node.js, Next.js i PostgreSQL. Architektura, kontrakty API, integracje, testy oraz wdrożenia Atomic Concept.",
+      "intro": [
+        "W Atomic Concept rozwijamy backend, frontend i integracje jako części jednego systemu. Zakres współpracy może obejmować nowy moduł, rozbudowę istniejącej aplikacji lub utrzymanie produktu. Poniżej opisujemy technologie i praktyki inżynierskie, które wykorzystujemy w tej pracy."
+      ]
     }
   },
   "cards": {
@@ -164,6 +175,22 @@
           "Zebranie informacji o sprzedaży, płatnościach lub postępie zleceń zajmuje za dużo czasu?",
           "Przygotujemy raport, arkusz lub panel z danymi potrzebnymi do prowadzenia firmy. Ustalimy źródła i sposób aktualizacji."
         ]
+      },
+      {
+        "path": "/software/fullstack/",
+        "title": "Rozwój full-stack",
+        "paragraphs": [
+          "Potrzebujesz wsparcia w rozwoju lub utrzymaniu istniejącej aplikacji?",
+          "Node.js, TypeScript, Next.js i PostgreSQL. Zobacz zakres prac, architekturę, testy i sposób wdrażania zmian."
+        ]
+      },
+      {
+        "path": "/sound/",
+        "title": "Usługi dźwiękowe",
+        "paragraphs": [
+          "Miks i mastering nagrań, podkłady muzyczne oraz muzyka do filmów i innych materiałów.",
+          "Osobna część oferty Atomic Concept. Zobacz usługi studia i możliwości przygotowania muzyki."
+        ]
       }
     ],
     "sound": [
@@ -186,320 +213,28 @@
   },
   "visuals": {
     "ai": {
-      "sidebar": "Dokumenty i AI",
-      "headline": "Dane z dokumentu",
-      "description": "Odczyt, sprawdzenie i przekazanie informacji.",
-      "steps": [
-        "Dokument",
-        "Sprawdzenie",
-        "Zapis"
-      ],
-      "panel": "Odczytane pola",
-      "rows": [
-        [
-          "Numer dokumentu",
-          "Rozpoznano"
-        ],
-        [
-          "Data wystawienia",
-          "Rozpoznano"
-        ],
-        [
-          "Kwota",
-          "Do sprawdzenia"
-        ]
-      ],
-      "checkTitle": "Weryfikacja",
-      "checks": [
-        "Źródło wskazane",
-        "Braki oznaczone",
-        "Wynik do zatwierdzenia"
-      ],
-      "action": "Sprawdź wynik",
-      "cardAlt": "Dokument, odczytane pola i sprawdzony wynik.",
-      "heroAlt": "Przykładowy interfejs: dane z dokumentu"
+      "cardAlt": "Dokument z wyróżnionym fragmentem danych."
     },
     "automation": {
-      "sidebar": "Automatyzacja pracy",
-      "headline": "Zgłoszenie w procesie",
-      "description": "Kolejne czynności według ustalonych reguł.",
-      "steps": [
-        "Zgłoszenie",
-        "Zadanie",
-        "Powiadomienie"
-      ],
-      "panel": "Przebieg zadania",
-      "rows": [
-        [
-          "Zgłoszenie",
-          "Odebrane"
-        ],
-        [
-          "Reguła",
-          "Dopasowana"
-        ],
-        [
-          "Kolejny krok",
-          "Utwórz zadanie"
-        ]
-      ],
-      "checkTitle": "Kontrola procesu",
-      "checks": [
-        "Warunki ustalone",
-        "Wyjątki oznaczone",
-        "Historia wykonania"
-      ],
-      "action": "Zobacz przebieg",
-      "cardAlt": "Zgłoszenie, reguły procesu i wykonane zadanie.",
-      "heroAlt": "Przykładowy interfejs: zgłoszenie w procesie"
+      "cardAlt": "Prosty przebieg zadania z odgałęzieniem do przypomnienia."
     },
     "integrations": {
-      "sidebar": "Połączone systemy",
-      "headline": "Przekazanie danych",
-      "description": "Informacje trafiają do odpowiednich narzędzi.",
-      "steps": [
-        "Źródło",
-        "Przekazanie",
-        "Potwierdzenie"
-      ],
-      "panel": "Połączone narzędzia",
-      "rows": [
-        [
-          "Sklep",
-          "Połączony"
-        ],
-        [
-          "Płatności",
-          "Połączone"
-        ],
-        [
-          "Obsługa klientów",
-          "Połączona"
-        ]
-      ],
-      "checkTitle": "Kontrola wymiany",
-      "checks": [
-        "Pola dopasowane",
-        "Duplikaty sprawdzone",
-        "Błędy zarejestrowane"
-      ],
-      "action": "Sprawdź połączenie",
-      "cardAlt": "Dwa systemy połączone dwukierunkową wymianą danych.",
-      "heroAlt": "Przykładowy interfejs: przekazanie danych"
+      "cardAlt": "Dwa odrębne moduły połączone przepływem danych."
     },
     "websites": {
-      "sidebar": "Strona firmowa",
-      "headline": "Oferta i kontakt",
-      "description": "Czytelne informacje i prosty sposób wysłania zapytania.",
-      "steps": [
-        "Oferta",
-        "Usługi",
-        "Kontakt"
-      ],
-      "panel": "Formularz zapytania",
-      "rows": [
-        [
-          "Adres e-mail",
-          ""
-        ],
-        [
-          "Temat",
-          "Twój projekt"
-        ],
-        [
-          "Wiadomość",
-          ""
-        ]
-      ],
-      "checkTitle": "Informacje na stronie",
-      "checks": [
-        "Zakres usług",
-        "Sposób współpracy",
-        "Dane kontaktowe"
-      ],
-      "action": "Wyślij zapytanie",
-      "cardAlt": "Układ strony firmowej i formularz kontaktowy.",
-      "heroAlt": "Przykładowy interfejs: oferta i kontakt"
+      "cardAlt": "Uproszczony układ strony internetowej."
     },
     "applications": {
-      "sidebar": "Obsługa zleceń",
-      "headline": "Zlecenie do realizacji",
-      "description": "Informacje potrzebne do rozpoczęcia pracy w jednym miejscu.",
-      "steps": [
-        "Zapytanie",
-        "Realizacja",
-        "Gotowe"
-      ],
-      "panel": "Przygotowanie zlecenia",
-      "rows": [
-        [
-          "Zakres",
-          "Potwierdzony"
-        ],
-        [
-          "Materiały",
-          "Kompletne"
-        ],
-        [
-          "Kolejny krok",
-          "Rozpoczęcie prac"
-        ]
-      ],
-      "checkTitle": "Lista kontrolna",
-      "checks": [
-        "Uzgodniono wymagania",
-        "Zebrano dokumenty",
-        "Przydzielono zadanie"
-      ],
-      "action": "Otwórz zlecenie",
-      "cardAlt": "Lista zleceń i panel szczegółów zadania.",
-      "heroAlt": "Przykładowy interfejs: zlecenie do realizacji"
+      "cardAlt": "Cztery moduły aplikacji."
     },
     "reporting": {
-      "sidebar": "Raporty firmowe",
-      "headline": "Podsumowanie działalności",
-      "description": "Informacje z używanych systemów w jednym raporcie.",
-      "steps": [
-        "Źródła",
-        "Zestawienie",
-        "Raport"
-      ],
-      "panel": "Źródła danych",
-      "rows": [
-        [
-          "Sprzedaż",
-          "Dane zebrane"
-        ],
-        [
-          "Płatności",
-          "Dane zebrane"
-        ],
-        [
-          "Zlecenia",
-          "Dane zebrane"
-        ]
-      ],
-      "checkTitle": "Zestawienie",
-      "checks": [
-        "Źródła opisane",
-        "Okres określony",
-        "Braki oznaczone"
-      ],
-      "action": "Otwórz raport",
-      "cardAlt": "Trzy źródła danych połączone w raport z wykresem.",
-      "heroAlt": "Przykładowy interfejs: podsumowanie działalności"
+      "cardAlt": "Wykres zestawiający dane."
     },
-    "architecture": {
-      "sidebar": "Plan aplikacji",
-      "headline": "Procesy i moduły",
-      "description": "Uzgodniony podział odpowiedzialności w aplikacji.",
-      "steps": [
-        "Procesy",
-        "Moduły",
-        "Wdrożenie"
-      ],
-      "panel": "Plan rozwiązania",
-      "rows": [
-        [
-          "Obszary",
-          "Jasny podział"
-        ],
-        [
-          "Dane",
-          "Uzgodnione modele"
-        ],
-        [
-          "Rozwój",
-          "Kolejne etapy"
-        ]
-      ],
-      "checkTitle": "Zakres projektu",
-      "checks": [
-        "Granice modułów",
-        "Przepływ informacji",
-        "Sposób wdrożenia"
-      ],
-      "action": "Zobacz plan",
-      "cardAlt": "Ilustracja usługi: plan aplikacji",
-      "heroAlt": "Przykładowy interfejs: procesy i moduły"
+    "fullstack": {
+      "cardAlt": "Interfejs, serwer i baza danych jako warstwy aplikacji."
     },
-    "backend": {
-      "sidebar": "Operacje systemu",
-      "headline": "Przepływ danych",
-      "description": "Operacje serwerowe z potwierdzeniem wyniku.",
-      "steps": [
-        "Odbiór",
-        "Przetworzenie",
-        "Potwierdzenie"
-      ],
-      "panel": "Stan operacji",
-      "rows": [
-        [
-          "Żądanie",
-          "Odebrane"
-        ],
-        [
-          "Zapis",
-          "Potwierdzony"
-        ],
-        [
-          "Ponowienie",
-          "Bez duplikatu"
-        ]
-      ],
-      "checkTitle": "Kontrola działania",
-      "checks": [
-        "Uprawnienia sprawdzone",
-        "Dane zapisane",
-        "Błędy zarejestrowane"
-      ],
-      "action": "Sprawdź operację",
-      "cardAlt": "Ilustracja usługi: operacje systemu",
-      "heroAlt": "Przykładowy interfejs: przepływ danych"
-    },
-    "frontend": {
-      "sidebar": "Interfejs aplikacji",
-      "headline": "Formularz zapytania",
-      "description": "Jasne pola, czytelny stan i potwierdzenie wysłania.",
-      "steps": [
-        "Dane",
-        "Wiadomość",
-        "Potwierdzenie"
-      ],
-      "panel": "Twoje zapytanie",
-      "rows": [
-        [
-          "Adres e-mail",
-          ""
-        ],
-        [
-          "Temat",
-          "Projekt aplikacji"
-        ],
-        [
-          "Wiadomość",
-          ""
-        ]
-      ],
-      "checkTitle": "Obsługa formularza",
-      "checks": [
-        "Opisane pola",
-        "Zrozumiałe komunikaty",
-        "Zachowanie treści"
-      ],
-      "action": "Wyślij zapytanie",
-      "cardAlt": "Ilustracja usługi: interfejs aplikacji",
-      "heroAlt": "Przykładowy interfejs: formularz zapytania"
-    },
-    "common": {
-      "nav": [
-        "Zlecenia",
-        "Klienci",
-        "Dokumenty",
-        "Raporty"
-      ],
-      "workspace": "Panel firmy",
-      "example": "Przykładowy interfejs"
+    "sound": {
+      "cardAlt": "Przebieg fali dźwiękowej."
     }
   }
 }

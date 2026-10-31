@@ -9,7 +9,7 @@ export default function ContentBlockOrganism({title, subtitle, body}: {title?: R
             <CardContent sx={{px: 0}}>
                 {title && <Typography variant="h2">{title}</Typography>}
                 {subtitle && <Typography variant="h3" component="p">{subtitle}</Typography>}
-                <Typography component="div" variant="body1" sx={{textIndent: '3rem'}}>{body}</Typography>
+                <Typography component="div" variant="body1" className="article-copy">{body}</Typography>
             </CardContent>
         </Card>
     </section>;

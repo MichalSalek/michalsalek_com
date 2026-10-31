@@ -15,6 +15,7 @@ export function getBreadcrumbs(path: PagePath, messages: Messages): BreadcrumbIt
         '/software/websites/': messages.breadcrumbWebsites,
         '/software/custom-software/': messages.breadcrumbApplications,
         '/software/reporting/': messages.breadcrumbReports,
+        '/software/fullstack/': messages.breadcrumbFullstack,
         '/sound/': messages.breadcrumbSound,
         '/sound/studio/': messages.breadcrumbStudio,
         '/sound/soundtracks/': messages.breadcrumbSoundtracks,

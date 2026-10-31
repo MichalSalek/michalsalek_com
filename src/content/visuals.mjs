@@ -5,18 +5,18 @@ export const sceneByPath = {
     '/software/websites/': 'websites',
     '/software/custom-software/': 'applications',
     '/software/reporting/': 'reporting',
-    '/software/architecture/': 'architecture',
-    '/software/backend/': 'backend',
-    '/software/frontend/': 'frontend',
+    '/software/fullstack/': 'fullstack',
+    '/sound/': 'sound',
 };
 
 export const visualPalette = {
-    paper: '#f7f5ee',
+    paper: '#faf9f6',
     surface: '#ffffff',
-    navy: '#1a237e',
-    ink: '#181b23',
-    muted: '#606a7c',
-    line: '#d7ddea',
-    tint: '#edf0f7',
-    accent: '#e53b23',
+    navy: '#66728a',
+    ink: '#58606b',
+    muted: '#969da3',
+    line: '#dfe2e5',
+    tint: '#eff1f3',
+    sage: '#b7c3bb',
+    accent: '#b97a62',
 };

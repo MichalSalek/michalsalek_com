@@ -2,7 +2,6 @@ import assert from 'node:assert/strict';
 import { readFile, access } from 'node:fs/promises';
 import { load } from 'cheerio';
 import { routes, site, localePath, pageUrl } from '../src/content/site.mjs';
-import { sceneByPath, visualPalette } from '../src/content/visuals.mjs';
 import { createHash } from 'node:crypto';
 
 const sitemap = await readFile('out/sitemap.xml', 'utf8');
@@ -49,13 +48,11 @@ for (const locale of site.locales) {
             assert(source?.startsWith('/service-visuals/'), `${label}: static responsive artwork`);
             await access(`out${source}`);
         }
-        if (sceneByPath[path]) {
-            assert.equal($('.service-artwork-hero img').length, 1, `${label}: service illustration`);
-            assert($('.service-artwork-hero source').attr('srcset').includes(`-${locale}-mobile.`), `${label}: localized mobile artwork`);
-        }
+        assert.equal($('.service-artwork-hero').length, 0, `${label}: rejected interface-like heroes must not be published`);
         const md = relative === '/' ? '/index.md' : `${relative.slice(0, -1)}.md`;
         const mirror = await readFile(`out${md}`, 'utf8');
         assert(mirror.includes($('h1').text()), `${label}: Markdown mirror`);
+        for (const cell of $('main table th, main table td')) assert(mirror.includes($(cell).text().trim()), `${label}: technical table in the Markdown mirror`);
         pages++;
     }
 }
@@ -72,8 +69,6 @@ for (const [path, hash] of Object.entries(release.assets)) {
     assert.equal(path.match(/\.([a-f0-9]{12})\.svg$/)?.[1], hash.slice(0, 12), `${path}: immutable artwork URL`);
     const document = load(source, {xml: true});
     assert.equal(document('script, image, foreignObject').length, 0, `${path}: self-contained vector artwork`);
-    if (path.includes('/ai-card.')) {
-        assert.equal(document('#primary-document').attr('fill'), visualPalette.paper, 'The central document must remain light against the indigo backdrop');
-    }
+    assert.equal(document('text, clipPath').length, 0, `${path}: simple artwork without UI labels or diagonal backdrops`);
 }
 console.log(`Export audit passed: ${pages} localized HTML pages, links, images, metadata, sitemap, JSON-LD and Markdown.`);

@@ -8,6 +8,7 @@ import { RichTextAtom } from './RichText.atom';
 import { CompanyNameAtom } from './CompanyName.atom';
 import { useLocale } from '@/src/i18n/context';
 import type { ServiceCard } from '@/src/content/load-page';
+import { additionalServices } from '@/src/content/site.mjs';
 
 const images = {
     '/sound/studio/': {image: StudioImage, alt: {en: 'Music studio', pl: 'Studio muzyczne'}, credits: 'Photo by Caught In Joy on Unsplash'},
@@ -16,6 +17,7 @@ const images = {
 
 export default function RootCardOrganism({version, cards, intro = []}: {intro?: string[]; version: 'software' | 'sound'; cards: ServiceCard[]}) {
     const {messages} = useLocale();
+    const groups = version === 'software' ? [cards.filter(card => !additionalServices.includes(card.path)), cards.filter(card => additionalServices.includes(card.path))] : [cards];
     return <section style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <Typography variant="h2" component="h1" sx={{width: '100%', maxWidth: 390, display: 'flex', flexDirection: 'column', rowGap: 2, padding: '2rem 0'}}>
             <CompanyNameAtom fullName style={{textAlign: 'left'}}/>{' '}<span style={{textAlign: 'right'}}>{version === 'software' ? messages.softwareCategory : messages.soundCategory}</span>
@@ -27,10 +29,10 @@ export default function RootCardOrganism({version, cards, intro = []}: {intro?: 
                 <AppLinkAtom className="intro-contact-link" href={`/contact/?about=${encodeURIComponent(messages.softwareCategory)}`}>{messages.introContact}<ArrowRightIcon/></AppLinkAtom>
             </div>
         </section>}
-        <div className="service-cards">
-        {cards.map((card, index) => <ClickableCardMolecule key={card.path}
+        {groups.map((group, groupIndex) => <div className={`service-cards${groupIndex ? ' additional-services' : ''}`} key={groupIndex}>
+        {group.map((card, index) => <ClickableCardMolecule key={card.path}
             {...images[card.path as keyof typeof images]} artwork={card.artwork} title={card.title}
             content={<>{card.paragraphs.map(text => <p key={text}><RichTextAtom text={text}/></p>)}</>}
-            linkPath={card.path} priorityLoad={index === 0}/>) }
-    </div></section>;
+            linkPath={card.path} priorityLoad={groupIndex === 0 && index === 0}/>) }
+    </div>)}</section>;
 }

@@ -47,7 +47,11 @@
     "breadcrumbReports": "Reports",
     "breadcrumbStudio": "Studio",
     "breadcrumbSoundtracks": "Soundtracks",
-    "breadcrumbNavigation": "Breadcrumb"
+    "breadcrumbNavigation": "Breadcrumb",
+    "breadcrumbFullstack": "Full-stack",
+    "technicalScope": "Area",
+    "technicalTechnologies": "Technologies and practices",
+    "technicalContact": "Contact us about technical cooperation"
   },
   "pages": {
     "/": {
@@ -60,26 +64,26 @@
     },
     "/software/architecture/": {
       "title": "Software architecture",
-      "description": "Software architecture and process planning by Atomic Concept. Modular applications, documented boundaries and maintainable code."
+      "description": "Application architecture covering requirements, module boundaries, data flows and acceptance criteria. Documentation and development of existing systems."
     },
     "/software/backend/": {
-      "title": "Backend services",
-      "description": "Backend development by Atomic Concept. Server logic, data processing and services designed around your business needs."
+      "title": "Backend and application logic",
+      "description": "Backend and application logic: APIs, data, permissions, transactions, payments and asynchronous jobs. Testing, deployment and service maintenance."
     },
     "/software/frontend/": {
-      "title": "Frontend services",
-      "description": "Frontend development by Atomic Concept. Responsive interfaces, web performance and reliable application behaviour."
+      "title": "User interfaces and frontend",
+      "description": "Web application interfaces with clear forms, feedback, error handling and API integration. Responsive layouts, performance and browser verification."
     },
     "/sound/": {
       "title": "Sound online services",
       "description": "Online audio services by Atomic Concept. Mixing, mastering, backing tracks and original music for your recordings and video."
     },
     "/sound/studio/": {
-      "title": "Online studio services",
+      "title": "Online mixing and mastering",
       "description": "Online mixing and mastering by Atomic Concept. Prepare your multitracks and discuss the sound of your recording."
     },
     "/sound/soundtracks/": {
-      "title": "Music to buy or order",
+      "title": "Custom music and ready-made tracks",
       "description": "Original backing tracks, soundtracks and beats by Atomic Concept for performers, videos, commercials and trailers."
     },
     "/contact/": {
@@ -92,27 +96,34 @@
     },
     "/software/ai-automation/": {
       "title": "AI in your business",
-      "description": "AI-assisted document extraction, enquiry classification and company knowledge search. Atomic Concept finds the use case, connects services and checks results."
+      "description": "Build applications with AI or extend existing software. Document processing, company search, data integrations, human review, testing and deployment."
     },
     "/software/integrations/": {
       "title": "Integrations with existing systems",
-      "description": "Connect your shop, payments, customer system and other business tools. Atomic Concept builds integrations around your data and existing workflow."
+      "description": "Connect existing business tools with data exchange, record matching, duplicate checks and retries. Integration design, testing, deployment and maintenance."
     },
     "/software/custom-software/": {
       "title": "Custom applications and business systems",
-      "description": "Customer portals, bookings, job management and internal applications. Atomic Concept plans, builds, deploys and maintains software for your business."
+      "description": "Business applications, customer portals, bookings and job management. Data, permissions, payments, optional AI, testing, deployment and documentation."
     },
     "/software/websites/": {
       "title": "Business websites",
-      "description": "Business websites with a clear offer, contact forms and language versions. Atomic Concept plans, builds and deploys a site tailored to your company."
+      "description": "Business websites with service content, enquiry forms, language versions and mobile layouts. Preparation, testing, launch and handover by Atomic Concept."
     },
     "/software/automation/": {
       "title": "Workflow automation for your business",
-      "description": "Automate enquiries, notifications, deadlines and repeated tasks. Atomic Concept connects your tools into a workflow designed around your team."
+      "description": "Business workflow automation for requests, tasks, reminders and approvals. Defined rules, exception handling, testing and handover to your team."
     },
     "/software/reporting/": {
       "title": "Business reports and dashboards",
-      "description": "Sales, payment and work-progress reporting from your existing systems. Atomic Concept builds tailored spreadsheets, email reports and dashboards."
+      "description": "Business reports and dashboards with defined sources, measures, refresh schedules and access. Receive information in a spreadsheet, email or browser."
+    },
+    "/software/fullstack/": {
+      "title": "Full-stack engineering",
+      "description": "Application development and maintenance with TypeScript, Node.js, Next.js and PostgreSQL. Architecture, API contracts, integrations, tests and deployment by Atomic Concept.",
+      "intro": [
+        "At Atomic Concept, we develop the backend, frontend and integrations as parts of one system. An engagement can cover a new module, an extension to an existing application or product maintenance. Below are the technologies and engineering practices we use in that work."
+      ]
     }
   },
   "cards": {
@@ -164,6 +175,22 @@
           "Does bringing together sales, payment or work-progress information take too much time?",
           "We prepare a report, spreadsheet or dashboard with the information you use to run your business, with clear sources and updates."
         ]
+      },
+      {
+        "path": "/software/fullstack/",
+        "title": "Full-stack engineering",
+        "paragraphs": [
+          "Need support developing or maintaining an existing application?",
+          "Node.js, TypeScript, Next.js and PostgreSQL. Explore the scope of work, architecture, tests and deployment process."
+        ]
+      },
+      {
+        "path": "/sound/",
+        "title": "Sound services",
+        "paragraphs": [
+          "Mixing and mastering, backing tracks and music for video and other projects.",
+          "A separate part of the Atomic Concept offer. Explore studio services and music production."
+        ]
       }
     ],
     "sound": [
@@ -186,320 +213,28 @@
   },
   "visuals": {
     "ai": {
-      "sidebar": "Documents and AI",
-      "headline": "Data from a document",
-      "description": "Extract, check and pass on the information.",
-      "steps": [
-        "Document",
-        "Review",
-        "Save"
-      ],
-      "panel": "Extracted fields",
-      "rows": [
-        [
-          "Document number",
-          "Recognised"
-        ],
-        [
-          "Issue date",
-          "Recognised"
-        ],
-        [
-          "Amount",
-          "Needs review"
-        ]
-      ],
-      "checkTitle": "Verification",
-      "checks": [
-        "Source identified",
-        "Missing data marked",
-        "Result ready for review"
-      ],
-      "action": "Review the result",
-      "cardAlt": "A document, extracted fields and a checked result.",
-      "heroAlt": "Example interface: data from a document"
+      "cardAlt": "A document with a highlighted data field."
     },
     "automation": {
-      "sidebar": "Workflow automation",
-      "headline": "An enquiry in progress",
-      "description": "The next steps follow the agreed rules.",
-      "steps": [
-        "Enquiry",
-        "Task",
-        "Notification"
-      ],
-      "panel": "Task progress",
-      "rows": [
-        [
-          "Enquiry",
-          "Received"
-        ],
-        [
-          "Rule",
-          "Matched"
-        ],
-        [
-          "Next step",
-          "Create a task"
-        ]
-      ],
-      "checkTitle": "Process checks",
-      "checks": [
-        "Conditions agreed",
-        "Exceptions marked",
-        "Execution history"
-      ],
-      "action": "View progress",
-      "cardAlt": "An enquiry, workflow rules and a completed task.",
-      "heroAlt": "Example interface: an enquiry in progress"
+      "cardAlt": "A simple workflow with a reminder branch."
     },
     "integrations": {
-      "sidebar": "Connected systems",
-      "headline": "Data exchange",
-      "description": "Information reaches the tools that need it.",
-      "steps": [
-        "Source",
-        "Transfer",
-        "Confirmation"
-      ],
-      "panel": "Connected tools",
-      "rows": [
-        [
-          "Shop",
-          "Connected"
-        ],
-        [
-          "Payments",
-          "Connected"
-        ],
-        [
-          "Customer system",
-          "Connected"
-        ]
-      ],
-      "checkTitle": "Exchange checks",
-      "checks": [
-        "Fields mapped",
-        "Duplicates checked",
-        "Errors recorded"
-      ],
-      "action": "Check the connection",
-      "cardAlt": "Two systems connected by a two-way data exchange.",
-      "heroAlt": "Example interface: data exchange"
+      "cardAlt": "Two separate modules connected by a data flow."
     },
     "websites": {
-      "sidebar": "Business website",
-      "headline": "Your offer and contact",
-      "description": "Clear information and a simple way to send an enquiry.",
-      "steps": [
-        "Offer",
-        "Services",
-        "Contact"
-      ],
-      "panel": "Enquiry form",
-      "rows": [
-        [
-          "Email address",
-          ""
-        ],
-        [
-          "Subject",
-          "Your project"
-        ],
-        [
-          "Message",
-          ""
-        ]
-      ],
-      "checkTitle": "Website content",
-      "checks": [
-        "Services offered",
-        "How we work",
-        "Contact details"
-      ],
-      "action": "Send an enquiry",
-      "cardAlt": "A business website layout and contact form.",
-      "heroAlt": "Example interface: your offer and contact"
+      "cardAlt": "A simplified website layout."
     },
     "applications": {
-      "sidebar": "Job management",
-      "headline": "A job ready to start",
-      "description": "The information needed to begin work in one place.",
-      "steps": [
-        "Enquiry",
-        "In progress",
-        "Completed"
-      ],
-      "panel": "Job preparation",
-      "rows": [
-        [
-          "Scope",
-          "Confirmed"
-        ],
-        [
-          "Materials",
-          "Complete"
-        ],
-        [
-          "Next step",
-          "Start work"
-        ]
-      ],
-      "checkTitle": "Checklist",
-      "checks": [
-        "Requirements agreed",
-        "Documents collected",
-        "Task assigned"
-      ],
-      "action": "Open the job",
-      "cardAlt": "A job list and a task detail panel.",
-      "heroAlt": "Example interface: a job ready to start"
+      "cardAlt": "Four application modules."
     },
     "reporting": {
-      "sidebar": "Business reports",
-      "headline": "Business overview",
-      "description": "Information from your existing systems in one report.",
-      "steps": [
-        "Sources",
-        "Summary",
-        "Report"
-      ],
-      "panel": "Data sources",
-      "rows": [
-        [
-          "Sales",
-          "Data collected"
-        ],
-        [
-          "Payments",
-          "Data collected"
-        ],
-        [
-          "Jobs",
-          "Data collected"
-        ]
-      ],
-      "checkTitle": "Summary",
-      "checks": [
-        "Sources described",
-        "Period defined",
-        "Missing data marked"
-      ],
-      "action": "Open the report",
-      "cardAlt": "Three data sources combined in a report with a chart.",
-      "heroAlt": "Example interface: business overview"
+      "cardAlt": "A chart comparing data."
     },
-    "architecture": {
-      "sidebar": "Application plan",
-      "headline": "Processes and modules",
-      "description": "Agreed responsibilities across the application.",
-      "steps": [
-        "Processes",
-        "Modules",
-        "Deployment"
-      ],
-      "panel": "Solution plan",
-      "rows": [
-        [
-          "Areas",
-          "Clear boundaries"
-        ],
-        [
-          "Data",
-          "Agreed models"
-        ],
-        [
-          "Development",
-          "Next stages"
-        ]
-      ],
-      "checkTitle": "Project scope",
-      "checks": [
-        "Module boundaries",
-        "Information flow",
-        "Deployment approach"
-      ],
-      "action": "View the plan",
-      "cardAlt": "Service illustration: application plan",
-      "heroAlt": "Example interface: processes and modules"
+    "fullstack": {
+      "cardAlt": "Interface, server and database as application layers."
     },
-    "backend": {
-      "sidebar": "System operations",
-      "headline": "Data flow",
-      "description": "Server operations with a confirmed result.",
-      "steps": [
-        "Receive",
-        "Process",
-        "Confirm"
-      ],
-      "panel": "Operation status",
-      "rows": [
-        [
-          "Request",
-          "Received"
-        ],
-        [
-          "Save",
-          "Confirmed"
-        ],
-        [
-          "Retry",
-          "No duplicate"
-        ]
-      ],
-      "checkTitle": "Operation checks",
-      "checks": [
-        "Permissions checked",
-        "Data saved",
-        "Errors recorded"
-      ],
-      "action": "Review the operation",
-      "cardAlt": "Service illustration: system operations",
-      "heroAlt": "Example interface: data flow"
-    },
-    "frontend": {
-      "sidebar": "Application interface",
-      "headline": "Enquiry form",
-      "description": "Clear fields, progress and delivery feedback.",
-      "steps": [
-        "Details",
-        "Message",
-        "Confirmation"
-      ],
-      "panel": "Your enquiry",
-      "rows": [
-        [
-          "Email address",
-          ""
-        ],
-        [
-          "Subject",
-          "Application project"
-        ],
-        [
-          "Message",
-          ""
-        ]
-      ],
-      "checkTitle": "Form behaviour",
-      "checks": [
-        "Labelled fields",
-        "Clear feedback",
-        "Text preserved"
-      ],
-      "action": "Send an enquiry",
-      "cardAlt": "Service illustration: application interface",
-      "heroAlt": "Example interface: enquiry form"
-    },
-    "common": {
-      "nav": [
-        "Jobs",
-        "Customers",
-        "Documents",
-        "Reports"
-      ],
-      "workspace": "Business workspace",
-      "example": "Example interface"
+    "sound": {
+      "cardAlt": "An audio waveform."
     }
   }
 }

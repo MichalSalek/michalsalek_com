@@ -3,33 +3,30 @@
     "title": "Software architecture",
     "sections": [
       {
-        "title": "High performance",
-        "subtitle": "so your customers don't have to wait.",
+        "title": "Architecture starts with requirements",
+        "subtitle": "First, we establish what the system must do and under which conditions.",
         "paragraphs": [
-          "At Atomic Concept, we design application architecture around the needs of each project. Event-driven patterns can help separate responsibilities and track changes. Performance depends on the complete system, from the interface to server operations and data storage."
+          "When designing or extending an application, we start with its users, processes and constraints. We establish which data it handles, who can access it and which tools it must work with. In an existing system, we also examine dependencies that could make a change difficult.",
+          "We consider performance across the complete flow: browser interactions, server requests, and data reads and writes. We agree on the most important scenarios and how to check them. Measurements help establish whether the problem is a large response, a database query or lengthy processing.",
+          "The outputs are decisions needed for delivery: responsibility boundaries, data flows, access requirements and acceptance criteria. We develop the architecture as part of building or extending an [application or system](/software/custom-software/), accounting for deployment and ongoing maintenance."
         ]
       },
       {
-        "title": "Easy and understandable project maintenance",
-        "subtitle": "if you want to outsource the code to another development team in the future.",
+        "title": "Modules have specific responsibilities",
+        "subtitle": "The structure should make changes and dependencies easier to manage.",
         "paragraphs": [
-          "The structure of the source code will remain clear and documented where needed. This gives your team visibility and makes future improvements easier, including a handover to another development team."
+          "A module groups related rules and data, such as order handling or payments. We define its responsibilities and how other parts can use it. We share reusable elements where they genuinely follow the same rules.",
+          "For example, in a booking system, a time slot may need immediate confirmation while a notification can be sent later. Separating those tasks allows the notification to be retried without creating the booking again. Error handling and the status shown to the user also need to be defined.",
+          "Domain-Driven Design helps organise complex business rules. CQRS separates commands that change data from queries that read it. We use these approaches when they solve a specific problem; a simple application does not need the full set. We consider scaling a module independently when its workload justifies it, taking maintenance costs into account."
         ]
       },
       {
-        "title": "High scalability through modularization",
-        "subtitle": "in case of rapid growth of your business.",
+        "title": "Decisions and change history remain understandable",
+        "subtitle": "Documentation supports maintenance and project handover.",
         "paragraphs": [
-          "A modular application has clear boundaries between its parts. Domain-Driven Design and separating changes from queries (CQRS) can help establish those boundaries when the project needs them. If a particular operation becomes heavily used, we can consider scaling that part independently.",
-          "Modular frontend code helps us control what the browser needs to load. On the backend, separate modules can make changes and deployment easier. These choices support performance work, but do not guarantee a particular speed or score.",
-          "Where it makes sense, components can be reused in other parts of the application or in another project."
-        ]
-      },
-      {
-        "title": "Time is always flowing",
-        "subtitle": "let's not forget that.",
-        "paragraphs": [
-          "When designing connected systems, we consider **what happened and when**. An event records a particular change at a particular time. An appropriate event history can help reconstruct the sequence of operations when investigating a claim or a missing record."
+          "We document important decisions, dependencies and how to run the application. Handover documentation covers the agreed scope: environment configuration, deployment, tests and handling common failures. This helps the next person check how the system works and prepare a change.",
+          "When an operation history is needed, we establish which changes to record, their timestamps and their connection to the relevant process. This record helps explain a claim or a status change. Keeping a history does not automatically require an architecture that reconstructs the entire state from events.",
+          "We test key rules and flows, then use the agreed monitoring after deployment. Our [fullstack](/software/fullstack/) page explains the tools in more detail. Technology should support the requirements, while documentation should also explain the limitations of the chosen solution."
         ]
       }
     ]
@@ -38,27 +35,30 @@
     "title": "Frontend services",
     "sections": [
       {
-        "title": "A fast, clear user interface",
-        "subtitle": "to help people complete their tasks.",
+        "title": "The interface guides a specific task",
+        "subtitle": "We design and implement the way people use web applications.",
         "paragraphs": [
-          "**A good application is one that helps the user.** Well-written, optimised code makes good use of modern browsers.",
-          "We show the result as soon as it is available. When waiting is unavoidable, for example during a database operation, the interface should explain what is happening. Loading indicators and carefully chosen transitions can help the experience remain clear."
+          "We build interfaces for new applications and extend existing ones. We start with user actions: finding information, completing a form, approving a change or checking a status. We establish the views, data and permissions needed, then connect interaction design with implementation.",
+          "For each important action, we define waiting, success, empty and error states. Messages should explain the outcome and the available next step. We confirm a save after receiving a reliable result, and show when a longer operation is still in progress.",
+          "We agree on the devices and browsers to check. Clear labels, visible focus, keyboard operation and errors linked to their fields help people use forms. We define these requirements before acceptance rather than judging an interface solely by its appearance."
         ]
       },
       {
-        "title": "Usable when a connection fails",
-        "subtitle": "because internet access can be unreliable.",
+        "title": "A network problem should not erase work",
+        "subtitle": "How data is preserved depends on the operation.",
         "paragraphs": [
-          "Sometimes the internet connection drops. A failed request should not mean losing all the work a person has just done.",
-          "Depending on the application, we can preserve a form draft, show a clear connection warning or queue suitable operations until the connection returns. The architecture needs to support the way people actually use the service."
+          "For example, an employee could lose the connection just before saving a completed job form. The interface can retain the entered values, clearly show that the save is unconfirmed and allow a retry. Once the connection returns, it needs to establish whether the previous attempt reached the server.",
+          "Draft storage requires decisions about where data is kept, for how long and when it is removed. Not every form should leave its contents on a shared device. We choose how to preserve work according to the information involved, access rules and actual application use.",
+          "Selected operations can be queued for later execution. This requires backend support, protection against repeating the same effect and rules for resolving changes made in the meantime. For other operations, retaining the form and asking the user to approve the current data again is more appropriate."
         ]
       },
       {
-        "title": "Interface and server working together",
-        "subtitle": "performance depends on the whole system.",
+        "title": "Smooth interaction depends on the whole system",
+        "subtitle": "The interface, API and data must follow the same requirements.",
         "paragraphs": [
-          "A good frontend alone is not enough. Interface behaviour, server operations and database models need consistent requirements. Sending only the information needed for a particular task also avoids unnecessary network traffic.",
-          "At Atomic Concept, we design around business processes, using approaches such as Domain-Driven Design where useful. We choose technology to support the task."
+          "We control the amount of code and data downloaded by the browser. We split larger views, retrieve the information needed and coordinate data refreshes with the backend. Reducing unnecessary requests helps, but response times also depend on the network, server and database.",
+          "Dividing the interface into modules makes related features easier to develop. We use shared components where behaviour needs to remain consistent. Screen descriptions and process rules should reflect the terminology used in the business, including when people with different permissions use the system.",
+          "We check key journeys in the browser, covering saves, errors, permissions and the agreed screen sizes. At handover, we document how to run and deploy the application. The interface can be part of a [custom application](/software/custom-software/); our [fullstack](/software/fullstack/) page explains the choice of tools."
         ]
       }
     ]
@@ -67,27 +67,30 @@
     "title": "Backend services",
     "sections": [
       {
-        "title": "Backend that fits the application",
-        "subtitle": "without unnecessary system load.",
+        "title": "The backend implements application rules",
+        "subtitle": "Its scope follows the processes, data and permissions.",
         "paragraphs": [
-          "The backend must work closely with the user interface. At every stage of server development, we focus on the operations your business needs and the information your customers need to use them.",
-          "We avoid unnecessary data transfer and server work. We consider performance and the ability to handle growth when planning the system."
+          "We design and develop backends for new and existing applications. This covers operation logic, data storage and the API through which an interface or another system requests work. The scope can include accounts, roles, payments, background jobs and connections to external services.",
+          "Before implementation, we establish who can perform each operation, which information is required and when a change counts as complete. We also consider denied access, missing data and external service failures. These agreements become rules and acceptance criteria.",
+          "The backend and interface use an agreed API contract: data formats, available operations and error responses. Server-side validation and permission checks apply independently of any checks already performed by a form. This helps the application evolve without conflicting rules in different places."
         ]
       },
       {
-        "title": "Start with analysis",
-        "subtitle": "to solve the right problem.",
+        "title": "Correct operations include exception handling",
+        "subtitle": "Retries and interrupted processes are part of the design.",
         "paragraphs": [
-          "**Good software meets your needs without unnecessary complexity.**",
-          "The key to success is analysis. We need to understand exactly what you want to achieve. Then we can build a service with a clear purpose, without unnecessary complexity.",
-          "Complex solutions can be expensive to maintain. We choose simpler ones when they meet the requirements, and more complex ones when they bring a concrete benefit."
+          "For example, a shop might receive the same payment notification several times. The backend should recognise the duplicate and avoid applying the same effect again. We define operation identifiers, allowed status transitions and how to reconcile the state with the payment provider.",
+          "We use transactions for data changes that must happen together. Longer tasks can run outside the user request, with a defined status and retry rules. After a failure, the system needs to distinguish between an operation that did not happen and one whose outcome still needs confirmation.",
+          "For [integrations between systems](/software/integrations/), we also establish which source determines the correct value and how incomplete information is handled. Error records and change history should help explain a problem without exposing unnecessary data in logs."
         ]
       },
       {
-        "title": "Digital solutions in everyday work",
-        "subtitle": "understandable beyond the technical team.",
+        "title": "Performance and maintenance need practical checks",
+        "subtitle": "The solution should be possible to run, assess and develop further.",
         "paragraphs": [
-          "Many things that seem abstract have equivalents in the real world. We can find those connections and explain them in the context of your business. That makes it easier to plan an application together and understand how it works."
+          "We reduce unnecessary data transfer and server load by choosing appropriate API response sizes, record retrieval methods and database queries. Decisions about additional caching or separate services follow requirements and measurements. Each such component also adds maintenance work.",
+          "Tests cover key rules, data access and external service interactions within the agreed scope. We check successful operations and significant failures, such as a repeated notification or missing permissions. Acceptance criteria make it possible to assess behaviour through the outcome of an operation.",
+          "At handover, we document configuration, deployment and how to diagnose common problems. We also agree on monitoring and ongoing maintenance. The backend can be part of a complete [custom application](/software/custom-software/) or an extension to a specific area of an existing system."
         ]
       }
     ]
@@ -96,26 +99,30 @@
     "title": "Music to buy or order",
     "sections": [
       {
-        "title": "Order a backing track",
-        "subtitle": "for your videos, commercials and trailers.",
+        "title": "Music for film, advertising and other projects",
+        "subtitle": "Composition and sound design shaped around the intended use.",
         "paragraphs": [
-          "We will compose music and sound design for your materials. Specify your vision to us and we will do the rest. We have the ability to use samplers and high quality processors. We also have instruments such as electric guitar, bass guitar, drum set.",
-          "Our each idea always sounds top, because we have a knowledge about mix and mastering. for any sound sources."
+          "Atomic Concept creates music and sound design for films, advertising and trailers. We start with the material the music will accompany: its length, pace and mood. We also agree whether the track should provide the main background, support narration or emphasise particular moments.",
+          "For example, music for a short company film may need to leave room for a voice-over and finish clearly at the closing frame. A trailer may need a build in tension and accents synchronised with the edit. These are possible uses we discuss before preparing the material.",
+          "We work with samplers, audio processors and instruments including electric guitar, bass and drums. Mixing and mastering experience supports the sound of the whole production. If you have an edit or reference tracks, they help establish the direction before the music is finished."
         ]
       },
       {
-        "title": "Singing? Do you rap? You are a creative performer",
-        "subtitle": "and you need a producer.",
+        "title": "Backing tracks for singing or rap",
+        "subtitle": "Tempo, arrangement and character follow your idea.",
         "paragraphs": [
-          "You've certainly happened to sift through huge packages of beats and backing tracks. We know it. It's hard to hit a backing track that will suit us one 100 percent. That's what music is all about. to perfectly realize your vision. without using half-measures.",
-          "We will create a primer for you in the climate you feel best in. You will also be assured that the primer will be special and unique. No one else will record to it."
+          "You can commission a backing track around your vocal, lyrics or a particular style. Rather than relying only on a genre name, describe the tempo, energy, instruments and reference tracks that suit your idea. A rough vocal recording can help plan space for verses and choruses.",
+          "Before starting, we agree the song structure and how we will work through versions. We discuss which elements are decided and which still need development. The scope can cover the backing track alone or further work on the combined sound of the music and your supplied recording.",
+          "For an exclusive commission, we agree the terms before production, including whether the same music may be offered to other people. The intended use, required file versions and revision scope belong in those discussions so the finished track suits your project."
         ]
       },
       {
-        "title": "Lease an Atomic Concept original music",
-        "subtitle": "which we are working on.",
+        "title": "Ready-made tracks and commissioning details",
+        "subtitle": "Licensing existing music is a separate option.",
         "paragraphs": [
-          "You also have the option to purchase a lease license and use the already finished primer, which comes out more favorably priced. We create music that is equally suitable for your vocals and soundtrack for video productions. Check out our services and achieve your goal without obstacles. technology is on our side."
+          "You can also enquire about licensing a ready-made Atomic Concept backing track for vocals or video. We first check whether suitable material is available and whether it can be used as planned. The licence scope and any adaptations are agreed before purchase.",
+          "When comparing existing music with a custom commission, we consider the length, arrangement changes, synchronisation with the picture and exclusivity. Price and timing follow the agreed scope. You do not have to choose the commission type before the first conversation.",
+          "In your [music enquiry](/contact/?about=Custom%20music%20and%20ready-made%20tracks), describe what the track is for, its required length and the mood you want. Include references, video or a rough vocal recording if you have them. We will use that to establish whether an existing track is suitable or a new composition is needed."
         ]
       }
     ]
@@ -124,35 +131,31 @@
     "title": "Online studio services",
     "sections": [
       {
-        "title": "Atomic Concept can mix your tracks online",
-        "subtitle": "and help you to prepare them properly.",
+        "title": "Online mixing and mastering",
+        "subtitle": "Working with recordings made at home or in a studio.",
         "paragraphs": [
-          "We will find a way to improve your sound. We specialize in mixing and mastering pre-submitted multitracks.",
-          "If you recorded your music at home using the home-recording methods. Or recorded tracks in the studio. Anyways. you are in the right place. We can provide an advice for you in how to best prepare yours multi-tracks for mailing to our studio. After reviewing the material. we will be able to price the services. mixing and mastering separately.",
-          "We can add to your music something more if you want to. we making soundtracks also."
+          "Atomic Concept mixes and masters supplied multitrack recordings. You can enquire about a single song or a larger release. We start by listening to the recordings and agreeing what work they need, with mixing and mastering quoted separately.",
+          "To start the conversation, describe the project and tell us what recording files you have. We can advise you on preparing tracks for transfer so their arrangement can be reproduced correctly and individual instruments can be processed. We agree how to transfer the files before work begins.",
+          "Mixing involves the balance between instruments and vocals, their clarity and the space in the recording. Mastering prepares the agreed mix for its intended use. If you also need additional musical parts or a backing track, we can discuss those as a separate part of the project."
         ]
       },
       {
-        "title": "Let us know your vision to sound good",
-        "subtitle": "we need to receive on the same waves.",
+        "title": "Sound direction and listening",
+        "subtitle": "Reference tracks help establish what matters to you.",
         "paragraphs": [
-          "When recording your music, you certainly set a specific goal. Share it with us so that together we can strive for the same. Prepare links to the songs you were inspired by. Mark the tracks that you appreciate for: the sound of the drums, an interesting effect on the vocals, or the general perception of the whole. We will listen to everything and bring it down to a common denominator. producing a track or an entire album for you.",
-          "You always receive the material we prepare as a fully modular package, so that you can rework the accompaniment yourself as needed."
+          "Prepare links to tracks that provide a useful reference. Point to a specific element: the kick and snare sound, the position of the vocal, the amount of space or the character of the bass. This lets us discuss an audible result rather than relying only on a broad genre description.",
+          "For example, a heavy track may call for attention to the relationship between kick and bass, and to vocal clarity against dense guitars. A quieter recording may place more emphasis on natural instruments and dynamics. We choose the direction around your recording and references.",
+          "We most often work with metal, hip-hop, heavier electronic music and drum and bass. Kick, snare and bass are frequent areas of that work, but other genres are welcome too. If your material differs from these examples, send a description so we can discuss it.",
+          "The studio setup includes ADAM AUDIO monitors, ARTURIA and KLARK TEKNIK equipment in the signal path, and BEYERDYNAMIC equipment. We use balanced connections and a digital audio workstation. Listening to the material and the agreed aim of the recording guide the changes."
         ]
       },
       {
-        "title": "Check out our specialization. Kick, snare and bass",
-        "subtitle": "the sounds we work with most often.",
+        "title": "Scope and delivery",
+        "subtitle": "Agree the file versions and how feedback will be handled.",
         "paragraphs": [
-          "Most often we work on music from the genres of metal, hip-hop, strong electronic music, drum and bass and it works out best for us. We always try to find the power and majesty of sound, so that the recordings sound strong and wide.",
-          "We are willing to try something new. it is always worth writing to us and presenting your project anyway."
-        ]
-      },
-      {
-        "title": "We use high-tech",
-        "subtitle": "equipment that supports the work on your sound.",
-        "paragraphs": [
-          "Our listening system consists of equipment from ADAM AUDIO. ARTURIA and KLARK TEKNIK are responsible for the signal path. The signal is processed with balanced cables so that we can forget about noise and interference. We also support ourselves with listening equipment from BEYERDYNAMIC. The whole process is carried out in a professional Digital Audio Workstation."
+          "Before quoting, we agree the number of songs, the condition of the recordings and the processing required. If you know where the material will be used or have an important deadline, include that information in your description. We confirm feasibility and scheduling after reviewing the project.",
+          "We agree how you will listen to versions and send feedback. A change is easiest to discuss when it refers to a particular point in the track and the sound agreed earlier. Revision scope is established with the other working terms so it is clear which changes the commission includes.",
+          "The finished material is delivered in the agreed formats and versions. If you also need an instrumental version or separate instrument groups for further work, mention this before the quote. In your [mixing or mastering enquiry](/contact/?about=Online%20mixing%20and%20mastering), describe the recordings, include references and explain the sound you want."
         ]
       }
     ]
@@ -172,36 +175,32 @@
   "software/ai-automation": {
     "sections": [
       {
-        "title": "Which repeated task would you like to stop doing by hand?",
-        "subtitle": "Start with a specific piece of work.",
+        "title": "Applications with AI features",
+        "subtitle": "Reading documents, sorting enquiries and finding information within your business.",
         "paragraphs": [
-          "Examples include reading information from documents, sorting incoming enquiries, preparing a draft response or finding an answer in company materials. We can connect those steps to the tools your team already uses.",
-          "A fixed rule or a ready-made integration may be enough. AI is useful when the task involves interpreting text, recognising information or working with material that does not always follow the same format."
+          "At Atomic Concept, we design and implement solutions that use AI for a defined task. You can commission a new application with AI features or extend software you already use. The work includes the interface, data connections, testing and deployment needed to put the solution into use.",
+          "AI can help interpret free text, read documents with different layouts or prepare replies using approved materials. We start with what the user needs to receive and how they will check the result. Access to a model alone does not cover the whole task.",
+          "If the steps can be described by an explicit rule, we can use [workflow automation](/software/automation/). If you also need user accounts, permissions or job management, AI features can form part of a larger [business application](/software/custom-software/). We shape the scope around how your team works."
         ]
       },
       {
-        "title": "Your documents and systems",
-        "subtitle": "A useful result in the place where you work.",
+        "title": "From an email to an approved record",
+        "subtitle": "An example workflow with a person checking the result.",
         "paragraphs": [
-          "An automation can take information from an email or form, check what is missing and prepare a record in your customer system. A search tool can find relevant passages in the documents you allow it to use.",
-          "These are examples of possible implementations. The choice depends on your data, access to the existing systems and the quality you need. We agree what to do when information is missing or uncertain."
+          "Suppose a business receives enquiries containing a job description and an attached document. The application retrieves the message and AI suggests a category and extracts the agreed information. An employee sees the result alongside the source material, corrects it and approves the record for the customer management system.",
+          "If the document is missing a deadline or contains conflicting details, the enquiry is flagged for clarification. Missing details are flagged for review before the record is saved. We separately agree whether the application should prepare a draft reply, who may send it and which changes always require approval.",
+          "We define which documents the application may use and which information may be sent to the AI provider. Processing location, data storage and access arrangements are agreed for the project. Searches of company materials should respect the permissions of the person using them.",
+          "We also account for the AI service being unavailable, an incorrectly formatted response and the same message being processed again. We agree when to retry, when to notify an employee and how to prevent two records being created for one enquiry."
         ]
       },
       {
-        "title": "AI prepares. You decide what needs approval.",
-        "subtitle": "Check the result before taking an important action.",
+        "title": "Testing, deployment and maintenance",
+        "subtitle": "Agreed quality criteria and guidance for the people using the application.",
         "paragraphs": [
-          "For a customer reply, a quote or a change to business data, we can prepare a draft for a person to approve. We define which tasks may run automatically and where your team should make the final decision.",
-          "We test on representative examples, check mistakes and estimate the ongoing cost. We also agree which data may be sent to an external AI provider and what should remain inside your systems."
-        ]
-      },
-      {
-        "title": "A working process, with a clear handover",
-        "subtitle": "Implementation is more than access to a model.",
-        "paragraphs": [
-          "The work can include mapping the process, connecting services, testing outputs, recording failures and showing your team how to use the solution. Monitoring and ongoing support are scoped to the implementation.",
-          "Describe one repeated task in the contact form. Tell us how you do it now and what you would like to happen instead.",
-          "For more engineering background, read about [planning and maintaining an application](/software/architecture/)."
+          "Before deployment, we check the AI application against an agreed set of examples, including incomplete and unusual ones. We assess data accuracy, whether the source of an answer can be traced and whether approval works as intended. The results help determine which tasks can run automatically and which still need review.",
+          "We estimate model and infrastructure costs for the expected number of documents or enquiries. We agree how to monitor errors and service usage, who will maintain the solution and what needs retesting when the model, documents or connected systems change.",
+          "We hand over the application with the agreed access and documentation. We show your team how to review results, make corrections and handle errors. For more on developing the solution over time, read about [planning and maintaining an application](/software/architecture/).",
+          "In your [message to us](/contact/?about=AI%20in%20your%20business), describe one task, the tools you use and the result you want. Indicate the types of material involved and the decisions that need approval. We use this to establish which examples and access are needed to assess the scope."
         ]
       }
     ],
@@ -210,36 +209,32 @@
   "software/integrations": {
     "sections": [
       {
-        "title": "Let your existing tools exchange information",
-        "subtitle": "Without copying the same data again.",
+        "title": "Integrating the tools your business uses",
+        "subtitle": "Exchanging data between systems without entering the same information again.",
         "paragraphs": [
-          "A website form can create an enquiry in your customer system. A shop can pass order and payment information to another service. A completed task can update a report or notify the person responsible.",
-          "We first check which connections the existing products support. Where their built-in features are enough, we use them. A custom integration fills the part that is missing."
+          "An integration passes data between tools that remain in use. A form can create an enquiry in a customer management system, a shop can send orders for fulfilment and a completed task can update a report. At Atomic Concept, we design the connection, implement it and check the full agreed data flow.",
+          "We first assess the available ways to exchange information: built-in connections, APIs, which let programs communicate, or file imports and exports. The options also depend on product versions, licences and access. We check these before proposing a built-in feature or a custom integration.",
+          "We can add one missing connection to an existing application or gradually extend a larger process. We agree whether data should arrive after each event or whether periodic updates are enough. The information can also feed [reports](/software/reporting/) or become part of [workflow automation](/software/automation/)."
         ]
       },
       {
-        "title": "Which data should be shared?",
-        "subtitle": "Agree a source of truth for each record.",
+        "title": "Matching records and handling retries",
+        "subtitle": "An example order integration that accounts for missing data and connection failures.",
         "paragraphs": [
-          "We decide where an order or customer record originates and which tools should receive a copy. We also agree where changes are made and how to match corresponding records.",
-          "Copying data alone is not always enough. We map fields and handle missing information. Useful [reports](/software/reporting/) or [workflow automation](/software/automation/) can be added around that connection."
+          "Suppose an online shop needs to send paid orders to a fulfilment management tool. The integration receives a payment notification, checks the order number and required details, then creates a fulfilment job. It saves the returned job number against the order so an employee can match the records in both tools.",
+          "We agree which system is the source for payment details, addresses and fulfilment status. We map fields and labels, such as different names for the same status. We also define what happens if an address is incomplete, a product has no matching entry or someone changes the data in both systems.",
+          "An external tool may be temporarily unavailable or send the same information again. We design duplicate checks and retry rules so receiving the same event again does not create another job. We agree how failed operations are flagged and resumed once the cause has been resolved.",
+          "We arrange access to the connected tools with the people responsible for them on your side. We define the permissions needed, which data is shared and where supporting information is stored. We separately agree who may view the operation history and who receives error notifications."
         ]
       },
       {
-        "title": "When a connection fails",
-        "subtitle": "The missing record should not disappear quietly.",
+        "title": "Launching and maintaining the connection",
+        "subtitle": "A checked data flow and agreed responsibility for keeping it running.",
         "paragraphs": [
-          "External systems sometimes time out or send the same information twice. We account for retries, duplicate records and errors when designing the integration.",
-          "Depending on the scope, we can keep a history of changes, flag records that need attention and provide a way to resume work after a failure. Your team should know what succeeded and what still needs checking."
-        ]
-      },
-      {
-        "title": "Extending an existing system",
-        "subtitle": "An integration does not have to replace your system.",
-        "paragraphs": [
-          "We can add one missing connection to an existing application or gradually improve a larger flow. Access, available interfaces and the condition of the current software determine what is possible.",
-          "Tell us which programs you use and where you currently re-enter or reconcile information. We will use that as the starting point.",
-          "For more engineering background, read about [server operations and data processing](/software/backend/)."
+          "Before launching the integration, we check successful data transfer, missing fields, a repeated event and a failed connection. We compare the results in both systems and verify recovery after an error. We agree acceptance criteria, update frequency and how to identify data that has not yet been transferred.",
+          "Operating costs may include product licences, charges for using their interfaces and the integration's infrastructure. Maintenance is agreed separately: who monitors errors, responds to changes in a provider's interface and checks the connection after a tool is updated. The integration needs that review when its dependencies change.",
+          "We hand over the agreed access, a description of the connection and instructions for handling failed operations. For more engineering background, read about [server operations and data processing](/software/backend/).",
+          "In your [message to us](/contact/?about=Integrations%20with%20existing%20systems), name the tools, the data to exchange and how you currently transfer or reconcile it by hand. Indicate who is responsible for access and how quickly information needs to reach the other system. We use this to establish which connections to check and what scope makes sense."
         ]
       }
     ],
@@ -248,36 +243,30 @@
   "software/custom-software": {
     "sections": [
       {
-        "title": "An application built around the way you work",
-        "subtitle": "Tasks for customers and your team in one system.",
+        "title": "An application for everyday work",
+        "subtitle": "Customers and employees can use one system with different permissions.",
         "paragraphs": [
-          "You may need a customer portal, a booking flow, a job management tool or an employee panel. An application stores records, tracks their status and makes them available to the appropriate people.",
-          "The first step is understanding the task. We check whether an existing product can do the job before recommending a custom system. If you mainly need to present an offer and receive enquiries, see [business websites](/software/websites/)."
+          "We build applications for businesses that need to store records, manage jobs and share information with the right people. The scope may include a customer portal, bookings, an employee panel or payments. We begin by discussing the tasks and checking whether an existing product can support them.",
+          "For example, a service business might need to accept requests with photographs. Customers see their own cases, employees receive assigned jobs and change their status, and a manager has an overview. We agree who can change a date, approve completed work and view documents. We adapt the scope to the actual workflow.",
+          "We can also extend existing software by adding a feature, connecting another tool or addressing confirmed performance problems. If your main need is to present your offer and receive customer enquiries, [business websites](/software/websites/) may be the appropriate scope."
         ]
       },
       {
-        "title": "Delivering the whole application",
-        "subtitle": "From the screen to the information behind it.",
+        "title": "Data, features and exceptions",
+        "subtitle": "We check agreed tasks together with permissions and error handling.",
         "paragraphs": [
-          "A usable interface, stored data, access permissions, payments and external services need to work together. Atomic Concept can handle those parts as one project, including testing and deployment.",
-          "We also work on existing software. A new feature, an integration or a performance improvement may be a better next step than starting again."
+          "The project covers the parts that need to work together: screens, stored data, sign-in and the agreed payments and external service connections. We define required information and permitted changes. Data validation and access controls also need to work within the system, independently of what a form displays.",
+          "We check operation on phones, clear messages and failed actions. What happens when a connection drops, someone clicks a button twice or a payment is delayed? For the agreed features, we define the expected behaviour and how users can recover their work. Our article on [user interfaces](/software/frontend/) explains screen design in more detail.",
+          "Where it helps the task, an application can include AI, such as an initial reading of a request or a search of permitted materials. We agree what data the model can access, how responses are evaluated and where a person needs to approve the result. That feature needs integration, testing and error handling just like the rest of the system."
         ]
       },
       {
-        "title": "Fast and comfortable to use",
-        "subtitle": "Because real life is not perfect.",
+        "title": "From scope to handover",
+        "subtitle": "Acceptance covers the workflow, data and readiness for launch.",
         "paragraphs": [
-          "A good application is one that helps the user. We pay attention to mobile screens, loading time, clear feedback and what happens when a request fails.",
-          "A customer should not have to guess whether a form was sent or lose everything after an unsuccessful attempt. We include those situations in the design and testing of the agreed features."
-        ]
-      },
-      {
-        "title": "Easy and understandable project maintenance",
-        "subtitle": "Leave room for the next change.",
-        "paragraphs": [
-          "We keep the structure of the source code clear and document the parts needed to run and develop the application. That also helps if you choose another development team in the future.",
-          "We agree the handover, hosting and support arrangements as part of the project. Start by describing who will use the solution and what they need to accomplish.",
-          "For more engineering background, read about [the user interface](/software/frontend/)."
+          "Before work starts, we agree the users, core tasks, data sources and boundaries of the first version. We record acceptance criteria through concrete examples: who takes an action, what the system stores and what result the user sees. When existing data needs to be moved, we separately agree its preparation, a trial import and verification.",
+          "We test the application against agreed scenarios, including invalid data and attempts to access information without permission. We agree the deployment setup, service accounts, administrative access and required monitoring. Data storage and backup arrangements are chosen for the project and confirmed before launch.",
+          "We hand over the agreed code and documentation needed to run and develop the application. We define responsibility for updates, bug reports and changes after launch; maintenance can be a separately agreed scope. To start, [get in touch](/contact/?about=Custom%20applications%20and%20business%20systems) and tell us who will use the application, which task is difficult today and which tools it needs to work with."
         ]
       }
     ],
@@ -286,35 +275,30 @@
   "software/websites": {
     "sections": [
       {
-        "title": "What should a customer find on your website?",
-        "subtitle": "An offer they can understand and easily ask about.",
+        "title": "Your offer and enquiries",
+        "subtitle": "A website helps customers understand a service and send an enquiry.",
         "paragraphs": [
-          "A business website can explain your services, show selected work and make contact straightforward. We start by asking why a person would visit and what they should be able to do next.",
-          "We organise pages and content around those questions. For example, a service business might need separate service descriptions, its coverage area, selected work and an enquiry form."
+          "We build websites for businesses that want to explain their services, show selected work and make contact straightforward. We start by agreeing who your services are for, what customers ask and what a visitor should be able to do. This determines the pages, content and enquiry process.",
+          "For example, an installation business might need separate service descriptions, its coverage area, photographs of completed work and a form. Someone interested in an installation selects the service, checks the requirements and sends a description of their request. We agree what information the form needs and who should receive the message.",
+          "Before development, we agree the page list, the scope of content preparation and the form functions. You review photographs, project descriptions and company information for accuracy. Additional languages, moving content from an old site or connecting a form to another tool are included in the scope where needed."
         ]
       },
       {
-        "title": "Clear on a phone and a computer",
-        "subtitle": "Without unnecessary waiting or a shifting layout.",
+        "title": "Readable, accessible content",
+        "subtitle": "Content, navigation and forms also work on small screens.",
         "paragraphs": [
-          "We pay attention to loading speed, readable text and reserved space for images. Forms and navigation are checked on small screens as well as desktop.",
-          "If you need several languages, we prepare distinct URLs and complete content for each version. A site can remain static when you do not need server-dependent features."
+          "We design readable text, navigation and image layouts for phones and computers. We check loading speed, keyboard navigation and form messages. Visitors should know which field needs correcting and whether their enquiry has been accepted for sending; we also agree how to handle a message delivery failure.",
+          "If the site needs several languages, we prepare separate URLs and complete content for each agreed version. We check the links and forms in each language too. A website can be static if its functions do not require a separate system for processing records and user accounts.",
+          "We prepare titles, descriptions, structured data, links between pages and a sitemap. We make key information available in content that can be read without running scripts. This helps search and AI systems read your offer; Google positions and model recommendations also depend on factors outside the website and are not guaranteed."
         ]
       },
       {
-        "title": "Content that search and AI systems can read",
-        "subtitle": "Start with a clear offer and sound technical foundations.",
+        "title": "Launch and handover",
+        "subtitle": "We agree how the website will be managed before it goes live.",
         "paragraphs": [
-          "We prepare titles, descriptions, structured data, links between pages and a sitemap. Important information should also be available without running scripts.",
-          "These measures make the content easier to read and understand. They do not guarantee a Google position or a recommendation from an AI model. Real work examples and useful answers for customers still matter."
-        ]
-      },
-      {
-        "title": "Deployment and future changes",
-        "subtitle": "Keep the parts you already have.",
-        "paragraphs": [
-          "We can use your existing domain, email and hosting, or agree a new publishing setup. We also decide who will update the content and how they will do it.",
-          "If you need customer accounts or job management as well as an offer website, see [applications and systems](/software/custom-software/). A form can also [connect to your existing customer system](/software/integrations/)."
+          "On the preview version, we check the agreed pages, content, links and forms. You can follow the customer journey from choosing a service to receiving a test enquiry. Before launch, we confirm company details, message recipients and materials, as well as redirects for important old URLs when replacing a site.",
+          "We can use your existing domain, email and hosting or agree on a different publishing setup. We agree whose accounts will hold the services, what access is needed and who will update the content. Handover includes the agreed files and operating instructions; future changes, updates and monitoring require an agreed scope of support.",
+          "If you need customer accounts or job management, see [applications and systems](/software/custom-software/). We can also [connect a form to your existing customer service system](/software/integrations/). To start, [get in touch](/contact/?about=Business%20websites) with your current website address, main services and the change you want to make. This gives us a basis for proposing the scope."
         ]
       }
     ]
@@ -322,35 +306,32 @@
   "software/automation": {
     "sections": [
       {
-        "title": "Which task do you repeat every day?",
-        "subtitle": "Map what starts the work and what should happen next.",
+        "title": "Automating repeated tasks",
+        "subtitle": "Tasks, reminders and approvals carried out according to agreed rules.",
         "paragraphs": [
-          "A new enquiry can create a task for the right person, receive a reference number and trigger an acknowledgement. An approaching deadline can prompt a reminder, while completed work can update an order status.",
-          "These are examples of possible workflows. We first examine how your team works and choose one useful part to improve."
+          "We automate workflows in which a specific event starts a sequence of actions. A new enquiry can create a task, an approaching deadline can trigger a reminder and completed work can update a job status. At Atomic Concept, we map the workflow, implement it, check it and hand it over for use.",
+          "We start with one task your team carries out regularly. We establish what starts it, which information it needs and how to tell when it is complete. The analysis produces a proposed scope describing the steps, conditions, responsible people and method of checking that it works.",
+          "Automation does not have to use AI. A fixed rule is enough to assign an enquiry according to the selected service, for example. [AI](/software/ai-automation/) can be added when a free-text description needs interpreting. We also check the built-in features of your existing tools before proposing an additional solution."
         ]
       },
       {
-        "title": "Clear rules for the next step",
-        "subtitle": "Each step has a condition and an expected result.",
+        "title": "From a request to a completed task",
+        "subtitle": "An example workflow with explicit conditions and exception handling.",
         "paragraphs": [
-          "We agree where an enquiry comes from, which information is required, who should receive the task and what happens when something is missing. The process can include approval by a person.",
-          "Not every automation needs AI. When a fixed rule is enough, a simpler solution can be easier to verify and maintain. [AI](/software/ai-automation/) can help with tasks that require interpreting free text."
+          "Suppose a business receives service requests through a form. Submitting the form triggers a check of the required fields, assigns a reference number and creates a task for the person responsible for that service. The customer receives an acknowledgement and the employee sees the details needed to begin handling the request.",
+          "If the work requires a manager's approval, the workflow pauses at that stage. It takes the next agreed step only after a decision. No response within a defined period can trigger a reminder. We agree who may approve, reject or reopen a request.",
+          "We also define when the workflow should stop: missing information, a resubmitted request or an unavailable system. We agree when to retry and how to recognise that a task has already been created. An employee should be able to check why the workflow stopped and resume work once the issue is resolved.",
+          "Access to requests and actions follows the roles in your team. We also define which information is shared between tools and who receives error notifications. If you only need data exchange, [system integrations](/software/integrations/) may be the appropriate starting point."
         ]
       },
       {
-        "title": "Plan for exceptions too",
-        "subtitle": "Missing data and errors need a clear notification.",
+        "title": "Checking and handing over the automation",
+        "subtitle": "Your team knows how to use the automation and what to do when it needs attention.",
         "paragraphs": [
-          "We consider duplicate enquiries, unavailable systems and missed deadlines. Depending on the task, an operation can be retried or passed to a person to check.",
-          "We agree who should see an error and how to resume the process. Your team should know which tasks completed and which still need attention."
-        ]
-      },
-      {
-        "title": "Start with one process",
-        "subtitle": "Expand after checking it works.",
-        "paragraphs": [
-          "Before implementation, we agree the scope, running cost and way to check the result. We use built-in product features where they are enough for the task.",
-          "Describe the steps you follow and the tools between which you move information. If you only need data exchange, see [system integrations](/software/integrations/)."
+          "Before launch, we check the agreed workflow and its exceptions: an incomplete request, a rejected approval, a duplicate and a failed connection. We verify that tasks reach the right people and that retrying does not repeat an operation. The acceptance criteria come from the workflow description.",
+          "We establish the licence, service usage and infrastructure costs needed to run the solution. We separately agree maintenance, how to report issues and who is responsible for rule changes. Changes to a form, permissions or a connected tool may require the automation to be checked again.",
+          "Handover includes the agreed access, a description of the workflow and guidance on handling exceptions. We show your team where to check a task's status and how to pause or resume the workflow in the situations it supports. Further stages can be added after assessing the first part in use.",
+          "In your [message to us](/contact/?about=Workflow%20automation%20for%20your%20business), describe the steps you carry out, the tools you use and the result you want. Include what starts the workflow, who approves decisions and where manual intervention is most often needed. This helps establish the initial scope and access required."
         ]
       }
     ]
@@ -358,35 +339,86 @@
   "software/reporting": {
     "sections": [
       {
-        "title": "Which information do you need to run the business?",
-        "subtitle": "Choose the question before the chart.",
+        "title": "A report for a decision",
+        "subtitle": "We start with a question, an audience and the information they need.",
         "paragraphs": [
-          "How many orders are waiting? Which payments are overdue? How are sales distributed across services? These are the kinds of questions we use to plan a report.",
-          "We choose the information you actually use. The result might be a recurring email, a spreadsheet or a dashboard in your browser."
+          "We prepare reports for business owners and people who regularly combine data from a shop, payments, a customer service system or spreadsheets. The result can be a recurring email, a spreadsheet or a browser dashboard. The format follows who uses the information and which decision it needs to support.",
+          "For example, a shop owner might want to check each morning which paid orders are still awaiting dispatch. The report would match payment and fulfilment status by order number, showing the waiting time and last update. Returns, partial payments and cancelled orders each need agreed treatment.",
+          "We shape the scope around the questions you need answered. Your starting point may be one report for one person. We agree its columns, filters and delivery method before extending the scope to further sources or views."
         ]
       },
       {
-        "title": "One report from several sources",
-        "subtitle": "Without manually combining the data each time.",
+        "title": "Sources and metric definitions",
+        "subtitle": "Each measure has an agreed definition, reporting period and update frequency.",
         "paragraphs": [
-          "We can bring together information from your shop, payments, customer system or spreadsheets. First we check data access and how to match records about the same customer or job.",
-          "Where a connection is missing, we can build an [integration](/software/integrations/). You do not have to replace the tools your team uses to start reporting."
+          "We check where data can be retrieved and how to identify records about the same case. We agree what amounts, dates and statuses mean, including whether sales include returns and tax. Where a connection between tools is missing, we can build an [integration](/software/integrations/) while keeping your existing software in use.",
+          "The report shows the period it covers and its update status. We agree how to flag missing records, delayed sources and failed data retrieval. Missing payment information should not automatically become a zero amount. We also define whether recipients see the last successful result with a warning or whether the report is withheld until the error is resolved.",
+          "Access follows the recipient's role. An owner may see the full summary, while an employee sees only assigned cases. For dashboards, we agree sign-in and permissions; for distributed reports, we agree the recipients. Before connecting sources, we define the required read permissions, where data will be stored and deletion arrangements appropriate to the project."
         ]
       },
       {
-        "title": "Know where the number came from",
-        "subtitle": "And when it was last updated.",
+        "title": "Validation and launch",
+        "subtitle": "We compare the first version with source data before regular use.",
         "paragraphs": [
-          "We agree what each measure means, its source and the update frequency. A report should clearly show the period it covers and whether all information was retrieved.",
-          "Incomplete or outdated information needs to be marked. Before deployment, we compare the results with the sources and check cases that could distort the summary."
+          "To define the scope, we need your current report or a description, the business question and a list of sources. You can start with a sample that has personal data removed. Once the needs are clear, we agree a secure way to grant access. We also agree who on your side will confirm the meaning of the data and the accuracy of the result.",
+          "During acceptance, we compare selected periods and records against the source material. We check agreed cases such as duplicates, missing identifiers, corrections and an unavailable source. We confirm metric definitions, the refresh schedule and permissions. This allows the result to be assessed against known data before the recurring report is switched on.",
+          "At launch, we hand over the agreed metric descriptions and operating instructions. Monitoring updates, reporting failures and adapting to source changes are defined within the maintenance scope. If you also need to record jobs and move them through successive stages, see [applications and systems](/software/custom-software/). To start, [get in touch](/contact/?about=Business%20reports%20and%20dashboards) with the report you prepare by hand and the decision it supports."
+        ]
+      }
+    ]
+  },
+  "software/fullstack": {
+    "title": "Full-stack engineering",
+    "sections": [
+      {
+        "title": "Scope and technologies",
+        "subtitle": "Backend, frontend and integrations within one project.",
+        "paragraphs": [
+          "The work includes server logic, data models, user interfaces and connections to external services. We can develop one area of a product or carry a change through every application layer. In an existing project, we first review its architecture, contracts and release process."
+        ],
+        "facts": [
+          {
+            "term": "Backend",
+            "detail": "Node.js, TypeScript, REST APIs, Zod, asynchronous jobs and webhooks."
+          },
+          {
+            "term": "Data",
+            "detail": "PostgreSQL, SQL, Prisma, transactions and schema migrations."
+          },
+          {
+            "term": "Frontend",
+            "detail": "React, Next.js, TanStack Query, MUI, responsive layouts and Core Web Vitals."
+          },
+          {
+            "term": "Integrations",
+            "detail": "Stripe, Shopify, OAuth 2.0, authentication, authorisation and API keys."
+          },
+          {
+            "term": "AI",
+            "detail": "Model integrations, structured output, MCP, provider error handling and cost control."
+          },
+          {
+            "term": "Tests and deployment",
+            "detail": "Vitest, Playwright, GitHub Actions, Docker, Vercel, Cloudflare, logs and monitoring."
+          }
         ]
       },
       {
-        "title": "Information for the people who need it",
-        "subtitle": "With an appropriate level of access.",
+        "title": "Architecture and reliability",
+        "subtitle": "Explicit data contracts and controlled side effects.",
         "paragraphs": [
-          "An owner may need a company-wide summary while an employee needs their own jobs. If we build a dashboard, we also agree how people sign in and what they may see.",
-          "Tell us which report you prepare by hand and which decision it supports. If you also need to record jobs and manage the work itself, see [applications and systems](/software/custom-software/)."
+          "Application modules follow responsibilities and business processes. In larger systems, we use DDD and separate write operations from queries through CQRS. Not every project needs this structure. What matters is that module boundaries are clear and a change in one area does not cause unrelated changes elsewhere.",
+          "Shared TypeScript contracts and Zod schemas describe API inputs and responses. We can generate data transfer object (DTO) types from the Prisma schema and check that validation and responses match them during compilation and CI. Incoming data still needs runtime validation even when the frontend and backend share the same types.",
+          "Integrations account for retries, duplicates and partial failures. A payment webhook should not apply the same operation twice. Related data changes belong in a transaction; emails and other external effects follow its commit. Background jobs need execution control, an error history and a way to resume."
+        ]
+      },
+      {
+        "title": "From code change to deployment",
+        "subtitle": "Review, tests and verification of the running release.",
+        "paragraphs": [
+          "Before implementation, we agree the behaviour and how to verify it. Changes go through type checking, code review and tests appropriate to the risk: unit, integration or end-to-end. We also check permissions, invalid input, form behaviour and the effect of a failed request.",
+          "The release process includes environment configuration, migration checks, deployment and verification of the running version. We agree a rollback approach and how to observe errors after release. Logs should connect a problem with the operation, environment and application version.",
+          "When coding agents are involved, tasks, context and change boundaries are defined in advance. Generated code goes through the same review and tests as any other change. Contract work can cover an independent task, module development or ongoing technical support for a product. To define the scope, describe the current system, the change you need and any important technical constraints."
         ]
       }
     ]

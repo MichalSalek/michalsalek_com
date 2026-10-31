@@ -10,7 +10,8 @@ import { AppLinkAtom } from '@/src/UI/components/AppLink.atom';
 import type { SitePageProps } from '@/src/content/load-page';
 import { GoToContactFormMolecule } from './GoToContactForm.molecule';
 import { RichTextAtom } from './RichText.atom';
-import { site, primaryServices, relatedServices } from '@/src/content/site.mjs';
+import { EngineeringPageOrganism } from './EngineeringPage.organism';
+import { site, relatedServices } from '@/src/content/site.mjs';
 import studio from '@/src/UI/assets/music_studio.jpg';
 import drumset from '@/src/UI/assets/drumset.jpg';
 
@@ -22,6 +23,7 @@ const heroes = {
 };
 
 export default function SitePage({path, title, cards, artwork, sections, messages, navigation, intro}: SitePageProps) {
+    if (path === '/software/fullstack/') return <EngineeringPageOrganism title={title} intro={intro} sections={sections}/>;
     if (path === '/' || path === '/sound/') return <>
         <RootCardOrganism version={path === '/' ? 'software' : 'sound'} cards={cards} intro={intro}/>
         {sections.length > 0 && <Container>{sections.map(section => <ContentBlockOrganism key={section.title} title={section.title} subtitle={section.subtitle} body={<>{section.paragraphs.map(text => <p key={text}><RichTextAtom text={text}/></p>)}</>}/>)}</Container>}
@@ -38,8 +40,7 @@ export default function SitePage({path, title, cards, artwork, sections, message
     </Container>;
     const hero = heroes[path as keyof typeof heroes];
     const prefix = path.startsWith('/sound/') ? '/sound/' : '/software/';
-    const primary = primaryServices.includes(path);
-    const links = navigation.filter(link => link.path.startsWith(prefix) && link.path !== path && (primary ? relatedServices[path]?.includes(link.path) : !primaryServices.includes(link.path)));
+    const links = navigation.filter(link => relatedServices[path] ? relatedServices[path]?.includes(link.path) : link.path.startsWith(prefix) && link.path !== path);
     return <ArticleComposition title={title} links={links}>
         {artwork ? <ServiceArtworkAtom asset={artwork} variant="hero" priority/> : hero && <HeroMolecule {...hero} alt={title}/>}
         {sections.map(section => <ContentBlockOrganism key={section.title} title={section.title} subtitle={section.subtitle}

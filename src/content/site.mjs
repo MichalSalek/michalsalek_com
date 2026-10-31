@@ -8,9 +8,10 @@ export const site = {
 };
 
 // Public routes, sitemap, language links and export checks share this registry.
-export const routes = ['/', '/software/architecture/', '/software/backend/', '/software/frontend/', '/sound/', '/sound/studio/', '/sound/soundtracks/', '/contact/', '/sitemap/', '/software/ai-automation/', '/software/integrations/', '/software/custom-software/', '/software/websites/', '/software/automation/', '/software/reporting/'];
+export const routes = ['/', '/software/architecture/', '/software/backend/', '/software/frontend/', '/sound/', '/sound/studio/', '/sound/soundtracks/', '/contact/', '/sitemap/', '/software/ai-automation/', '/software/integrations/', '/software/custom-software/', '/software/websites/', '/software/automation/', '/software/reporting/', '/software/fullstack/'];
 
 export const primaryServices = ['/software/ai-automation/', '/software/automation/', '/software/integrations/', '/software/websites/', '/software/custom-software/', '/software/reporting/'];
+export const additionalServices = ['/software/fullstack/', '/sound/'];
 
 export const relatedServices = {
     '/software/ai-automation/': ['/software/automation/', '/software/custom-software/'],
@@ -19,6 +20,9 @@ export const relatedServices = {
     '/software/websites/': ['/software/custom-software/', '/software/integrations/'],
     '/software/custom-software/': ['/software/integrations/', '/software/reporting/'],
     '/software/reporting/': ['/software/integrations/', '/software/custom-software/'],
+    '/software/architecture/': ['/software/backend/', '/software/frontend/'],
+    '/software/backend/': ['/software/architecture/', '/software/frontend/'],
+    '/software/frontend/': ['/software/architecture/', '/software/backend/'],
 };
 
 export function localePath(locale, path = '/') {

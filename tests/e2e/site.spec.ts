@@ -12,6 +12,10 @@ for (const locale of site.locales) for (const path of routes) {
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
         expect(await page.locator('a a, a button, button a, a [role="button"], a [tabindex="0"], p p').count()).toBe(0);
         await expect(page.locator('main a[href*="github.com"]')).toHaveCount(0);
+        if (path.startsWith('/software/') && path !== '/software/fullstack/') {
+            await expect(page.locator('.content-section')).toHaveCount(3);
+            await expect(page.locator('.related-services .link-button')).toHaveCount(2);
+        }
         expect(errors).toEqual([]);
     });
 }
@@ -63,11 +67,23 @@ test('contact mode is explicit and delivery feedback reflects the service respon
     }
 });
 
-test('software owns the homepage while sound stays separately accessible', async ({page}) => {
+test('the homepage ends with a separate full-stack and sound row', async ({page}) => {
     await page.goto('/');
-    await expect(page.locator('main .service-card')).toHaveCount(6);
-    await expect(page.locator('main .service-card[href*="/sound/"]')).toHaveCount(0);
-    await page.locator('footer').getByRole('link', {name: 'Sound services'}).click();
+    await expect(page.locator('main .service-card')).toHaveCount(8);
+    const additional = page.locator('.additional-services .service-card');
+    await expect(additional).toHaveCount(2);
+    await expect(additional.nth(0)).toHaveAttribute('href', '/software/fullstack/');
+    await expect(additional.nth(1)).toHaveAttribute('href', '/sound/');
+    if (test.info().project.name === 'desktop') {
+        const first = await additional.nth(0).boundingBox();
+        const second = await additional.nth(1).boundingBox();
+        expect(first!.y).toBe(second!.y);
+    }
+    await additional.nth(0).click();
+    await expect(page.getByRole('heading', {level: 1})).toHaveText('Full-stack engineering');
+    await expect(page.locator('.technical-stack')).toBeVisible();
+    await page.goto('/');
+    await page.locator('.additional-services .service-card').last().click();
     await expect(page.locator('main .service-card')).toHaveCount(2);
 });
 
@@ -76,9 +92,13 @@ test('static content and language links work without JavaScript', async ({browse
     const page = await context.newPage();
     await page.goto('http://127.0.0.1:4318/pl/software/backend/');
     await expect(page.getByRole('heading', {name: 'Backend i logika aplikacji', exact: true})).toBeVisible();
-    await expect(page.getByText('Na każdym etapie', {exact: false})).toBeVisible();
+    await expect(page.locator('.article-copy').first()).toBeVisible();
+    await expect(page.locator('.article-copy').first()).toContainText('backend');
     await page.getByRole('link', {name: 'EN: Switch language to English'}).click();
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+    await page.goto('http://127.0.0.1:4318/pl/software/fullstack/');
+    await expect(page.locator('.technical-stack')).toBeVisible();
+    await expect(page.locator('.technical-stack')).toContainText('Node.js');
     await page.goto('http://127.0.0.1:4318/pl/contact/');
     await expect(page.getByRole('link', {name: site.email})).toBeVisible();
     await expect(page.locator('button[type="submit"]')).toBeDisabled();
@@ -117,10 +137,10 @@ test('the original card treatment keeps readable controls, discreet credits and 
     await expect(credit).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
 });
 
-test('service illustrations load and select a localized mobile detail', async ({page}) => {
+test('light service illustrations load and article content has no simulated controls', async ({page}) => {
     await page.goto('/pl/');
     const thumbnails = page.locator('.service-artwork-card img');
-    await expect(thumbnails).toHaveCount(6);
+    await expect(thumbnails).toHaveCount(8);
     for (const image of await thumbnails.all()) {
         await image.scrollIntoViewIfNeeded();
         await expect(image).toHaveJSProperty('naturalWidth', 1200);
@@ -128,12 +148,9 @@ test('service illustrations load and select a localized mobile detail', async ({
     }
     for (const locale of site.locales) {
         await page.goto(localePath(locale, '/software/ai-automation/'));
-        const image = page.locator('.service-artwork-hero img');
-        const mobile = page.viewportSize()!.width < 600;
-        await expect(image).toHaveJSProperty('naturalWidth', mobile ? 600 : 1200);
-        expect(await image.evaluate(node => (node as HTMLImageElement).currentSrc)).toContain(`ai-${locale}-`);
-        expect(await image.evaluate(node => (node as HTMLImageElement).currentSrc)).toContain(mobile ? '-mobile.' : '-detail.');
-        await expect(image).toHaveAttribute('alt', new RegExp(locale === 'pl' ? '^Przykładowy interfejs:' : '^Example interface:'));
+        await expect(page.locator('.service-artwork-hero')).toHaveCount(0);
+        await expect(page.locator('.content-section')).toHaveCount(3);
+        await expect(page.locator('.content-section .article-copy').first()).toHaveCSS('text-indent', '32px');
     }
 });
 

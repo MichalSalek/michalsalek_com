@@ -47,14 +47,39 @@ URLs to unrelated new pages. Preserve separate audio services under `/sound/`.
 The enquiry should start with the task, current tools and desired result. No instant
 quotes or automatic commitments. English and Polish carry the same scope.
 
+The final homepage row links to full-stack engineering and sound services. The
+full-stack page is a technical overview for engineering teams and people assessing
+technical cooperation. It can name technologies and explain contracts, architecture,
+tests and delivery, without publishing private project identities or a personal CV.
+
+## Article pattern
+
+Keep at most three main sections per service article. Define the scope early,
+show a concrete possible workflow, explain relevant data or failure cases, then
+describe preparation, acceptance and handover. Consolidate overlapping topics
+rather than adding another heading. Each section must make sense independently.
+Examples are hypothetical, never invented customer evidence. Preserve useful
+original ideas and keep the languages aligned in meaning and commitments.
+
+Expand practical information where it helps a reader decide. Do not pad the copy
+to reach a word count, repeat search phrases or turn a service offer into a
+misleading tutorial. AI application development includes both new applications
+and AI features added to existing software. Explain data access, human review and
+verification alongside the example. Paragraph indentation is defined in DESIGN.md.
+
+See [Google's generative AI search guidance](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide)
+and [AI features documentation](https://developers.google.com/search/docs/appearance/ai-features).
+Useful public content, discoverability and technical search foundations remain
+the basis; adding length or special AI text files does not guarantee visibility.
+
 ## Visual boundary
 
 Reuse the original components and design described in `DESIGN.md`. Content work
 must not introduce new card effects, decorative captions or badges. The homepage
 introduction has an explicit owner-requested heading/body layout and emphasis;
-keep it structured. The selected C + E system uses flat service scenes and
-localized interface examples, generated as lightweight SVGs. Keep a light central
-document against the indigo background. New directions need approval.
+keep it structured. Card scenes use sparse linework on light neutral backgrounds,
+without large indigo fields or diagonal divisions. Interface-like article heroes
+have been removed. New article artwork stays in preview until selected.
 
 ## Evidence boundary
 
