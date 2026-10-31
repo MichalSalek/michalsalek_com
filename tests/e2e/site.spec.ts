@@ -78,6 +78,10 @@ test('the homepage ends with a separate full-stack and sound row', async ({page}
         const first = await additional.nth(0).boundingBox();
         const second = await additional.nth(1).boundingBox();
         expect(first!.y).toBe(second!.y);
+        const firstColumn = await page.locator('.service-cards').first().locator('.service-card').nth(0).boundingBox();
+        const secondColumn = await page.locator('.service-cards').first().locator('.service-card').nth(1).boundingBox();
+        expect(first!.x).toBeCloseTo(firstColumn!.x, 1);
+        expect(second!.x).toBeCloseTo(secondColumn!.x, 1);
     }
     await additional.nth(0).click();
     await expect(page.getByRole('heading', {level: 1})).toHaveText('Full-stack engineering');

@@ -15,6 +15,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid #175bba; outline-offs
 @media (max-width: 899px) { .home-intro { grid-template-columns: 1fr; gap: 24px; } }
 @media (max-width: 599px) { .home-intro { padding: 0 16px; margin-top: 16px; } }
 .service-cards { display: flex; justify-content: center; align-items: stretch; flex-wrap: wrap; gap: 16px 32px; margin-bottom: 16px; width: 100%; max-width: 1200px; }
+.software-services { display: grid; grid-template-columns: repeat(auto-fill, minmax(0, min(375px, 100%))); }
 .service-cards:last-child { margin-bottom: 40px; }
 .technical-copy { max-width: 960px; }
 .article-copy { text-indent: 2rem; }

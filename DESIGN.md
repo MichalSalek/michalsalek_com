@@ -16,6 +16,8 @@ and reliable contact handling. These changes must respect the original appearanc
   deliberate desktop/mobile composition. Two bare paragraphs are insufficient.
 - Keep six main software cards, followed by a separate row with full-stack
   engineering and sound services, in that order. Preserve the original cards.
+  The final row starts in the same first and second columns as the rows above;
+  retain empty grid columns instead of centering its two cards as a separate group.
 - Service illustrations are sparse and context-specific on a light neutral
   background. No large indigo fields, diagonal backdrop divisions, gradients,
   blurred effects or clay-like rendering. The former C + E treatment was rejected

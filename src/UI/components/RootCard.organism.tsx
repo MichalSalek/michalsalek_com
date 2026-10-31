@@ -29,7 +29,7 @@ export default function RootCardOrganism({version, cards, intro = []}: {intro?: 
                 <AppLinkAtom className="intro-contact-link" href={`/contact/?about=${encodeURIComponent(messages.softwareCategory)}`}>{messages.introContact}<ArrowRightIcon/></AppLinkAtom>
             </div>
         </section>}
-        {groups.map((group, groupIndex) => <div className={`service-cards${groupIndex ? ' additional-services' : ''}`} key={groupIndex}>
+        {groups.map((group, groupIndex) => <div className={`service-cards${version === 'software' ? ' software-services' : ''}${groupIndex ? ' additional-services' : ''}`} key={groupIndex}>
         {group.map((card, index) => <ClickableCardMolecule key={card.path}
             {...images[card.path as keyof typeof images]} artwork={card.artwork} title={card.title}
             content={<>{card.paragraphs.map(text => <p key={text}><RichTextAtom text={text}/></p>)}</>}
