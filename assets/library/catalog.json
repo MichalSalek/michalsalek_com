@@ -264,29 +264,13 @@
     "alt": {
       "en": "Music studio",
       "pl": "Studio muzyczne"
-    }
-  },
-  {
-    "id": "audio-drums",
-    "kind": "photo",
-    "source": "photos/audio-drums.jpg",
-    "origin": "stock",
-    "credit": "Photo by Josh Sorenson on Unsplash",
-    "alt": {
-      "en": "Drum kit",
-      "pl": "Zestaw perkusyjny"
-    }
-  },
-  {
-    "id": "audio-mixing",
-    "kind": "photo",
-    "source": "photos/audio-mixing.jpg",
-    "origin": "stock",
-    "credit": "Photo by Tima Miroshnichenko",
-    "alt": {
-      "en": "Mixing and mastering studio",
-      "pl": "Studio miksu i masteringu"
-    }
+    },
+    "originUrl": "https://unsplash.com/photos/ptVBlniJi50",
+    "notes": "Original studio photograph restored from its 2400px source.",
+    "staticPlacements": [
+      "Card: /sound/studio/",
+      "Article hero: /sound/studio/"
+    ]
   },
   {
     "id": "audio-soundtracks",
@@ -297,7 +281,11 @@
     "alt": {
       "en": "Drums for original music production",
       "pl": "Perkusja do produkcji muzycznej"
-    }
+    },
+    "staticPlacements": [
+      "Card: /sound/soundtracks/",
+      "Article hero: /sound/soundtracks/"
+    ]
   },
   {
     "id": "legacy-molecules",

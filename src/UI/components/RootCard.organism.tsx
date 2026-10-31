@@ -1,7 +1,7 @@
 import StudioImage from '@/assets/library/photos/audio-studio.jpg';
 import { AppLinkAtom } from './AppLink.atom';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import DrumsImage from '@/assets/library/photos/audio-drums.jpg';
+import DrumsImage from '@/assets/library/photos/audio-soundtracks.jpg';
 import { ClickableCardMolecule } from '@/src/UI/components/clickable-card/ClickableCard.molecule';
 import Typography from '@mui/material/Typography';
 import { RichTextAtom } from './RichText.atom';
@@ -12,7 +12,7 @@ import { additionalServices } from '@/src/content/site.mjs';
 
 const images = {
     '/sound/studio/': {image: StudioImage, alt: {en: 'Music studio', pl: 'Studio muzyczne'}, credits: 'Photo by Caught In Joy on Unsplash'},
-    '/sound/soundtracks/': {image: DrumsImage, alt: {en: 'Drum kit', pl: 'Zestaw perkusyjny'}, credits: 'Photo by Josh Sorenson on Unsplash'},
+    '/sound/soundtracks/': {image: DrumsImage, alt: {en: 'Drum kit', pl: 'Zestaw perkusyjny'}, credits: 'Photo by ASBA DRUMS'},
 };
 
 export default function RootCardOrganism({version, cards, intro = []}: {intro?: string[]; version: 'software' | 'sound'; cards: ServiceCard[]}) {

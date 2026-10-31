@@ -13,13 +13,13 @@ import { RichTextAtom } from './RichText.atom';
 import { ArticleBodyMolecule } from './ArticleBody.molecule';
 import { EngineeringPageOrganism } from './EngineeringPage.organism';
 import { site, relatedServices } from '@/src/content/site.mjs';
-import studio from '@/assets/library/photos/audio-mixing.jpg';
+import studio from '@/assets/library/photos/audio-studio.jpg';
 import drumset from '@/assets/library/photos/audio-soundtracks.jpg';
 
 const ContactFormOrganism = dynamic(() => import('@/src/UI/components/ContactForm.organism'));
 
 const heroes = {
-    '/sound/studio/': {image: studio, credits: 'Photo by Tima Miroshnichenko'},
+    '/sound/studio/': {image: studio, credits: 'Photo by Caught In Joy on Unsplash'},
     '/sound/soundtracks/': {image: drumset, credits: 'Photo by ASBA DRUMS'},
 };
 

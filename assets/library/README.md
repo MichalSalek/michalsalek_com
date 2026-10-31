@@ -20,9 +20,14 @@ their earlier raster versions remain available as reserves.
 Generated photographs depict illustrative scenarios, not delivered client projects.
 Stock images retain their existing credits. The low-resolution legacy planning
 photograph is a reserve and should not be enlarged. The former frontend and
-wireframe photographs with hands have been excluded. The legacy backend workspace
+wireframe photographs with hands have been excluded, along with the drummer and
+mixing photographs showing people. The legacy backend workspace
 is retained as an approved fallback.
 
 Keep new media tied to a specific service or paragraph. Avoid adding copy solely
 to make room for an unrelated image. Keep photographs free of people and server
 equipment, and illustrations in the indigo/grey palette.
+
+The original [Caught In Joy studio photograph](https://unsplash.com/photos/ptVBlniJi50)
+has been restored from its 2400px source. `staticPlacements` records the existing
+audio components that import source photographs directly.

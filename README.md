@@ -54,12 +54,15 @@ redirects permanently to `/` on production.
 - Shared page rendering: `src/UI/components/SitePage.tsx`.
 - Visual constraints: [DESIGN.md](DESIGN.md).
 
-Service artwork is generated from `src/content/visuals.mjs` and the
-localized `visuals` descriptions. Both `dev` and `build` generate the SVGs automatically.
-After editing illustration descriptions during a dev session, run
-`npm run generate:visuals` again. Generated files in `public/service-visuals/` are
-not tracked. Their URLs contain content hashes. Replacement article artwork is
-reviewed before publication; interface-like hero illustrations are not used.
+Source photographs, illustrations and reusable reserves live in the tracked
+[asset library](assets/library/README.md). Current placements are selected in
+`src/content/media-plan.mjs`; `npm run generate:visuals` creates responsive,
+content-hashed WebP variants and copies native SVG explainers. Both `dev` and
+`build` run this step automatically. Generated files in `public/service-visuals/`
+are not tracked, and reserve sources are not exported to the website.
+
+`npm run assets:preview` opens the source catalogue at http://localhost:4325.
+After changing the catalogue or placements, run `npm run assets:catalog`.
 
 The homepage ends with full-stack engineering and sound services. The technical
 overview is at `/software/fullstack/`. Service articles use at most three main

@@ -43,8 +43,9 @@ and reliable contact handling. These changes must respect the original appearanc
   `src/content/media-plan.mjs`; `npm run generate:visuals` exports only selected
   assets, with localized alt text and content-hashed responsive image variants.
   Small inline explainers are SVGs. Avoid blurred placeholders and raster upscaling.
-  Exclude the former frontend and wireframe photographs showing hands; the old
-  backend workspace remains a specifically approved reserve.
+  Exclude photographs showing hands, including the former frontend, wireframe,
+  drummer and mixing photographs. The old backend workspace remains a specifically
+  approved reserve.
 - The full-stack page uses a concise technical reference format: technologies,
   architecture and delivery practices, without a personal biography, marketing
   claims or code dumps. Stack tables become labelled rows on small screens.

@@ -27,10 +27,8 @@ Generated from catalog.json and src/content/media-plan.mjs with npm run assets:c
 | [legacy-backend](photos/legacy-backend.jpg) | 7360 x 4912 | Reserve | Image by frimufilms on Freepik |
 | [legacy-code](photos/legacy-code.jpg) | 3936 x 2214 | Reserve | Photo by Daria Nepriakhina on Unsplash |
 | [legacy-planning](photos/legacy-planning.jpg) | 640 x 427 | Reserve | Image by pressfoto on Freepik |
-| [audio-studio](photos/audio-studio.jpg) | 640 x 427 | Reserve | Photo by Caught In Joy on Unsplash |
-| [audio-drums](photos/audio-drums.jpg) | 640 x 427 | Reserve | Photo by Josh Sorenson on Unsplash |
-| [audio-mixing](photos/audio-mixing.jpg) | 6000 x 4000 | Reserve | Photo by Tima Miroshnichenko |
-| [audio-soundtracks](photos/audio-soundtracks.jpg) | 7744 x 5165 | Reserve | Photo by ASBA DRUMS |
+| [audio-studio](photos/audio-studio.jpg) | 2400 x 1600 | Card: /sound/studio/<br>Article hero: /sound/studio/ | Photo by Caught In Joy on Unsplash |
+| [audio-soundtracks](photos/audio-soundtracks.jpg) | 7744 x 5165 | Card: /sound/soundtracks/<br>Article hero: /sound/soundtracks/ | Photo by ASBA DRUMS |
 | [legacy-molecules](photos/legacy-molecules.jpg) | 3840 x 2160 | Reserve | Photo by Ashraful Islam on Unsplash |
 | [legacy-geometry](photos/legacy-geometry.jpg) | 3024 x 4032 | Reserve | stock |
 | [sound-wave](illustrations/sound-wave.svg) | 1200 x 800 | Card: /sound/ | vector |
