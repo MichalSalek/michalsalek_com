@@ -200,13 +200,26 @@
   {
     "id": "ai-document-extraction",
     "kind": "illustration",
+    "source": "illustrations/ai-document-extraction.svg",
+    "origin": "vector",
+    "credit": null,
+    "alt": {
+      "en": "Highlighted document fragments become checked structured data",
+      "pl": "Wyróżnione fragmenty dokumentu zamienione w sprawdzone dane"
+    },
+    "notes": "Vector rendition of the approved document-extraction scene; preserves sharp edges and reduces the opening image payload."
+  },
+  {
+    "id": "ai-document-extraction-raster",
+    "kind": "illustration",
     "source": "illustrations/ai-document-extraction.png",
     "origin": "generated",
     "credit": null,
     "alt": {
       "en": "Highlighted document fragments become checked structured data",
       "pl": "Wyróżnione fragmenty dokumentu zamienione w sprawdzone dane"
-    }
+    },
+    "notes": "Original generated scene retained as a reserve; active placements use the vector rendition."
   },
   {
     "id": "responsive-business-website",

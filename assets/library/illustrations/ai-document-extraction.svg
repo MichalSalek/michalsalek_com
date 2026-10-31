@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024" fill="none">
+  <title>Document fragments transferred to checked structured fields</title>
+  <path d="M182 190H566L650 274V792Q650 806 636 806H182Q168 806 168 792V204Q168 190 182 190Z" fill="#fff" stroke="#293744" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M566 190V264Q566 274 576 274H650" fill="#e8edf0" stroke="#293744" stroke-width="8" stroke-linejoin="round"/>
+  <g fill="#cdd4da">
+    <rect x="220" y="266" width="218" height="24" rx="4"/>
+    <rect x="220" y="320" width="144" height="24" rx="4"/>
+    <rect x="220" y="442" width="370" height="24" rx="4"/>
+    <rect x="220" y="494" width="370" height="24" rx="4"/>
+    <rect x="220" y="546" width="370" height="24" rx="4"/>
+    <rect x="220" y="708" width="190" height="24" rx="4"/>
+  </g>
+  <g fill="#e1e4f7">
+    <rect x="214" y="370" width="382" height="56" rx="5"/>
+    <rect x="214" y="626" width="252" height="56" rx="5"/>
+  </g>
+  <g fill="#1a237e">
+    <rect x="234" y="389" width="326" height="18" rx="3"/>
+    <rect x="234" y="645" width="196" height="18" rx="3"/>
+  </g>
+  <rect x="725" y="350" width="636" height="310" rx="8" fill="#fff" stroke="#293744" stroke-width="8"/>
+  <path d="M760 504H1322" stroke="#d7dce2" stroke-width="5"/>
+  <g fill="#cdd4da">
+    <rect x="760" y="424" width="180" height="24" rx="4"/>
+    <rect x="760" y="552" width="180" height="24" rx="4"/>
+  </g>
+  <g fill="#e1e4f7">
+    <rect x="976" y="408" width="316" height="56" rx="5"/>
+    <rect x="976" y="536" width="254" height="56" rx="5"/>
+  </g>
+  <g fill="#1a237e">
+    <rect x="998" y="427" width="270" height="18" rx="3"/>
+    <rect x="998" y="555" width="208" height="18" rx="3"/>
+    <circle cx="1374" cy="496" r="55" stroke="#fff" stroke-width="12"/>
+  </g>
+  <path d="M1348 496L1366 513L1402 477" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

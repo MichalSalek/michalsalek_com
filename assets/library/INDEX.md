@@ -22,7 +22,8 @@ Generated from catalog.json and src/content/media-plan.mjs with npm run assets:c
 | [record-access](illustrations/record-access.svg) | 600 x 300 | Article: /software/custom-software/ (section 2)<br>Article: /software/frontend/ (section 2)<br>Article: /software/ai-automation/ (section 2)<br>Article: /software/automation/ (section 2) | vector |
 | [missing-data](illustrations/missing-data.svg) | 600 x 300 | Article: /software/reporting/ (section 2) | vector |
 | [change-verification](illustrations/change-verification.svg) | 600 x 300 | Article: /software/fullstack/ (section 3)<br>Article: /software/architecture/ (section 3)<br>Article: /software/backend/ (section 3)<br>Article: /software/ai-automation/ (section 3)<br>Article: /software/integrations/ (section 3)<br>Article: /software/websites/ (section 3) | vector |
-| [ai-document-extraction](illustrations/ai-document-extraction.png) | 1536 x 1024 | Card: /software/ai-automation/<br>Opening image: /software/ai-automation/ | generated |
+| [ai-document-extraction](illustrations/ai-document-extraction.svg) | 1536 x 1024 | Card: /software/ai-automation/<br>Opening image: /software/ai-automation/ | vector |
+| [ai-document-extraction-raster](illustrations/ai-document-extraction.png) | 1536 x 1024 | Reserve | generated |
 | [responsive-business-website](photos/responsive-business-website.png) | 1536 x 1024 | Card: /software/websites/<br>Opening image: /software/websites/ | generated |
 | [legacy-backend](photos/legacy-backend.jpg) | 7360 x 4912 | Reserve | Image by frimufilms on Freepik |
 | [legacy-code](photos/legacy-code.jpg) | 3936 x 2214 | Opening image: /software/backend/ | Photo by Daria Nepriakhina on Unsplash |
