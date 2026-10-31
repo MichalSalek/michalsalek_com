@@ -12,12 +12,12 @@ import { useLocale } from '@/src/i18n/context';
 import type { SitePageProps } from '@/src/content/load-page';
 import { Analytics } from '@/src/layers/application/Analytics';
 
-export const MainComposition = ({children, title, description}: Partial<SitePageProps> & {children: ReactNode}) => {
+export const MainComposition = ({children, title, description, shareImage}: Partial<SitePageProps> & {children: ReactNode}) => {
     const {messages} = useLocale();
     return <ThemeProvider theme={mainTheme}>
         <CssBaseline/>
         <Head><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="icon" href="/favicon.ico"/></Head>
-        <SeoHead title={title} description={description}/>
+        <SeoHead title={title} description={description} shareImage={shareImage}/>
         <div className="site-shell">
             <a className="skip-link" href="#main-app-content-box">{messages.skip}</a>
             <HeaderPartial/>

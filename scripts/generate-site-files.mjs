@@ -22,6 +22,8 @@ for (const locale of site.locales) {
         const file = `out${relative}index.html`;
         const html = await readFile(file, 'utf8');
         const $ = load(html);
+        const shareImage = $('meta[property="og:image"]').attr('content');
+        if (shareImage?.startsWith(site.origin + '/')) assetPaths.add(new URL(shareImage).pathname);
         $('img').each((_, element) => {
             const src = $(element).attr('src');
             if (src?.startsWith('/')) assetPaths.add(src);
@@ -33,7 +35,7 @@ for (const locale of site.locales) {
         $('script, style, noscript').remove();
         const title = $('h1').first().text().trim();
         const lines = [`# ${title}`, '', `HTML: ${pageUrl(locale, path)}`, `Language: ${locale}`, ''];
-        $('main h2, main h3, main p, main li, main table').each((_, element) => {
+        $('main h2, main h3, main p, main li, main table, main dt, main dd').each((_, element) => {
             if (element.tagName === 'table') {
                 const rows = $(element).find('tr').toArray().map(row => $(row).find('th, td').toArray().map(cell => $(cell).text().replace(/\s+/g, ' ').trim().replaceAll('|', '\\|')));
                 rows.forEach((row, index) => {
@@ -44,7 +46,7 @@ for (const locale of site.locales) {
                 return;
             }
             const text = $(element).text().replace(/\s+/g, ' ').trim();
-            if (text) lines.push(`${element.tagName.startsWith('h') ? '## ' : ''}${text}`, '');
+            if (text) lines.push(`${element.tagName.startsWith('h') ? '## ' : element.tagName === 'dt' ? '### ' : ''}${text}`, '');
         });
         lines.push(`Contact: ${site.email}`, '');
         const markdown = lines.join('\n');

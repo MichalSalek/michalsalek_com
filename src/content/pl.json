@@ -9,7 +9,7 @@
     "talk": "Porozmawiajmy o Twoim projekcie",
     "ask": "Opisz swój pomysł",
     "general": "Inne pytanie",
-    "contactIntro": "Opisz cel projektu, obecne narzędzia i oczekiwany efekt. Na tej podstawie ustalimy zakres i kolejne kroki.",
+    "contactIntro": "Nie potrzebujesz gotowej specyfikacji. Opisz, co chcesz zmienić i z jakich programów korzystasz. Możesz podać planowany termin i budżet, jeśli są już określone. Na tej podstawie ustalimy zakres i kolejne kroki.",
     "email": "Twój e-mail",
     "name": "Twoje imię",
     "subject": "Temat",
@@ -51,28 +51,52 @@
     "breadcrumbFullstack": "Full-stack",
     "technicalScope": "Obszar",
     "technicalTechnologies": "Technologie i praktyki",
-    "technicalContact": "Kontakt w sprawie współpracy technicznej"
+    "technicalContact": "Kontakt w sprawie współpracy technicznej",
+    "startTitle": "Jak zacząć współpracę?",
+    "startQuestions": [
+      {
+        "question": "Co opisać w pierwszej wiadomości?",
+        "answer": "Napisz, co chcesz zmienić, jak wygląda to teraz i jakich programów używasz. Może to być jedna czynność, pomysł na nową usługę albo problem z obecną aplikacją. Nie musisz wybierać technologii ani przygotowywać specyfikacji. Ustalimy, jakie informacje będą potrzebne do oceny zakresu."
+      },
+      {
+        "question": "Czy trzeba wymieniać obecne programy?",
+        "answer": "Najpierw sprawdzamy ich funkcje, dostępne połączenia i warunki dostępu. Zakres może obejmować jedno brakujące połączenie, dodatkowy raport lub rozbudowę działającej aplikacji. Nowy system proponujemy wtedy, gdy wynika to z ustalonych potrzeb."
+      },
+      {
+        "question": "Jak ustalacie zakres, cenę i termin?",
+        "answer": "Uzgadniamy, kto będzie korzystał z rozwiązania, co ma ono robić i jak sprawdzimy gotową pracę. Na tej podstawie przygotowujemy propozycję zakresu, wycenę i harmonogram. Większy projekt można podzielić na etapy. Koszty usług zewnętrznych, utrzymanie i dalszy rozwój ustalamy osobno."
+      }
+    ]
   },
   "pages": {
     "/": {
       "title": "AI, automatyzacje i oprogramowanie dla firm",
       "description": "Atomic Concept: strony, aplikacje, integracje, automatyzacje i AI dla firm. Kompleksowa realizacja od analizy potrzeb przez wdrożenie po utrzymanie.",
       "intro": [
-        "Zaczynamy od zrozumienia, jak działa Twoja firma i czego naprawdę potrzebuje. Dopiero potem proponujemy rozwiązanie. Bez zbędnych funkcji i bez dokładania złożoności, która niczego nie ułatwia.",
+        "Tworzymy strony i aplikacje, łączymy programy używane w firmie oraz wdrażamy automatyzacje i AI. Zaczynamy od zrozumienia, jak pracujesz i co chcesz usprawnić. Proponujemy zakres dopasowany do tego zadania, bez zbędnych funkcji.",
         "**Projektujemy, budujemy, testujemy i wdrażamy.** Bierzemy odpowiedzialność za całość, więc nie musisz koordynować kilku wykonawców ani tłumaczyć tego samego od nowa."
       ]
     },
     "/software/architecture/": {
       "title": "Architektura oprogramowania",
-      "description": "Projektowanie architektury aplikacji: wymagania, granice modułów, przepływ danych i kryteria odbioru. Dokumentacja oraz rozwój istniejących systemów."
+      "description": "Projektowanie architektury aplikacji: wymagania, granice modułów, przepływ danych i kryteria odbioru. Dokumentacja oraz rozwój istniejących systemów.",
+      "intro": [
+        "Projektujemy strukturę nowych aplikacji i porządkujemy zależności w istniejących systemach. Ustalamy granice modułów, przepływ danych i sposób wdrażania zmian. Decyzje wynikają z wymagań projektu i obejmują późniejsze utrzymanie."
+      ]
     },
     "/software/backend/": {
       "title": "Backend i logika aplikacji",
-      "description": "Backend i logika aplikacji: API, dane, uprawnienia, transakcje, płatności i zadania asynchroniczne. Testy, wdrożenie oraz utrzymanie usług."
+      "description": "Backend i logika aplikacji: API, dane, uprawnienia, transakcje, płatności i zadania asynchroniczne. Testy, wdrożenie oraz utrzymanie usług.",
+      "intro": [
+        "Tworzymy logikę aplikacji, interfejsy API i przetwarzanie danych po stronie serwera. Zakres może obejmować bazę danych, płatności, integracje i zadania wykonywane w tle, wraz z testami, wdrożeniem i uzgodnionym monitoringiem."
+      ]
     },
     "/software/frontend/": {
       "title": "Frontend i interfejsy użytkownika",
-      "description": "Interfejsy aplikacji internetowych: formularze, komunikaty, zachowanie przy błędach i współpraca z API. Responsywność, wydajność i weryfikacja w przeglądarce."
+      "description": "Interfejsy aplikacji internetowych: formularze, komunikaty, zachowanie przy błędach i współpraca z API. Responsywność, wydajność i weryfikacja w przeglądarce.",
+      "intro": [
+        "Projektujemy i wdrażamy interfejsy aplikacji internetowych. Łączymy ekrany z danymi oraz logiką systemu, uwzględniając obsługę telefonu, uprawnienia, formularze i sytuacje, w których zapis lub połączenie się nie powiedzie."
+      ]
     },
     "/sound/": {
       "title": "Usługi dźwiękowe online",
@@ -96,27 +120,45 @@
     },
     "/software/ai-automation/": {
       "title": "AI w pracy Twojej firmy",
-      "description": "Projektowanie aplikacji z AI i rozbudowa istniejących systemów: odczyt dokumentów, wyszukiwanie w danych, integracje, kontrola wyników i wdrożenie."
+      "description": "Projektowanie aplikacji z AI i rozbudowa istniejących systemów: odczyt dokumentów, wyszukiwanie w danych, integracje, kontrola wyników i wdrożenie.",
+      "intro": [
+        "Tworzymy aplikacje, które odczytują dokumenty, porządkują zapytania i pomagają znaleźć informacje w firmie. Możemy dodać AI do obecnego programu albo zbudować nowe rozwiązanie wraz z integracjami i wdrożeniem."
+      ]
     },
     "/software/integrations/": {
       "title": "Integracje z istniejącymi systemami",
-      "description": "Integracje programów używanych w firmie. Wymiana danych, dopasowanie wpisów, duplikaty i ponowienia. Projekt, testy, wdrożenie oraz utrzymanie połączenia."
+      "description": "Integracje programów używanych w firmie. Wymiana danych, dopasowanie wpisów, duplikaty i ponowienia. Projekt, testy, wdrożenie oraz utrzymanie połączenia.",
+      "intro": [
+        "Łączymy programy, których już używasz, żeby nie trzeba było przepisywać tych samych danych. Możemy połączyć formularz, sklep, obsługę klientów, płatności lub raporty, po sprawdzeniu możliwości i dostępów do tych systemów."
+      ]
     },
     "/software/custom-software/": {
       "title": "Aplikacje i systemy na zamówienie",
-      "description": "Aplikacje firmowe, portale klientów, rezerwacje i obsługa zleceń. Dane, uprawnienia, płatności, opcjonalne AI, testy, wdrożenie i dokumentacja."
+      "description": "Aplikacje firmowe, portale klientów, rezerwacje i obsługa zleceń. Dane, uprawnienia, płatności, opcjonalne AI, testy, wdrożenie i dokumentacja.",
+      "intro": [
+        "Budujemy aplikacje dopasowane do sposobu pracy firmy: portale klientów, obsługę zleceń, rezerwacje i panele pracowników. Zajmujemy się całym uzgodnionym zakresem, od opisania potrzeb po uruchomienie i przekazanie systemu."
+      ]
     },
     "/software/websites/": {
       "title": "Strony internetowe dla firm",
-      "description": "Strony internetowe dla firm: oferta, treści, formularze, wersje językowe i czytelność na telefonie. Przygotowanie, testy, publikacja i przekazanie."
+      "description": "Strony internetowe dla firm: oferta, treści, formularze, wersje językowe i czytelność na telefonie. Przygotowanie, testy, publikacja i przekazanie.",
+      "intro": [
+        "Przygotowujemy strony firmowe z czytelną ofertą, wersjami językowymi i wygodnym kontaktem. Zakres obejmuje układ treści, projekt, wykonanie, testy i publikację. Możemy zbudować nową stronę albo uporządkować i rozwinąć obecną."
+      ]
     },
     "/software/automation/": {
       "title": "Automatyzacja procesów w firmie",
-      "description": "Automatyzacja procesów w firmie: zgłoszenia, zadania, przypomnienia i zatwierdzanie. Reguły, obsługa wyjątków, testy i przekazanie zespołowi."
+      "description": "Automatyzacja procesów w firmie: zgłoszenia, zadania, przypomnienia i zatwierdzanie. Reguły, obsługa wyjątków, testy i przekazanie zespołowi.",
+      "intro": [
+        "Automatyzujemy powtarzalne zadania, przekazywanie zgłoszeń, przypomnienia i zatwierdzenia. Ustalamy przebieg pracy, łączymy potrzebne narzędzia i sprawdzamy, jak proces działa także wtedy, gdy zabraknie danych lub pojawi się błąd."
+      ]
     },
     "/software/reporting/": {
       "title": "Raporty i panele dla firmy",
-      "description": "Raporty i panele z danych firmowych: źródła, definicje wskaźników, aktualizacja i dostęp. Zestawienia w arkuszu, wiadomości lub przeglądarce."
+      "description": "Raporty i panele z danych firmowych: źródła, definicje wskaźników, aktualizacja i dostęp. Zestawienia w arkuszu, wiadomości lub przeglądarce.",
+      "intro": [
+        "Przygotowujemy raporty i panele z danych rozproszonych między programami, sklepem i arkuszami. Ustalamy potrzebne zestawienia, łączymy źródła i uzgadniamy sposób aktualizacji, żeby można było sprawdzić zarówno wynik, jak i jego pochodzenie."
+      ]
     },
     "/software/fullstack/": {
       "title": "Rozwój full-stack",

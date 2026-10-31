@@ -11,6 +11,7 @@ import type { SitePageProps } from '@/src/content/load-page';
 import { GoToContactFormMolecule } from './GoToContactForm.molecule';
 import { RichTextAtom } from './RichText.atom';
 import { ArticleBodyMolecule } from './ArticleBody.molecule';
+import { ArticleIntroMolecule } from './ArticleIntro.molecule';
 import { EngineeringPageOrganism } from './EngineeringPage.organism';
 import { site, relatedServices } from '@/src/content/site.mjs';
 import studio from '@/assets/library/photos/audio-studio.jpg';
@@ -24,10 +25,11 @@ const heroes = {
 };
 
 export default function SitePage({path, title, cards, artwork, sections, messages, navigation, intro}: SitePageProps) {
-    if (path === '/software/fullstack/') return <EngineeringPageOrganism title={title} intro={intro} sections={sections}/>;
+    if (path === '/software/fullstack/') return <EngineeringPageOrganism title={title} intro={intro} sections={sections} artwork={artwork}/>;
     if (path === '/' || path === '/sound/') return <>
         <RootCardOrganism version={path === '/' ? 'software' : 'sound'} cards={cards} intro={intro}/>
         {sections.length > 0 && <Container>{sections.map(section => <ContentBlockOrganism key={section.title} title={section.title} subtitle={section.subtitle} body={<>{section.paragraphs.map(text => <p key={text}><RichTextAtom text={text}/></p>)}</>}/>)}</Container>}
+        {path === '/' && <Container><ContentBlockOrganism title={messages.startTitle} body={<dl className="enquiry-answers">{messages.startQuestions.map(item => <div key={item.question}><dt>{item.question}</dt><dd>{item.answer}</dd></div>)}</dl>}/></Container>}
         <Container><GoToContactFormMolecule objectOfInterest={title}/></Container>
     </>;
     if (path === '/contact/') return <Container>
@@ -43,6 +45,7 @@ export default function SitePage({path, title, cards, artwork, sections, message
     const prefix = path.startsWith('/sound/') ? '/sound/' : '/software/';
     const links = navigation.filter(link => relatedServices[path] ? relatedServices[path]?.includes(link.path) : link.path.startsWith(prefix) && link.path !== path);
     return <ArticleComposition title={title} links={links}>
+        {path.startsWith('/software/') && <ArticleIntroMolecule intro={intro} title={title} contactLabel={messages.ask}/>}
         {artwork ? <ServiceArtworkAtom asset={artwork} variant="hero" priority/> : hero && <HeroMolecule {...hero} alt={title}/>}
         {sections.map(section => <ContentBlockOrganism key={section.title} title={section.title} subtitle={section.subtitle}
             body={<ArticleBodyMolecule section={section}/>}/>) }

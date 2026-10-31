@@ -25,6 +25,13 @@ and reliable contact handling. These changes must respect the original appearanc
   looked interactive. Use the approved mix of contextual photographs and indigo
   illustrations. Media must explain the adjacent paragraph; avoid filler and
   unrelated visual metaphors. Keep the distinct waveform on the final sound card.
+- Alternate photographs and illustrations across the first six cards. Keep
+  full-stack and sound artwork unchanged. Fit complete illustrations into their
+  card frame, including the exported derivative; crop only photographs.
+- Every software article opens with its own distinct contextual image. Introduce
+  the service and its enquiry link before that image. Do not repeat the opening
+  image within the same article. Reuse smaller explainers across articles only
+  where their meaning matches the paragraph. Keep all illustration edges visible.
 - Article content has at most three main sections. Only the first body paragraph
   under each heading has a 2rem indent. Later paragraphs start flush left.
   Headings and sublines make sense independently.
@@ -38,6 +45,9 @@ and reliable contact handling. These changes must respect the original appearanc
   or links to source-code profiles.
 - Keep real links and buttons, with no nested interactive elements.
 - Keep meaningful text and language links in the initial static HTML.
+- Keep starting, scoping and pricing answers visible as plain text. No invented
+  client results, prices or deadlines. Service-specific link previews use existing
+  source artwork, with translated titles, descriptions and alternative text.
 - Reserve image geometry. Prioritize only the first visible card or article hero.
 - Source media and reusable reserves live in `assets/library/`. Select them in
   `src/content/media-plan.mjs`; `npm run generate:visuals` exports only selected

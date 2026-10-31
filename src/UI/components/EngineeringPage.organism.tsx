@@ -3,16 +3,19 @@ import Typography from '@mui/material/Typography';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import type { Section } from '@/src/content/load-page';
 import { useLocale } from '@/src/i18n/context';
-import { RichTextAtom } from './RichText.atom';
 import { AppLinkAtom } from './AppLink.atom';
 import { ArticleBodyMolecule } from './ArticleBody.molecule';
+import { ArticleIntroMolecule } from './ArticleIntro.molecule';
+import { ServiceArtworkAtom } from './ServiceArtwork.atom';
+import type { VisualAsset } from '@/src/content/visuals.mjs';
 
-export function EngineeringPageOrganism({title, intro, sections}: {title: string; intro?: string[]; sections: Section[]}) {
+export function EngineeringPageOrganism({title, intro, sections, artwork}: {title: string; intro?: string[]; sections: Section[]; artwork: VisualAsset | null}) {
     const {messages} = useLocale();
     return <Container>
         <Typography variant="h1">{title.split(/(full-stack)/i).map((part, index) => <span key={index} style={/^full-stack$/i.test(part) ? {whiteSpace: 'nowrap'} : undefined}>{part}</span>)}</Typography>
+        <ArticleIntroMolecule intro={intro} title={title} contactLabel={messages.technicalContact}/>
+        {artwork && <ServiceArtworkAtom asset={artwork} variant="hero" priority/>}
         <div className="technical-copy">
-            {intro?.map(text => <Typography component="p" variant="body1" className="article-copy" key={text}><RichTextAtom text={text}/></Typography>)}
             {sections.map((section, index) => <section key={section.title} aria-labelledby={`technical-section-${index}`}>
                 <Typography id={`technical-section-${index}`} variant="h2" sx={{mt: 5}}>{section.title}</Typography>
                 <Typography component="p" variant="h3">{section.subtitle}</Typography>

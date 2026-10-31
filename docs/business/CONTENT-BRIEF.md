@@ -78,8 +78,12 @@ Reuse the original components and design described in `DESIGN.md`. Content work
 must not introduce new card effects, decorative captions or badges. The homepage
 introduction has an explicit owner-requested heading/body layout and emphasis;
 keep it structured. Card scenes use sparse linework on light neutral backgrounds,
-without large indigo fields or diagonal divisions. Interface-like article heroes
-have been removed. New article artwork stays in preview until selected.
+without large indigo fields or diagonal divisions, interleaved with contextual
+photographs. Each software article opens with a distinct existing scene, followed
+by relevant photographs or small explainers. The opening image is not repeated
+inside that article. Do not reintroduce the rejected interface-like hero mock-ups.
+Illustrations must fit completely inside their frame. Full-stack and sound cards
+retain their approved artwork and left alignment in the final row.
 
 ## Evidence boundary
 

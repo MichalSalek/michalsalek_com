@@ -57,7 +57,9 @@ redirects permanently to `/` on production.
 Source photographs, illustrations and reusable reserves live in the tracked
 [asset library](assets/library/README.md). Current placements are selected in
 `src/content/media-plan.mjs`; `npm run generate:visuals` creates responsive,
-content-hashed WebP variants and copies native SVG explainers. Both `dev` and
+content-hashed WebP variants, service-specific JPEG share images and native SVG
+explainers. Each software article has a distinct opening scene. Illustrations
+retain their full frame; photographs may be cropped for cards. Both `dev` and
 `build` run this step automatically. Generated files in `public/service-visuals/`
 are not tracked, and reserve sources are not exported to the website.
 
@@ -106,3 +108,5 @@ See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for connection configuration,
 verification, rollback and the optional GitHub deployment workflow.
 
 Offer research, design boundaries and the next content work are recorded in [docs/ROADMAP.md](docs/ROADMAP.md).
+See [the enquiry and acquisition plan](docs/business/CLIENT-ACQUISITION.md) for
+relevant landing links, proof requirements and the next measurement step.

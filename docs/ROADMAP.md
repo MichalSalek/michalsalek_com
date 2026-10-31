@@ -50,17 +50,33 @@ Framework updates and content work do not imply approval for a redesign.
 
 1. Select projects or engineering examples that may be shown publicly, with any
    required client permission. Add specific outcomes only when verified.
-2. Select replacement article artwork from the local proposals. The published
-   interface examples were rejected because they looked interactive. Cards use
-   sparse, distinct illustrations on a light neutral background, without large
-   indigo fields or diagonal divisions. Software articles remain text-only while
-   the replacement direction is selected. Audio articles retain their photographs.
-   Preserve image geometry and the original controls.
+2. Review the implemented mix of contextual photographs and sparse indigo
+   illustrations. The first six cards alternate media types; every software
+   article has its own opening scene and relevant body illustrations. Sources and
+   reserves live in `assets/library/`. Keep illustration edges visible, image
+   geometry reserved and the original controls intact. Generated examples describe
+   possible applications, not delivered client work.
 3. Review actual enquiries for the requested task, existing tools, source and
    project fit. Use this evidence before choosing an industry niche or package.
 4. Decide which audio work is currently available and which samples may be shared.
 5. Add lightweight conversion measurement and verify indexing using the owner's
    search accounts. Avoid overlapping trackers.
+
+## Direct service enquiries
+
+Visitors following a referral can open the relevant service directly. Each page
+starts with its scope, a contact link and a distinct opening image. Its existing
+three sections cover a possible workflow, implementation details and handover.
+The homepage explains what to send, how current tools are assessed and how scope,
+price and timeframe are agreed. Contact remains available without a specification.
+
+Each software service exports its own social share image from existing artwork,
+with a localized title, description and image alternative. Preview metadata is
+static; publishing and the sharing platform's cache determine when a new preview
+appears externally. No external-platform acceptance is claimed by the local audit.
+
+See [the acquisition plan](business/CLIENT-ACQUISITION.md) for relevant service
+links, reply patterns and the next proof and measurement priorities.
 
 ## Search and AI visibility
 

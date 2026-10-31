@@ -3,6 +3,8 @@ import { readFile, access } from 'node:fs/promises';
 import { load } from 'cheerio';
 import { routes, site, localePath, pageUrl } from '../src/content/site.mjs';
 import { createHash } from 'node:crypto';
+import { heroMedia } from '../src/content/media-plan.mjs';
+import sharp from 'sharp';
 
 const sitemap = await readFile('out/sitemap.xml', 'utf8');
 const titles = new Set();
@@ -48,10 +50,21 @@ for (const locale of site.locales) {
             assert(source?.startsWith('/service-visuals/'), `${label}: static responsive artwork`);
             await access(`out${source}`);
         }
-        assert.equal($('.service-artwork-hero').length, 0, `${label}: rejected interface-like heroes must not be published`);
+        if (heroMedia[path]) {
+            const hero = $('.service-artwork-hero');
+            assert.equal(hero.length, 1, `${label}: one opening image`);
+            assert.equal(hero.attr('data-asset'), heroMedia[path], `${label}: contextual opening image`);
+            assert.equal($(`[data-asset="${heroMedia[path]}"]`).length, 1, `${label}: opening image must not repeat in the article`);
+            const image = $('meta[property="og:image"]').attr('content');
+            assert(image?.startsWith(`${site.origin}/service-visuals/`), `${label}: service-specific social image`);
+            const info = await sharp(`out${new URL(image).pathname}`).metadata();
+            assert.equal(info.width, 1200); assert.equal(info.height, 630);
+            assert($('meta[property="og:image:alt"]').attr('content')?.trim(), `${label}: social image description`);
+        }
         const md = relative === '/' ? '/index.md' : `${relative.slice(0, -1)}.md`;
         const mirror = await readFile(`out${md}`, 'utf8');
         assert(mirror.includes($('h1').text()), `${label}: Markdown mirror`);
+        for (const item of $('.enquiry-answers dt, .enquiry-answers dd')) assert(mirror.includes($(item).text().trim()), `${label}: enquiry answers in the Markdown mirror`);
         for (const cell of $('main table th, main table td')) assert(mirror.includes($(cell).text().trim()), `${label}: technical table in the Markdown mirror`);
         pages++;
     }
@@ -67,7 +80,7 @@ for (const [path, hash] of Object.entries(release.assets)) {
     const source = await readFile(`out${path}`);
     assert.equal(createHash('sha256').update(source).digest('hex'), hash, `${path}: release artwork hash`);
     if (!path.startsWith('/service-visuals/')) continue;
-    assert.equal(path.match(/\.([a-f0-9]{12})\.(svg|webp)$/)?.[1], hash.slice(0, 12), `${path}: immutable media URL`);
+    assert.equal(path.match(/\.([a-f0-9]{12})\.(svg|webp|jpg)$/)?.[1], hash.slice(0, 12), `${path}: immutable media URL`);
     if (!path.endsWith('.svg')) continue;
     const document = load(source.toString('utf8'), {xml: true});
     assert.equal(document('script, image, foreignObject').length, 0, `${path}: self-contained vector artwork`);

@@ -9,7 +9,7 @@
     "talk": "Do you want to talk?",
     "ask": "Tell us about your project",
     "general": "General question",
-    "contactIntro": "Describe the project goal, your current tools and the result you want. We will use that to agree the scope and next steps.",
+    "contactIntro": "You do not need a finished specification. Describe what you want to change and which tools you use. If you already have a timeframe or budget, you can include those too. We will use this to agree the scope and next steps.",
     "email": "Your email",
     "name": "Your name",
     "subject": "Subject",
@@ -51,28 +51,52 @@
     "breadcrumbFullstack": "Full-stack",
     "technicalScope": "Area",
     "technicalTechnologies": "Technologies and practices",
-    "technicalContact": "Contact us about technical cooperation"
+    "technicalContact": "Contact us about technical cooperation",
+    "startTitle": "How do we get started?",
+    "startQuestions": [
+      {
+        "question": "What should I include in the first message?",
+        "answer": "Tell us what you want to change, how it works today and which tools you use. It can be one recurring task, an idea for a new service or a problem with an existing application. You do not need to choose technologies or prepare a specification. We will establish what information is needed to assess the scope."
+      },
+      {
+        "question": "Do we have to replace our current tools?",
+        "answer": "We first check their features, available connections and access requirements. The scope may be one missing integration, an additional report or an extension to a working application. We propose a new system when the agreed requirements call for it."
+      },
+      {
+        "question": "How do you agree the scope, price and timeframe?",
+        "answer": "We establish who will use the solution, what it needs to do and how the completed work will be checked. We then prepare a scope proposal, estimate and schedule. Larger projects can be divided into stages. External service costs, maintenance and further development are agreed separately."
+      }
+    ]
   },
   "pages": {
     "/": {
       "title": "AI, automation and custom software for your business",
       "description": "Atomic Concept delivers websites, applications, integrations, automation and AI for businesses, from requirements and implementation to deployment and maintenance.",
       "intro": [
-        "We start by understanding how your business runs and what it actually needs. Only then do we propose a solution. No unnecessary features and no added complexity that makes nothing easier.",
+        "We build websites and applications, connect business tools and implement automation and AI. We start by understanding how you work and what you want to improve. We propose a scope that fits that task, without unnecessary features.",
         "**We design, build, test and deploy.** We take responsibility for the complete project, so you do not have to coordinate several contractors or explain the same thing again."
       ]
     },
     "/software/architecture/": {
       "title": "Software architecture",
-      "description": "Application architecture covering requirements, module boundaries, data flows and acceptance criteria. Documentation and development of existing systems."
+      "description": "Application architecture covering requirements, module boundaries, data flows and acceptance criteria. Documentation and development of existing systems.",
+      "intro": [
+        "We design the structure of new applications and clarify dependencies in existing systems. We define module boundaries, data flows and release practices. Decisions follow the project requirements and account for ongoing maintenance."
+      ]
     },
     "/software/backend/": {
       "title": "Backend and application logic",
-      "description": "Backend and application logic: APIs, data, permissions, transactions, payments and asynchronous jobs. Testing, deployment and service maintenance."
+      "description": "Backend and application logic: APIs, data, permissions, transactions, payments and asynchronous jobs. Testing, deployment and service maintenance.",
+      "intro": [
+        "We build server-side application logic, APIs and data processing. The scope can include databases, payments, integrations and background jobs, with testing, deployment and agreed monitoring."
+      ]
     },
     "/software/frontend/": {
       "title": "User interfaces and frontend",
-      "description": "Web application interfaces with clear forms, feedback, error handling and API integration. Responsive layouts, performance and browser verification."
+      "description": "Web application interfaces with clear forms, feedback, error handling and API integration. Responsive layouts, performance and browser verification.",
+      "intro": [
+        "We design and implement interfaces for web applications. We connect screens to data and application logic, covering mobile use, permissions, forms and situations where saving or connectivity fails."
+      ]
     },
     "/sound/": {
       "title": "Sound online services",
@@ -96,27 +120,45 @@
     },
     "/software/ai-automation/": {
       "title": "AI in your business",
-      "description": "Build applications with AI or extend existing software. Document processing, company search, data integrations, human review, testing and deployment."
+      "description": "Build applications with AI or extend existing software. Document processing, company search, data integrations, human review, testing and deployment.",
+      "intro": [
+        "We build applications that read documents, organise enquiries and help people find company information. We can add AI to software you already use or build a new solution, including integrations and deployment."
+      ]
     },
     "/software/integrations/": {
       "title": "Integrations with existing systems",
-      "description": "Connect existing business tools with data exchange, record matching, duplicate checks and retries. Integration design, testing, deployment and maintenance."
+      "description": "Connect existing business tools with data exchange, record matching, duplicate checks and retries. Integration design, testing, deployment and maintenance.",
+      "intro": [
+        "We connect the tools you already use so the same information does not need to be entered again. This can include forms, online stores, customer management, payments or reports, after checking each system’s capabilities and access requirements."
+      ]
     },
     "/software/custom-software/": {
       "title": "Custom applications and business systems",
-      "description": "Business applications, customer portals, bookings and job management. Data, permissions, payments, optional AI, testing, deployment and documentation."
+      "description": "Business applications, customer portals, bookings and job management. Data, permissions, payments, optional AI, testing, deployment and documentation.",
+      "intro": [
+        "We build applications around the way your business works: customer portals, job management, bookings and staff tools. We handle the agreed scope from understanding the requirements to deployment and handover."
+      ]
     },
     "/software/websites/": {
       "title": "Business websites",
-      "description": "Business websites with service content, enquiry forms, language versions and mobile layouts. Preparation, testing, launch and handover by Atomic Concept."
+      "description": "Business websites with service content, enquiry forms, language versions and mobile layouts. Preparation, testing, launch and handover by Atomic Concept.",
+      "intro": [
+        "We create business websites with a clear offer, language versions and an easy way to get in touch. The scope covers content structure, design, implementation, testing and publication. We can build a new website or improve an existing one."
+      ]
     },
     "/software/automation/": {
       "title": "Workflow automation for your business",
-      "description": "Business workflow automation for requests, tasks, reminders and approvals. Defined rules, exception handling, testing and handover to your team."
+      "description": "Business workflow automation for requests, tasks, reminders and approvals. Defined rules, exception handling, testing and handover to your team.",
+      "intro": [
+        "We automate recurring tasks, request handling, reminders and approvals. We define the workflow, connect the necessary tools and check what happens when information is missing or an operation fails."
+      ]
     },
     "/software/reporting/": {
       "title": "Business reports and dashboards",
-      "description": "Business reports and dashboards with defined sources, measures, refresh schedules and access. Receive information in a spreadsheet, email or browser."
+      "description": "Business reports and dashboards with defined sources, measures, refresh schedules and access. Receive information in a spreadsheet, email or browser.",
+      "intro": [
+        "We prepare reports and dashboards from information spread across business tools, online stores and spreadsheets. We define the reports you need, connect the sources and agree how updates work, so the results and their origins can be checked."
+      ]
     },
     "/software/fullstack/": {
       "title": "Full-stack engineering",

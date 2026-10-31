@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { routes, localePath, site } from '../../src/content/site.mjs';
+import { heroMedia } from '../../src/content/media-plan.mjs';
 
 for (const locale of site.locales) for (const path of routes) {
     test(`${locale} ${path} renders without errors or horizontal overflow`, async ({page}) => {
@@ -147,17 +148,39 @@ test('mixed service media load with responsive sources and contextual article co
     await expect(thumbnails).toHaveCount(8);
     for (const image of await thumbnails.all()) {
         await image.scrollIntoViewIfNeeded();
-        expect(await image.evaluate((node: HTMLImageElement) => node.complete && node.naturalWidth > 0)).toBe(true);
+        await expect.poll(() => image.evaluate((node: HTMLImageElement) => node.complete && node.naturalWidth > 0)).toBe(true);
         if (!(await image.getAttribute('src'))?.endsWith('.svg')) await expect(image).toHaveAttribute('srcset', /750w/);
         expect((await image.boundingBox())!.height).toBe(250);
     }
     for (const locale of site.locales) {
         await page.goto(localePath(locale, '/software/ai-automation/'));
-        await expect(page.locator('.service-artwork-hero')).toHaveCount(0);
+        await expect(page.locator('.service-artwork-hero')).toHaveCount(1);
         await expect(page.locator('.content-section')).toHaveCount(3);
         await expect(page.locator('.content-section .article-copy').first().locator('> p').first()).toHaveCSS('text-indent', '32px');
         await expect(page.locator('.content-section .article-copy').first().locator('> p').nth(1)).toHaveCSS('text-indent', '0px');
     }
+});
+
+test('service entry pages have distinct opening scenes, readable scope and an immediate enquiry path', async ({page}) => {
+    const scenes = new Set<string>();
+    for (const [path, id] of Object.entries(heroMedia)) {
+        await page.goto(localePath('pl', path as keyof typeof heroMedia));
+        const hero = page.locator('.service-artwork-hero');
+        await expect(hero).toHaveCount(1);
+        await expect(hero).toHaveAttribute('data-asset', id);
+        await expect(page.locator(`main [data-asset="${id}"]`)).toHaveCount(1);
+        await expect(hero.locator('img')).toHaveAttribute('loading', 'eager');
+        await expect(page.locator('.service-intro > p')).not.toBeEmpty();
+        await expect(page.locator('.service-intro a')).toHaveAttribute('href', /\/pl\/contact\/\?about=.+/);
+        expect(scenes.has(id)).toBe(false); scenes.add(id);
+    }
+    await page.locator('.service-intro a').click();
+    await expect(page.locator('[name="subject"]')).not.toHaveValue('');
+    await page.goto('/pl/');
+    const kinds = await page.locator('.service-artwork-card').evaluateAll(nodes => nodes.slice(0, 6).map(node => node.classList.contains('service-artwork-photo') ? 'photo' : 'illustration'));
+    expect(kinds).toEqual(['illustration', 'photo', 'illustration', 'photo', 'illustration', 'photo']);
+    await expect(page.locator('[data-asset="payment-and-fulfilment"] img')).toHaveCSS('object-fit', 'contain');
+    await expect(page.locator('.enquiry-answers dt')).toHaveCount(3);
 });
 
 test('small article explainers stay vector-sharp and indentation starts each section once', async ({page}) => {
