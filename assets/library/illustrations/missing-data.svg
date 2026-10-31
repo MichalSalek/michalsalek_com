@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" fill="none">
+  <title>Confirmed zero differs from missing data</title>
+  <path d="M57 24H185L235 74V266C235 273 230 278 223 278H57C50 278 45 273 45 266V36C45 29 50 24 57 24Z" fill="#fff" stroke="#4b5260" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M185 24V62C185 69 190 74 197 74H235" fill="#e8eaf6" stroke="#4b5260" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M71 57H157M71 79H145M71 234H143M71 253H119" stroke="#9fa8da" stroke-width="6"/>
+  <ellipse cx="138" cy="153" rx="31" ry="47" stroke="#1a237e" stroke-width="17"/>
+  <circle cx="197" cy="239" r="24" fill="#1a237e"/>
+  <path d="m185 239 9 10 16-21" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M280 136H320M280 163H320M315 114L285 185" stroke="#4b5260" stroke-width="9"/>
+  <path d="M377 24H505L555 74V266C555 273 550 278 543 278H377C370 278 365 273 365 266V36C365 29 370 24 377 24Z" fill="#fff" stroke="#4b5260" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M505 24V62C505 69 510 74 517 74H555" fill="#e8eaf6" stroke="#4b5260" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M391 57H477M391 79H465M391 234H463M391 253H439" stroke="#9fa8da" stroke-width="6"/>
+  <path d="M415 153H495" stroke="#9fa8da" stroke-width="17"/>
+  <circle cx="517" cy="239" r="24" stroke="#4b5260" stroke-width="5" stroke-dasharray="13 8"/>
+</svg>

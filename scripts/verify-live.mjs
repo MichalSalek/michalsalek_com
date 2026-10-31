@@ -23,7 +23,7 @@ for (const locale of site.locales) for (const path of routes) {
 }
 for (const [path, hash] of Object.entries(local.assets)) {
     const response = await request(path);
-    assert(response.headers.get('content-type')?.includes('image/svg+xml'), `${path}: SVG content type`);
+    assert(response.headers.get('content-type')?.startsWith('image/'), `${path}: image content type`);
     assert.equal(createHash('sha256').update(Buffer.from(await response.arrayBuffer())).digest('hex'), hash, `${path}: artwork differs from the built artifact`);
 }
 for (const path of ['/robots.txt', '/sitemap.xml', '/llms.txt', '/llms-full.txt', '/og-image.png']) await request(path);

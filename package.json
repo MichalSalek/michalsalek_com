@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "npm run generate:visuals && next dev --hostname 0.0.0.0",
     "build": "npm run generate:visuals && next build --webpack && next-image-export-optimizer && node scripts/generate-site-files.mjs",
-    "generate:visuals": "node scripts/generate-service-visuals.mjs",
+    "generate:visuals": "node scripts/generate-service-visuals.mjs && npm run assets:catalog",
     "preview": "serve out --listen 3100",
     "start": "npm run preview",
     "typecheck": "next typegen && node node_modules/@typescript/native/bin/tsc --noEmit",
@@ -29,7 +29,9 @@
     "verify:live": "node scripts/verify-live.mjs",
     "preview:test": "serve out --listen 4318",
     "prepare": "node scripts/setup-hooks.mjs",
-    "hooks:install": "node scripts/setup-hooks.mjs"
+    "hooks:install": "node scripts/setup-hooks.mjs",
+    "assets:catalog": "node scripts/generate-asset-catalog.mjs",
+    "assets:preview": "npm run assets:catalog && serve assets/library --listen 4325"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",

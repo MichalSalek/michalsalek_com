@@ -5,6 +5,7 @@ import type { Section } from '@/src/content/load-page';
 import { useLocale } from '@/src/i18n/context';
 import { RichTextAtom } from './RichText.atom';
 import { AppLinkAtom } from './AppLink.atom';
+import { ArticleBodyMolecule } from './ArticleBody.molecule';
 
 export function EngineeringPageOrganism({title, intro, sections}: {title: string; intro?: string[]; sections: Section[]}) {
     const {messages} = useLocale();
@@ -15,7 +16,7 @@ export function EngineeringPageOrganism({title, intro, sections}: {title: string
             {sections.map((section, index) => <section key={section.title} aria-labelledby={`technical-section-${index}`}>
                 <Typography id={`technical-section-${index}`} variant="h2" sx={{mt: 5}}>{section.title}</Typography>
                 <Typography component="p" variant="h3">{section.subtitle}</Typography>
-                {section.paragraphs.map(text => <Typography component="p" variant="body1" className="article-copy" key={text}><RichTextAtom text={text}/></Typography>)}
+                <ArticleBodyMolecule section={section}/>
                 {section.facts && <table className="technical-stack" aria-labelledby={`technical-section-${index}`}>
                     <thead><tr><th scope="col">{messages.technicalScope}</th><th scope="col">{messages.technicalTechnologies}</th></tr></thead>
                     <tbody>{section.facts.map(fact => <tr key={fact.term}><th scope="row">{fact.term}</th><td>{fact.detail}</td></tr>)}</tbody>

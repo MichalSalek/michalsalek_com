@@ -1,0 +1,337 @@
+[
+  {
+    "id": "service-application",
+    "kind": "photo",
+    "source": "photos/service-application.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "A company application showing a customer service request and its attached photo",
+      "pl": "Aplikacja firmowa ze zgłoszeniem klienta i załączonym zdjęciem"
+    }
+  },
+  {
+    "id": "application-planning",
+    "kind": "photo",
+    "source": "photos/application-planning.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "Planning the case list, case details and employee tasks for a company application",
+      "pl": "Projektowanie listy spraw, szczegółów zgłoszenia i zadań pracownika"
+    }
+  },
+  {
+    "id": "fullstack-development",
+    "kind": "photo",
+    "source": "photos/fullstack-development.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "TypeScript application development and test results in a code editor",
+      "pl": "Rozwój aplikacji TypeScript i wyniki testów w edytorze kodu"
+    }
+  },
+  {
+    "id": "api-and-interface",
+    "kind": "photo",
+    "source": "photos/api-and-interface.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "A TypeScript data contract beside the matching application view",
+      "pl": "Kontrakt danych TypeScript obok odpowiadającego mu widoku aplikacji"
+    }
+  },
+  {
+    "id": "operations-report",
+    "kind": "photo",
+    "source": "photos/operations-report.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "An operations report combining payment and dispatch statuses for orders",
+      "pl": "Raport łączący statusy płatności i realizacji zamówień"
+    }
+  },
+  {
+    "id": "report-source-check",
+    "kind": "photo",
+    "source": "photos/report-source-check.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "Comparing an operations report with source records on a desk",
+      "pl": "Porównanie raportu operacyjnego z danymi źródłowymi"
+    }
+  },
+  {
+    "id": "case-and-task",
+    "kind": "illustration",
+    "source": "illustrations/case-and-task.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "A customer case and its assigned task",
+      "pl": "Zgłoszenie klienta i przydzielone zadanie"
+    }
+  },
+  {
+    "id": "record-access-raster",
+    "kind": "illustration",
+    "source": "illustrations/record-access-raster.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "A record protected by access controls",
+      "pl": "Rekord objęty kontrolą dostępu"
+    }
+  },
+  {
+    "id": "case-views",
+    "kind": "illustration",
+    "source": "illustrations/case-views.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "Different views of the same customer case",
+      "pl": "Różne widoki tego samego zgłoszenia"
+    }
+  },
+  {
+    "id": "software-layers",
+    "kind": "illustration",
+    "source": "illustrations/software-layers.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "Interface, application logic and relational data",
+      "pl": "Interfejs, logika aplikacji i dane relacyjne"
+    }
+  },
+  {
+    "id": "change-verification-raster",
+    "kind": "illustration",
+    "source": "illustrations/change-verification-raster.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "A code change checked before release",
+      "pl": "Zmiana w kodzie sprawdzona przed publikacją"
+    }
+  },
+  {
+    "id": "shared-feature-change",
+    "kind": "illustration",
+    "source": "illustrations/shared-feature-change.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "One change across the interface, data contract and database",
+      "pl": "Jedna zmiana w interfejsie, kontrakcie danych i bazie"
+    }
+  },
+  {
+    "id": "report-summary",
+    "kind": "illustration",
+    "source": "illustrations/report-summary.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "A business report with its data sources",
+      "pl": "Raport firmowy i jego źródła danych"
+    }
+  },
+  {
+    "id": "missing-data-raster",
+    "kind": "illustration",
+    "source": "illustrations/missing-data-raster.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "A numeric zero is different from missing data",
+      "pl": "Wartość zero różni się od braku danych"
+    }
+  },
+  {
+    "id": "payment-and-fulfilment",
+    "kind": "illustration",
+    "source": "illustrations/payment-and-fulfilment.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "Payment and fulfilment records matched by order identifier",
+      "pl": "Płatność i realizacja połączone numerem zamówienia"
+    }
+  },
+  {
+    "id": "record-access",
+    "kind": "illustration",
+    "source": "illustrations/record-access.svg",
+    "origin": "vector",
+    "credit": null,
+    "alt": {
+      "en": "A record protected by access controls",
+      "pl": "Rekord objęty kontrolą dostępu"
+    }
+  },
+  {
+    "id": "missing-data",
+    "kind": "illustration",
+    "source": "illustrations/missing-data.svg",
+    "origin": "vector",
+    "credit": null,
+    "alt": {
+      "en": "A confirmed zero is different from a missing value",
+      "pl": "Potwierdzona wartość zero różni się od braku danych"
+    }
+  },
+  {
+    "id": "change-verification",
+    "kind": "illustration",
+    "source": "illustrations/change-verification.svg",
+    "origin": "vector",
+    "credit": null,
+    "alt": {
+      "en": "A code change and its verification checks",
+      "pl": "Zmiana w kodzie i jej sprawdzenie"
+    }
+  },
+  {
+    "id": "ai-document-extraction",
+    "kind": "illustration",
+    "source": "illustrations/ai-document-extraction.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "Highlighted document fragments become checked structured data",
+      "pl": "Wyróżnione fragmenty dokumentu zamienione w sprawdzone dane"
+    }
+  },
+  {
+    "id": "responsive-business-website",
+    "kind": "photo",
+    "source": "photos/responsive-business-website.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "The same company website adapted for laptop and phone screens",
+      "pl": "Ta sama strona firmowa dostosowana do laptopa i telefonu"
+    }
+  },
+  {
+    "id": "legacy-backend",
+    "kind": "photo",
+    "source": "photos/legacy-backend.jpg",
+    "origin": "stock",
+    "credit": "Image by frimufilms on Freepik",
+    "alt": {
+      "en": "Software development workspace",
+      "pl": "Stanowisko pracy nad oprogramowaniem"
+    },
+    "notes": "Reserve workspace photograph; includes hands."
+  },
+  {
+    "id": "legacy-code",
+    "kind": "photo",
+    "source": "photos/legacy-code.jpg",
+    "origin": "stock",
+    "credit": "Photo by Daria Nepriakhina on Unsplash",
+    "alt": {
+      "en": "Programming code on a display",
+      "pl": "Kod programu na ekranie"
+    },
+    "notes": "Fallback only."
+  },
+  {
+    "id": "legacy-planning",
+    "kind": "photo",
+    "source": "photos/legacy-planning.jpg",
+    "origin": "stock",
+    "credit": "Image by pressfoto on Freepik",
+    "alt": {
+      "en": "Notes used to plan project requirements",
+      "pl": "Notatki do planowania wymagań projektu"
+    },
+    "notes": "Small original source; do not upscale."
+  },
+  {
+    "id": "audio-studio",
+    "kind": "photo",
+    "source": "photos/audio-studio.jpg",
+    "origin": "stock",
+    "credit": "Photo by Caught In Joy on Unsplash",
+    "alt": {
+      "en": "Music studio",
+      "pl": "Studio muzyczne"
+    }
+  },
+  {
+    "id": "audio-drums",
+    "kind": "photo",
+    "source": "photos/audio-drums.jpg",
+    "origin": "stock",
+    "credit": "Photo by Josh Sorenson on Unsplash",
+    "alt": {
+      "en": "Drum kit",
+      "pl": "Zestaw perkusyjny"
+    }
+  },
+  {
+    "id": "audio-mixing",
+    "kind": "photo",
+    "source": "photos/audio-mixing.jpg",
+    "origin": "stock",
+    "credit": "Photo by Tima Miroshnichenko",
+    "alt": {
+      "en": "Mixing and mastering studio",
+      "pl": "Studio miksu i masteringu"
+    }
+  },
+  {
+    "id": "audio-soundtracks",
+    "kind": "photo",
+    "source": "photos/audio-soundtracks.jpg",
+    "origin": "stock",
+    "credit": "Photo by ASBA DRUMS",
+    "alt": {
+      "en": "Drums for original music production",
+      "pl": "Perkusja do produkcji muzycznej"
+    }
+  },
+  {
+    "id": "legacy-molecules",
+    "kind": "photo",
+    "source": "photos/legacy-molecules.jpg",
+    "origin": "stock",
+    "credit": "Photo by Ashraful Islam on Unsplash",
+    "alt": {
+      "en": "An abstract molecular structure",
+      "pl": "Abstrakcyjna struktura molekularna"
+    },
+    "notes": "Legacy reserve; not selected for software services."
+  },
+  {
+    "id": "legacy-geometry",
+    "kind": "photo",
+    "source": "photos/legacy-geometry.jpg",
+    "origin": "stock",
+    "credit": null,
+    "alt": {
+      "en": "An architectural geometric pattern",
+      "pl": "Geometryczny wzór architektoniczny"
+    },
+    "notes": "Legacy reserve; original author not recorded. Not selected for software services."
+  },
+  {
+    "id": "sound-wave",
+    "kind": "illustration",
+    "source": "illustrations/sound-wave.svg",
+    "origin": "vector",
+    "credit": null,
+    "alt": {
+      "en": "A waveform for audio production services",
+      "pl": "Fala dźwiękowa usług produkcji audio"
+    }
+  }
+]

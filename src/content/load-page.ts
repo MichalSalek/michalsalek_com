@@ -3,7 +3,8 @@ import type { Messages } from '@/src/i18n/context';
 import { readFile } from 'node:fs/promises';
 import type { VisualAsset } from './visuals.mjs';
 
-export type Section = {title: string; subtitle: string; paragraphs: string[]; facts?: {term: string; detail: string}[]};
+export type ArticleMedia = {section: number; after: number; variant: 'wide' | 'inline'; asset: VisualAsset};
+export type Section = {title: string; subtitle: string; paragraphs: string[]; facts?: {term: string; detail: string}[]; media?: ArticleMedia[]};
 export type ServiceCard = {path: PagePath; title: string; paragraphs: string[]; artwork: VisualAsset | null};
 export type SitePageProps = {
     locale: Locale;
@@ -23,7 +24,7 @@ export async function loadPage(locale: Locale, path: PagePath): Promise<SitePage
     const articles = locale === 'pl' ? (await import('./pl-articles.json')).default : (await import('./en-articles.json')).default;
     const article = articles[path.slice(1, -1) as keyof typeof articles];
     const cards = path === '/' ? dictionary.cards.software : path === '/sound/' ? dictionary.cards.sound : [];
-    const manifest = JSON.parse(await readFile('public/service-visuals/manifest.json', 'utf8')) as Record<Locale, Partial<Record<PagePath, {card: VisualAsset | null; hero: VisualAsset | null}>>>;
+    const manifest = JSON.parse(await readFile('public/service-visuals/manifest.json', 'utf8')) as Record<Locale, Partial<Record<PagePath, {card: VisualAsset | null; hero: VisualAsset | null; article?: ArticleMedia[]}>>>;
     const artwork = manifest[locale][path]?.hero ?? null;
     return {
         locale, path, ...dictionary.pages[path], messages: dictionary.ui,
@@ -31,7 +32,7 @@ export async function loadPage(locale: Locale, path: PagePath): Promise<SitePage
             const artwork = manifest[locale][card.path as PagePath]?.card ?? null;
             if (path === '/' && !artwork) throw new Error(`Missing card artwork: ${locale} ${card.path}`);
             return {...card, path: card.path as PagePath, artwork};
-        }), artwork, sections: article?.sections ?? [],
+        }), artwork, sections: (article?.sections ?? []).map((section, index) => ({...section, media: (manifest[locale][path]?.article ?? []).filter(item => item.section === index)})),
         navigation: Object.entries(dictionary.pages).map(([key, value]) => ({path: key as PagePath, title: value.title})),
     };
 }

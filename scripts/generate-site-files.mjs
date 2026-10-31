@@ -11,9 +11,7 @@ const full = [];
 const index = [`# ${site.name}`, '', `> AI automation, integrations and custom software for small and medium businesses by ${site.owner}. Audio services are available separately under /sound/.`, '', `Contact: ${site.email}`, '', '## Pages', ''];
 const hashes = {};
 const assets = {};
-const visuals = JSON.parse(await readFile('public/service-visuals/manifest.json', 'utf8'));
-const assetPaths = new Set(Object.values(visuals).flatMap(pages => Object.values(pages).flatMap(({card, hero}) => [card?.src, hero?.src, hero?.mobile?.src])).filter(Boolean));
-for (const path of assetPaths) assets[path] = createHash('sha256').update(await readFile(`out${path}`)).digest('hex');
+const assetPaths = new Set();
 await sharp('public/og-image.svg').png().toFile('out/og-image.png');
 // MyDevil also discovers static error pages through its errors directory.
 await mkdir('out/errors', {recursive: true});
@@ -24,6 +22,14 @@ for (const locale of site.locales) {
         const file = `out${relative}index.html`;
         const html = await readFile(file, 'utf8');
         const $ = load(html);
+        $('img').each((_, element) => {
+            const src = $(element).attr('src');
+            if (src?.startsWith('/')) assetPaths.add(src);
+            for (const candidate of ($(element).attr('srcset') ?? '').split(',')) {
+                const url = candidate.trim().split(/\s+/)[0];
+                if (url.startsWith('/')) assetPaths.add(url);
+            }
+        });
         $('script, style, noscript').remove();
         const title = $('h1').first().text().trim();
         const lines = [`# ${title}`, '', `HTML: ${pageUrl(locale, path)}`, `Language: ${locale}`, ''];
@@ -57,5 +63,6 @@ await writeFile('out/llms.txt', `${index.join('\n')}\n`);
 await writeFile('out/llms-full.txt', full.join('\n\n'));
 const sha = execFileSync('git', ['rev-parse', 'HEAD'], {encoding: 'utf8'}).trim();
 const dirty = execFileSync('git', ['status', '--porcelain'], {encoding: 'utf8'}).trim().length > 0;
+for (const path of assetPaths) assets[path] = createHash('sha256').update(await readFile(`out${path}`)).digest('hex');
 await writeFile('out/release.json', JSON.stringify({sha, dirty, builtAt: new Date().toISOString(), pages: hashes, assets}, null, 2) + '\n');
 console.log(`Generated ${sitemap.length} sitemap entries and Markdown mirrors from exported HTML.`);

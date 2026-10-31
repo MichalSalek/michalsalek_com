@@ -141,20 +141,37 @@ test('the original card treatment keeps readable controls, discreet credits and 
     await expect(credit).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
 });
 
-test('light service illustrations load and article content has no simulated controls', async ({page}) => {
+test('mixed service media load with responsive sources and contextual article content', async ({page}) => {
     await page.goto('/pl/');
     const thumbnails = page.locator('.service-artwork-card img');
     await expect(thumbnails).toHaveCount(8);
     for (const image of await thumbnails.all()) {
         await image.scrollIntoViewIfNeeded();
-        await expect(image).toHaveJSProperty('naturalWidth', 1200);
+        expect(await image.evaluate((node: HTMLImageElement) => node.complete && node.naturalWidth > 0)).toBe(true);
+        if (!(await image.getAttribute('src'))?.endsWith('.svg')) await expect(image).toHaveAttribute('srcset', /750w/);
         expect((await image.boundingBox())!.height).toBe(250);
     }
     for (const locale of site.locales) {
         await page.goto(localePath(locale, '/software/ai-automation/'));
         await expect(page.locator('.service-artwork-hero')).toHaveCount(0);
         await expect(page.locator('.content-section')).toHaveCount(3);
-        await expect(page.locator('.content-section .article-copy').first()).toHaveCSS('text-indent', '32px');
+        await expect(page.locator('.content-section .article-copy').first().locator('> p').first()).toHaveCSS('text-indent', '32px');
+        await expect(page.locator('.content-section .article-copy').first().locator('> p').nth(1)).toHaveCSS('text-indent', '0px');
+    }
+});
+
+test('small article explainers stay vector-sharp and indentation starts each section once', async ({page}) => {
+    for (const path of ['/software/custom-software/', '/software/reporting/', '/software/fullstack/']) {
+        await page.goto(localePath('pl', path));
+        const image = page.locator('.service-artwork-inline img').first();
+        await image.scrollIntoViewIfNeeded();
+        await expect(image).toHaveAttribute('src', /\.svg$/);
+        expect((await image.boundingBox())!.width).toBe(220);
+        for (const body of await page.locator('.article-copy').all()) {
+            const paragraphs = body.locator('> p');
+            if (await paragraphs.count()) await expect(paragraphs.first()).toHaveCSS('text-indent', '32px');
+            for (const paragraph of (await paragraphs.all()).slice(1)) await expect(paragraph).toHaveCSS('text-indent', '0px');
+        }
     }
 });
 

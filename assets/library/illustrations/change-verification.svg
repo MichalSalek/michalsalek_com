@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" fill="none">
+  <title>Source file with one added line and two verification checks</title>
+  <path d="M62 23H354L410 79V265C410 273 404 279 396 279H62C54 279 48 273 48 265V37C48 29 54 23 62 23Z" fill="#fff" stroke="#4b5260" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M354 23V65C354 73 360 79 368 79H410" fill="#e8eaf6" stroke="#4b5260" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M86 77H185M86 219H185" stroke="#1a237e" stroke-width="12" stroke-linecap="round"/>
+  <path d="M86 102H251M123 174H287M86 244H260" stroke="#9fa8da" stroke-width="12" stroke-linecap="round"/>
+  <path d="M123 150H370" stroke="#1a237e" stroke-width="12" stroke-linecap="round"/>
+  <path d="M88 139V161M77 150H99" stroke="#1a237e" stroke-width="8" stroke-linecap="round"/>
+  <g stroke="#1a237e" stroke-width="7">
+    <circle cx="511" cy="126" r="34" fill="#fff"/>
+    <circle cx="511" cy="221" r="34" fill="#fff"/>
+    <path d="m495 126 11 12 22-25m-33 108 11 12 22-25" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

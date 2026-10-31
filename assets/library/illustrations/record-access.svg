@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" fill="none">
+  <title>Record with visible and concealed data and a closed padlock</title>
+  <rect x="45" y="43" width="449" height="214" rx="17" fill="#fff" stroke="#4b5260" stroke-width="7"/>
+  <path d="M88 96H416" stroke="#1a237e" stroke-width="22" stroke-linecap="round"/>
+  <rect x="77" y="130" width="350" height="35" rx="10" fill="#4b5260"/>
+  <rect x="77" y="185" width="350" height="35" rx="10" fill="#4b5260"/>
+  <path d="M468 131V107C468 86 481 73 498 73C515 73 528 86 528 107V131" fill="#fff" stroke="#4b5260" stroke-width="11"/>
+  <rect x="446" y="131" width="104" height="91" rx="17" fill="#e8eaf6" stroke="#4b5260" stroke-width="7"/>
+  <circle cx="498" cy="167" r="14" fill="#1a237e"/>
+  <path d="M498 175V193" stroke="#1a237e" stroke-width="11" stroke-linecap="round"/>
+</svg>

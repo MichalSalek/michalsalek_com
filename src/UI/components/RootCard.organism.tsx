@@ -1,7 +1,7 @@
-import StudioImage from '@/src/UI/assets/studio.jpg';
+import StudioImage from '@/assets/library/photos/audio-studio.jpg';
 import { AppLinkAtom } from './AppLink.atom';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import DrumsImage from '@/src/UI/assets/drums.jpg';
+import DrumsImage from '@/assets/library/photos/audio-drums.jpg';
 import { ClickableCardMolecule } from '@/src/UI/components/clickable-card/ClickableCard.molecule';
 import Typography from '@mui/material/Typography';
 import { RichTextAtom } from './RichText.atom';

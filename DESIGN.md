@@ -22,11 +22,12 @@ and reliable contact handling. These changes must respect the original appearanc
   background. No large indigo fields, diagonal backdrop divisions, gradients,
   blurred effects or clay-like rendering. The former C + E treatment was rejected
   after publication: its backdrop was too strong and its interface examples
-  looked interactive. Software articles currently use text without those heroes.
-  Replacement article artwork requires review in the real page layout before
-  publication.
-- Article content has at most three main sections. Paragraph indentation is 2rem,
-  shared through `.article-copy`. Headings and sublines make sense independently.
+  looked interactive. Use the approved mix of contextual photographs and indigo
+  illustrations. Media must explain the adjacent paragraph; avoid filler and
+  unrelated visual metaphors. Keep the distinct waveform on the final sound card.
+- Article content has at most three main sections. Only the first body paragraph
+  under each heading has a 2rem indent. Later paragraphs start flush left.
+  Headings and sublines make sense independently.
 - No card movement on hover. Preserve the original contrast/saturation effect.
 - Photo credits stay at the top right, 6px, without a background panel.
 - Breadcrumbs retain Sitemap, Home, the category and the current page. Keep the
@@ -38,8 +39,12 @@ and reliable contact handling. These changes must respect the original appearanc
 - Keep real links and buttons, with no nested interactive elements.
 - Keep meaningful text and language links in the initial static HTML.
 - Reserve image geometry. Prioritize only the first visible card or article hero.
-- Generate software artwork with `npm run generate:visuals`, using the shared
-  palette and localized descriptions. SVG URLs contain content hashes.
+- Source media and reusable reserves live in `assets/library/`. Select them in
+  `src/content/media-plan.mjs`; `npm run generate:visuals` exports only selected
+  assets, with localized alt text and content-hashed responsive image variants.
+  Small inline explainers are SVGs. Avoid blurred placeholders and raster upscaling.
+  Exclude the former frontend and wireframe photographs showing hands; the old
+  backend workspace remains a specifically approved reserve.
 - The full-stack page uses a concise technical reference format: technologies,
   architecture and delivery practices, without a personal biography, marketing
   claims or code dumps. Stack tables become labelled rows on small screens.

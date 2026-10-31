@@ -10,10 +10,11 @@ import { AppLinkAtom } from '@/src/UI/components/AppLink.atom';
 import type { SitePageProps } from '@/src/content/load-page';
 import { GoToContactFormMolecule } from './GoToContactForm.molecule';
 import { RichTextAtom } from './RichText.atom';
+import { ArticleBodyMolecule } from './ArticleBody.molecule';
 import { EngineeringPageOrganism } from './EngineeringPage.organism';
 import { site, relatedServices } from '@/src/content/site.mjs';
-import studio from '@/src/UI/assets/music_studio.jpg';
-import drumset from '@/src/UI/assets/drumset.jpg';
+import studio from '@/assets/library/photos/audio-mixing.jpg';
+import drumset from '@/assets/library/photos/audio-soundtracks.jpg';
 
 const ContactFormOrganism = dynamic(() => import('@/src/UI/components/ContactForm.organism'));
 
@@ -44,6 +45,6 @@ export default function SitePage({path, title, cards, artwork, sections, message
     return <ArticleComposition title={title} links={links}>
         {artwork ? <ServiceArtworkAtom asset={artwork} variant="hero" priority/> : hero && <HeroMolecule {...hero} alt={title}/>}
         {sections.map(section => <ContentBlockOrganism key={section.title} title={section.title} subtitle={section.subtitle}
-            body={<>{section.paragraphs.map(text => <p key={text}><RichTextAtom text={text}/></p>)}</>}/>) }
+            body={<ArticleBodyMolecule section={section}/>}/>) }
     </ArticleComposition>;
 }

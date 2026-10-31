@@ -64,10 +64,12 @@ const robots = await readFile('out/robots.txt', 'utf8');
 assert(robots.includes('Allow: /') && !robots.includes('Disallow: /'), 'Crawler access');
 const release = JSON.parse(await readFile('out/release.json', 'utf8'));
 for (const [path, hash] of Object.entries(release.assets)) {
-    const source = await readFile(`out${path}`, 'utf8');
+    const source = await readFile(`out${path}`);
     assert.equal(createHash('sha256').update(source).digest('hex'), hash, `${path}: release artwork hash`);
-    assert.equal(path.match(/\.([a-f0-9]{12})\.svg$/)?.[1], hash.slice(0, 12), `${path}: immutable artwork URL`);
-    const document = load(source, {xml: true});
+    if (!path.startsWith('/service-visuals/')) continue;
+    assert.equal(path.match(/\.([a-f0-9]{12})\.(svg|webp)$/)?.[1], hash.slice(0, 12), `${path}: immutable media URL`);
+    if (!path.endsWith('.svg')) continue;
+    const document = load(source.toString('utf8'), {xml: true});
     assert.equal(document('script, image, foreignObject').length, 0, `${path}: self-contained vector artwork`);
     assert.equal(document('text, clipPath').length, 0, `${path}: simple artwork without UI labels or diagonal backdrops`);
 }
