@@ -35,7 +35,7 @@ export function SeoHead({title, description, shareImage}: {title?: string; descr
         }))});
     }
     return <Head>
-        <title>{title ? `${title} | ${site.name}` : `${site.name} | ${site.owner}`}</title>
+        <title>{title ? `${title} | ${site.name}` : site.name}</title>
         {description && <meta name="description" content={description}/>}
         {!title ? <meta name="robots" content="noindex, follow"/> : <>
             <link rel="canonical" href={canonical}/>

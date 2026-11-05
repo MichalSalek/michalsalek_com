@@ -8,7 +8,7 @@ import { site, routes, localePath, pageUrl } from '../src/content/site.mjs';
 const xml = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
 const sitemap = [];
 const full = [];
-const index = [`# ${site.name}`, '', `> AI automation, integrations and custom software for small and medium businesses by ${site.owner}. Audio services are available separately under /sound/.`, '', `Contact: ${site.email}`, '', '## Pages', ''];
+const index = [`# ${site.name}`, '', `> AI automation, integrations and custom software for small and medium businesses by ${site.name}. Audio services are available separately under /sound/.`, '', `Contact: ${site.email}`, '', '## Pages', ''];
 const hashes = {};
 const assets = {};
 const assetPaths = new Set();
