@@ -4,7 +4,7 @@
     "Asystent działa na własnym komputerze operatora. Łączy modele lokalne i zewnętrzne z uprawnioną pracą w repozytoriach, kontrolami oraz przekazaniem rezultatu lub dopuszczonym wdrożeniem."
   ],
   "audience": "Właściciel prowadzący projekty i zlecający pracę na własnym stanowisku także zdalnie.",
-  "role": "Michał Sałek odpowiada za koncepcję, architekturę, implementację i utrzymanie wewnętrznej platformy obsługiwanej przez właściciela.",
+  "role": "Atomic Concept odpowiada za koncepcję, architekturę, implementację i utrzymanie wewnętrznej platformy asystenta AI.",
   "sections": [
     {
       "id": "context",

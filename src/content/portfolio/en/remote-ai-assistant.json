@@ -4,7 +4,7 @@
     "The assistant runs on the operator’s own computer. It connects local and external models to authorized repository work, checks and delivery of a result or an authorized release."
   ],
   "audience": "An owner managing projects and assigning work to their own workstation remotely.",
-  "role": "Michał Sałek is responsible for the concept, architecture, implementation and maintenance of this owner-operated internal platform.",
+  "role": "Atomic Concept is responsible for the concept, architecture, implementation and maintenance of the internal AI assistant platform.",
   "sections": [
     {
       "id": "context",

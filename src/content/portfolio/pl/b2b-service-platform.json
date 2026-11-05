@@ -4,7 +4,7 @@
     "Projekt obejmował rozpoznanie potrzeb, ustalenie zasad działania kont i rozliczeń, projekt interfejsu i integracji, a następnie iteracyjne wdrażanie oraz utrzymanie. Zmiany można sprawdzać w środowisku podglądowym przed udostępnieniem ich użytkownikom produkcyjnym."
   ],
   "audience": "Firmy korzystające z usługi oraz osoby odpowiedzialne za jej obsługę i administrację.",
-  "role": "Michał Sałek odpowiadał za realizację od rozpoznania potrzeb i projektu domeny, interfejsu oraz API po rozwój, wdrożenie i utrzymanie aplikacji.",
+  "role": "Atomic Concept odpowiada za rozpoznanie potrzeb, projekt domeny, interfejsu i API oraz rozwój, wdrożenie i utrzymanie aplikacji.",
   "sections": [
     {
       "id": "context",

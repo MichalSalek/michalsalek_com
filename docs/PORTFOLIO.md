@@ -28,10 +28,10 @@ at build time only for its page.
 
 ## Editorial contract
 
-Explain the purpose and user workflows before the engineering. The company is
-the publisher; each responsibility statement identifies the actual individual
-contribution. Previous employment remains explicit where it matters. Do not
-imply that every historical project was a company engagement.
+Explain the purpose and user workflows before the engineering. Attribute the
+scope and delivery responsibility to Atomic Concept consistently in both
+languages. Do not name individuals, describe personal career history or switch
+to a personal voice. Keep the actual technical contribution precise.
 
 Keep client and product identities, internal paths and source evidence outside
 this public repository. Review the visible text, metadata, structured data,

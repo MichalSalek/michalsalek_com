@@ -66,6 +66,8 @@ and reliable contact handling. These changes must respect the original appearanc
   thumbnails and readable summaries. On narrow screens, artwork precedes text.
   All case studies share one template; lifecycle context belongs in the prose.
   Introduce purpose and users before the opening artwork, with engineering last.
+- Portfolio responsibility statements and narrative use Atomic Concept as the
+  subject in both languages, without personal names or career details.
 - The November portfolio extension adds a header/footer link, homepage project
   previews and tighter opening/footer spacing. Preserve the approved service
   grid and contact interactions. At mobile widths, the contact icon retains its

@@ -4,7 +4,7 @@
     "Każdy redaktor ma dostęp do swoich artykułów i przypisanych do nich zapytań. Historia pozycji pozwala porównać zmiany w czasie, w różnych językach oraz na telefonach i komputerach."
   ],
   "audience": "Redaktorzy i dział SEO pracujący nad widocznością publikacji.",
-  "role": "Podczas wcześniejszego zatrudnienia Michał Sałek przejął niedokończony frontend, rozwinął go i doprowadził do wdrożenia. Współpracował z programistami backendu przy ustalaniu API i formatów danych.",
+  "role": "Zakres Atomic Concept obejmuje rozwój przejętego frontendu, doprowadzenie aplikacji do wdrożenia oraz współpracę z zespołem backendu przy ustalaniu API i formatów danych.",
   "sections": [
     {
       "id": "context",
@@ -30,7 +30,7 @@
       "title": "Przejęcie i rozwój aplikacji",
       "paragraphs": [
         "Prace rozpoczęły się od istniejącego, niedokończonego interfejsu React. Zakres obejmował uporządkowanie kodu, rozwój widoków potrzebnych redakcji i przygotowanie aplikacji do wdrożenia.",
-        "Dane dostarczał osobny backend Ruby on Rails rozwijany przez innych programistów. Michał Sałek i programiści backendu wspólnie ustalili formaty żądań i odpowiedzi, tak aby widoki artykułów, zapytań i historii korzystały z uzgodnionych danych.",
+        "Dane dostarczał osobny backend Ruby on Rails. Formaty żądań i odpowiedzi uzgodniono z zespołem backendu, tak aby widoki artykułów, zapytań i historii korzystały ze spójnych kontraktów API.",
         "Widoki powstały wokół artykułów oraz związanych z nimi zapytań. Rozwiązanie miało wspierać regularną pracę redakcyjną i ułatwiać wybór tematów do dalszej analizy."
       ],
       "items": [

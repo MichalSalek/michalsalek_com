@@ -11,10 +11,9 @@ recruitment framing, personal remote-work narrative or GitHub links in marketing
 Legal company identification can remain in the footer. Do not invent staff size,
 clients, certifications or delivery guarantees to create a corporate appearance.
 
-The portfolio is an editorial account of individual project responsibility, not
-a biography. It may name the responsible engineer and identify work completed
-during earlier employment. Keep the actual contribution precise; the company
-publishing a case study does not imply it contracted the original engagement.
+The portfolio uses the same company voice. Attribute responsibility to Atomic
+Concept throughout both languages, without individual names or career details.
+Keep the actual technical contribution precise.
 
 ## Voice and evidence
 

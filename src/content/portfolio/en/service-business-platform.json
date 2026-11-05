@@ -4,7 +4,7 @@
     "The product also includes accounts, subscriptions and administration. Published work and everyday client service can therefore share the same underlying system."
   ],
   "audience": "Service professionals presenting their work and clients preparing for appointments.",
-  "role": "Michał Sałek is responsible for the technical concept, architecture and full product lifecycle, from feature scope to deployment and maintenance. He uses coding agents during implementation and reviews and verifies their changes.",
+  "role": "Atomic Concept is responsible for the technical concept, architecture and full product lifecycle, from feature scope to deployment and maintenance. Implementation uses coding agents, with code review and verification of their changes.",
   "sections": [
     {
       "id": "context",

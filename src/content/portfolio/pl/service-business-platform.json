@@ -4,7 +4,7 @@
     "Produkt obejmuje również konta, subskrypcje i zaplecze administracyjne. Dzięki temu prezentacja realizacji i codzienna obsługa klientów korzystają ze wspólnego systemu."
   ],
   "audience": "Usługodawcy prezentujący realizacje oraz ich klienci przygotowujący się do wizyt.",
-  "role": "Michał Sałek odpowiada za koncepcję techniczną, architekturę i cały cykl rozwoju produktu, od zakresu funkcji po wdrożenie i utrzymanie. W implementacji korzysta z agentów programujących, a ich zmiany podlegają jego ocenie i weryfikacji.",
+  "role": "Atomic Concept odpowiada za koncepcję techniczną, architekturę i cały cykl rozwoju produktu, od zakresu funkcji po wdrożenie i utrzymanie. W implementacji korzysta z agentów programujących, a ich zmiany podlegają przeglądowi i weryfikacji.",
   "sections": [
     {
       "id": "context",

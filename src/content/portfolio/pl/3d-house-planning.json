@@ -4,7 +4,7 @@
     "Działająca podstawa obejmuje model na rzeczywistym terenie, pomiary, światło, porównania i eksport. Kolejny kierunek rozwoju to rozmowa o zmianach w aplikacji oraz wygodne przekazanie koncepcji architektowi."
   ],
   "audience": "Osoby przygotowujące koncepcję domu i architekci, którzy będą ją dalej opracowywać.",
-  "role": "Michał Sałek odpowiada za koncepcję produktu, architekturę i implementację pracowni.",
+  "role": "Atomic Concept odpowiada za koncepcję produktu, architekturę i implementację pracowni.",
   "sections": [
     {
       "id": "context",

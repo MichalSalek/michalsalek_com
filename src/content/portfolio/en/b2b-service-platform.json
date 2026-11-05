@@ -4,7 +4,7 @@
     "The work covered discovery, account and billing rules, interface and integration design, iterative delivery and maintenance. Changes can be checked in a preview environment before they reach production users."
   ],
   "audience": "Business customers using the service and the people responsible for operating and administering it.",
-  "role": "Michał Sałek was responsible for the work from discovery and domain, interface and API design through development, deployment and maintenance.",
+  "role": "Atomic Concept is responsible for discovery, domain, interface and API design, development, deployment and application maintenance.",
   "sections": [
     {
       "id": "context",
