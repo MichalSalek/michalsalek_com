@@ -1,0 +1,89 @@
+{
+  "intro": [
+    "A Shopify merchant can offer customers an interactive product experience without moving them to a separate store. The application covers both product preparation in the merchant dashboard and the experience on the product page.",
+    "The work ran from discovery of the sales process and integration requirements through interface and API design, staged delivery and maintenance. Particular attention went to showing merchants which products are ready and which need another action."
+  ],
+  "audience": "Merchants running Shopify stores and customers browsing products in those stores.",
+  "role": "Michał Sałek was responsible for discovery, product rules, interface and integration design, and the development, deployment and maintenance of the application.",
+  "sections": [
+    {
+      "id": "context",
+      "title": "From installation to the product page",
+      "paragraphs": [
+        "A merchant installs the app, selects products and starts preparation. They can select several items at once, check progress, retry unsuccessful tasks and choose which ready products appear in the store.",
+        "Shoppers use the experience on the product page. When they need a phone, they can scan a QR code shown on a computer and continue on their mobile device. Selected products can also be added to the store cart."
+      ],
+      "items": [
+        {
+          "title": "Store setup",
+          "description": "The dashboard guides the merchant through app settings and enabling the relevant elements in the Shopify theme."
+        },
+        {
+          "title": "Catalog work",
+          "description": "Statuses and bulk actions help merchants prepare products and identify items that are waiting or need attention."
+        },
+        {
+          "title": "Plans and capacity",
+          "description": "Merchants can see the product places used in their plan. Products can wait for an available place and start preparation when one becomes free."
+        },
+        {
+          "title": "Shopping",
+          "description": "The experience uses the context of the product page and connects with the store cart."
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "title": "A workflow built around the merchant",
+      "paragraphs": [
+        "The first step was to define the product journey from catalog selection to availability for shoppers. The administration view distinguishes preparation progress, storefront visibility and Shopify publication, so merchants can see which action is still needed to make the experience available.",
+        "The work progressed in stages across installation, the dashboard, theme integration and retry handling. Status views and bulk action results help merchants identify what has started, what is waiting and what needs checking."
+      ],
+      "items": []
+    },
+    {
+      "id": "engineering",
+      "title": "Technical decisions",
+      "paragraphs": [
+        "React Router and TypeScript support the dashboard application, while Shopify GraphQL API and App Bridge connect it to store administration. Polaris supports the interface, and Liquid theme extensions place the experience on product pages.",
+        "Product preparation runs beyond a single request. Place reservations and idempotency keys help enforce capacity and limit the effects of repeated submissions. Synchronization and retry mechanisms handle work that does not finish immediately."
+      ],
+      "items": [
+        {
+          "title": "Module boundaries",
+          "description": "Product rules are separated from service adapters, and module boundary checks help preserve that separation as the application evolves."
+        },
+        {
+          "title": "Storefront communication",
+          "description": "postMessage carries the required context between the embedded view and the storefront and supports the cart flow."
+        },
+        {
+          "title": "Data and jobs",
+          "description": "PostgreSQL and Prisma store application data, preparation state and plan reservations."
+        },
+        {
+          "title": "Diagnosis",
+          "description": "Structured JSON logs and optional operational emails help investigate integration activity and errors."
+        }
+      ]
+    }
+  ],
+  "stack": [
+    {
+      "term": "React Router, React and TypeScript",
+      "detail": "Application and merchant dashboard."
+    },
+    {
+      "term": "Shopify GraphQL, App Bridge and Polaris",
+      "detail": "Store administration integration and dashboard interface."
+    },
+    {
+      "term": "Liquid",
+      "detail": "Theme extensions on store pages."
+    },
+    {
+      "term": "PostgreSQL and Prisma",
+      "detail": "Product, plan and processing data."
+    }
+  ]
+}

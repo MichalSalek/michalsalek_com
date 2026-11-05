@@ -51,6 +51,7 @@ redirects permanently to `/` on production.
 - Routes, origin and locale URL helpers: `src/content/site.mjs`.
 - Page metadata, interface labels and service cards: `src/content/en.json` and `pl.json`.
 - Article text: `src/content/en-articles.json` and `pl-articles.json`.
+- Portfolio catalogue and case studies: `src/content/portfolio.mjs` and `src/content/portfolio/`.
 - Shared page rendering: `src/UI/components/SitePage.tsx`.
 - Visual constraints: [DESIGN.md](DESIGN.md).
 
@@ -66,7 +67,10 @@ are not tracked, and reserve sources are not exported to the website.
 `npm run assets:preview` opens the source catalogue at http://localhost:4325.
 After changing the catalogue or placements, run `npm run assets:catalog`.
 
-The homepage ends with full-stack engineering and sound services. The technical
+The service grid ends with full-stack engineering and sound services. Selected
+project previews follow it and link to `/portfolio/` (`/pl/portfolio/` in Polish).
+See [the portfolio publishing guide](docs/PORTFOLIO.md) for the data contract,
+anonymization rules and adding further projects. The technical
 overview is at `/software/fullstack/`. Service articles use at most three main
 sections, with scope, practical examples and delivery details in both languages.
 

@@ -1,0 +1,98 @@
+{
+  "intro": [
+    "Przed rozmową z architektem trudno ocenić, jak pomysł na dom zadziała na konkretnym terenie. Rozwijana pracownia pozwala obejrzeć koncepcję przestrzennie, porównać warianty i zebrać informacje do dalszych decyzji.",
+    "Działająca podstawa obejmuje model na rzeczywistym terenie, pomiary, światło, porównania i eksport. Kolejny kierunek rozwoju to rozmowa o zmianach w aplikacji oraz wygodne przekazanie koncepcji architektowi."
+  ],
+  "audience": "Osoby przygotowujące koncepcję domu i architekci, którzy będą ją dalej opracowywać.",
+  "role": "Michał Sałek odpowiada za koncepcję produktu, architekturę i implementację pracowni.",
+  "sections": [
+    {
+      "id": "context",
+      "title": "Koncepcja w kontekście działki",
+      "paragraphs": [
+        "Rzut i lista pomieszczeń nie zawsze wystarczają, by wyobrazić sobie bryłę, spadek terenu i dostęp światła. Możliwość obejrzenia domu z różnych stron pomaga wcześniej zauważyć pytania, które warto omówić z architektem.",
+        "Pracownia łączy model domu z rzeczywistymi danymi terenu. Użytkownik może rozpatrywać kilka wariantów i sprawdzać ich podstawowe parametry, zamiast opierać rozmowę wyłącznie na pojedynczej wizualizacji."
+      ],
+      "items": [
+        {
+          "title": "Bryła i otoczenie",
+          "description": "Dom jest prezentowany w kontekście ukształtowania rzeczywistego terenu."
+        },
+        {
+          "title": "Porównywanie pomysłów",
+          "description": "Warianty można zestawić liczbowo i przełączać przy zachowaniu widoku, aby łatwiej dostrzec różnice."
+        },
+        {
+          "title": "Materiał do rozmowy",
+          "description": "Pomiary, informacje o pomieszczeniach i rzuty koncepcyjne pomagają przygotować pytania do dalszej pracy projektowej."
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "title": "Oglądanie, sprawdzanie i dalszy rozwój",
+      "paragraphs": [
+        "Obecna wersja pozwala obracać model i rozglądać się, mierzyć odległości, wykonywać przekroje oraz ukrywać dach lub kondygnacje. Ustawienie daty i godziny oraz gotowe ustawienia słońca pomagają oglądać zmiany światła. Model może być modyfikowany przez zewnętrznego agenta, a gotowe warianty porównywane w przeglądarce.",
+        "Dostępny jest eksport modelu GLB oraz pakietów ZIP z raportami i rzutami. Dalszy rozwój zakłada wbudowaną rozmowę o projekcie wspartą wiedzą architektoniczną, spacer z uwzględnieniem kolizji, wizualizację pór roku oraz link do udostępnienia architektowi i wygodniejszy proces eksportu."
+      ],
+      "items": [
+        {
+          "title": "Analiza przestrzeni",
+          "description": "Pomiary i przekroje pozwalają obejrzeć wnętrze oraz relacje między elementami domu."
+        },
+        {
+          "title": "Światło i warianty",
+          "description": "Zmiana daty i pory dnia oraz porównanie wariantów wspierają ocenę różnych pomysłów."
+        },
+        {
+          "title": "Przekazanie koncepcji",
+          "description": "Obecne pliki i raporty stanowią materiał do dalszej rozmowy. Planowany link i usprawniony eksport mają ułatwić współpracę z architektem."
+        }
+      ]
+    },
+    {
+      "id": "engineering",
+      "title": "Decyzje techniczne",
+      "paragraphs": [
+        "Jedno źródło wymiarów zasila model oraz obliczenia. Dzięki temu wariant można oceniać zarówno wizualnie, jak i przez zestawienie jego parametrów.",
+        "Docelowy asystent ma wyszukiwać materiały w bazie wiedzy architektonicznej (RAG), aby korzystać z właściwego kontekstu przy proponowaniu zmian. Koncepcję oraz wyeksportowane materiały architekt rozwija i weryfikuje w swoim procesie projektowym."
+      ],
+      "items": [
+        {
+          "title": "Dane i geometria",
+          "description": "Opis domu w metrycznym JSON zasila scenę Three.js. Manifold CSG przez WASM tworzy i przekształca bryły, w tym otwory i przekroje."
+        },
+        {
+          "title": "Walidacja i zestawienia",
+          "description": "Dane są sprawdzane przed generowaniem, a na ich podstawie powstają obliczenia i raporty. Wyniki służą pracy nad koncepcją."
+        },
+        {
+          "title": "Rzeczywisty teren",
+          "description": "Model wykorzystuje dane ukształtowania terenu, aby pokazać bryłę w kontekście miejsca i wspomóc ocenę usytuowania bryły na działce."
+        },
+        {
+          "title": "Pliki do dalszej pracy",
+          "description": "GLB przenosi geometrię, a pakiety ZIP zbierają raporty i rzuty dla wybranego wariantu."
+        }
+      ]
+    }
+  ],
+  "stack": [
+    {
+      "term": "Model i widok",
+      "detail": "TypeScript, metryczny JSON, Three.js oraz Manifold CSG uruchamiany przez WASM."
+    },
+    {
+      "term": "Analiza",
+      "detail": "Walidacja, zestawienia ilościowe, pomiary, przekroje i porównanie wariantów."
+    },
+    {
+      "term": "Kontekst",
+      "detail": "Rzeczywiste dane terenu oraz ustawienia daty i czasu dla słońca."
+    },
+    {
+      "term": "Eksport",
+      "detail": "Model GLB oraz pakiety ZIP z raportami i rzutami koncepcyjnymi."
+    }
+  ]
+}

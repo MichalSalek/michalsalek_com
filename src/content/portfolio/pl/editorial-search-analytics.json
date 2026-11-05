@@ -1,0 +1,87 @@
+{
+  "intro": [
+    "Redakcja potrzebowała własnego sposobu obserwowania, jak jej artykuły radzą sobie w wynikach wyszukiwania. Zamiast osobnego płatnego narzędzia powstała aplikacja dopasowana do pracy działu SEO i redaktorów.",
+    "Każdy redaktor ma dostęp do swoich artykułów i przypisanych do nich zapytań. Historia pozycji pozwala porównać zmiany w czasie, w różnych językach oraz na telefonach i komputerach."
+  ],
+  "audience": "Redaktorzy i dział SEO pracujący nad widocznością publikacji.",
+  "role": "Podczas wcześniejszego zatrudnienia Michał Sałek przejął niedokończony frontend, rozwinął go i doprowadził do wdrożenia. Współpracował z programistami backendu przy ustalaniu API i formatów danych.",
+  "sections": [
+    {
+      "id": "context",
+      "title": "Widoczność artykułów w codziennej pracy",
+      "paragraphs": [
+        "Przy większej liczbie publikacji pojedynczy wynik wyszukiwania pokazuje tylko chwilowy obraz. Redaktor potrzebuje wrócić do swoich tekstów, zobaczyć powiązane zapytania i ocenić, czy pozycje rosną, spadają czy pozostają podobne.",
+        "Celem było zastąpienie płatnej usługi narzędziem wewnętrznym, które odpowiada organizacji pracy redakcji. Aplikacja zbiera przede wszystkim okresowe pomiary pozycji w Google i przedstawia je w kontekście artykułu oraz konta redaktora.",
+        "W tym układzie ważne jest nie tylko odczytanie bieżącej pozycji, lecz także zachowanie porównywalnego kontekstu kolejnych odczytów. Oddzielenie wyników dla języka i urządzenia pozwala redakcji wracać do właściwego zestawu danych przy ocenie zmian w widoczności publikacji."
+      ],
+      "items": [
+        {
+          "title": "Kontekst publikacji",
+          "description": "Artykuły i zapytania są przypisane do kont, dzięki czemu redaktor może skupić się na własnych materiałach."
+        },
+        {
+          "title": "Porównywalna historia",
+          "description": "Podział na języki oraz urządzenia mobilne i stacjonarne pomaga porównywać wyniki w tym samym kontekście."
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "title": "Przejęcie i rozwój aplikacji",
+      "paragraphs": [
+        "Prace rozpoczęły się od istniejącego, niedokończonego interfejsu React. Zakres obejmował uporządkowanie kodu, rozwój widoków potrzebnych redakcji i przygotowanie aplikacji do wdrożenia.",
+        "Dane dostarczał osobny backend Ruby on Rails rozwijany przez innych programistów. Michał Sałek i programiści backendu wspólnie ustalili formaty żądań i odpowiedzi, tak aby widoki artykułów, zapytań i historii korzystały z uzgodnionych danych.",
+        "Widoki powstały wokół artykułów oraz związanych z nimi zapytań. Rozwiązanie miało wspierać regularną pracę redakcyjną i ułatwiać wybór tematów do dalszej analizy."
+      ],
+      "items": [
+        {
+          "title": "Praca z artykułem",
+          "description": "Redaktor przechodzi od swojej listy publikacji do powiązanych zapytań i ich historii, zamiast szukać informacji w kilku miejscach."
+        },
+        {
+          "title": "Obserwowanie zmian",
+          "description": "Zestawienie kolejnych pomiarów ułatwia zauważenie trendu i wybranie treści wymagających uwagi."
+        }
+      ]
+    },
+    {
+      "id": "engineering",
+      "title": "Decyzje techniczne",
+      "paragraphs": [
+        "Najważniejsze było rozwijanie przejętego interfejsu bez odrywania go od rzeczywistego sposobu pracy działu SEO. Uporządkowana struktura i jasno ustalone dane ułatwiły dalsze zmiany."
+      ],
+      "items": [
+        {
+          "title": "Ścisły TypeScript",
+          "description": "Migracja z JavaScript do ścisłego typowania pomogła ujawniać niezgodności podczas pracy nad widokami i danymi."
+        },
+        {
+          "title": "Podział na moduły",
+          "description": "Kod został uporządkowany wokół funkcji aplikacji, co ułatwiło odnajdywanie i rozwijanie poszczególnych części."
+        },
+        {
+          "title": "Uzgodnione kontrakty API",
+          "description": "Wspólne ustalenie DTO z autorami backendu pozwoliło dopasować interfejs do danych zwracanych przez Rails."
+        },
+        {
+          "title": "Aktualizacja widoków bez przeładowania",
+          "description": "Interfejs pobiera dane dla konkretnego widoku lub operacji przez endpointy o wąskim zakresie. Redaktor może przechodzić między artykułami i historią pomiarów bez pełnego odświeżania strony."
+        }
+      ]
+    }
+  ],
+  "stack": [
+    {
+      "term": "Interfejs",
+      "detail": "React i TypeScript w trybie ścisłym."
+    },
+    {
+      "term": "Integracja",
+      "detail": "Uzgodnione API i DTO we współpracy z programistami Ruby on Rails."
+    },
+    {
+      "term": "Analiza",
+      "detail": "Historia pozycji artykułów i zapytań w podziale na języki i urządzenia."
+    }
+  ]
+}

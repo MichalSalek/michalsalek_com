@@ -1,0 +1,85 @@
+{
+  "intro": [
+    "Firma świadcząca usługę technologiczną potrzebowała miejsca, w którym klienci biznesowi mogą zarządzać dostępem, sprawdzać wykorzystanie i rozliczać subskrypcję. Powstała aplikacja łącząca te zadania z narzędziami administracyjnymi dla osób obsługujących usługę.",
+    "Projekt obejmował rozpoznanie potrzeb, ustalenie zasad działania kont i rozliczeń, projekt interfejsu i integracji, a następnie iteracyjne wdrażanie oraz utrzymanie. Zmiany można sprawdzać w środowisku podglądowym przed udostępnieniem ich użytkownikom produkcyjnym."
+  ],
+  "audience": "Firmy korzystające z usługi oraz osoby odpowiedzialne za jej obsługę i administrację.",
+  "role": "Michał Sałek odpowiadał za realizację od rozpoznania potrzeb i projektu domeny, interfejsu oraz API po rozwój, wdrożenie i utrzymanie aplikacji.",
+  "sections": [
+    {
+      "id": "context",
+      "title": "Jedno miejsce do obsługi usługi",
+      "paragraphs": [
+        "Klient biznesowy potrzebuje zarówno dostępu do technologii, jak i informacji potrzebnych do codziennej pracy: aktywnego planu, dostępnych limitów, kluczy API i dokumentów rozliczeniowych. Dane te powstają w różnych częściach systemu i usługach zewnętrznych.",
+        "Istotne było odróżnienie osoby logującej się od konta, do którego należą zasoby. Dzięki temu reguły dostępu i operacje można odnosić do właściwego konta firmowego, a nie wyłącznie do bieżącej sesji użytkownika."
+      ],
+      "items": [
+        {
+          "title": "Dostęp do konta",
+          "description": "Logowanie bez hasła przez link wysyłany na adres e-mail upraszcza rozpoczęcie pracy i powrót do panelu."
+        },
+        {
+          "title": "Klucze i wykorzystanie",
+          "description": "Klient zarządza kluczami API oraz sprawdza zużycie usługi i limity związane z planem."
+        },
+        {
+          "title": "Rozliczenia",
+          "description": "Integracja ze Stripe obsługuje subskrypcje, przejście do portalu klienta i dostęp do faktur."
+        },
+        {
+          "title": "Administracja",
+          "description": "Osoby obsługujące usługę mają narzędzia do sprawdzania kont, wykorzystania i ustawień planu."
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "title": "Od wymagań do codziennej obsługi",
+      "paragraphs": [
+        "Prace rozpoczęły się od ustalenia, kto wykonuje poszczególne czynności, do kogo należą dane i jakie stany rozliczeń wpływają na dostęp. Na tej podstawie powstały widoki, kontrakty API i integracje potrzebne klientom oraz administratorom.",
+        "Funkcje były rozwijane etapami. Poza pracą w panelu aplikacja obsługuje operacje na zasobach wykonywane asynchronicznie, których wynik nie musi być dostępny w czasie pojedynczego żądania. Środowisko podglądowe z oddzielną bazą pozwala sprawdzać zmiany przed publikacją produkcyjną."
+      ],
+      "items": []
+    },
+    {
+      "id": "engineering",
+      "title": "Decyzje techniczne",
+      "paragraphs": [
+        "Wspólna obsługa żądań API zbiera uwierzytelnianie, walidację i odpowiedzi błędów w jednym miejscu. Ułatwia to stosowanie tych samych zasad w różnych operacjach i sprawdzanie, czy użytkownik ma dostęp do zasobu należącego do konta.",
+        "Zdarzenia audytowe i incydenty serwerowe mają osobne przeznaczenie. Pierwsze pomagają prześledzić wybrane działania, drugie są zapisywane w bazie na potrzeby diagnozy. Raportowanie diagnostyczne po odpowiedzi oraz ograniczanie częstotliwości e-maili operacyjnych pomagają przekazywać informacje o problemach bez mnożenia powiadomień."
+      ],
+      "items": [
+        {
+          "title": "Dane i własność",
+          "description": "PostgreSQL i Prisma przechowują dane kont, zasobów oraz wykorzystania, a zasady aplikacji określają, kto może nimi zarządzać."
+        },
+        {
+          "title": "Płatności",
+          "description": "Stripe odpowiada za przepływy subskrypcji i portal rozliczeniowy, a aplikacja uwzględnia stan planu w dostępie do usługi."
+        },
+        {
+          "title": "Zadania w tle",
+          "description": "Operacje na zasobach są rozdzielone od krótkich żądań użytkownika, co pozwala obsługiwać pracę wymagającą więcej czasu."
+        },
+        {
+          "title": "Diagnostyka",
+          "description": "Oddzielenie audytu od incydentów pomaga wybrać informacje odpowiednie do wyjaśnienia działania lub błędu."
+        }
+      ]
+    }
+  ],
+  "stack": [
+    {
+      "term": "Next.js, React i TypeScript",
+      "detail": "Panel i logika aplikacji."
+    },
+    {
+      "term": "PostgreSQL i Prisma",
+      "detail": "Dane kont i operacji."
+    },
+    {
+      "term": "Stripe",
+      "detail": "Subskrypcje, portal klienta i faktury."
+    }
+  ]
+}

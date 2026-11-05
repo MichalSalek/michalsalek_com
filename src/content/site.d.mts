@@ -1,7 +1,9 @@
 export type Locale = 'en' | 'pl';
-export type PagePath = '/' | '/software/architecture/' | '/software/backend/' | '/software/frontend/' | '/sound/' | '/sound/studio/' | '/sound/soundtracks/' | '/contact/' | '/sitemap/' | '/software/ai-automation/' | '/software/integrations/' | '/software/custom-software/' | '/software/websites/' | '/software/automation/' | '/software/reporting/' | '/software/fullstack/';
+export type StandardPagePath = '/' | '/software/architecture/' | '/software/backend/' | '/software/frontend/' | '/sound/' | '/sound/studio/' | '/sound/soundtracks/' | '/contact/' | '/sitemap/' | '/software/ai-automation/' | '/software/integrations/' | '/software/custom-software/' | '/software/websites/' | '/software/automation/' | '/software/reporting/' | '/software/fullstack/';
+export type PagePath = StandardPagePath | '/portfolio/' | `/portfolio/${string}/`;
 export const site: {origin: string; name: string; owner: string; email: string; defaultLocale: Locale; locales: Locale[]};
 export const routes: PagePath[];
+export const standardRoutes: StandardPagePath[];
 export const primaryServices: PagePath[];
 export const additionalServices: PagePath[];
 export const relatedServices: Partial<Record<PagePath, PagePath[]>>;

@@ -1,3 +1,5 @@
+import {portfolioRoutes} from './portfolio.mjs';
+
 export const site = {
     origin: 'https://michalsalek.com',
     name: 'Atomic Concept',
@@ -8,7 +10,8 @@ export const site = {
 };
 
 // Public routes, sitemap, language links and export checks share this registry.
-export const routes = ['/', '/software/architecture/', '/software/backend/', '/software/frontend/', '/sound/', '/sound/studio/', '/sound/soundtracks/', '/contact/', '/sitemap/', '/software/ai-automation/', '/software/integrations/', '/software/custom-software/', '/software/websites/', '/software/automation/', '/software/reporting/', '/software/fullstack/'];
+export const standardRoutes = ['/', '/software/architecture/', '/software/backend/', '/software/frontend/', '/sound/', '/sound/studio/', '/sound/soundtracks/', '/contact/', '/sitemap/', '/software/ai-automation/', '/software/integrations/', '/software/custom-software/', '/software/websites/', '/software/automation/', '/software/reporting/', '/software/fullstack/'];
+export const routes = [...standardRoutes, ...portfolioRoutes];
 
 export const primaryServices = ['/software/ai-automation/', '/software/automation/', '/software/integrations/', '/software/websites/', '/software/custom-software/', '/software/reporting/'];
 export const additionalServices = ['/software/fullstack/', '/sound/'];

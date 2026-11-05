@@ -1,0 +1,98 @@
+{
+  "intro": [
+    "A service professional needs a place to present their work and retain the context of a client conversation once an appointment is arranged. This platform combines photo portfolios, inspiration and messaging with the history of the relationship.",
+    "The product also includes accounts, subscriptions and administration. Published work and everyday client service can therefore share the same underlying system."
+  ],
+  "audience": "Service professionals presenting their work and clients preparing for appointments.",
+  "role": "Michał Sałek is responsible for the technical concept, architecture and full product lifecycle, from feature scope to deployment and maintenance. He uses coding agents during implementation and reviews and verifies their changes.",
+  "sections": [
+    {
+      "id": "context",
+      "title": "A portfolio and the relationship that follows",
+      "paragraphs": [
+        "A photo can help a client choose a professional, but the relationship continues beyond a gallery visit. Inspiration and conversation are useful before an appointment, while previous details provide context for future visits.",
+        "The platform brings these needs together with tools for running the service. A client and professional can connect their accounts with a QR code and then work within the context of that relationship."
+      ],
+      "items": [
+        {
+          "title": "Presenting work",
+          "description": "A photo portfolio lets professionals show their style and previous work."
+        },
+        {
+          "title": "Appointment context",
+          "description": "Messages, selected inspiration and visit history help both sides return to client needs and previous discussions."
+        },
+        {
+          "title": "Running the product",
+          "description": "Accounts, permissions and subscriptions provide the foundation for people to use its features."
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "title": "From gallery to client service",
+      "paragraphs": [
+        "The scope includes a public presentation and a signed-in application. Professionals manage materials and client relationships, while clients can connect accounts, exchange messages and share inspiration.",
+        "CRM features retain visit information so a future appointment has useful context. Subscriptions are connected to Stripe payments, and the product is developed as a web application with a separate API.",
+        "Features evolve iteratively, from domain rules and data contracts to the interface. Tests, a staging environment and release verification precede production changes. Maintenance includes event diagnosis and the ability to roll a release back."
+      ],
+      "items": [
+        {
+          "title": "Connecting accounts",
+          "description": "A QR code helps link a client with a professional through their existing accounts."
+        },
+        {
+          "title": "Relationship history",
+          "description": "Visit records and communication organize information that can be useful at a later appointment."
+        },
+        {
+          "title": "Subscriptions",
+          "description": "Plans and payment handling support access to the features offered by the product."
+        }
+      ]
+    },
+    {
+      "id": "engineering",
+      "title": "Engineering decisions",
+      "paragraphs": [
+        "The architecture connects feature development with ways to understand what happens during execution. Types support code consistency, while data integrity and operational diagnostics are handled in the layers responsible for them."
+      ],
+      "items": [
+        {
+          "title": "Shared contracts",
+          "description": "Types, validators and API definitions live in a shared kernel. Checked copies are used by the application and API, making discrepancies easier to detect."
+        },
+        {
+          "title": "Domain-oriented organization (DDD)",
+          "description": "Interface code and server operations are organized around product capabilities, making the path from screen to data easier to follow."
+        },
+        {
+          "title": "Explicit outcomes and consistent data",
+          "description": "Expected failures have typed variants. Transactions and locks are used where simultaneous operations need protection."
+        },
+        {
+          "title": "Operational diagnostics",
+          "description": "A custom EventLog records severity, operation context and identifiers connecting related events. Sensitive data is filtered and writes are buffered. Anomaly alerts arrive by email, with a separate reporting path for failures of the primary log store."
+        }
+      ]
+    }
+  ],
+  "stack": [
+    {
+      "term": "Application",
+      "detail": "React, TypeScript and Next.js."
+    },
+    {
+      "term": "API and data",
+      "detail": "A separate HTTP API, PostgreSQL and Prisma."
+    },
+    {
+      "term": "Payments",
+      "detail": "Stripe for subscriptions and payment events."
+    },
+    {
+      "term": "Contracts and operations",
+      "detail": "A shared kernel with checked copies, plus a custom EventLog and alerts."
+    }
+  ]
+}

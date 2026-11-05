@@ -1,0 +1,97 @@
+{
+  "intro": [
+    "Project work does not always begin at the computer that holds the repository. This internal platform accepts a task through chat or email and lets its operator return to the execution history and result.",
+    "The assistant runs on the operator’s own computer. It connects local and external models to authorized repository work, checks and delivery of a result or an authorized release."
+  ],
+  "audience": "An owner managing projects and assigning work to their own workstation remotely.",
+  "role": "Michał Sałek is responsible for the concept, architecture, implementation and maintenance of this owner-operated internal platform.",
+  "sections": [
+    {
+      "id": "context",
+      "title": "A task sent away from the workstation",
+      "paragraphs": [
+        "Browser chat and email threads are convenient places to start work, but the message alone should not be the only record of a request. The operator needs a durable job, execution status and a record of whether the response was delivered.",
+        "The system accepts instructions within the operator’s permissions and routes them to an appropriate executor. Depending on the task, the executor can work in a repository, run relevant checks and present the outcome. Changes are released only within the authorized scope."
+      ],
+      "items": [
+        {
+          "title": "Two ways to get in touch",
+          "description": "A browser conversation and an email thread feed into the same job handling process."
+        },
+        {
+          "title": "An accessible history",
+          "description": "Stored conversations, jobs and attempts help the operator see what was accepted and where the work stands."
+        },
+        {
+          "title": "Deliberate delivery",
+          "description": "Producing the result and delivering it are separate steps, which matters when email encounters a problem."
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "title": "From message to project work",
+      "paragraphs": [
+        "The platform runs as supervised processes across Windows and WSL. Separate processes handle mail, HTTP, execution and chat, while jobs and their states are stored locally.",
+        "Profiles and adapters route work to local GPU models or paid providers. The operator can choose an execution profile suited to the task and receive the response in the channel associated with the conversation."
+      ],
+      "items": [
+        {
+          "title": "Accepting a request",
+          "description": "A message creates a durable job that can continue after the browser session has ended."
+        },
+        {
+          "title": "Repository work",
+          "description": "An executor performs authorized actions and checks; the result can include changes or a report."
+        },
+        {
+          "title": "Handling interruptions",
+          "description": "Process identity and job state help determine how to recover after a stop without automatically repeating work."
+        }
+      ]
+    },
+    {
+      "id": "engineering",
+      "title": "Engineering decisions",
+      "paragraphs": [
+        "The central concern is being able to reconstruct what happened and distinguish completed work from a message that still needs to be delivered."
+      ],
+      "items": [
+        {
+          "title": "Durable storage",
+          "description": "SQLite in WAL mode stores conversations, jobs and states. Transactional intake and an outbox connect state changes to subsequent handling."
+        },
+        {
+          "title": "Separate states",
+          "description": "Execution and delivery have distinct statuses, so an email failure does not mean the work should be repeated."
+        },
+        {
+          "title": "Supervision and recovery",
+          "description": "Process identity and persisted state support recovery after interruption without blindly replaying operations already started."
+        },
+        {
+          "title": "Interchangeable executors",
+          "description": "Adapters and profiles route tasks to Ollama, llama.cpp or paid providers according to the available environment and task."
+        }
+      ]
+    }
+  ],
+  "stack": [
+    {
+      "term": "Services",
+      "detail": "Python and FastAPI with separate supervised processes."
+    },
+    {
+      "term": "Data",
+      "detail": "SQLite in WAL mode, durable jobs and an outbox."
+    },
+    {
+      "term": "Channels",
+      "detail": "Browser chat and email through IMAP and SMTP."
+    },
+    {
+      "term": "Models",
+      "detail": "Local Ollama and llama.cpp alongside paid providers selected through profiles and adapters."
+    }
+  ]
+}

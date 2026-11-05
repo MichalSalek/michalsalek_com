@@ -7,7 +7,7 @@ export default class SiteDocument extends Document<DocumentProps & DocumentHeadT
     }
     render() {
         const locale = this.props.__NEXT_DATA__.props.pageProps.locale ?? 'en';
-        return <Html lang={locale}>
+        return <Html lang={locale} data-scroll-behavior="smooth">
             <Head><DocumentHeadTags {...this.props}/></Head>
             <body><Main/><NextScript/></body>
         </Html>;

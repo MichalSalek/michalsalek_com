@@ -62,6 +62,17 @@ and reliable contact handling. These changes must respect the original appearanc
 - Keep the existing system font fallback; do not load additional fonts.
 - Fit header controls and content at 320px without horizontal scrolling.
 - Preserve the software-first homepage and separate `/sound/` services.
+- Portfolio uses a single-column article list with full-row links, contextual
+  thumbnails and readable summaries. On narrow screens, artwork precedes text.
+  All case studies share one template; lifecycle context belongs in the prose.
+  Introduce purpose and users before the opening artwork, with engineering last.
+- The November portfolio extension adds a header/footer link, homepage project
+  previews and tighter opening/footer spacing. Preserve the approved service
+  grid and contact interactions. At mobile widths, the contact icon retains its
+  accessible name while the text label is hidden to fit the header.
+- In-page anchors scroll smoothly. The HTML document declares
+  `data-scroll-behavior="smooth"` so Next.js restores position immediately on
+  route changes, keeping contact-field attention independent of scroll animation.
 - Verify desktop, mobile, hover, contact and article layouts against the original
   export after changing shared components. Content improvements are not approval
   to redesign established components.

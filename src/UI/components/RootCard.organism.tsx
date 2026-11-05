@@ -19,7 +19,7 @@ export default function RootCardOrganism({version, cards, intro = []}: {intro?: 
     const {messages} = useLocale();
     const groups = version === 'software' ? [cards.filter(card => !additionalServices.includes(card.path)), cards.filter(card => additionalServices.includes(card.path))] : [cards];
     return <section style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-        <Typography variant="h2" component="h1" sx={{width: '100%', maxWidth: 390, display: 'flex', flexDirection: 'column', rowGap: 2, padding: '2rem 0'}}>
+        <Typography variant="h2" component="h1" sx={{width: '100%', maxWidth: 390, display: 'flex', flexDirection: 'column', rowGap: 2, mt: 0, mb: 4, padding: '1rem 0'}}>
             <CompanyNameAtom fullName style={{textAlign: 'left'}}/>{' '}<span style={{textAlign: 'right'}}>{version === 'software' ? messages.softwareCategory : messages.soundCategory}</span>
         </Typography>
         {intro.length > 0 && <section className="home-intro" aria-labelledby="home-intro-title">

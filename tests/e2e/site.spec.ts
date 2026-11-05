@@ -163,7 +163,7 @@ test('mixed service media load with responsive sources and contextual article co
 
 test('service entry pages have distinct opening scenes, readable scope and an immediate enquiry path', async ({page}) => {
     const scenes = new Set<string>();
-    for (const [path, id] of Object.entries(heroMedia)) {
+    for (const [path, id] of Object.entries(heroMedia).filter(([path]) => path.startsWith('/software/'))) {
         await page.goto(localePath('pl', path as keyof typeof heroMedia));
         const hero = page.locator('.service-artwork-hero');
         await expect(hero).toHaveCount(1);

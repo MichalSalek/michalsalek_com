@@ -1,0 +1,85 @@
+{
+  "intro": [
+    "A technology service provider needed a place where business customers could manage access, check usage and handle subscriptions. The resulting application brings those tasks together with administrative tools for the people operating the service.",
+    "The work covered discovery, account and billing rules, interface and integration design, iterative delivery and maintenance. Changes can be checked in a preview environment before they reach production users."
+  ],
+  "audience": "Business customers using the service and the people responsible for operating and administering it.",
+  "role": "Michał Sałek was responsible for the work from discovery and domain, interface and API design through development, deployment and maintenance.",
+  "sections": [
+    {
+      "id": "context",
+      "title": "A single place to manage the service",
+      "paragraphs": [
+        "A business customer needs access to the technology and the information required for everyday work: the active plan, available capacity, API keys and billing documents. These details originate in different parts of the system and in external services.",
+        "The design distinguishes the person signing in from the account that owns the resources. Access rules and operations can therefore refer to the appropriate business account rather than relying only on the current user session."
+      ],
+      "items": [
+        {
+          "title": "Account access",
+          "description": "Passwordless sign-in through an emailed link makes it straightforward to start and return to the dashboard."
+        },
+        {
+          "title": "Keys and usage",
+          "description": "Customers manage API keys and check service usage and the limits associated with their plan."
+        },
+        {
+          "title": "Billing",
+          "description": "Stripe integration handles subscriptions, access to the customer portal and invoices."
+        },
+        {
+          "title": "Administration",
+          "description": "Service operators have tools to inspect accounts, usage and plan settings."
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "title": "From requirements to daily operations",
+      "paragraphs": [
+        "The work began by identifying who performs each action, who owns the data and which billing states affect access. Those rules informed the screens, API contracts and integrations needed by customers and administrators.",
+        "Capabilities were delivered in stages. Alongside the dashboard, the application handles asynchronous asset operations whose result does not need to be available during a single request. A preview environment with a separate database supports checks before production publication."
+      ],
+      "items": []
+    },
+    {
+      "id": "engineering",
+      "title": "Technical decisions",
+      "paragraphs": [
+        "A shared API request handler brings authentication, validation and error responses together. It makes it easier to apply consistent rules across operations and check whether a user can access an account-owned resource.",
+        "Audit events and server incidents serve different purposes. The former help trace selected actions; the latter are stored in the database for diagnosis. Diagnostic reporting after a response and rate-limited operational emails help communicate problems without multiplying notifications."
+      ],
+      "items": [
+        {
+          "title": "Data and ownership",
+          "description": "PostgreSQL and Prisma store account, resource and usage data, while application rules determine who may manage them."
+        },
+        {
+          "title": "Payments",
+          "description": "Stripe handles subscription flows and the billing portal, while the application takes plan status into account when granting service access."
+        },
+        {
+          "title": "Background work",
+          "description": "Asset operations are separated from short user requests so work that takes longer can be handled independently."
+        },
+        {
+          "title": "Diagnostics",
+          "description": "Keeping audit records separate from incidents helps select the right information when explaining an action or investigating an error."
+        }
+      ]
+    }
+  ],
+  "stack": [
+    {
+      "term": "Next.js, React and TypeScript",
+      "detail": "Dashboard and application logic."
+    },
+    {
+      "term": "PostgreSQL and Prisma",
+      "detail": "Account and operation data."
+    },
+    {
+      "term": "Stripe",
+      "detail": "Subscriptions, customer portal and invoices."
+    }
+  ]
+}

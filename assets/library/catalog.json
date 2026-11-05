@@ -334,5 +334,96 @@
       "en": "A waveform for audio production services",
       "pl": "Fala dźwiękowa usług produkcji audio"
     }
+  },
+  {
+    "id": "portfolio-b2b",
+    "kind": "illustration",
+    "source": "portfolio/b2b.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "Service account documents, billing records and an access key",
+      "pl": "Dokumenty konta usługi, rozliczenia i klucz dostępu"
+    },
+    "notes": "An original anonymous scenario illustration for the project portfolio.",
+    "webpQuality": 90
+  },
+  {
+    "id": "portfolio-commerce",
+    "kind": "illustration",
+    "source": "portfolio/commerce.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "An illustrated product shown in an online catalog and on a phone",
+      "pl": "Ilustrowany produkt prezentowany w katalogu sklepu i na telefonie"
+    },
+    "notes": "An original anonymous scenario illustration for the project portfolio.",
+    "webpQuality": 90
+  },
+  {
+    "id": "portfolio-website",
+    "kind": "illustration",
+    "source": "portfolio/website.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "A product publication in wide and mobile layouts",
+      "pl": "Publikacja produktowa w układzie szerokim i mobilnym"
+    },
+    "notes": "An original anonymous scenario illustration for the project portfolio.",
+    "webpQuality": 90
+  },
+  {
+    "id": "portfolio-editorial",
+    "kind": "illustration",
+    "source": "portfolio/editorial.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "An article and a chart of its changing search visibility",
+      "pl": "Artykuł i wykres zmian jego widoczności w wyszukiwarce"
+    },
+    "notes": "An original anonymous scenario illustration for the project portfolio.",
+    "webpQuality": 90
+  },
+  {
+    "id": "portfolio-services",
+    "kind": "illustration",
+    "source": "portfolio/services.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "A portfolio of work with client conversations and an appointment diary",
+      "pl": "Portfolio realizacji, rozmowy z klientami i terminarz"
+    },
+    "notes": "An original anonymous scenario illustration for the project portfolio.",
+    "webpQuality": 90
+  },
+  {
+    "id": "portfolio-assistant",
+    "kind": "illustration",
+    "source": "portfolio/assistant.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "An email task beside a workstation and a completed work checklist",
+      "pl": "Zadanie e-mail obok stanowiska pracy i listy wykonanych czynności"
+    },
+    "notes": "An original anonymous scenario illustration for the project portfolio.",
+    "webpQuality": 90
+  },
+  {
+    "id": "portfolio-house",
+    "kind": "illustration",
+    "source": "portfolio/house.png",
+    "origin": "generated",
+    "credit": null,
+    "alt": {
+      "en": "A fictional house cutaway on sloping terrain with a sunlight arc",
+      "pl": "Przekrój przykładowego domu na pochyłym terenie z torem słońca"
+    },
+    "notes": "An original anonymous scenario illustration for the project portfolio.",
+    "webpQuality": 90
   }
 ]

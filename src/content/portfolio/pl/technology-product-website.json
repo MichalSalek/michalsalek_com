@@ -1,0 +1,85 @@
+{
+  "intro": [
+    "Serwis produktowy miał pomóc odbiorcom zrozumieć rozwiązanie technologiczne i wybrać kolejny krok: zapoznać się z zastosowaniami, sprawdzić ofertę, obejrzeć materiały lub skontaktować się z firmą. Treści i multimedia zostały uporządkowane w zestaw powiązanych stron.",
+    "Prace objęły rozpoznanie potrzeb, projekt struktury i interfejsu, rozwój kolejnych podstron oraz wdrażanie i utrzymanie. Powtarzalne elementy ułatwiają publikowanie nowych treści bez projektowania każdej strony od początku."
+  ],
+  "audience": "Osoby poznające rozwiązanie technologiczne, porównujące ofertę lub szukające kontaktu z firmą.",
+  "role": "Michał Sałek odpowiadał za rozpoznanie potrzeb, projekt struktury, interfejsu i integracji oraz rozwój, wdrażanie i utrzymanie serwisu.",
+  "sections": [
+    {
+      "id": "context",
+      "title": "Złożony produkt opisany przez zastosowania",
+      "paragraphs": [
+        "Odbiorca może trafić na serwis z różnymi pytaniami. Jedna osoba chce szybko poznać możliwości produktu, inna szuka szczegółów oferty, materiałów lub rozmowy z przedstawicielem. Struktura serwisu daje dostęp do każdej z tych ścieżek.",
+        "Ważne było połączenie tekstu, obrazów i wideo w czytelny układ działający na telefonie i większym ekranie. Oferta, zasoby oraz formularze kontaktowe mają swoje miejsce w nawigacji, dzięki czemu użytkownik może przejść od poznania produktu do kontaktu."
+      ],
+      "items": [
+        {
+          "title": "Prezentacja",
+          "description": "Podstrony opisują zastosowania produktu i korzystają z materiałów wizualnych oraz wideo."
+        },
+        {
+          "title": "Oferta i materiały",
+          "description": "Informacje o cenach i zasoby pomagają odbiorcy zapoznać się z dostępnymi możliwościami."
+        },
+        {
+          "title": "Kontakt i spotkania",
+          "description": "Formularze kierują zapytanie do firmy, a osobna ścieżka pozwala rozpocząć umawianie spotkania."
+        },
+        {
+          "title": "Dalsza publikacja",
+          "description": "Konfiguracja treści i wspólne komponenty wspierają dodawanie kolejnych stron w spójnym układzie."
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "title": "Od struktury treści do publikacji",
+      "paragraphs": [
+        "Na początku ustalono, jakie informacje są potrzebne odbiorcom na kolejnych etapach poznawania produktu. Następnie powstały układy stron, elementy interfejsu i integracje kontaktowe. Podstrony rozwijano etapami, zachowując wspólne zasady prezentacji.",
+        "W procesie publikacji dostępne są środowiska podglądowe i stagingowe oraz oddzielna publikacja produkcyjna. Pozwala to sprawdzać zmiany przed udostępnieniem ich odbiorcom. W utrzymaniu znaczenie mają także aktualizacja materiałów, poprawność linków i działanie formularzy."
+      ],
+      "items": []
+    },
+    {
+      "id": "engineering",
+      "title": "Decyzje techniczne",
+      "paragraphs": [
+        "Serwis korzysta z Next.js w trybie eksportu statycznego i jest hostowany na Cloudflare Pages. Gotowe strony można dostarczać bez uruchamiania własnego serwera aplikacji dla każdego odwiedzającego.",
+        "Treści stron są oddzielone od komponentów React i MUI. Ten podział pozwala używać wspólnych układów przy różnych zestawach informacji. Formularze korzystają z integracji kontaktowych i zabezpieczenia Cloudflare Turnstile."
+      ],
+      "items": [
+        {
+          "title": "Wydajność mediów",
+          "description": "Sposób ładowania obrazów i wideo uwzględnia ich miejsce na stronie, aby materiały niepotrzebnie nie opóźniały jej otwarcia."
+        },
+        {
+          "title": "Widoczność w wyszukiwarkach",
+          "description": "Metadane, adresy kanoniczne, mapa witryny i dane strukturalne pomagają wyszukiwarkom interpretować opublikowane strony."
+        },
+        {
+          "title": "Kontrola zmian",
+          "description": "Podgląd i staging dają miejsce na sprawdzenie treści oraz działania interfejsu przed osobną publikacją produkcyjną."
+        },
+        {
+          "title": "Responsywny interfejs",
+          "description": "Wspólne komponenty i reguły układu pozwalają dostosować strony do różnych szerokości ekranu."
+        }
+      ]
+    }
+  ],
+  "stack": [
+    {
+      "term": "Next.js, React i TypeScript",
+      "detail": "Statyczne strony i komponenty serwisu."
+    },
+    {
+      "term": "MUI",
+      "detail": "Wspólne elementy interfejsu i układy."
+    },
+    {
+      "term": "Cloudflare Pages i Turnstile",
+      "detail": "Hosting stron oraz ochrona formularzy."
+    }
+  ]
+}

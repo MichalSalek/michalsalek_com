@@ -1,0 +1,97 @@
+{
+  "intro": [
+    "Praca nad projektem nie zawsze zaczyna się przy komputerze, na którym znajduje się repozytorium. Wewnętrzna platforma pozwala przekazać zadanie przez czat lub e-mail i wrócić do jego przebiegu oraz wyniku.",
+    "Asystent działa na własnym komputerze operatora. Łączy modele lokalne i zewnętrzne z uprawnioną pracą w repozytoriach, kontrolami oraz przekazaniem rezultatu lub dopuszczonym wdrożeniem."
+  ],
+  "audience": "Właściciel prowadzący projekty i zlecający pracę na własnym stanowisku także zdalnie.",
+  "role": "Michał Sałek odpowiada za koncepcję, architekturę, implementację i utrzymanie wewnętrznej platformy obsługiwanej przez właściciela.",
+  "sections": [
+    {
+      "id": "context",
+      "title": "Zadanie wysłane z dala od stanowiska",
+      "paragraphs": [
+        "Czat w przeglądarce i wątki e-mail są wygodnymi sposobami rozpoczęcia pracy, ale sama wiadomość nie powinna być jedynym śladem zlecenia. Potrzebne są trwały zapis zadania, stan wykonania i informacja o dostarczeniu odpowiedzi.",
+        "System przyjmuje instrukcje w ramach uprawnień operatora i kieruje je do odpowiedniego wykonawcy. W zależności od zadania może on pracować w repozytorium, uruchamiać odpowiednie kontrole i przedstawić wynik. Wydanie zmian odbywa się tylko w dozwolonym zakresie."
+      ],
+      "items": [
+        {
+          "title": "Dwa kanały kontaktu",
+          "description": "Rozmowa w przeglądarce oraz korespondencja e-mail prowadzą do tego samego procesu obsługi zadań."
+        },
+        {
+          "title": "Dostęp do historii",
+          "description": "Zapis rozmów, zleceń i prób pomaga sprawdzić, co zostało przyjęte i na jakim etapie znajduje się praca."
+        },
+        {
+          "title": "Świadome przekazanie wyniku",
+          "description": "Wynik pracy i jego dostarczenie są osobnymi etapami, co ma znaczenie przy problemach z pocztą."
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "title": "Od wiadomości do pracy nad projektem",
+      "paragraphs": [
+        "Platforma działa jako zestaw nadzorowanych procesów na Windows i WSL. Osobne procesy obsługują pocztę, HTTP, wykonanie i czat, a zadania oraz ich stan są przechowywane lokalnie.",
+        "Profile i adaptery kierują pracę do lokalnych modeli GPU lub płatnych dostawców. Operator może dobrać sposób wykonania do zadania, a odpowiedź otrzymać w kanale związanym z rozmową."
+      ],
+      "items": [
+        {
+          "title": "Przyjęcie zlecenia",
+          "description": "Wiadomość prowadzi do zapisu zadania, które może być wykonane także po zakończeniu sesji w przeglądarce."
+        },
+        {
+          "title": "Praca w repozytorium",
+          "description": "Wykonawca realizuje uprawnione działania i kontrole; rezultat może obejmować zmiany lub raport."
+        },
+        {
+          "title": "Obsługa przerwy",
+          "description": "Stan procesu i zadania pomaga ustalić, jak wznowić pracę po zatrzymaniu, bez automatycznego powielania działań."
+        }
+      ]
+    },
+    {
+      "id": "engineering",
+      "title": "Decyzje techniczne",
+      "paragraphs": [
+        "Najważniejsza jest możliwość odtworzenia przebiegu zadania i odróżnienia pracy wykonanej od wiadomości, która dopiero czeka na dostarczenie."
+      ],
+      "items": [
+        {
+          "title": "Trwały zapis",
+          "description": "SQLite w trybie WAL przechowuje rozmowy, zadania i stany. Transakcyjne przyjęcie oraz kolejka wysyłek wiążą zmianę stanu z dalszą obsługą."
+        },
+        {
+          "title": "Oddzielne stany",
+          "description": "Wykonanie i dostarczenie mają osobne statusy, dlatego błąd e-maila nie oznacza potrzeby ponownego wykonania pracy."
+        },
+        {
+          "title": "Nadzór i odzyskiwanie",
+          "description": "Tożsamość procesów oraz zapisany stan wspierają odzyskiwanie po przerwaniu, bez ślepego powtarzania rozpoczętych operacji."
+        },
+        {
+          "title": "Wymienni wykonawcy",
+          "description": "Adaptery i profile pozwalają kierować zadania do Ollama, llama.cpp lub płatnych dostawców, zależnie od dostępnego środowiska i potrzeb."
+        }
+      ]
+    }
+  ],
+  "stack": [
+    {
+      "term": "Usługi",
+      "detail": "Python i FastAPI, z osobnymi nadzorowanymi procesami."
+    },
+    {
+      "term": "Dane",
+      "detail": "SQLite w trybie WAL, trwałe zadania i kolejka wysyłek."
+    },
+    {
+      "term": "Kanały",
+      "detail": "Czat przeglądarkowy oraz poczta IMAP i SMTP."
+    },
+    {
+      "term": "Modele",
+      "detail": "Lokalne Ollama i llama.cpp oraz płatni dostawcy wybierani przez profile i adaptery."
+    }
+  ]
+}

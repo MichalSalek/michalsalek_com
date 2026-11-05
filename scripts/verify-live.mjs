@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { localePath, routes, site } from '../src/content/site.mjs';
+import {portfolioRoutes} from '../src/content/portfolio.mjs';
 
 const base = (process.argv[2] ?? site.origin).replace(/\/$/, '');
 const local = JSON.parse(await readFile('out/release.json', 'utf8'));
@@ -28,17 +29,20 @@ for (const [path, hash] of Object.entries(local.assets)) {
 }
 for (const path of ['/robots.txt', '/sitemap.xml', '/llms.txt', '/llms-full.txt', '/og-image.png']) await request(path);
 for (const agent of ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'GPTBot', 'ChatGPT-User', 'ClaudeBot']) {
-    await request('/', {headers: {'User-Agent': agent}});
-    await request('/pl/', {headers: {'User-Agent': agent}});
+    for (const locale of site.locales) for (const path of ['/', ...portfolioRoutes]) {
+        await request(localePath(locale, path), {headers: {'User-Agent': agent}});
+    }
 }
 for (const [source, target] of [['/software', '/'], ['/software/', '/'], ['/pl/software/', '/pl/'], ['/contact.html', '/contact/']]) {
     const response = await fetch(`${base}${source}`, {redirect: 'manual', signal: AbortSignal.timeout(20000)});
     assert.equal(response.status, 301, `${source}: permanent redirect`);
     assert.equal(new URL(response.headers.get('location'), base).pathname, target, `${source}: redirect target`);
 }
-const missing = await fetch(`${base}/missing-release-probe-${expected}/`, {signal: AbortSignal.timeout(20000)});
-assert.equal(missing.status, 404, 'Missing pages must return 404');
-assert((await missing.text()).includes('Page not found'), 'Custom static 404 page');
+for (const path of [`/missing-release-probe-${expected}/`, `/portfolio/missing-release-probe-${expected}/`, `/pl/portfolio/missing-release-probe-${expected}/`]) {
+    const missing = await fetch(`${base}${path}`, {signal: AbortSignal.timeout(20000)});
+    assert.equal(missing.status, 404, `${path}: missing pages must return 404`);
+    assert((await missing.text()).includes('Page not found'), `${path}: custom static 404 page`);
+}
 if (base === site.origin) {
     const www = await fetch(base.replace('https://', 'https://www.'), {redirect: 'manual', signal: AbortSignal.timeout(20000)});
     assert.equal(www.status, 301, 'www must redirect permanently');

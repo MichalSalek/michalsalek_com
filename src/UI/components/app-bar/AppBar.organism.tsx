@@ -24,8 +24,9 @@ export const AppBarOrganism = () => {
         <Toolbar component="nav" aria-label={locale === 'pl' ? 'Nawigacja główna' : 'Main navigation'} sx={{padding: '0 !important'}}>
             <AppLinkAtom className="brand-link" href="/"><CompanyNameAtom fullName/></AppLinkAtom>
             <div style={{flex: 1}}/>
+            <AppLinkAtom className="portfolio-link" href="/portfolio/" aria-current={path.startsWith('/portfolio/') ? 'true' : undefined}>Portfolio</AppLinkAtom>
             <Link className="language-link" href={`${localePath(language, path)}${suffix}`} hrefLang={language} lang={language} aria-label={`${language.toUpperCase()}: ${messages.switchLanguage}`}><LanguageIcon fontSize="small"/><span>{language.toUpperCase()}</span></Link>
-            <AppLinkAtom className="contact-link" href="/contact/"><span>{messages.contact}</span><ContactMailIcon/></AppLinkAtom>
+            <AppLinkAtom className="contact-link" href="/contact/" aria-label={messages.contact}><span>{messages.contact}</span><ContactMailIcon/></AppLinkAtom>
         </Toolbar>
     </AppBar>;
 };

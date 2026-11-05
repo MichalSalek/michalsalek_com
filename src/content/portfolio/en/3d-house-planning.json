@@ -1,0 +1,98 @@
+{
+  "intro": [
+    "Before speaking with an architect, it can be difficult to judge how a house idea will work on a particular site. This developing studio makes it possible to explore a spatial concept, compare alternatives and gather information for further decisions.",
+    "The working foundation includes a model on real terrain, measurements, lighting, comparisons and exports. The next direction is in-app conversation about changes and an easier way to share the concept with an architect."
+  ],
+  "audience": "People preparing a house concept and architects who will develop it further.",
+  "role": "Michał Sałek is responsible for the product concept, architecture and implementation of the studio.",
+  "sections": [
+    {
+      "id": "context",
+      "title": "A concept in the context of its site",
+      "paragraphs": [
+        "A floor plan and a list of rooms may not be enough to imagine the shape of a house, the slope of the land and the available light. Looking at the house from different angles can reveal questions to discuss with an architect earlier.",
+        "The studio combines a house model with real terrain data. Users can consider several alternatives and examine their basic properties rather than basing the discussion on a single visualization."
+      ],
+      "items": [
+        {
+          "title": "The house and its setting",
+          "description": "The house is presented in the context of actual terrain."
+        },
+        {
+          "title": "Comparing ideas",
+          "description": "Alternatives can be compared numerically and switched at the same camera position to make differences easier to see."
+        },
+        {
+          "title": "Material for discussion",
+          "description": "Measurements, room information and concept plans help prepare questions for further design work."
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "title": "Exploring, checking and continuing development",
+      "paragraphs": [
+        "The current version supports orbiting and looking around the model, measuring distances, creating sections and hiding the roof or floors. Date and time controls and sunlight presets help users explore changes in light. An external agent can modify the model, and completed variants can be compared in the browser.",
+        "GLB model export and ZIP packages containing reports and plans are available. Planned work includes built-in conversation about the design supported by architectural knowledge, walking with collision handling, seasonal visualization, an architect share link and a friendlier export workflow."
+      ],
+      "items": [
+        {
+          "title": "Exploring space",
+          "description": "Measurements and sections reveal interiors and relationships between parts of the house."
+        },
+        {
+          "title": "Light and alternatives",
+          "description": "Changing the date and time and comparing variants support the evaluation of different ideas."
+        },
+        {
+          "title": "Sharing the concept",
+          "description": "Existing files and reports provide material for further discussion. A planned link and improved export workflow are intended to make collaboration with an architect easier."
+        }
+      ]
+    },
+    {
+      "id": "engineering",
+      "title": "Engineering decisions",
+      "paragraphs": [
+        "A single source of dimensions feeds the model and calculations. This lets a variant be considered visually and through a comparison of its properties.",
+        "The planned assistant will retrieve architectural reference material through RAG to provide relevant context when proposing changes. An architect develops and verifies the concept and exported material within their own design process."
+      ],
+      "items": [
+        {
+          "title": "Data and geometry",
+          "description": "A metric JSON description of the house feeds the Three.js scene. Manifold CSG through WASM creates and transforms solids, including openings and sections."
+        },
+        {
+          "title": "Validation and quantities",
+          "description": "Data is checked before generation and used to produce calculations and reports for work on the concept."
+        },
+        {
+          "title": "Real terrain",
+          "description": "Terrain data places the model in the context of the site and supports consideration of how the house sits on the land."
+        },
+        {
+          "title": "Files for further work",
+          "description": "GLB carries the geometry, while ZIP packages collect reports and concept plans for a selected variant."
+        }
+      ]
+    }
+  ],
+  "stack": [
+    {
+      "term": "Model and view",
+      "detail": "TypeScript, a metric JSON model, Three.js and Manifold CSG running through WASM."
+    },
+    {
+      "term": "Analysis",
+      "detail": "Validation, quantity calculations, measurements, sections and variant comparisons."
+    },
+    {
+      "term": "Context",
+      "detail": "Real terrain data and date and time controls for sunlight."
+    },
+    {
+      "term": "Export",
+      "detail": "GLB model and ZIP packages with reports and concept plans."
+    }
+  ]
+}

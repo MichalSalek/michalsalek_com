@@ -1,0 +1,98 @@
+{
+  "intro": [
+    "Usługodawca potrzebuje miejsca, w którym może pokazać swoją pracę, a po umówieniu wizyty zachować kontekst rozmowy z klientem. Platforma łączy portfolio ze zdjęciami, inspiracje i komunikację z historią współpracy.",
+    "Produkt obejmuje również konta, subskrypcje i zaplecze administracyjne. Dzięki temu prezentacja realizacji i codzienna obsługa klientów korzystają ze wspólnego systemu."
+  ],
+  "audience": "Usługodawcy prezentujący realizacje oraz ich klienci przygotowujący się do wizyt.",
+  "role": "Michał Sałek odpowiada za koncepcję techniczną, architekturę i cały cykl rozwoju produktu, od zakresu funkcji po wdrożenie i utrzymanie. W implementacji korzysta z agentów programujących, a ich zmiany podlegają jego ocenie i weryfikacji.",
+  "sections": [
+    {
+      "id": "context",
+      "title": "Portfolio i współpraca po pierwszym kontakcie",
+      "paragraphs": [
+        "Zdjęcie realizacji pomaga klientowi wybrać usługodawcę, ale współpraca nie kończy się na obejrzeniu galerii. Przed wizytą przydają się inspiracje i rozmowa, a przy kolejnych spotkaniach także dostęp do wcześniejszych ustaleń.",
+        "Platforma łączy te potrzeby z narzędziami do prowadzenia usługi. Klient i usługodawca mogą połączyć swoje konta kodem QR, a następnie pracować w kontekście wspólnej relacji."
+      ],
+      "items": [
+        {
+          "title": "Prezentacja prac",
+          "description": "Portfolio ze zdjęciami pozwala pokazać styl i dotychczasowe realizacje."
+        },
+        {
+          "title": "Kontekst wizyty",
+          "description": "Wiadomości, wybrane inspiracje oraz historia wizyt pomagają wrócić do potrzeb i ustaleń klienta."
+        },
+        {
+          "title": "Prowadzenie produktu",
+          "description": "Konta, uprawnienia i subskrypcje tworzą podstawę korzystania z funkcji przez różne osoby."
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "title": "Od galerii do codziennej obsługi",
+      "paragraphs": [
+        "Zakres obejmuje publiczną prezentację oraz zalogowaną część aplikacji. Usługodawca zarządza materiałami i relacjami z klientami, a klient może korzystać z połączenia kont, wiadomości i inspiracji.",
+        "Część CRM przechowuje informacje związane z wizytami, aby kolejne spotkanie miało czytelny kontekst. Subskrypcje są powiązane z obsługą płatności Stripe, a produkt rozwijany jest jako aplikacja internetowa z osobnym API.",
+        "Kolejne funkcje są dopracowywane iteracyjnie, od reguł domenowych i kontraktów danych po interfejs. Testy, środowisko stagingowe i sprawdzanie wydania poprzedzają udostępnienie zmian produkcyjnych. Utrzymanie obejmuje diagnozę zdarzeń i możliwość wycofania wydania."
+      ],
+      "items": [
+        {
+          "title": "Połączenie kont",
+          "description": "Kod QR pomaga powiązać klienta z usługodawcą w ramach istniejących kont."
+        },
+        {
+          "title": "Historia współpracy",
+          "description": "Dane wizyt i komunikacja porządkują informacje potrzebne podczas kolejnej obsługi."
+        },
+        {
+          "title": "Subskrypcje",
+          "description": "Obsługa planów i płatności wspiera dostęp do funkcji oferowanych w produkcie."
+        }
+      ]
+    },
+    {
+      "id": "engineering",
+      "title": "Decyzje techniczne",
+      "paragraphs": [
+        "Architektura łączy rozwój funkcji z kontrolą tego, co dzieje się podczas ich wykonania. Typowanie wspiera zgodność kodu, a spójność zapisów i diagnostyka są rozwiązywane w odpowiednich warstwach."
+      ],
+      "items": [
+        {
+          "title": "Wspólne kontrakty",
+          "description": "Typy, walidatory i definicje API są utrzymywane we wspólnym kernelu. Sprawdzane kopie trafiają do aplikacji i API, dzięki czemu łatwiej wykryć rozbieżności."
+        },
+        {
+          "title": "Podział według domeny (DDD)",
+          "description": "Kod interfejsu i operacje serwera są grupowane według funkcji produktu, co ułatwia prześledzenie drogi od ekranu do danych."
+        },
+        {
+          "title": "Jawne wyniki i spójność danych",
+          "description": "Oczekiwane błędy mają typowane warianty. Transakcje i blokady są stosowane tam, gdzie równoczesne operacje wymagają ochrony zapisu."
+        },
+        {
+          "title": "Diagnostyka operacyjna",
+          "description": "Własny EventLog zapisuje poziom istotności, kontekst operacji i identyfikatory powiązanych zdarzeń. Dane wrażliwe są filtrowane, a zapisy buforowane. Alerty anomalii trafiają pocztą, z osobną ścieżką zgłaszania awarii podstawowego rejestru."
+        }
+      ]
+    }
+  ],
+  "stack": [
+    {
+      "term": "Aplikacja",
+      "detail": "React, TypeScript i Next.js."
+    },
+    {
+      "term": "API i dane",
+      "detail": "Osobne API HTTP, PostgreSQL i Prisma."
+    },
+    {
+      "term": "Płatności",
+      "detail": "Stripe do obsługi subskrypcji i zdarzeń płatniczych."
+    },
+    {
+      "term": "Kontrakty i utrzymanie",
+      "detail": "Wspólny kernel z kontrolowanymi kopiami oraz własny EventLog i alerty."
+    }
+  ]
+}

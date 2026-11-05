@@ -21,7 +21,7 @@ export const MainComposition = ({children, title, description, shareImage}: Part
         <div className="site-shell">
             <a className="skip-link" href="#main-app-content-box">{messages.skip}</a>
             <HeaderPartial/>
-            <main style={{marginTop: '7rem'}}>
+            <main className="site-main">
                 <Container maxWidth="xl"><div id="main-app-content-box" tabIndex={-1}><Container><BreadcrumbsAtom/></Container>{children}</div></Container>
             </main>
             <FooterPartial/>

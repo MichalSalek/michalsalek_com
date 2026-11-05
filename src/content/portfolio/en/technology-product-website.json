@@ -1,0 +1,85 @@
+{
+  "intro": [
+    "The product website was designed to help visitors understand a technology offering and choose their next step: explore use cases, review the offer, watch materials or contact the company. Content and media are organized across a set of related pages.",
+    "The work covered discovery, structure and interface design, development of individual pages, deployment and maintenance. Reusable elements make it easier to publish new content without designing each page from scratch."
+  ],
+  "audience": "People exploring the technology, comparing the offer or looking to contact the company.",
+  "role": "Michał Sałek was responsible for discovery, structure, interface and integration design, and the development, deployment and maintenance of the website.",
+  "sections": [
+    {
+      "id": "context",
+      "title": "Explaining a complex product through its uses",
+      "paragraphs": [
+        "Visitors arrive with different questions. Some want a quick introduction to the product’s capabilities; others need details of the offer, resources or a conversation with a representative. The site structure supports each of these paths.",
+        "The work involved bringing text, images and video together in a readable layout for phones and larger screens. The offer, resources and contact forms each have a place in the navigation, so visitors can move from learning about the product to getting in touch."
+      ],
+      "items": [
+        {
+          "title": "Presentation",
+          "description": "Pages explain product use cases using visual materials and video."
+        },
+        {
+          "title": "Offer and resources",
+          "description": "Pricing information and resources help visitors explore the available options."
+        },
+        {
+          "title": "Contact and meetings",
+          "description": "Forms direct enquiries to the company, and a separate path lets visitors begin scheduling a meeting."
+        },
+        {
+          "title": "Further publishing",
+          "description": "Content configuration and shared components support new pages with a consistent layout."
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "title": "From content structure to publication",
+      "paragraphs": [
+        "The work began by identifying the information visitors need at different stages of learning about the product. Page layouts, interface elements and contact integrations followed. Pages were developed in stages using shared presentation rules.",
+        "The publishing process includes preview and staging environments and a separate production release. This provides a place to check changes before they reach visitors. Maintenance also includes updating materials, checking links and keeping forms working."
+      ],
+      "items": []
+    },
+    {
+      "id": "engineering",
+      "title": "Technical decisions",
+      "paragraphs": [
+        "The site uses Next.js static export and is hosted on Cloudflare Pages. Generated pages can be delivered without running a dedicated application server for each visitor.",
+        "Page content is separated from React and MUI components. This allows shared layouts to serve different sets of information. Forms use contact integrations and Cloudflare Turnstile protection."
+      ],
+      "items": [
+        {
+          "title": "Media performance",
+          "description": "Image and video loading takes their position on the page into account to avoid unnecessarily delaying the initial view."
+        },
+        {
+          "title": "Search visibility",
+          "description": "Metadata, canonical URLs, a sitemap and structured data help search engines interpret published pages."
+        },
+        {
+          "title": "Change review",
+          "description": "Preview and staging provide a place to check content and interface behavior before a separate production release."
+        },
+        {
+          "title": "Responsive interface",
+          "description": "Shared components and layout rules adapt pages to different screen widths."
+        }
+      ]
+    }
+  ],
+  "stack": [
+    {
+      "term": "Next.js, React and TypeScript",
+      "detail": "Static pages and website components."
+    },
+    {
+      "term": "MUI",
+      "detail": "Shared interface elements and layouts."
+    },
+    {
+      "term": "Cloudflare Pages and Turnstile",
+      "detail": "Page hosting and form protection."
+    }
+  ]
+}

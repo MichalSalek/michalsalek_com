@@ -5,6 +5,7 @@ import { routes, site, localePath, pageUrl } from '../src/content/site.mjs';
 import { createHash } from 'node:crypto';
 import { heroMedia } from '../src/content/media-plan.mjs';
 import sharp from 'sharp';
+import {findPortfolioProject, portfolioProjects, portfolioPath} from '../src/content/portfolio.mjs';
 
 const sitemap = await readFile('out/sitemap.xml', 'utf8');
 const titles = new Set();
@@ -51,7 +52,7 @@ for (const locale of site.locales) {
             await access(`out${source}`);
         }
         if (heroMedia[path]) {
-            const hero = $('.service-artwork-hero');
+            const hero = path.startsWith('/portfolio/') ? $('main article > figure') : $('.service-artwork-hero');
             assert.equal(hero.length, 1, `${label}: one opening image`);
             assert.equal(hero.attr('data-asset'), heroMedia[path], `${label}: contextual opening image`);
             assert.equal($(`[data-asset="${heroMedia[path]}"]`).length, 1, `${label}: opening image must not repeat in the article`);
@@ -66,6 +67,26 @@ for (const locale of site.locales) {
         assert(mirror.includes($('h1').text()), `${label}: Markdown mirror`);
         for (const item of $('.enquiry-answers dt, .enquiry-answers dd')) assert(mirror.includes($(item).text().trim()), `${label}: enquiry answers in the Markdown mirror`);
         for (const cell of $('main table th, main table td')) assert(mirror.includes($(cell).text().trim()), `${label}: technical table in the Markdown mirror`);
+        const project = findPortfolioProject(path);
+        if (project) {
+            const content = JSON.parse(await readFile(`src/content/portfolio/${locale}/${project.id}.json`, 'utf8'));
+            const article = json['@graph'].find(node => node['@type'] === 'Article');
+            assert.equal(article?.headline, project[locale].title, `${label}: project article schema`);
+            assert.equal(article?.dateModified, project.updatedAt, `${label}: editorial update date`);
+            assert.equal($('meta[property="og:type"]').attr('content'), 'article', `${label}: article preview`);
+            for (const section of content.sections) {
+                assert.equal($(`main section#${section.id}`).length, 1, `${label}: section ${section.id}`);
+                for (const paragraph of section.paragraphs) assert(mirror.includes(paragraph), `${label}: full project text in Markdown`);
+                for (const item of section.items) assert(mirror.includes(item.description), `${label}: project details in Markdown`);
+            }
+            assert(mirror.includes(content.role), `${label}: responsibility in Markdown`);
+        }
+        if (path === '/portfolio/') {
+            const list = json['@graph'].find(node => node['@type'] === 'ItemList');
+            assert.equal(list?.numberOfItems, portfolioProjects.length, `${label}: portfolio schema count`);
+            assert.deepEqual(list.itemListElement.map(item => item.url), portfolioProjects.map(item => pageUrl(locale, portfolioPath(item))), `${label}: portfolio schema URLs`);
+            for (const item of portfolioProjects) assert.equal($(`main article a[href="${localePath(locale, portfolioPath(item))}"]`).length, 1, `${label}: one complete project link`);
+        }
         pages++;
     }
 }

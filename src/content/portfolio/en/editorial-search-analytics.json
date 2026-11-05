@@ -1,0 +1,87 @@
+{
+  "intro": [
+    "An editorial department needed its own way to follow how articles appeared in search results. An internal application tailored to editors and the SEO department replaced a paid external tool.",
+    "Each editor can work with their own articles and related queries. Position histories make it possible to compare changes over time across languages and mobile and desktop devices."
+  ],
+  "audience": "Editors and SEO specialists responsible for the visibility of published articles.",
+  "role": "During previous employment, Michał Sałek took over an unfinished frontend, developed it and brought it to deployment. He worked with backend developers to agree on the API and data formats.",
+  "sections": [
+    {
+      "id": "context",
+      "title": "Search visibility in editorial work",
+      "paragraphs": [
+        "For a publication with many articles, a single search result offers only a momentary view. Editors need to return to their own work, see associated queries and understand whether positions are rising, falling or staying broadly stable.",
+        "The goal was to replace a paid service with an internal tool suited to the department’s workflow. The application collects recurring position measurements, mainly from Google, and presents them in the context of an article and an editor’s account.",
+        "The value lies in keeping the context of successive measurements comparable, as well as seeing a current position. Separating results by language and device lets the department return to the relevant data when assessing a publication’s visibility."
+      ],
+      "items": [
+        {
+          "title": "Publication context",
+          "description": "Articles and queries are associated with accounts so each editor can focus on their own material."
+        },
+        {
+          "title": "Comparable history",
+          "description": "Language and mobile or desktop categories help users compare results within the same context."
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "title": "Taking over and delivering the application",
+      "paragraphs": [
+        "The work began with an existing, unfinished React interface. It included organizing the code, developing the views needed by the editorial department and preparing the application for deployment.",
+        "A separate Ruby on Rails backend was developed by other programmers. Michał Sałek and the backend developers agreed on request and response formats together so article, query and history views could use data defined by a shared understanding.",
+        "The views were organized around articles and their associated queries. The application was intended to support regular editorial work and help users select topics for further analysis."
+      ],
+      "items": [
+        {
+          "title": "Working with an article",
+          "description": "Editors can move from their publication list to related queries and their history instead of looking across separate tools."
+        },
+        {
+          "title": "Following change",
+          "description": "A sequence of measurements makes trends easier to notice and helps editors choose content for further attention."
+        }
+      ]
+    },
+    {
+      "id": "engineering",
+      "title": "Engineering decisions",
+      "paragraphs": [
+        "The priority was to make the inherited interface easier to develop while keeping it aligned with the SEO department’s actual work. Clear structure and agreed data formats supported subsequent changes."
+      ],
+      "items": [
+        {
+          "title": "Strict TypeScript",
+          "description": "Migrating from JavaScript to strict typing helped expose inconsistencies while developing views and handling data."
+        },
+        {
+          "title": "Modular structure",
+          "description": "The code was organized around application features, making individual parts easier to locate and extend."
+        },
+        {
+          "title": "Agreed API contracts",
+          "description": "DTOs agreed with the backend developers connected the interface to data returned by Rails."
+        },
+        {
+          "title": "Updates without a page reload",
+          "description": "The interface fetches data for a particular view or operation through narrowly scoped endpoints. Editors can move between articles and measurement history without reloading the entire page."
+        }
+      ]
+    }
+  ],
+  "stack": [
+    {
+      "term": "Interface",
+      "detail": "React and TypeScript with strict checks."
+    },
+    {
+      "term": "Integration",
+      "detail": "API and DTOs agreed with the Ruby on Rails backend developers."
+    },
+    {
+      "term": "Analysis",
+      "detail": "Article and query position histories grouped by language and device."
+    }
+  ]
+}

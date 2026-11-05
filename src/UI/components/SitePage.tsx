@@ -16,6 +16,7 @@ import { EngineeringPageOrganism } from './EngineeringPage.organism';
 import { site, relatedServices } from '@/src/content/site.mjs';
 import studio from '@/assets/library/photos/audio-studio.jpg';
 import drumset from '@/assets/library/photos/audio-soundtracks.jpg';
+import {PortfolioIndexPage, PortfolioProjectPage, PortfolioShowcase} from './portfolio/Portfolio.organism';
 
 const ContactFormOrganism = dynamic(() => import('@/src/UI/components/ContactForm.organism'));
 
@@ -24,10 +25,13 @@ const heroes = {
     '/sound/soundtracks/': {image: drumset, credits: 'Photo by ASBA DRUMS'},
 };
 
-export default function SitePage({path, title, cards, artwork, sections, messages, navigation, intro}: SitePageProps) {
+export default function SitePage({path, title, cards, artwork, sections, messages, navigation, intro, portfolioCards, portfolioDetail}: SitePageProps) {
+    if (path === '/portfolio/') return <PortfolioIndexPage cards={portfolioCards}/>;
+    if (portfolioDetail) return <PortfolioProjectPage detail={portfolioDetail} artwork={artwork}/>;
     if (path === '/software/fullstack/') return <EngineeringPageOrganism title={title} intro={intro} sections={sections} artwork={artwork}/>;
     if (path === '/' || path === '/sound/') return <>
         <RootCardOrganism version={path === '/' ? 'software' : 'sound'} cards={cards} intro={intro}/>
+        {path === '/' && <PortfolioShowcase cards={portfolioCards}/>}
         {sections.length > 0 && <Container>{sections.map(section => <ContentBlockOrganism key={section.title} title={section.title} subtitle={section.subtitle} body={<>{section.paragraphs.map(text => <p key={text}><RichTextAtom text={text}/></p>)}</>}/>)}</Container>}
         {path === '/' && <Container><ContentBlockOrganism title={messages.startTitle} body={<dl className="enquiry-answers">{messages.startQuestions.map(item => <div key={item.question}><dt>{item.question}</dt><dd>{item.answer}</dd></div>)}</dl>}/></Container>}
         <Container><GoToContactFormMolecule objectOfInterest={title}/></Container>

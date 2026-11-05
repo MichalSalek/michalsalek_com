@@ -1,5 +1,8 @@
+import {portfolioProjects, portfolioPath} from './portfolio.mjs';
+
 // Asset IDs are shared by cards, article placements and the library catalogue.
 export const cardMedia = {
+    ...Object.fromEntries(portfolioProjects.map(project => [portfolioPath(project), project.cover])),
     '/software/websites/': 'responsive-business-website',
     '/software/custom-software/': 'case-views',
     '/software/integrations/': 'payment-and-fulfilment',
@@ -12,6 +15,7 @@ export const cardMedia = {
 
 // Each article has a distinct opening scene, shown only once on that page.
 export const heroMedia = {
+    ...Object.fromEntries(portfolioProjects.map(project => [portfolioPath(project), project.cover])),
     '/software/ai-automation/': 'ai-document-extraction',
     '/software/automation/': 'case-and-task',
     '/software/integrations/': 'payment-and-fulfilment',

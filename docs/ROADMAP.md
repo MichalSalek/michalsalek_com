@@ -48,8 +48,9 @@ Framework updates and content work do not imply approval for a redesign.
 
 ## Next: proof, imagery and enquiries
 
-1. Select projects or engineering examples that may be shown publicly, with any
-   required client permission. Add specific outcomes only when verified.
+1. Maintain the published anonymous portfolio and add further supported project
+   studies. Add specific outcomes only when verified. See `PORTFOLIO.md` for the
+   shared publishing and evidence contract.
 2. Review the implemented mix of contextual photographs and sparse indigo
    illustrations. The first six cards alternate media types; every software
    article has its own opening scene and relevant body illustrations. Sources and

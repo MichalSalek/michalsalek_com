@@ -1,0 +1,89 @@
+{
+  "intro": [
+    "Sprzedawca korzystający z Shopify może udostępnić klientom interaktywną prezentację produktu bez przenoszenia ich do osobnego sklepu. Aplikacja obejmuje zarówno przygotowanie produktów w panelu sprzedawcy, jak i doświadczenie na stronie produktu.",
+    "Zakres prac prowadził od poznania procesu sprzedaży i wymagań integracji, przez projekt interfejsu i API, po etapowe wdrażanie oraz utrzymanie. Szczególną uwagę poświęcono temu, aby sprzedawca wiedział, które produkty są gotowe, a które wymagają kolejnego działania."
+  ],
+  "audience": "Sprzedawcy prowadzący sklepy Shopify oraz klienci oglądający produkty w tych sklepach.",
+  "role": "Michał Sałek odpowiadał za rozpoznanie potrzeb, projekt zasad produktu, interfejsu i integracji oraz rozwój, wdrożenie i utrzymanie aplikacji.",
+  "sections": [
+    {
+      "id": "context",
+      "title": "Od instalacji do strony produktu",
+      "paragraphs": [
+        "Sprzedawca instaluje aplikację w sklepie, wybiera produkty i uruchamia ich przygotowanie. Może zaznaczyć kilka pozycji naraz, sprawdzić postęp, ponowić nieudane zadania i zdecydować, które gotowe produkty mają być widoczne w sklepie.",
+        "Kupujący korzysta z prezentacji na stronie produktu. Gdy potrzebuje telefonu, może zeskanować kod QR wyświetlony na komputerze i kontynuować na urządzeniu mobilnym. Wybrane produkty mogą też trafić do koszyka w sklepie."
+      ],
+      "items": [
+        {
+          "title": "Konfiguracja sklepu",
+          "description": "Panel prowadzi sprzedawcę przez ustawienia aplikacji i włączenie elementów w motywie Shopify."
+        },
+        {
+          "title": "Praca z katalogiem",
+          "description": "Statusy i działania zbiorcze pomagają przygotować produkty oraz rozpoznać pozycje oczekujące lub wymagające uwagi."
+        },
+        {
+          "title": "Plan i pojemność",
+          "description": "Sprzedawca widzi wykorzystane miejsca w planie. Produkty mogą czekać na wolne miejsce, a po jego zwolnieniu rozpocząć przygotowanie."
+        },
+        {
+          "title": "Zakupy",
+          "description": "Prezentacja korzysta z kontekstu strony produktu i łączy się z koszykiem sklepu."
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "title": "Proces dopasowany do pracy sprzedawcy",
+      "paragraphs": [
+        "Najpierw ustalono drogę produktu od wyboru w katalogu do udostępnienia kupującym. Panel pokazuje osobno postęp przygotowania, widoczność w sklepie i stan publikacji w Shopify. Sprzedawca wie dzięki temu, które działanie jest jeszcze potrzebne do udostępnienia prezentacji.",
+        "Prace prowadzono etapami, obejmując instalację, panel, integrację motywu i obsługę sytuacji wymagających ponowienia. Widoki stanu i wyniki działań zbiorczych pomagają sprzedawcy ustalić, co zostało uruchomione, co czeka i co wymaga sprawdzenia."
+      ],
+      "items": []
+    },
+    {
+      "id": "engineering",
+      "title": "Decyzje techniczne",
+      "paragraphs": [
+        "React Router i TypeScript obsługują aplikację panelową, a Shopify GraphQL API oraz App Bridge łączą ją z administracją sklepu. Polaris wspiera interfejs, natomiast rozszerzenia motywu w Liquid umieszczają elementy prezentacji na stronach produktów.",
+        "Przygotowanie produktów trwa poza pojedynczym żądaniem. Rezerwacje miejsc i klucze idempotencji pomagają kontrolować limity oraz ograniczać skutki powtórnych zgłoszeń. Mechanizmy synchronizacji i ponawiania obsługują zadania, które nie zakończyły się od razu."
+      ],
+      "items": [
+        {
+          "title": "Granice modułów",
+          "description": "Reguły produktu są oddzielone od adapterów usług, a kontrole granic modułów pomagają utrzymać ten podział przy dalszym rozwoju."
+        },
+        {
+          "title": "Komunikacja w sklepie",
+          "description": "postMessage przekazuje potrzebny kontekst między osadzonym widokiem a stroną sklepu i wspiera przepływ do koszyka."
+        },
+        {
+          "title": "Dane i zadania",
+          "description": "PostgreSQL i Prisma przechowują dane aplikacji, stan przygotowania i rezerwacje miejsc w planie."
+        },
+        {
+          "title": "Diagnoza",
+          "description": "Ustrukturyzowane logi JSON oraz opcjonalne e-maile operacyjne pomagają analizować przebieg integracji i błędy."
+        }
+      ]
+    }
+  ],
+  "stack": [
+    {
+      "term": "React Router, React i TypeScript",
+      "detail": "Aplikacja i panel sprzedawcy."
+    },
+    {
+      "term": "Shopify GraphQL, App Bridge i Polaris",
+      "detail": "Integracja z administracją sklepu i interfejs panelu."
+    },
+    {
+      "term": "Liquid",
+      "detail": "Rozszerzenia motywu na stronach sklepu."
+    },
+    {
+      "term": "PostgreSQL i Prisma",
+      "detail": "Dane produktów, planów i przetwarzania."
+    }
+  ]
+}

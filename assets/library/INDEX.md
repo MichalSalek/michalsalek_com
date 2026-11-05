@@ -33,3 +33,10 @@ Generated from catalog.json and src/content/media-plan.mjs with npm run assets:c
 | [legacy-molecules](photos/legacy-molecules.jpg) | 3840 x 2160 | Reserve | Photo by Ashraful Islam on Unsplash |
 | [legacy-geometry](photos/legacy-geometry.jpg) | 3024 x 4032 | Reserve | stock |
 | [sound-wave](illustrations/sound-wave.svg) | 1200 x 800 | Card: /sound/ | vector |
+| [portfolio-b2b](portfolio/b2b.png) | 1536 x 1024 | Card: /portfolio/b2b-service-platform/<br>Opening image: /portfolio/b2b-service-platform/ | generated |
+| [portfolio-commerce](portfolio/commerce.png) | 1536 x 1024 | Card: /portfolio/shopify-product-experience/<br>Opening image: /portfolio/shopify-product-experience/ | generated |
+| [portfolio-website](portfolio/website.png) | 1536 x 1024 | Card: /portfolio/technology-product-website/<br>Opening image: /portfolio/technology-product-website/ | generated |
+| [portfolio-editorial](portfolio/editorial.png) | 1536 x 1024 | Card: /portfolio/editorial-search-analytics/<br>Opening image: /portfolio/editorial-search-analytics/ | generated |
+| [portfolio-services](portfolio/services.png) | 1536 x 1024 | Card: /portfolio/service-business-platform/<br>Opening image: /portfolio/service-business-platform/ | generated |
+| [portfolio-assistant](portfolio/assistant.png) | 1536 x 1024 | Card: /portfolio/remote-ai-assistant/<br>Opening image: /portfolio/remote-ai-assistant/ | generated |
+| [portfolio-house](portfolio/house.png) | 1536 x 1024 | Card: /portfolio/3d-house-planning/<br>Opening image: /portfolio/3d-house-planning/ | generated |
