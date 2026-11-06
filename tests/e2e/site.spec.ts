@@ -59,7 +59,7 @@ test('contact mode is explicit and delivery feedback reflects the service respon
         await page.getByRole('button', {name: 'OK', exact: true}).click();
         await expect(page.locator('[name="message"]')).toHaveValue('Test message kept after failure');
         await send.click();
-        await expect(page.getByRole('status')).toContainText('została wysłana');
+        await expect(page.getByRole('status')).toContainText('została przyjęta');
         await page.getByRole('button', {name: 'OK', exact: true}).click();
         await expect(page.locator('[name="message"]')).toHaveValue('');
         expect(requests).toBe(2);

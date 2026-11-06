@@ -82,12 +82,20 @@ or runtime translation service are required.
 The build generates `sitemap.xml`, `robots.txt`, `llms.txt`, `llms-full.txt` and
 Markdown mirrors from the actual HTML. The Markdown is supplementary; HTML is the
 canonical source. Crawler access does not guarantee indexing or AI citations.
+Markdown mirrors also preserve published link destinations, including project,
+service and enquiry links.
 
 ## Contact
 
 With no configuration, the form prepares a draft in the visitor's email app. It
 never reports that a message was delivered. A direct email link is also visible
 without JavaScript.
+
+Unfinished enquiries are kept in `sessionStorage` until the tab closes. A new
+service subject replaces the old generated subject while retaining the message;
+acknowledging success clears the draft. If the endpoint response cannot be
+confirmed, the visitor can open the complete enquiry in their email app. No draft
+is stored on the server and blocked browser storage does not disable the form.
 
 To use an existing external mail service, set `NEXT_PUBLIC_CONTACT_ENDPOINT`
 before building. It must accept a CORS-enabled JSON POST with `subject`, `text`,
@@ -100,6 +108,18 @@ does not require a backend deployment for this static site.
 
 Optional analytics uses `NEXT_PUBLIC_GA_ID` and starts after the first interaction.
 It is disabled when no property is configured.
+
+## Visual verification
+
+`npm run qa:visuals -- --base-url http://127.0.0.1:4326` captures the current export
+from a running preview. It checks the served build, derives every route and locale
+from the registry and records desktop/mobile opening, body, related, contact and
+footer captures in `.playwright-mcp/site-review/`. The inventory reports missing
+surfaces. Hover, focus, mocked failure and 4K navigation have separate captures.
+All form submissions in the capture process are intercepted locally.
+
+Browser tests measure composed text contrast and CTA consistency. A screenshot
+count or a passing geometry test alone does not verify readable text.
 
 ## Deployment
 

@@ -39,6 +39,11 @@ Technical details stay later in the reading order. A glossary, compact notes,
 inline terms or a real comparison table may fit. A table is optional. The company
 voice and anonymous project identities apply equally to prose and figures.
 
+Primary page links use the shared `ActionLinkAtom`. Reused indigo information
+panels own their foreground; article heading styles must not override them.
+Related content has a clear section gap. Service-to-project links derive from
+the existing portfolio service mapping, without a second hand-maintained list.
+
 ## Verification
 
 `npm run check` validates complete source coverage in both languages, builds the
@@ -46,3 +51,5 @@ static pages and checks the actual HTML and Markdown for preserved content,
 working anchors, the intended outline and a single cover. Browser tests cover
 representative compositions, keyboard links, small screens and all article text
 without JavaScript. Review full-page rhythm as well as readable viewport crops.
+`npm run qa:visuals` inventories the affected surfaces and captures lower sections
+in each route/locale, alongside the automated contrast and interactive-state checks.

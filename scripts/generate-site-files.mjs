@@ -49,6 +49,15 @@ for (const locale of site.locales) {
             const text = $(element).text().replace(/\s+/g, ' ').trim();
             if (text) lines.push(`${element.tagName.startsWith('h') ? '## ' : element.tagName === 'dt' ? '### ' : ''}${text}`, '');
         });
+        const links = new Map();
+        $('main a[href]').each((_, element) => {
+            const href = $(element).attr('href');
+            if (!/^(\/|#|https?:|mailto:|tel:)/.test(href)) return;
+            const anchor = $(element).clone(); anchor.find('[aria-hidden="true"]').remove();
+            const label = anchor.text().replace(/\s+/g, ' ').trim();
+            if (label) links.set(new URL(href, pageUrl(locale, path)).href, label.replace(/[\[\]]/g, '\\$&'));
+        });
+        if (links.size) lines.push(`## ${locale === 'pl' ? 'Odnośniki' : 'Links'}`, '', ...[...links].map(([href, label]) => `- [${label}](<${href}>)`), '');
         lines.push(`Contact: ${site.email}`, '');
         const markdown = lines.join('\n');
         const mdPath = relative === '/' ? '/index.md' : `${relative.slice(0, -1)}.md`;

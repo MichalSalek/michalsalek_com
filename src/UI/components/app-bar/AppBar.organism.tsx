@@ -2,6 +2,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import Container from '@mui/material/Container';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -21,6 +22,7 @@ export const AppBarOrganism = () => {
     const suffixAt = queryAt >= 0 ? queryAt : hashAt;
     const suffix = suffixAt >= 0 ? router.asPath.slice(suffixAt) : '';
     return <AppBar component="header" className={scss.host} elevation={elevated ? 1 : 0} sx={{backgroundColor: 'rgba(255, 255, 255, .3)', backdropFilter: 'blur(5px) saturate(200%) contrast(36%) brightness(150%)', borderTop: '4px solid', borderTopColor: 'primary.main'}}>
+        <Container maxWidth="xl" disableGutters>
         <Toolbar component="nav" aria-label={locale === 'pl' ? 'Nawigacja główna' : 'Main navigation'} sx={{padding: '0 !important'}}>
             <AppLinkAtom className="brand-link" href="/"><CompanyNameAtom fullName/></AppLinkAtom>
             <div style={{flex: 1}}/>
@@ -28,5 +30,6 @@ export const AppBarOrganism = () => {
             <Link className="language-link" href={`${localePath(language, path)}${suffix}`} hrefLang={language} lang={language} aria-label={`${language.toUpperCase()}: ${messages.switchLanguage}`}><LanguageIcon fontSize="small"/><span>{language.toUpperCase()}</span></Link>
             <AppLinkAtom className="contact-link" href="/contact/" aria-label={messages.contact}><span>{messages.contact}</span><ContactMailIcon/></AppLinkAtom>
         </Toolbar>
+        </Container>
     </AppBar>;
 };

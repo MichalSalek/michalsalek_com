@@ -74,6 +74,9 @@ for (const locale of site.locales) {
     test(`${locale}: unknown portfolio project returns 404`, async ({request}) => {
         const response = await request.get(`${locale === 'pl' ? '/pl' : ''}/portfolio/unknown-project-for-test/`);
         expect(response.status()).toBe(404);
+        const html = await response.text();
+        expect(html).toContain(`href="${site.origin}/"`);
+        expect(html).toContain(`href="${site.origin}/pl/"`);
     });
 
     test(`${locale}: navigation, titles and technology tables fit at 320px`, async ({page}) => {

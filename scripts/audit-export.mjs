@@ -67,6 +67,12 @@ for (const locale of site.locales) {
         }
         const md = relative === '/' ? '/index.md' : `${relative.slice(0, -1)}.md`;
         const mirror = await readFile(`out${md}`, 'utf8');
+        for (const anchor of $('main a[href]')) {
+            const href = $(anchor).attr('href');
+            if (/^(\/|#|https?:|mailto:|tel:)/.test(href) && $(anchor).text().trim()) {
+                assert(mirror.includes(`<${new URL(href, pageUrl(locale, path)).href}>`), `${label}: published link destination in Markdown`);
+            }
+        }
         assert(mirror.includes($('h1').text()), `${label}: Markdown mirror`);
         for (const item of $('.enquiry-answers dt, .enquiry-answers dd')) assert(mirror.includes($(item).text().trim()), `${label}: enquiry answers in the Markdown mirror`);
         for (const cell of $('main table th, main table td')) assert(mirror.includes($(cell).text().trim()), `${label}: technical table in the Markdown mirror`);

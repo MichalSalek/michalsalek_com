@@ -47,6 +47,12 @@ and reliable contact handling. These changes must respect the original appearanc
 - The homepage presents the implementation company, without a personal profile
   or links to source-code profiles.
 - Keep real links and buttons, with no nested interactive elements.
+- Primary links to contact, portfolio and case studies use `ActionLinkAtom`:
+  the same outlined treatment and a right arrow. Plain in-text references retain
+  their reading style. Indigo panels own their foreground explicitly; article
+  typography must not override text inside these reused surfaces.
+- Main navigation sits in a centered XL container (1536px maximum), including
+  on ultrawide displays. Keep the current 320px control layout.
 - Keep meaningful text and language links in the initial static HTML.
 - Keep starting, scoping and pricing answers visible as plain text. No invented
   client results, prices or deadlines. Service-specific link previews use existing
@@ -79,6 +85,9 @@ and reliable contact handling. These changes must respect the original appearanc
 - In-page anchors scroll smoothly. The HTML document declares
   `data-scroll-behavior="smooth"` so Next.js restores position immediately on
   route changes, keeping contact-field attention independent of scroll animation.
+- Related-service and contact groups start after a deliberate section gap.
+  Verify their whole visible text and CTA states on every affected route and locale,
+  using readable lower-section captures and measured composed contrast.
 - Verify desktop, mobile, hover, contact and article layouts against the original
   export after changing shared components. Content improvements are not approval
   to redesign established components.

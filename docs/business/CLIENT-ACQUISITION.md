@@ -34,6 +34,10 @@ These are drafting guidelines; no public posts or private messages are sent.
 - Visible homepage answers about the first message, existing tools and scoping.
 - Contact guidance that accepts a business problem without a technical specification.
 - Service-specific 1200 x 630 share images and localized metadata in static HTML.
+- Service pages link to relevant anonymous case studies using the portfolio's
+  existing service associations. Those case studies lead to contextual enquiries.
+- Shared primary navigation CTAs, a tab-scoped enquiry draft and a complete
+  email-client fallback preserve the visitor's context.
 
 [Open Graph](https://ogp.me/) defines the title, description, URL and image
 metadata used to describe a shared page. The local export checks the metadata and
@@ -42,11 +46,10 @@ need verification after publication; local availability is not that evidence.
 
 ## Next priorities
 
-1. **Public evidence of work.** Select two or three publishable examples with the
-   required owner/client permission. Explain the original task, constraints, the
-   implemented scope and a verifiable result. An anonymized example is useful
-   when it stays specific. Label hypothetical demonstrations as examples; do not
-   present generated screenshots as client work.
+1. **Evidence within the published portfolio.** Maintain the seven anonymous
+   case studies and add approved interface examples or demonstrations where
+   useful. Keep hypothetical demonstrations identified as examples; generated
+   illustrations are not customer screenshots or measured results.
 2. **A useful first response.** Keep a brief enquiry record: requested task,
    current tools, desired result, timeframe, budget if known and next agreed step.
    Prepare an estimate around a bounded scope and acceptance criteria. Do not

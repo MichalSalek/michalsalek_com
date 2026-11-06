@@ -32,13 +32,13 @@
 .cardCopy h2 { margin: 0 0 var(--space-1); color: var(--site-ink); font-size: clamp(1.35rem, 2.4vw, 1.8rem); line-height: 1.25; font-weight: 500; overflow-wrap: anywhere; }
 .cardCopy .meta { margin-bottom: var(--space-2); }
 .cardCopy p { max-width: 690px; margin: 0 0 var(--space-3); font-size: 1rem; line-height: 1.6; }
-.read, .actionLink { display: inline-flex; align-items: center; gap: var(--space-1); min-height: 44px; padding: var(--space-1) var(--space-2); border: 1px solid var(--site-ink); color: var(--site-ink); font-size: .875rem; font-weight: 500; text-decoration: none; transition: color 150ms ease, background-color 150ms ease; }
-.card:hover .read, .actionLink:hover { color: var(--site-surface); background: var(--site-ink); }
+.read { display: inline-flex; align-items: center; gap: var(--space-1); min-height: 44px; padding: var(--space-1) var(--space-2); border: 1px solid var(--site-ink); color: var(--site-ink); font-size: .875rem; font-weight: 500; text-decoration: none; transition: color 150ms ease, background-color 150ms ease; }
+.card:hover .read { color: var(--site-surface); background: var(--site-ink); }
 
 .showcase { margin-top: var(--space-6); margin-bottom: var(--space-6); }
 .showcaseHeader { margin-bottom: var(--space-4); }
 .showcaseHeader h2 { margin-top: 0; }
-.showcase > .actionLink { margin-top: var(--space-4); }
+.showcase > :global(.action-link) { margin-top: var(--space-4); }
 
 @media (max-width: 699px) {
   .card { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); }

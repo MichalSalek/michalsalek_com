@@ -1,11 +1,26 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile, readdir } from 'node:fs/promises';
-import { portfolioProjects, portfolioIndex, portfolioPath, portfolioRoutes, findPortfolioProject, getPageMetadata } from '../src/content/portfolio.mjs';
+import { portfolioProjects, portfolioIndex, portfolioPath, portfolioRoutes, findPortfolioProject, getPageMetadata, projectsForService } from '../src/content/portfolio.mjs';
 import { routes, site, standardRoutes } from '../src/content/site.mjs';
 
 const nonempty = (value, label) => assert.equal(typeof value === 'string' && value.trim().length > 0, true, label);
 const validDate = value => /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
+
+test('service proof links reuse project associations and localized titles', () => {
+    for (const locale of site.locales) for (const path of standardRoutes) {
+        const examples = projectsForService(locale, path);
+        const matching = portfolioProjects.filter(project => project.services.includes(path));
+        assert.equal(examples.length, Math.min(2, matching.length));
+        assert.equal(new Set(examples.map(example => example.path)).size, examples.length);
+        for (const example of examples) {
+            const project = findPortfolioProject(example.path);
+            assert(project.services.includes(path));
+            assert.equal(example.title, project[locale].title);
+        }
+    }
+    assert.deepEqual(projectsForService('pl', '/contact/'), []);
+});
 
 test('portfolio catalogue has unique identities, localized summaries and registered routes', () => {
     assert(portfolioProjects.length > 0);

@@ -19,6 +19,7 @@
     "lint:fix": "eslint . --fix",
     "test": "node --test tests/*.test.mjs",
     "test:e2e": "playwright test",
+    "qa:visuals": "node scripts/capture-site.mjs",
     "verify": "npm run lint && npm run typecheck && npm test",
     "check": "npm run verify && npm run build && npm run audit:export",
     "audit:export": "node scripts/audit-export.mjs",

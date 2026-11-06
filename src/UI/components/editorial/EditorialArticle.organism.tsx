@@ -1,9 +1,10 @@
 import Container from '@mui/material/Container';
 import type { EditorialChapter, EditorialDocument, EditorialReference } from '@/src/content/editorial.mjs';
-import { portfolioMessages } from '@/src/content/portfolio.mjs';
+import { portfolioMessages, projectsForService } from '@/src/content/portfolio.mjs';
 import type { VisualAsset } from '@/src/content/visuals.mjs';
 import { useLocale } from '@/src/i18n/context';
 import { AppLinkAtom } from '../AppLink.atom';
+import {ActionLinkAtom} from '../ActionLink.atom';
 import { GoToContactFormMolecule } from '../GoToContactForm.molecule';
 import { InfoTextBlockMolecule } from '../InfoTextBlock.molecule';
 import { LinkButtonAtom } from '../LinkButton.atom';
@@ -61,8 +62,9 @@ function Chapter({chapter, cover, role}: {chapter: EditorialChapter; cover: Visu
 }
 
 export function EditorialArticle({document, title, artwork}: {document: EditorialDocument; title: string; artwork: VisualAsset | null}) {
-    const {locale, messages} = useLocale();
+    const {locale, path, messages} = useLocale();
     const labels = portfolioMessages[locale];
+    const projects = document.kind === 'service' ? projectsForService(locale, path) : [];
     const openingCover = document.cover === 'opening' && artwork;
     const role = document.role ? {label: labels.role, text: document.role} : null;
     const panoramaOpening = document.opening === 'panorama' && Boolean(openingCover);
@@ -84,7 +86,7 @@ export function EditorialArticle({document, title, artwork}: {document: Editoria
                         <div className={styles.intro}>{openingIntro.map((paragraph, index) => <p key={index}><RichTextAtom text={paragraph}/></p>)}</div>
                         {document.audience && <dl className={styles.audience}><dt>{labels.audience}</dt><dd><RichTextAtom text={document.audience}/></dd></dl>}
                         {document.roleAt === 'opening' && role && <div className={styles.role}><h2>{role.label}</h2><p><RichTextAtom text={role.text}/></p></div>}
-                        {document.kind === 'service' && <AppLinkAtom className={styles.introLink} href={`/contact/?about=${encodeURIComponent(title)}`}>{messages.introContact}</AppLinkAtom>}
+                        {document.kind === 'service' && <ActionLinkAtom href={`/contact/?about=${encodeURIComponent(title)}`}>{messages.introContact}</ActionLinkAtom>}
                     </div>
                 </div>
                 {openingCover && <Artwork asset={openingCover} priority cover/>}
@@ -97,16 +99,20 @@ export function EditorialArticle({document, title, artwork}: {document: Editoria
             </div>
             {document.stack.length > 0 && <section className={styles.stack} aria-labelledby="editorial-stack-title"><h2 id="editorial-stack-title">{labels.stack}</h2><References entries={document.stack} format={document.reference}/></section>}
             {document.kind === 'service' ? <footer className={styles.footer}>
+                {projects.length > 0 && <aside className={styles.projectExamples} aria-labelledby="project-examples-title" data-project-examples>
+                    <h2 id="project-examples-title">{labels.selected}</h2>
+                    <ul>{projects.map(project => <li key={project.path}><ActionLinkAtom href={project.path}>{project.title}</ActionLinkAtom></li>)}</ul>
+                </aside>}
                 <aside className="related-services"><h2>{messages.relatedIntro}</h2><InfoTextBlockMolecule items={document.related.map(link => ({heading: link.title, content: <LinkButtonAtom href={link.path}>{messages.readMore}</LinkButtonAtom>}))}/></aside>
                 <GoToContactFormMolecule objectOfInterest={title}/>
             </footer> : <footer className={`${styles.footer} ${styles.projectFooter}`}>
-                <AppLinkAtom href={`/contact/?about=${encodeURIComponent(title)}`} className={styles.actionLink}>{labels.contact}</AppLinkAtom>
+                <ActionLinkAtom href={`/contact/?about=${encodeURIComponent(title)}`}>{labels.contact}</ActionLinkAtom>
                 <aside className={styles.related}><h2>{labels.related}</h2><ul>{document.related.map(link => <li key={link.path}><AppLinkAtom href={link.path}>{link.title}</AppLinkAtom></li>)}</ul></aside>
                 <nav className={styles.neighbors} aria-label={labels.navigation}>
                     <div>{document.previous && <AppLinkAtom href={document.previous.path}><span>{labels.previous}</span><strong>{document.previous.title}</strong></AppLinkAtom>}</div>
                     <div>{document.next && <AppLinkAtom href={document.next.path}><span>{labels.next}</span><strong>{document.next.title}</strong></AppLinkAtom>}</div>
                 </nav>
-                <AppLinkAtom href={`/portfolio/#${document.projectId}`} className={styles.allLink}>{labels.all}</AppLinkAtom>
+                <ActionLinkAtom href={`/portfolio/#${document.projectId}`} className={styles.allLink}>{labels.all}</ActionLinkAtom>
             </footer>}
         </article>
     </Container>;

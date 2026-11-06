@@ -9,5 +9,6 @@ export const portfolioIndex: Record<Locale, {title: string; description: string}
 export const portfolioMessages: Record<Locale, {title: string; introduction: string; confidentiality: string; confidential: string; read: string; all: string; selected: string; selectedIntro: string; audience: string; role: string; navigation: string; stack: string; stackScope: string; stackTools: string; previous: string; next: string; contact: string; related: string}>;
 export function portfolioPath(project: Pick<PortfolioProject, 'slug'>): PortfolioPath;
 export function findPortfolioProject(path: string): PortfolioProject | undefined;
+export function projectsForService(locale: Locale, path: PagePath): {path: PortfolioPath; title: string}[];
 export const portfolioRoutes: ('/portfolio/' | PortfolioPath)[];
 export function getPageMetadata(locale: Locale, path: PagePath, pages: Record<string, {title: string; description: string; intro?: string[]}>): {title: string; description: string; intro?: string[]};

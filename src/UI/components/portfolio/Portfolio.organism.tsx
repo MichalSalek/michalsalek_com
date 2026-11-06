@@ -5,6 +5,7 @@ import { portfolioMessages } from '@/src/content/portfolio.mjs';
 import type { VisualAsset } from '@/src/content/visuals.mjs';
 import { useLocale } from '@/src/i18n/context';
 import { AppLinkAtom } from '../AppLink.atom';
+import {ActionLinkAtom} from '../ActionLink.atom';
 import styles from './portfolio.module.scss';
 
 function Artwork({asset, priority = false, hero = false}: {asset: VisualAsset; priority?: boolean; hero?: boolean}) {
@@ -58,6 +59,6 @@ export function PortfolioShowcase({cards}: {cards: PortfolioCard[]}) {
             <p className={styles.lead}>{labels.selectedIntro}</p>
         </header>
         <PortfolioList cards={cards.slice(0, 3)} compact/>
-        <AppLinkAtom className={styles.actionLink} href="/portfolio/">{labels.all}<span aria-hidden="true"> →</span></AppLinkAtom>
+        <ActionLinkAtom href="/portfolio/">{labels.all}</ActionLinkAtom>
     </Container>;
 }

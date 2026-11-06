@@ -135,6 +135,11 @@ export const portfolioMessages = {
 
 export function portfolioPath(project) { return `/portfolio/${project.slug}/`; }
 export function findPortfolioProject(path) { return portfolioProjects.find(project => portfolioPath(project) === path); }
+export function projectsForService(locale, path) {
+    return portfolioProjects.filter(project => project.services.includes(path))
+        .sort((first, second) => Number(second.services[0] === path) - Number(first.services[0] === path))
+        .slice(0, 2).map(project => ({path: portfolioPath(project), title: project[locale].title}));
+}
 export const portfolioRoutes = ['/portfolio/', ...portfolioProjects.map(portfolioPath)];
 
 export function getPageMetadata(locale, path, pages) {
