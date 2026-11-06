@@ -6,6 +6,9 @@ import { createHash } from 'node:crypto';
 import { heroMedia } from '../src/content/media-plan.mjs';
 import sharp from 'sharp';
 import {findPortfolioProject, portfolioProjects, portfolioPath} from '../src/content/portfolio.mjs';
+import {editorialPlans} from '../src/content/editorial.mjs';
+
+const visible = value => value.replace(/\[([^\]]+)\]\((?:https:\/\/|\/)[^)]+\)/g, '$1').replace(/\*\*([^*]+)\*\*/g, '$1').replace(/\s+/g, ' ').trim();
 
 const sitemap = await readFile('out/sitemap.xml', 'utf8');
 const titles = new Set();
@@ -52,7 +55,7 @@ for (const locale of site.locales) {
             await access(`out${source}`);
         }
         if (heroMedia[path]) {
-            const hero = path.startsWith('/portfolio/') ? $('main article > figure') : $('.service-artwork-hero');
+            const hero = $('[data-editorial-cover]');
             assert.equal(hero.length, 1, `${label}: one opening image`);
             assert.equal(hero.attr('data-asset'), heroMedia[path], `${label}: contextual opening image`);
             assert.equal($(`[data-asset="${heroMedia[path]}"]`).length, 1, `${label}: opening image must not repeat in the article`);
@@ -68,6 +71,22 @@ for (const locale of site.locales) {
         for (const item of $('.enquiry-answers dt, .enquiry-answers dd')) assert(mirror.includes($(item).text().trim()), `${label}: enquiry answers in the Markdown mirror`);
         for (const cell of $('main table th, main table td')) assert(mirror.includes($(cell).text().trim()), `${label}: technical table in the Markdown mirror`);
         const project = findPortfolioProject(path);
+        const plan = editorialPlans[path];
+        if (plan) {
+            const content = project ? JSON.parse(await readFile(`src/content/portfolio/${locale}/${project.id}.json`, 'utf8')) : JSON.parse(await readFile(`src/content/${locale}-articles.json`, 'utf8'))[path.slice(1, -1)];
+            const mainText = visible($('main').text());
+            const markdownText = visible(mirror);
+            assert.equal($('article[data-editorial-opening]').attr('data-editorial-opening'), plan.opening, `${label}: individual opening`);
+            assert.deepEqual($('[data-editorial-chapter]').toArray().map(element => $(element).attr('data-editorial-chapter')), plan.chapters.map(chapter => chapter.id), `${label}: individual outline`);
+            assert.equal($('[data-editorial-exhibit]').length, plan.chapters.filter(chapter => chapter.exhibit).length, `${label}: topical explainers`);
+            const texts = [...(content.intro ?? []), ...content.sections.flatMap(section => [...section.paragraphs, ...(section.items ?? []).flatMap(item => [item.title, item.description]), ...(section.facts ?? []).flatMap(item => [item.term, item.detail])]), ...(content.stack ?? []).flatMap(item => [item.term, item.detail]), ...(content.role ? [content.role] : [])];
+            for (const text of texts) {
+                assert(mainText.includes(visible(text)), `${label}: source text in HTML: ${text.slice(0, 55)}`);
+                assert(markdownText.includes(visible(text)), `${label}: source text in Markdown: ${text.slice(0, 55)}`);
+            }
+            for (const chapter of plan.chapters) if (chapter.exhibit) assert(markdownText.includes(visible(chapter.exhibit.caption[locale])), `${label}: explanatory caption in Markdown`);
+            for (const anchor of $('main a[href^="#"]')) assert.equal($(`[id="${$(anchor).attr('href').slice(1)}"]`).length, 1, `${label}: working chapter anchor`);
+        }
         if (project) {
             const content = JSON.parse(await readFile(`src/content/portfolio/${locale}/${project.id}.json`, 'utf8'));
             const article = json['@graph'].find(node => node['@type'] === 'Article');
@@ -75,7 +94,7 @@ for (const locale of site.locales) {
             assert.equal(article?.dateModified, project.updatedAt, `${label}: editorial update date`);
             assert.equal($('meta[property="og:type"]').attr('content'), 'article', `${label}: article preview`);
             for (const section of content.sections) {
-                assert.equal($(`main section#${section.id}`).length, 1, `${label}: section ${section.id}`);
+                assert.equal($(`main [id="${section.id}"]`).length, 1, `${label}: preserved section anchor ${section.id}`);
                 for (const paragraph of section.paragraphs) assert(mirror.includes(paragraph), `${label}: full project text in Markdown`);
                 for (const item of section.items) assert(mirror.includes(item.description), `${label}: project details in Markdown`);
             }

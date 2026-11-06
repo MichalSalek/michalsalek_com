@@ -17,7 +17,10 @@ database or runtime content service.
    generated automatically.
    Text-free portfolio artwork uses the catalogue's `webpQuality` setting for
    efficient derivatives. The original sources remain unchanged.
-4. Run `npm run check` and `npm run test:e2e`, review both languages and publish
+4. Add an individual composition to `src/content/editorial-projects.mjs`. Select
+   the source paragraphs and items once each, and choose contextual exhibits,
+   cover position and a suitable reference format. See [EDITORIAL.md](EDITORIAL.md).
+5. Run `npm run check` and `npm run test:e2e`, review both languages and publish
    through the normal release process. Adding a project does not require editing
    page components or duplicating its URL in a second route list.
 
@@ -38,7 +41,8 @@ this public repository. Review the visible text, metadata, structured data,
 Markdown mirrors, asset names and image descriptions for identifying details.
 Technology vendor names are part of the engineering description.
 
-Use the same presentation for every project. Describe current capabilities and
+Use shared visual primitives with an individual narrative for every project.
+Describe current capabilities and
 target development accurately in the prose. Dates identify publication and
 editorial changes; builds do not refresh them. Publish measurements and results
 only when supported. Diagnostic stores, audit trails and operational logs are

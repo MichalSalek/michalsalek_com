@@ -1,14 +1,14 @@
-import {routes, type Locale, type PagePath} from './site.mjs';
+import {routes, relatedServices, type Locale, type PagePath} from './site.mjs';
 import type { Messages } from '@/src/i18n/context';
 import { readFile } from 'node:fs/promises';
 import type { VisualAsset } from './visuals.mjs';
-import {portfolioProjects, portfolioPath, findPortfolioProject, getPageMetadata, type PortfolioContent, type PortfolioProject} from './portfolio.mjs';
+import {portfolioProjects, portfolioPath, findPortfolioProject, getPageMetadata, type PortfolioContent} from './portfolio.mjs';
+import {compileEditorial, type EditorialDocument} from './editorial.mjs';
 
 export type ArticleMedia = {section: number; after: number; variant: 'wide' | 'inline'; asset: VisualAsset};
 export type Section = {title: string; subtitle: string; paragraphs: string[]; facts?: {term: string; detail: string}[]; media?: ArticleMedia[]};
 export type ServiceCard = {path: PagePath; title: string; paragraphs: string[]; artwork: VisualAsset | null};
 export type PortfolioCard = {id: string; path: PagePath; title: string; category: string; summary: string; artwork: VisualAsset};
-export type PortfolioDetail = {project: PortfolioProject; content: PortfolioContent; previous: {path: PagePath; title: string} | null; next: {path: PagePath; title: string} | null; services: {path: PagePath; title: string}[]};
 export type SitePageProps = {
     locale: Locale;
     path: PagePath;
@@ -22,7 +22,7 @@ export type SitePageProps = {
     sections: Section[];
     navigation: {path: PagePath; title: string}[];
     portfolioCards: PortfolioCard[];
-    portfolioDetail: PortfolioDetail | null;
+    editorial: EditorialDocument | null;
 };
 
 export async function loadPage(locale: Locale, path: PagePath): Promise<SitePageProps> {
@@ -40,19 +40,24 @@ export async function loadPage(locale: Locale, path: PagePath): Promise<SitePage
         if (!media) throw new Error(`Missing portfolio artwork: ${item.id}`);
         return {id: item.id, path: portfolioPath(item), ...item[locale], artwork: media};
     }) : [];
+    const metadata = getPageMetadata(locale, path, dictionary.pages);
+    const sections: Section[] = (article?.sections ?? []).map((section, index) => ({...section, media: (manifest[locale][path]?.article ?? []).filter(item => item.section === index)}));
+    const projectContent = project ? JSON.parse(await readFile(`src/content/portfolio/${locale}/${project.id}.json`, 'utf8')) as PortfolioContent : null;
+    const related = (project?.services ?? relatedServices[path] ?? routes.filter(route => route.startsWith(path.startsWith('/sound/') ? '/sound/' : '/software/') && route !== path).slice(0, 2)).map(route => ({path: route, title: getPageMetadata(locale, route, dictionary.pages).title}));
+    const editorial = compileEditorial({locale, path, sections: projectContent?.sections ?? sections, intro: projectContent?.intro ?? metadata.intro ?? [],
+        audience: projectContent?.audience, role: projectContent?.role, stack: projectContent?.stack,
+        category: project?.[locale].category, projectId: project?.id, related, previous: project ? neighbor(projectIndex - 1) : null, next: project ? neighbor(projectIndex + 1) : null});
+    if (!editorial && (project || path.startsWith('/software/') || /^\/sound\/.+\/$/.test(path))) throw new Error(`Missing individual editorial composition: ${path}`);
+    const {intro: pageIntro, ...pageMetadata} = metadata;
     return {
-        locale, path, ...getPageMetadata(locale, path, dictionary.pages), messages: dictionary.ui,
+        locale, path, ...pageMetadata, ...(!editorial && pageIntro ? {intro: pageIntro} : {}), messages: dictionary.ui,
         cards: cards.map(card => {
             const artwork = manifest[locale][card.path as PagePath]?.card ?? null;
             if (path === '/' && !artwork) throw new Error(`Missing card artwork: ${locale} ${card.path}`);
             return {...card, path: card.path as PagePath, artwork};
-        }), artwork, shareImage: manifest[locale][path]?.share ?? null, sections: (article?.sections ?? []).map((section, index) => ({...section, media: (manifest[locale][path]?.article ?? []).filter(item => item.section === index)})),
+        }), artwork, shareImage: manifest[locale][path]?.share ?? null, sections: editorial ? [] : sections,
         navigation: routes.map(route => ({path: route, title: getPageMetadata(locale, route, dictionary.pages).title})),
         portfolioCards,
-        portfolioDetail: project ? {
-            project, content: JSON.parse(await readFile(`src/content/portfolio/${locale}/${project.id}.json`, 'utf8')) as PortfolioContent,
-            previous: neighbor(projectIndex - 1), next: neighbor(projectIndex + 1),
-            services: project.services.map(service => ({path: service, title: getPageMetadata(locale, service, dictionary.pages).title})),
-        } : null,
+        editorial,
     };
 }

@@ -35,7 +35,8 @@ for (const locale of site.locales) {
         $('script, style, noscript').remove();
         const title = $('h1').first().text().trim();
         const lines = [`# ${title}`, '', `HTML: ${pageUrl(locale, path)}`, `Language: ${locale}`, ''];
-        $('main h2, main h3, main p, main li, main table, main dt, main dd').each((_, element) => {
+        $('main h2, main h3, main p, main li, main table, main dt, main dd, main figcaption').each((_, element) => {
+            if (element.tagName === 'figcaption' && $(element).find('h2, h3, p, li, dt, dd').length) return;
             if (element.tagName === 'table') {
                 const rows = $(element).find('tr').toArray().map(row => $(row).find('th, td').toArray().map(cell => $(cell).text().replace(/\s+/g, ' ').trim().replaceAll('|', '\\|')));
                 rows.forEach((row, index) => {

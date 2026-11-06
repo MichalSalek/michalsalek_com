@@ -15,6 +15,8 @@ export const cardMedia = {
 
 // Each article has a distinct opening scene, shown only once on that page.
 export const heroMedia = {
+    '/sound/studio/': 'audio-studio',
+    '/sound/soundtracks/': 'audio-soundtracks',
     ...Object.fromEntries(portfolioProjects.map(project => [portfolioPath(project), project.cover])),
     '/software/ai-automation/': 'ai-document-extraction',
     '/software/automation/': 'case-and-task',

@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import { portfolioProjects, portfolioMessages, portfolioPath } from '../../src/content/portfolio.mjs';
 import { localePath, site, type Locale } from '../../src/content/site.mjs';
+import {editorialPlans} from '../../src/content/editorial.mjs';
 
 const switchLabel: Record<Locale, string> = {
     en: 'PL: Zmień język na polski',
@@ -36,9 +37,9 @@ for (const locale of site.locales) {
             await expect(page).toHaveURL(new RegExp(`${localePath(locale, path)}$`));
             await expect(page.getByRole('heading', {level: 1})).toHaveText(project[locale].title);
             for (const id of ['context', 'delivery', 'engineering']) {
-                await expect(page.locator(`section#${id}`)).toBeVisible();
-                await expect(page.locator(`a[href="#${id}"]`)).toHaveCount(1);
+                await expect(page.locator(`[id="${id}"]`)).toHaveCount(1);
             }
+            for (const chapter of editorialPlans[path].chapters) await expect(page.locator(`[data-editorial-chapter="${chapter.id}"]`)).toBeVisible();
             await page.getByRole('link', {name: switchLabel[locale]}).click();
             await expect(page).toHaveURL(new RegExp(`${localePath(other, path)}$`));
             await expect(page.getByRole('heading', {level: 1})).toHaveText(project[other].title);
@@ -61,8 +62,8 @@ for (const locale of site.locales) {
                 const content = JSON.parse(readFileSync(`src/content/portfolio/${locale}/${project.id}.json`, 'utf8'));
                 await page.goto(localePath(locale, portfolioPath(project)));
                 await expect(page.getByRole('heading', {level: 1})).toHaveText(project[locale].title);
-                await expect(page.locator('section#engineering')).toContainText(content.sections[2].paragraphs[0]);
-                await expect(page.locator('section#engineering')).toContainText(content.stack[0].term);
+                await expect(page.locator('main')).toContainText(content.sections[2].paragraphs[0]);
+                await expect(page.locator('main')).toContainText(content.stack[0].term);
                 await expect(page.getByRole('link', {name: switchLabel[locale]})).toHaveAttribute('href', localePath(other, portfolioPath(project)));
             }
         } finally {
@@ -90,7 +91,7 @@ for (const locale of site.locales) {
             expect(rects.length).toBeGreaterThan(1);
             for (const rect of rects) expect(rect.left >= 0 && rect.right <= 320).toBe(true);
             for (let i = 1; i < rects.length; i++) expect(rects[i - 1].right <= rects[i].left).toBe(true);
-            for (const selector of ['h1', 'section#engineering table']) {
+            for (const selector of ['h1', '[data-editorial-opening]']) {
                 const element = page.locator(selector);
                 await expect(element).toBeVisible();
                 expect(await element.evaluate(node => {
@@ -98,6 +99,7 @@ for (const locale of site.locales) {
                     return rect.left >= 0 && rect.right <= window.innerWidth && node.scrollWidth <= node.clientWidth;
                 })).toBe(true);
             }
+            for (const table of await page.locator('main table').all()) expect(await table.evaluate(node => node.scrollWidth <= node.clientWidth)).toBe(true);
             expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
         }
     });

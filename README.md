@@ -52,6 +52,7 @@ redirects permanently to `/` on production.
 - Page metadata, interface labels and service cards: `src/content/en.json` and `pl.json`.
 - Article text: `src/content/en-articles.json` and `pl-articles.json`.
 - Portfolio catalogue and case studies: `src/content/portfolio.mjs` and `src/content/portfolio/`.
+- Individual article compositions: `src/content/editorial-services.mjs` and `editorial-projects.mjs`, described in [EDITORIAL.md](docs/EDITORIAL.md).
 - Shared page rendering: `src/UI/components/SitePage.tsx`.
 - Visual constraints: [DESIGN.md](DESIGN.md).
 
@@ -71,8 +72,8 @@ The service grid ends with full-stack engineering and sound services. Selected
 project previews follow it and link to `/portfolio/` (`/pl/portfolio/` in Polish).
 See [the portfolio publishing guide](docs/PORTFOLIO.md) for the data contract,
 anonymization rules and adding further projects. The technical
-overview is at `/software/fullstack/`. Service articles use at most three main
-sections, with scope, practical examples and delivery details in both languages.
+overview is at `/software/fullstack/`. Service and project articles have individual
+outlines, contextual explainers and reference formats in both languages.
 
 Every language is rendered at build time, including its title, description,
 canonical URL, hreflang links and structured data. No browser-language redirects

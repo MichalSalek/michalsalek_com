@@ -29,8 +29,7 @@ test('every locale covers the same pages and interface messages', async () => {
         const articles = JSON.parse(await readFile(`src/content/${locale}-articles.json`, 'utf8'));
         assert.deepEqual(Object.keys(articles).sort(), standardRoutes.filter(path => path === '/' || path.startsWith('/software/') || /^\/sound\/.+\/$/.test(path)).map(path => path.slice(1,-1)).sort());
         for (const [path, article] of Object.entries(articles)) {
-            assert(article.sections.length >= (path === '' ? 1 : 3));
-            assert(article.sections.length <= 3, `${locale} ${path}: no more than three main sections`);
+            assert(article.sections.length > 0, `${locale} ${path}: authored source sections`);
             for (const section of article.sections) assert(section.title && section.subtitle && section.paragraphs.length);
         }
     }

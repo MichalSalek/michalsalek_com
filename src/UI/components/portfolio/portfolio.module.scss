@@ -40,50 +40,7 @@
 .showcaseHeader h2 { margin-top: 0; }
 .showcase > .actionLink { margin-top: var(--space-4); }
 
-.project { max-width: 960px; }
-.projectHeader { margin-bottom: var(--space-4); }
-.projectHeader h1 { overflow-wrap: anywhere; }
-.projectHeader .meta { margin-bottom: var(--space-3); }
-.intro { max-width: 820px; font-size: clamp(1.1rem, 2vw, 1.3rem); line-height: 1.65; }
-.intro p { margin-bottom: var(--space-2); }
-.audience { max-width: 820px; margin-top: var(--space-3); line-height: 1.6; }
-.audience dt, .items dt { color: var(--site-ink); font-weight: 600; }
-.audience dd, .items dd { margin: 0; }
-.heroArtwork { width: 100%; height: clamp(220px, 46vw, 540px); margin: var(--space-4) 0 var(--space-5); }
-.sectionNav { padding: var(--space-3); background: var(--site-tint); line-height: 1.5; }
-.sectionNav > span { color: var(--site-ink); font-weight: 600; }
-.sectionNav ul, .related ul { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-3); margin: var(--space-2) 0 0; padding: 0; list-style: none; }
-.sectionNav a, .related a, .allLink, .neighbors a { color: var(--site-ink); }
-.body { max-width: 820px; font-size: 1.0625rem; line-height: 1.7; }
-.body section { margin-top: var(--space-6); }
-.body h2 { margin: 0 0 var(--space-3); color: var(--site-ink); font-size: clamp(1.6rem, 3vw, 2.35rem); line-height: 1.2; font-weight: 400; }
-.body h3, .related h2 { margin: 0 0 var(--space-2); color: var(--site-ink); font-size: 1.2rem; line-height: 1.4; font-weight: 600; }
-.body p { margin: 0 0 var(--space-2); }
-.body section > p:first-of-type { text-indent: 2rem; }
-.role, .items, .stack { margin-top: var(--space-4); }
-.items { display: grid; gap: var(--space-3); }
-.stack table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 1rem; line-height: 1.6; }
-.stack th, .stack td { padding: var(--space-2); border: 1px solid var(--site-border); text-align: left; vertical-align: top; overflow-wrap: anywhere; }
-.stack th { font-weight: 600; }
-.stack thead { background: var(--site-tint); }
-.stack th:first-child { width: 30%; }
-.cellLabel { display: none; }
-.projectFooter { margin-top: var(--space-6); }
-.related { margin: var(--space-5) 0; }
-.neighbors { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-3); padding: var(--space-3); background: var(--site-tint); }
-.neighbors > div:last-child { text-align: right; }
-.neighbors a { display: inline-grid; gap: var(--space-1); line-height: 1.4; overflow-wrap: anywhere; }
-.neighbors span { color: var(--site-muted); font-size: .875rem; }
-.allLink { display: inline-flex; align-items: center; min-height: 44px; margin-top: var(--space-2); }
-
 @media (max-width: 699px) {
-  .projectHeader h1 { font-size: clamp(2rem, 7vw, 2.5rem); line-height: 1.2; }
   .card { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); }
   .cardCopy { padding: 0 var(--space-1) var(--space-1); }
-  .stack table, .stack tbody, .stack tr, .stack th, .stack td { display: block; }
-  .stack thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-  .stack tr { border: 1px solid var(--site-border); margin-bottom: var(--space-2); }
-  .stack th, .stack td { width: 100% !important; border: 0; padding: var(--space-2); }
-  .stack td { padding-top: 0; }
-  .cellLabel { display: block; margin-bottom: var(--space-1); color: var(--site-muted); font-size: .875rem; font-weight: 400; }
 }

@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { routes, localePath, site } from '../../src/content/site.mjs';
 import { heroMedia } from '../../src/content/media-plan.mjs';
+import {editorialPlans} from '../../src/content/editorial.mjs';
 
 for (const locale of site.locales) for (const path of routes) {
     test(`${locale} ${path} renders without errors or horizontal overflow`, async ({page}) => {
@@ -14,7 +15,7 @@ for (const locale of site.locales) for (const path of routes) {
         expect(await page.locator('a a, a button, button a, a [role="button"], a [tabindex="0"], p p').count()).toBe(0);
         await expect(page.locator('main a[href*="github.com"]')).toHaveCount(0);
         if (path.startsWith('/software/') && path !== '/software/fullstack/') {
-            await expect(page.locator('.content-section')).toHaveCount(3);
+            await expect(page.locator('[data-editorial-chapter]')).toHaveCount(editorialPlans[path].chapters.length);
             await expect(page.locator('.related-services .link-button')).toHaveCount(2);
         }
         expect(errors).toEqual([]);
@@ -86,7 +87,8 @@ test('the homepage ends with a separate full-stack and sound row', async ({page}
     }
     await additional.nth(0).click();
     await expect(page.getByRole('heading', {level: 1})).toHaveText('Full-stack engineering');
-    await expect(page.locator('.technical-stack')).toBeVisible();
+    await expect(page.locator('[data-editorial-chapter]')).toHaveCount(editorialPlans['/software/fullstack/'].chapters.length);
+    await expect(page.locator('main')).toContainText('PostgreSQL');
     await page.goto('/');
     await page.locator('.additional-services .service-card').last().click();
     await expect(page.locator('main .service-card')).toHaveCount(2);
@@ -97,13 +99,13 @@ test('static content and language links work without JavaScript', async ({browse
     const page = await context.newPage();
     await page.goto('http://127.0.0.1:4318/pl/software/backend/');
     await expect(page.getByRole('heading', {name: 'Backend i logika aplikacji', exact: true})).toBeVisible();
-    await expect(page.locator('.article-copy').first()).toBeVisible();
-    await expect(page.locator('.article-copy').first()).toContainText('backend');
+    await expect(page.locator('[data-editorial-chapter]').first()).toBeVisible();
+    await expect(page.locator('main')).toContainText(/backend/i);
     await page.getByRole('link', {name: 'EN: Switch language to English'}).click();
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
     await page.goto('http://127.0.0.1:4318/pl/software/fullstack/');
-    await expect(page.locator('.technical-stack')).toBeVisible();
-    await expect(page.locator('.technical-stack')).toContainText('Node.js');
+    await expect(page.locator('[data-editorial-chapter]')).toHaveCount(editorialPlans['/software/fullstack/'].chapters.length);
+    await expect(page.locator('main')).toContainText('Node.js');
     await page.goto('http://127.0.0.1:4318/pl/contact/');
     await expect(page.getByRole('link', {name: site.email})).toBeVisible();
     await expect(page.locator('button[type="submit"]')).toBeDisabled();
@@ -154,10 +156,9 @@ test('mixed service media load with responsive sources and contextual article co
     }
     for (const locale of site.locales) {
         await page.goto(localePath(locale, '/software/ai-automation/'));
-        await expect(page.locator('.service-artwork-hero')).toHaveCount(1);
-        await expect(page.locator('.content-section')).toHaveCount(3);
-        await expect(page.locator('.content-section .article-copy').first().locator('> p').first()).toHaveCSS('text-indent', '32px');
-        await expect(page.locator('.content-section .article-copy').first().locator('> p').nth(1)).toHaveCSS('text-indent', '0px');
+        await expect(page.locator('[data-editorial-cover]')).toHaveCount(1);
+        await expect(page.locator('[data-editorial-chapter]')).toHaveCount(editorialPlans['/software/ai-automation/'].chapters.length);
+        await expect(page.locator('[data-editorial-exhibit="review"]')).toHaveCount(1);
     }
 });
 
@@ -165,16 +166,16 @@ test('service entry pages have distinct opening scenes, readable scope and an im
     const scenes = new Set<string>();
     for (const [path, id] of Object.entries(heroMedia).filter(([path]) => path.startsWith('/software/'))) {
         await page.goto(localePath('pl', path as keyof typeof heroMedia));
-        const hero = page.locator('.service-artwork-hero');
+        const hero = page.locator('[data-editorial-cover]');
         await expect(hero).toHaveCount(1);
         await expect(hero).toHaveAttribute('data-asset', id);
         await expect(page.locator(`main [data-asset="${id}"]`)).toHaveCount(1);
-        await expect(hero.locator('img')).toHaveAttribute('loading', 'eager');
-        await expect(page.locator('.service-intro > p')).not.toBeEmpty();
-        await expect(page.locator('.service-intro a')).toHaveAttribute('href', /\/pl\/contact\/\?about=.+/);
+        await expect(hero.locator('img')).toHaveAttribute('loading', editorialPlans[path].cover === 'opening' ? 'eager' : 'lazy');
+        await expect(page.locator('main article header p').first()).not.toBeEmpty();
+        await expect(page.locator('main article header a[href*="/contact/"]')).toHaveAttribute('href', /\/pl\/contact\/\?about=.+/);
         expect(scenes.has(id)).toBe(false); scenes.add(id);
     }
-    await page.locator('.service-intro a').click();
+    await page.locator('main article header a[href*="/contact/"]').click();
     await expect(page.locator('[name="subject"]')).not.toHaveValue('');
     await page.goto('/pl/');
     const kinds = await page.locator('.service-artwork-card').evaluateAll(nodes => nodes.slice(0, 6).map(node => node.classList.contains('service-artwork-photo') ? 'photo' : 'illustration'));
@@ -183,18 +184,15 @@ test('service entry pages have distinct opening scenes, readable scope and an im
     await expect(page.locator('.enquiry-answers dt')).toHaveCount(3);
 });
 
-test('small article explainers stay vector-sharp and indentation starts each section once', async ({page}) => {
+test('contextual article explainers remain complete vectors inside the reading column', async ({page}) => {
     for (const path of ['/software/custom-software/', '/software/reporting/', '/software/fullstack/']) {
         await page.goto(localePath('pl', path));
-        const image = page.locator('.service-artwork-inline img').first();
+        const image = page.locator('main img[src$=".svg"]').first();
         await image.scrollIntoViewIfNeeded();
         await expect(image).toHaveAttribute('src', /\.svg$/);
-        expect((await image.boundingBox())!.width).toBe(220);
-        for (const body of await page.locator('.article-copy').all()) {
-            const paragraphs = body.locator('> p');
-            if (await paragraphs.count()) await expect(paragraphs.first()).toHaveCSS('text-indent', '32px');
-            for (const paragraph of (await paragraphs.all()).slice(1)) await expect(paragraph).toHaveCSS('text-indent', '0px');
-        }
+        expect((await image.boundingBox())!.width).toBeGreaterThan(0);
+        expect((await image.boundingBox())!.width).toBeLessThanOrEqual(320);
+        await expect(image).toHaveCSS('object-fit', 'contain');
     }
 });
 

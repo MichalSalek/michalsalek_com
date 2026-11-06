@@ -11,7 +11,7 @@ contact subject together when changing a service. Preserve the original design.
 
 The approved direction uses plain company language, a clear scope and delivery
 responsibility. Avoid superiority, metaphors and slogans. Articles have at most
-three main sections with practical examples and delivery details. Examples are
+individual editorial outlines with practical examples and delivery details. Examples are
 not client case studies. The technical overview and stack are reference content,
 not personal recruitment history. See the article pattern in the content brief.
 

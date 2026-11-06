@@ -1,6 +1,6 @@
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import type { PortfolioCard, PortfolioDetail } from '@/src/content/load-page';
+import type { PortfolioCard } from '@/src/content/load-page';
 import { portfolioMessages } from '@/src/content/portfolio.mjs';
 import type { VisualAsset } from '@/src/content/visuals.mjs';
 import { useLocale } from '@/src/i18n/context';
@@ -59,57 +59,5 @@ export function PortfolioShowcase({cards}: {cards: PortfolioCard[]}) {
         </header>
         <PortfolioList cards={cards.slice(0, 3)} compact/>
         <AppLinkAtom className={styles.actionLink} href="/portfolio/">{labels.all}<span aria-hidden="true"> →</span></AppLinkAtom>
-    </Container>;
-}
-
-export function PortfolioProjectPage({detail, artwork}: {detail: PortfolioDetail; artwork: VisualAsset | null}) {
-    const {locale} = useLocale();
-    const labels = portfolioMessages[locale];
-    const {project, content} = detail;
-    const title = project[locale].title;
-    return <Container className={styles.page}>
-        <article className={styles.project}>
-            <header className={styles.projectHeader}>
-                <Typography variant="h1" component="h1">{title}</Typography>
-                <div className={styles.meta}><span>{project[locale].category}</span><span>{labels.confidential}</span></div>
-                <div className={styles.intro}>{content.intro.map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div>
-                <dl className={styles.audience}><dt>{labels.audience}</dt><dd>{content.audience}</dd></dl>
-            </header>
-            {artwork && <Artwork asset={artwork} hero priority/>}
-            <nav className={styles.sectionNav} aria-label={labels.navigation}>
-                <span>{labels.navigation}</span>
-                <ul>{content.sections.map(section => <li key={section.id}><a href={`#${section.id}`}>{section.title}</a></li>)}</ul>
-            </nav>
-            <div className={styles.body}>
-                {content.sections.map(section => <section id={section.id} key={section.id} aria-labelledby={`${section.id}-title`}>
-                    <h2 id={`${section.id}-title`}>{section.title}</h2>
-                    {section.paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
-                    {section.id === 'delivery' && <div className={styles.role}><h3>{labels.role}</h3><p>{content.role}</p></div>}
-                    {section.items.length > 0 && <dl className={styles.items}>{section.items.map(item => <div key={item.title}><dt>{item.title}</dt><dd>{item.description}</dd></div>)}</dl>}
-                    {section.id === 'engineering' && content.stack.length > 0 && <div className={styles.stack}>
-                        <h3>{labels.stack}</h3>
-                        <table>
-                            <thead><tr><th scope="col">{labels.stackScope}</th><th scope="col">{labels.stackTools}</th></tr></thead>
-                            <tbody>{content.stack.map(item => <tr key={item.term}>
-                                <th scope="row"><span className={styles.cellLabel} aria-hidden="true">{labels.stackScope}</span>{item.term}</th>
-                                <td><span className={styles.cellLabel} aria-hidden="true">{labels.stackTools}</span>{item.detail}</td>
-                            </tr>)}</tbody>
-                        </table>
-                    </div>}
-                </section>)}
-            </div>
-            <div className={styles.projectFooter}>
-                <AppLinkAtom href={`/contact/?about=${encodeURIComponent(title)}`} className={styles.actionLink}>{labels.contact}<span aria-hidden="true"> →</span></AppLinkAtom>
-                <aside className={styles.related} aria-labelledby="portfolio-related-title">
-                    <h2 id="portfolio-related-title">{labels.related}</h2>
-                    <ul>{detail.services.map(service => <li key={service.path}><AppLinkAtom href={service.path}>{service.title}</AppLinkAtom></li>)}</ul>
-                </aside>
-                <nav className={styles.neighbors} aria-label={labels.navigation}>
-                    <div>{detail.previous && <AppLinkAtom href={detail.previous.path}><span>{labels.previous}</span><strong>{detail.previous.title}</strong></AppLinkAtom>}</div>
-                    <div>{detail.next && <AppLinkAtom href={detail.next.path}><span>{labels.next}</span><strong>{detail.next.title}</strong></AppLinkAtom>}</div>
-                </nav>
-                <AppLinkAtom href={`/portfolio/#${project.id}`} className={styles.allLink}>{labels.all}</AppLinkAtom>
-            </div>
-        </article>
     </Container>;
 }

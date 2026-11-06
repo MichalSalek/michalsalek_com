@@ -24,7 +24,7 @@ avoiding unnecessary complexity. Present complete company delivery and responsib
 career history and GitHub links out of the marketing pages. The approved copy
 direction uses plain language, a clear service scope and responsibility for
 delivery, without superiority, slogans or metaphors.
-Service articles use at most three main sections and include practical workflows,
+Service articles use individual editorial compositions and include practical workflows,
 scope, data or failure cases, acceptance and handover. English and Polish retain
 the same meaning. The full-stack overview can name technologies and engineering
 practices for technically literate readers, without becoming a personal CV.
@@ -67,7 +67,7 @@ Framework updates and content work do not imply approval for a redesign.
 
 Visitors following a referral can open the relevant service directly. Each page
 starts with its scope, a contact link and a distinct opening image. Its existing
-three sections cover a possible workflow, implementation details and handover.
+topic-specific chapters cover a possible workflow, implementation details and handover.
 The homepage explains what to send, how current tools are assessed and how scope,
 price and timeframe are agreed. Contact remains available without a specification.
 

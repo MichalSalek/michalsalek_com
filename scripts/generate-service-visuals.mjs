@@ -39,8 +39,9 @@ async function derivative(id,variant,caption){
  for(const w of widths){
   // DECISION: Preserve the complete illustration; only photographs may be cropped.
   const pipeline=sharp(source).resize(variant==='card'?{width:w,height:Math.round(w/1.5),fit:entry.kind==='illustration'?'contain':'cover',background:'#fff',position:'centre',withoutEnlargement:true,kernel:'lanczos3'}:{width:w,withoutEnlargement:true,kernel:'lanczos3'});
-  // DECISION: Text-free portfolio scenes opt into bounded lossy encoding for LCP; keep text-bearing artwork lossless.
-  const encoding=entry.webpQuality?{quality:entry.webpQuality,smartSubsample:true,effort:6}:variant==='card'||entry.kind==='illustration'?{lossless:true,effort:6}:{quality:94,smartSubsample:true,effort:6};
+  // DECISION: Encoding quality is explicit per asset/placement; preserve original card text while keeping covers fast.
+  const quality=entry.webpQuality??(variant==='wide'?entry.wideWebpQuality:undefined);
+  const encoding=quality?{quality,smartSubsample:true,effort:6}:variant==='card'||entry.kind==='illustration'?{lossless:true,effort:6}:{quality:94,smartSubsample:true,effort:6};
   const data=await pipeline.webp(encoding).toBuffer();
   const src=await save(`${id}-${variant}-${w}`,data);variants.push({src,width:w});
  }

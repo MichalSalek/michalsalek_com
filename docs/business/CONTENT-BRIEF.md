@@ -58,11 +58,13 @@ tests and delivery, without publishing private project identities or a personal 
 
 ## Article pattern
 
-Keep at most three main sections per service article. Define the scope early,
+Use an individual editorial outline for each service article. Define the scope early,
 show a concrete possible workflow, explain relevant data or failure cases, then
 describe preparation, acceptance and handover. Consolidate overlapping topics
 rather than adding another heading. Each section must make sense independently.
-Examples are hypothetical, never invented customer evidence. Preserve useful
+Figures explain their neighboring passage; definitions, decisions and workflows
+can use different forms. Chapter counts and technical references follow the
+subject. Examples are hypothetical, never invented customer evidence. Preserve useful
 original ideas and keep the languages aligned in meaning and commitments.
 
 Expand practical information where it helps a reader decide. Do not pad the copy
@@ -83,8 +85,8 @@ must not introduce new card effects, decorative captions or badges. The homepage
 introduction has an explicit owner-requested heading/body layout and emphasis;
 keep it structured. Card scenes use sparse linework on light neutral backgrounds,
 without large indigo fields or diagonal divisions, interleaved with contextual
-photographs. Each software article opens with a distinct existing scene, followed
-by relevant photographs or small explainers. The opening image is not repeated
+photographs. Each article places its distinct cover beside a relevant passage,
+with contextual photographs or small explainers. The cover is not repeated
 inside that article. Do not reintroduce the rejected interface-like hero mock-ups.
 Illustrations must fit completely inside their frame. Full-stack and sound cards
 retain their approved artwork and left alignment in the final row.

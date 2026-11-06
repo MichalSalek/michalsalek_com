@@ -96,7 +96,8 @@
     "alt": {
       "en": "Different views of the same customer case",
       "pl": "Różne widoki tego samego zgłoszenia"
-    }
+    },
+    "wideWebpQuality": 90
   },
   {
     "id": "software-layers",
@@ -162,7 +163,8 @@
     "alt": {
       "en": "Payment and fulfilment records matched by order identifier",
       "pl": "Płatność i realizacja połączone numerem zamówienia"
-    }
+    },
+    "wideWebpQuality": 90
   },
   {
     "id": "record-access",

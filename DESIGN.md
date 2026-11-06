@@ -28,19 +28,22 @@ and reliable contact handling. These changes must respect the original appearanc
 - Alternate photographs and illustrations across the first six cards. Keep
   full-stack and sound artwork unchanged. Fit complete illustrations into their
   card frame, including the exported derivative; crop only photographs.
-- Every software article opens with its own distinct contextual image. Introduce
-  the service and its enquiry link before that image. Do not repeat the opening
-  image within the same article. Reuse smaller explainers across articles only
-  where their meaning matches the paragraph. Keep all illustration edges visible.
-- Article content has at most three main sections. Only the first body paragraph
-  under each heading has a 2rem indent. Later paragraphs start flush left.
-  Headings and sublines make sense independently.
+- Every article has its own contextual cover, placed in the opening or beside
+  the passage it explains. Do not repeat that cover within the article. Reuse
+  smaller explainers only where their meaning matches the paragraph. Keep all
+  illustration edges visible.
+- Terminal articles use individual editorial plans with two to five chapters,
+  distinct openings, contextual exhibits and varied reference formats. Shared
+  primitives preserve the brand, not a fixed sequence of three equal text bands.
+  Body text stays on white. Headings make sense independently. First-paragraph
+  indentation is optional within the new compositions and must not impair rhythm.
 - No card movement on hover. Preserve the original contrast/saturation effect.
 - Photo credits stay at the top right, 6px, without a background panel.
 - Breadcrumbs retain Sitemap, Home, the category and the current page. Keep the
   original 12.8px uppercase type (Roboto/Helvetica/Arial fallback), dark neutral
   text, slash separators and bold unlinked current item. Breadcrumbs must not
   inherit the brown body text or the page typography font stack.
+  Link targets reserve at least 24px of height so wrapped rows remain separable.
 - The homepage presents the implementation company, without a personal profile
   or links to source-code profiles.
 - Keep real links and buttons, with no nested interactive elements.
@@ -64,8 +67,9 @@ and reliable contact handling. These changes must respect the original appearanc
 - Preserve the software-first homepage and separate `/sound/` services.
 - Portfolio uses a single-column article list with full-row links, contextual
   thumbnails and readable summaries. On narrow screens, artwork precedes text.
-  All case studies share one template; lifecycle context belongs in the prose.
-  Introduce purpose and users before the opening artwork, with engineering last.
+  Case studies share typographic primitives and individual narrative plans;
+  lifecycle context belongs in the prose. Introduce purpose and users clearly,
+  with engineering later in the reading order.
 - Portfolio responsibility statements and narrative use Atomic Concept as the
   subject in both languages, without personal names or career details.
 - The November portfolio extension adds a header/footer link, homepage project
