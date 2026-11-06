@@ -33,6 +33,8 @@ These are drafting guidelines; no public posts or private messages are sent.
 - A distinct opening scene, with contextual smaller images inside the article.
 - Visible homepage answers about the first message, existing tools and scoping.
 - Contact guidance that accepts a business problem without a technical specification.
+- A clear reply-within-one-day commitment and an invitation to discuss the idea,
+  initial feasibility and next steps, repeated in acceptance feedback.
 - Service-specific 1200 x 630 share images and localized metadata in static HTML.
 - Service pages link to relevant anonymous case studies using the portfolio's
   existing service associations. Those case studies lead to contextual enquiries.

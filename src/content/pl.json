@@ -9,7 +9,7 @@
     "talk": "Porozmawiajmy o Twoim projekcie",
     "ask": "Opisz swój pomysł",
     "general": "Inne pytanie",
-    "contactIntro": "Opisz, co chcesz zmienić i z jakich programów korzystasz. Nie potrzebujesz specyfikacji. Ustalimy zakres i kolejne kroki.",
+    "contactIntro": "**Odpowiadamy w ciągu jednego dnia.** Chętnie omówimy Twój pomysł, wstępnie ocenimy możliwości realizacji i zaproponujemy kolejne kroki. Nie potrzebujesz gotowej specyfikacji.",
     "email": "Twój e-mail",
     "name": "Twoje imię",
     "subject": "Temat",
@@ -17,7 +17,7 @@
     "send": "Wyślij wiadomość",
     "openEmail": "Otwórz pocztę",
     "emailHint": "Otworzymy szkic w Twoim programie pocztowym. Wyślij go stamtąd, aby się z nami skontaktować.",
-    "sent": "Wiadomość została przyjęta. Dziękujemy.",
+    "sent": "Wiadomość została przyjęta. Odpowiemy w ciągu jednego dnia.",
     "failed": "Nie udało się potwierdzić wysyłki. Twój tekst pozostał w formularzu. Możesz otworzyć go w programie pocztowym.",
     "sending": "Wysyłanie...",
     "switchLanguage": "Switch language to English",
@@ -27,7 +27,7 @@
     "directEmail": "Możesz też napisać bezpośrednio:",
     "softwareCategory": "AI i oprogramowanie",
     "soundCategory": "dla dźwięku i muzyki",
-    "talkIntro": "Napisz, czego potrzebujesz. Odpowiemy i ustalimy, jak możemy pomóc.",
+    "talkIntro": "Opisz swój pomysł lub problem. Odpowiemy w ciągu jednego dnia, żeby omówić możliwości i kolejne kroki.",
     "interested": "Interesuje Cię ta usługa?",
     "generalHeading": "Mam inne pytanie",
     "relatedIntro": "Zobacz, w czym jeszcze możemy pomóc:",
@@ -112,7 +112,7 @@
     },
     "/contact/": {
       "title": "Kontakt",
-      "description": "Skontaktuj się z Atomic Concept. Porozmawiajmy o wdrożeniu oprogramowania, integracji systemów, automatyzacji procesów lub projekcie dźwiękowym."
+      "description": "Skontaktuj się z Atomic Concept. Opisz swój pomysł lub problem. Odpowiadamy w ciągu jednego dnia i pomagamy ustalić możliwości realizacji oraz kolejne kroki."
     },
     "/sitemap/": {
       "title": "Mapa strony",

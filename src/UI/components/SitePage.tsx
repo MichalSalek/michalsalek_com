@@ -24,7 +24,7 @@ export default function SitePage({path, title, cards, artwork, sections, message
         <Container><GoToContactFormMolecule objectOfInterest={title}/></Container>
     </>;
     if (path === '/contact/') return <Container>
-        <Typography variant="h1">{title}</Typography><Typography variant="body1" component="p" sx={{mb: 3}}>{messages.contactIntro}</Typography>
+        <Typography variant="h1">{title}</Typography><Typography variant="body1" component="p" sx={{mb: 3}}><RichTextAtom text={messages.contactIntro}/></Typography>
         <p>{messages.directEmail} <a href={`mailto:${site.email}`}>{site.email}</a></p>
         <ContactFormOrganism/>
     </Container>;

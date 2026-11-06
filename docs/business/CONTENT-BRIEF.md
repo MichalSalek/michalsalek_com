@@ -17,6 +17,13 @@ Keep the actual technical contribution precise.
 
 ## Voice and evidence
 
+The owner-approved contact promise is a reply within one day. Use it consistently
+on the contact page, enquiry CTAs and acceptance feedback in both languages.
+Explain that the first exchange reviews the idea, explores feasibility and agrees
+next steps; a finished specification is not required. This is a response promise,
+not a commitment to complete discovery or quote a project within that day. Do not
+add a free-consultation offer or fixed delivery schedule.
+
 Keep the owner's original practical voice: understand the need before promising a
 solution; avoid unnecessary complexity; make future maintenance understandable;
 use technology as a tool. The approved copy direction uses ordinary language,

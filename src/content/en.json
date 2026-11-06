@@ -9,7 +9,7 @@
     "talk": "Do you want to talk?",
     "ask": "Tell us about your project",
     "general": "General question",
-    "contactIntro": "Tell us what you want to change and which tools you use. You do not need a specification. We will agree the scope and next steps.",
+    "contactIntro": "**We reply within one day.** We are happy to discuss your idea, assess the options and suggest the next steps. You do not need a specification.",
     "email": "Your email",
     "name": "Your name",
     "subject": "Subject",
@@ -17,7 +17,7 @@
     "send": "Send message",
     "openEmail": "Open email app",
     "emailHint": "This opens a draft in your email app. Send it there to contact us.",
-    "sent": "Your message has been accepted. Thank you.",
+    "sent": "Your message has been accepted. We will reply within one day.",
     "failed": "We could not confirm submission. Your text is still here. You can open it in your email app.",
     "sending": "Sending...",
     "switchLanguage": "Zmień język na polski",
@@ -27,7 +27,7 @@
     "directEmail": "You can also email us directly:",
     "softwareCategory": "AI and software",
     "soundCategory": "for sound and music",
-    "talkIntro": "Use the links below to ask for details. We will respond as soon as possible.",
+    "talkIntro": "Tell us about your idea or the problem you want to solve. We will reply within one day to discuss the options and next steps.",
     "interested": "Interested in this service?",
     "generalHeading": "I just have a question",
     "relatedIntro": "See how else we can help you:",
@@ -112,7 +112,7 @@
     },
     "/contact/": {
       "title": "Contact",
-      "description": "Contact Atomic Concept to discuss software delivery, system integrations, process automation or an audio project."
+      "description": "Contact Atomic Concept about your idea or a problem you want to solve. We reply within one day to discuss what is possible and the next steps."
     },
     "/sitemap/": {
       "title": "Sitemap",
