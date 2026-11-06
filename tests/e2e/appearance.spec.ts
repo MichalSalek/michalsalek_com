@@ -101,6 +101,8 @@ for (const locale of site.locales) {
         for (const path of servicePaths.filter(path => Object.hasOwn(relatedServices, path))) {
             await page.goto(localePath(locale, path));
             await expect(page.locator('.related-services h3'), `${path} related headings`).toHaveCount(2);
+            const headings = await page.locator('.related-services h3').allTextContents();
+            for (const [index, heading] of headings.entries()) await expect(page.locator('.related-services a.link-button').nth(index)).toHaveAccessibleName(new RegExp(heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'));
             await checkContrast(page, '.related-services h3', `${locale} ${path}`);
         }
     });

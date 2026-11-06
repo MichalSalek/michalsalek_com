@@ -2,5 +2,6 @@ import type { ReactNode } from 'react';
 import { AppLinkAtom } from './AppLink.atom';
 import { appStyles } from '@/src/UI/styles/constants';
 
-export const LinkButtonAtom = ({href, children}: {href: string; children: ReactNode}) =>
-    <AppLinkAtom className="link-button" href={href} style={appStyles.cardBoxShadow}>{children}</AppLinkAtom>;
+// Repeated read-more controls name their destination without changing the card layout.
+export const LinkButtonAtom = ({href, children, context}: {href: string; children: ReactNode; context?: string}) =>
+    <AppLinkAtom className="link-button" href={href} style={appStyles.cardBoxShadow}>{children}{context && <span className="visually-hidden">: {context}</span>}</AppLinkAtom>;

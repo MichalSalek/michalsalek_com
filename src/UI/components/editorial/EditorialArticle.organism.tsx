@@ -103,7 +103,7 @@ export function EditorialArticle({document, title, artwork}: {document: Editoria
                     <h2 id="project-examples-title">{labels.selected}</h2>
                     <ul>{projects.map(project => <li key={project.path}><ActionLinkAtom href={project.path}>{project.title}</ActionLinkAtom></li>)}</ul>
                 </aside>}
-                <aside className="related-services"><h2>{messages.relatedIntro}</h2><InfoTextBlockMolecule items={document.related.map(link => ({heading: link.title, content: <LinkButtonAtom href={link.path}>{messages.readMore}</LinkButtonAtom>}))}/></aside>
+                <aside className="related-services"><h2>{messages.relatedIntro}</h2><InfoTextBlockMolecule items={document.related.map(link => ({heading: link.title, content: <LinkButtonAtom href={link.path} context={link.title}>{messages.readMore}</LinkButtonAtom>}))}/></aside>
                 <GoToContactFormMolecule objectOfInterest={title}/>
             </footer> : <footer className={`${styles.footer} ${styles.projectFooter}`}>
                 <ActionLinkAtom href={`/contact/?about=${encodeURIComponent(title)}`}>{labels.contact}</ActionLinkAtom>
