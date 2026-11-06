@@ -10,8 +10,11 @@ import {PortfolioIndexPage, PortfolioShowcase} from './portfolio/Portfolio.organ
 import {EditorialArticle} from './editorial/EditorialArticle.organism';
 import {overviewExplanationPlans} from '@/src/content/explanation-plans.mjs';
 import {ContextDiagram} from './editorial/ContextDiagram.molecule';
+import {sitemapGroups} from '@/src/content/site.mjs';
+import {useLocale} from '@/src/i18n/context';
 
 export default function SitePage({path, title, cards, artwork, sections, messages, navigation, intro, portfolioCards, editorial}: SitePageProps) {
+    const {locale} = useLocale();
     if (editorial) return <EditorialArticle document={editorial} title={title} artwork={artwork}/>;
     if (path === '/portfolio/') return <PortfolioIndexPage cards={portfolioCards}/>;
     if (path === '/' || path === '/sound/') return <>
@@ -27,7 +30,10 @@ export default function SitePage({path, title, cards, artwork, sections, message
     </Container>;
     if (path === '/sitemap/') return <Container>
         <Typography variant="h1">{title}</Typography>
-        <ul className="sitemap-list">{navigation.map(link => <li key={link.path}><AppLinkAtom href={link.path}>{link.title}</AppLinkAtom></li>)}</ul>
+        <div className="sitemap-groups">{sitemapGroups.map(group => <section key={group.id} aria-labelledby={`sitemap-${group.id}`}>
+            <Typography variant="h2" component="h2" id={`sitemap-${group.id}`}>{group.title[locale]}</Typography>
+            <ul className="sitemap-list">{group.paths.map(path => <li key={path}><AppLinkAtom href={path}>{navigation.find(link => link.path === path)!.title}</AppLinkAtom></li>)}</ul>
+        </section>)}</div>
     </Container>;
     throw new Error(`No page composition registered: ${path}`);
 }

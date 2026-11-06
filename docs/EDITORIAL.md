@@ -38,6 +38,10 @@ cover illustrations stay compact. Large application captures are reserved for
 the actual application demonstrations. The export audit checks diagram placement,
 both languages and complete descriptions in HTML and Markdown.
 
+Set `sequence: true` on an existing exhibit only when its entries are consecutive
+stages. It then uses the same ordered drawings as the authored diagrams, with
+vertical steps on phones. Other state collections remain parallel descriptions.
+
 ## Composition choices
 
 Openings can use an essay lead, a text-and-image split, a panoramic media break,

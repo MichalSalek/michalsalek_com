@@ -86,6 +86,10 @@ Every language is rendered at build time, including its title, description,
 canonical URL, hreflang links and structured data. No browser-language redirects
 or runtime translation service are required.
 
+The shared static 404 has bilingual recovery links. After the client router
+resolves an unknown URL, navigation and footer follow its language prefix.
+The bilingual static recovery remains available without JavaScript.
+
 The build generates `sitemap.xml`, `robots.txt`, `llms.txt`, `llms-full.txt` and
 Markdown mirrors from the actual HTML. The Markdown is supplementary; HTML is the
 canonical source. Crawler access does not guarantee indexing or AI citations.

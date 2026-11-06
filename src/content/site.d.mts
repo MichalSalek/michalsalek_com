@@ -6,6 +6,7 @@ export const routes: PagePath[];
 export const standardRoutes: StandardPagePath[];
 export const primaryServices: PagePath[];
 export const additionalServices: PagePath[];
+export const sitemapGroups: {id: string; title: Record<Locale, string>; paths: PagePath[]}[];
 export const relatedServices: Partial<Record<PagePath, PagePath[]>>;
 export function localePath(locale: Locale, path?: PagePath): string;
 export function pageUrl(locale: Locale, path?: PagePath): string;

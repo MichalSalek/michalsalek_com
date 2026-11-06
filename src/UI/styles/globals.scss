@@ -96,6 +96,10 @@ a:focus-visible, button:focus-visible { outline: 3px solid #175bba; outline-offs
 .breadcrumbs li + li::before { content: '/'; display: inline-block; margin: 0 .5rem; }
 .breadcrumbs [aria-current='page'] { color: inherit; font-weight: bold; text-decoration: none; }
 .sitemap-list { padding-left: 1.5rem; line-height: 2.5; }
+.sitemap-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5); margin: var(--space-4) 0 var(--space-6); }
+.sitemap-groups section { min-width: 0; }
+.sitemap-groups h2 { margin: 0 0 var(--space-2); font-size: 1.5rem; }
+@media (max-width: 899px) { .sitemap-groups { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); } }
 .contact-form { width: 100%; }
 .contact-section { margin-top: calc(var(--space-6) + var(--space-5)); }
 .contact-section-full { margin-top: 0; }

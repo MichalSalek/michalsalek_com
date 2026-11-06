@@ -61,6 +61,7 @@ export function compileWithPlan(plan, input) {
         const exhibit = chapter.exhibit ? {
             kind: chapter.exhibit.kind,
             ...(chapter.exhibit.icons ? {icons: chapter.exhibit.icons} : {}),
+            ...(chapter.exhibit.sequence ? {sequence: true} : {}),
             title: localized(chapter.exhibit.title, locale, `${path} exhibit title`),
             caption: localized(chapter.exhibit.caption, locale, `${path} exhibit caption`),
             items: chapter.exhibit.items.map(item => ({label: localized(item.label, locale, `${path} exhibit label`), detail: localized(item.detail, locale, `${path} exhibit detail`)})),

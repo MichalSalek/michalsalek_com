@@ -67,7 +67,7 @@ export const explanationPlans = {
         step('wave', 'Rytm i bas', 'Rhythm and bass', 'Można wskazać relację stopy i basu.', 'The kick and bass relationship can be identified.'),
         step('speaker', 'Wokal i przestrzeń', 'Vocal and space', 'Można omówić czytelność wokalu i ilość przestrzeni.', 'Vocal clarity and the amount of space can be discussed.'),
     ])],
-    '/sound/soundtracks/': [diagram('picture', 'flow', 'Muzyka do obrazu', 'Music for picture', 'Przykład dopasowania muzyki do krótkiego filmu z narracją.', 'Example of shaping music for a short narrated film.', [
+    '/sound/soundtracks/': [diagram('picture', 'flow', 'Podkład do filmu z narracją', 'Music for a narrated film', 'Przykład dopasowania muzyki do krótkiego filmu z narracją.', 'Example of shaping music for a short narrated film.', [
         step('screen', 'Obraz', 'Picture', 'Długość i montaż wyznaczają ramy utworu.', 'Length and edit set the bounds of the track.'),
         step('speaker', 'Narracja', 'Narration', 'Aranżacja zostawia miejsce na głos.', 'The arrangement leaves room for the voice.'),
         step('wave', 'Akcenty', 'Accents', 'Muzyka podkreśla wybrane momenty.', 'Music emphasizes selected moments.'),

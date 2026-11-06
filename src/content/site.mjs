@@ -16,6 +16,14 @@ export const routes = [...standardRoutes, ...portfolioRoutes];
 export const primaryServices = ['/software/ai-automation/', '/software/automation/', '/software/integrations/', '/software/websites/', '/software/custom-software/', '/software/reporting/'];
 export const additionalServices = ['/software/fullstack/', '/sound/'];
 
+const sitemapSections = [
+    {id: 'services', title: {pl: 'Usługi dla firm', en: 'Business services'}, paths: primaryServices},
+    {id: 'engineering', title: {pl: 'Zaplecze techniczne', en: 'Engineering'}, paths: routes.filter(path => path.startsWith('/software/') && !primaryServices.includes(path))},
+    {id: 'sound', title: {pl: 'Dźwięk', en: 'Sound'}, paths: routes.filter(path => path.startsWith('/sound/'))},
+    {id: 'portfolio', title: {pl: 'Portfolio', en: 'Portfolio'}, paths: routes.filter(path => path.startsWith('/portfolio/'))},
+];
+export const sitemapGroups = [...sitemapSections, {id: 'other', title: {pl: 'Pozostałe strony', en: 'Other pages'}, paths: routes.filter(path => !sitemapSections.some(section => section.paths.includes(path)))}];
+
 export const relatedServices = {
     '/software/ai-automation/': ['/software/automation/', '/software/custom-software/'],
     '/software/automation/': ['/software/ai-automation/', '/software/integrations/'],

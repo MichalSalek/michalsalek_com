@@ -1,6 +1,7 @@
 const text = (pl, en) => ({pl, en});
 const item = (pl, en, plDetail, enDetail) => ({label: text(pl, en), detail: text(plDetail, enDetail)});
 const figure = (icons, kind, pl, en, plCaption, enCaption, items) => ({icons, kind, title: text(pl, en), caption: text(plCaption, enCaption), items});
+const sequenceFigure = (...args) => ({...figure(...args), sequence: true});
 
 export const serviceEditorialPlans = {
     '/software/ai-automation/': {
@@ -29,7 +30,7 @@ export const serviceEditorialPlans = {
     },
     '/software/automation/': {
         opening: 'compact', cover: 'opening', toc: 'none', reference: 'notes', chapters: [
-            {id: 'pause', title: text('Proces może czekać na decyzję', 'A workflow can wait for a decision'), layout: 'decisions', take: [{section: 1, paragraphs: [0, 1]}], exhibitPosition: 'before', exhibit: figure(['form', 'clock', 'branch'], 'states', 'Zgłoszenie wymagające zgody', 'A request requiring approval', 'Przykładowy proces wznawia pracę po uzgodnionej decyzji.', 'This example workflow continues after the agreed decision.', [
+            {id: 'pause', title: text('Proces może czekać na decyzję', 'A workflow can wait for a decision'), layout: 'decisions', take: [{section: 1, paragraphs: [0, 1]}], exhibitPosition: 'before', exhibit: sequenceFigure(['form', 'clock', 'branch'], 'states', 'Zgłoszenie wymagające zgody', 'A request requiring approval', 'Przykładowy proces wznawia pracę po uzgodnionej decyzji.', 'This example workflow continues after the agreed decision.', [
                 item('Zgłoszenie', 'Request', 'Formularz uruchamia sprawdzenie danych i utworzenie zadania.', 'The form starts a data check and creates a task.'),
                 item('Oczekiwanie', 'Waiting', 'Proces zatrzymuje się do decyzji osoby uprawnionej.', 'The workflow pauses for a decision by an authorised person.'),
                 item('Dalszy krok', 'Next step', 'Decyzja uruchamia uzgodnione działanie; brak odpowiedzi może wywołać przypomnienie.', 'The decision starts the agreed action; no response can trigger a reminder.'),
@@ -65,7 +66,7 @@ export const serviceEditorialPlans = {
     '/software/frontend/': {
         opening: 'split', cover: 'opening', toc: 'none', reference: 'inline', chapters: [
             {id: 'action', title: text('Interfejs wokół zadania', 'An interface built around a task'), layout: 'prose', take: [{section: 0, paragraphs: 'all'}]},
-            {id: 'draft', title: text('Niepotwierdzony zapis', 'An unconfirmed save'), layout: 'feature', take: [{section: 1, paragraphs: 'all'}], exhibitPosition: 'before', exhibit: figure(['form', 'clock', 'search'], 'states', 'Formularz po utracie połączenia', 'A form after a connection loss', 'Przykład zachowuje rozróżnienie między wpisanymi danymi a potwierdzonym zapisem.', 'The example distinguishes entered values from a confirmed save.', [
+            {id: 'draft', title: text('Niepotwierdzony zapis', 'An unconfirmed save'), layout: 'feature', take: [{section: 1, paragraphs: 'all'}], exhibitPosition: 'before', exhibit: sequenceFigure(['form', 'clock', 'search'], 'states', 'Formularz po utracie połączenia', 'A form after a connection loss', 'Przykład zachowuje rozróżnienie między wpisanymi danymi a potwierdzonym zapisem.', 'The example distinguishes entered values from a confirmed save.', [
                 item('Wpisane dane', 'Entered values', 'Wartości mogą pozostać w formularzu.', 'Values can remain in the form.'),
                 item('Brak potwierdzenia', 'Unconfirmed', 'Interfejs pokazuje, że zapis nie został potwierdzony.', 'The interface shows that the save is unconfirmed.'),
                 item('Ponowienie', 'Retry', 'Po powrocie połączenia sprawdzamy wcześniejszą próbę przed ponowieniem.', 'After reconnection, the previous attempt is checked before retrying.'),
