@@ -23,6 +23,9 @@
 .artwork.photo img { max-height: 560px; object-fit: cover; }
 .artwork figcaption { position: absolute; top: 5px; right: 5px; font-size: 6px; color: var(--site-muted); }
 .artwork.photo figcaption { color: var(--site-surface); }
+.artwork.applicationDemo { grid-column: 1 / -1; }
+.artwork.applicationDemo img { max-height: none; object-fit: contain; }
+.artwork.applicationDemo figcaption { position: static; margin-top: var(--space-2); font-size: 1rem; line-height: 1.6; color: var(--site-muted); }
 .inlineArtwork { max-width: 200px; margin: var(--space-3) auto; }
 .opening > .artwork { margin: 0; }
 .opening_essay .openingCopy { max-width: 100%; }

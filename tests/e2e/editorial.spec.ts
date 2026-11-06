@@ -4,6 +4,16 @@ import {editorialPaths, editorialPlans} from '../../src/content/editorial.mjs';
 import {portfolioMessages, portfolioProjects, portfolioPath} from '../../src/content/portfolio.mjs';
 import {localePath, site, type Locale, type PagePath} from '../../src/content/site.mjs';
 
+// Keep browser tests isolated from the real contact service and analytics.
+test.beforeEach(async ({page}) => {
+    await page.route('**/*', async route => {
+        const request = route.request();
+        if (request.method() === 'OPTIONS' || request.method() === 'POST') return route.fulfill({status: 204, headers: {'access-control-allow-origin': '*', 'access-control-allow-methods': 'POST, OPTIONS', 'access-control-allow-headers': 'content-type'}});
+        if (/googletagmanager\.com|google-analytics\.com|analytics\.google\.com/.test(request.url())) return route.fulfill({status: 200, contentType: 'application/javascript', body: ''});
+        return route.continue();
+    });
+});
+
 const representatives: PagePath[] = [
     '/software/ai-automation/', '/portfolio/b2b-service-platform/',
     '/portfolio/shopify-product-experience/', '/portfolio/3d-house-planning/',

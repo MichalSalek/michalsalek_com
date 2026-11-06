@@ -38,8 +38,16 @@ These are drafting guidelines; no public posts or private messages are sent.
 - Service-specific 1200 x 630 share images and localized metadata in static HTML.
 - Service pages link to relevant anonymous case studies using the portfolio's
   existing service associations. Those case studies lead to contextual enquiries.
-- Shared primary navigation CTAs, a tab-scoped enquiry draft and a complete
-  email-client fallback preserve the visitor's context.
+- Introductory CTAs scroll to a shared contact section on the current page.
+  Compact forms follow every offer and portfolio page; the contact page keeps
+  its full form. Automatic subjects follow the service and language, while
+  manual subjects and tab-scoped drafts survive navigation.
+- The expanded footer groups services, featured work, technology and audio.
+- Real application-component demonstrations show a business team account and
+  product preparation, with neutral branding and visibly disclosed example data.
+- The existing GA4 integration measures contact intent, first manual editing,
+  accepted enquiries, errors and email-client openings without field contents.
+  [The contact contract](../CONTACT.md) defines event meanings and limitations.
 
 [Open Graph](https://ogp.me/) defines the title, description, URL and image
 metadata used to describe a shared page. The local export checks the metadata and

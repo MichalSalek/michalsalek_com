@@ -1,5 +1,6 @@
 import StudioImage from '@/assets/library/photos/audio-studio.jpg';
-import { ActionLinkAtom } from './ActionLink.atom';
+import { ContactIntentLink } from './ContactIntentLink.molecule';
+import styles from './deliverySteps.module.scss';
 import DrumsImage from '@/assets/library/photos/audio-soundtracks.jpg';
 import { ClickableCardMolecule } from '@/src/UI/components/clickable-card/ClickableCard.molecule';
 import Typography from '@mui/material/Typography';
@@ -25,7 +26,8 @@ export default function RootCardOrganism({version, cards, intro = []}: {intro?: 
             <Typography id="home-intro-title" variant="h2" sx={{m: 0}}>{messages.introTitle}</Typography>
             <div className="home-intro-copy">
                 {intro.map(text => <Typography variant="body1" component="p" sx={{mt: 0}} key={text}><RichTextAtom text={text}/></Typography>)}
-                <ActionLinkAtom href={`/contact/?about=${encodeURIComponent(messages.softwareCategory)}`}>{messages.introContact}</ActionLinkAtom>
+                <ol className={styles.steps}>{messages.deliverySteps.map(step => <li key={step.title}><strong>{step.title}</strong><span>{step.description}</span></li>)}</ol>
+                <ContactIntentLink placement="home">{messages.introContact}</ContactIntentLink>
             </div>
         </section>}
         {groups.map((group, groupIndex) => <div className={`service-cards${version === 'software' ? ' software-services' : ''}${groupIndex ? ' additional-services' : ''}`} key={groupIndex}>

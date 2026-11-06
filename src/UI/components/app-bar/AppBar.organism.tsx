@@ -10,6 +10,7 @@ import { AppLinkAtom } from '@/src/UI/components/AppLink.atom';
 import { CompanyNameAtom } from '@/src/UI/components/CompanyName.atom';
 import { useLocale } from '@/src/i18n/context';
 import { localePath } from '@/src/content/site.mjs';
+import {contactHref} from '@/src/layers/application/contact-context';
 import scss from './appBar.module.scss';
 
 export const AppBarOrganism = () => {
@@ -28,7 +29,7 @@ export const AppBarOrganism = () => {
             <div style={{flex: 1}}/>
             <AppLinkAtom className="portfolio-link" href="/portfolio/" aria-current={path.startsWith('/portfolio/') ? 'true' : undefined}>Portfolio</AppLinkAtom>
             <Link className="language-link" href={`${localePath(language, path)}${suffix}`} hrefLang={language} lang={language} aria-label={`${language.toUpperCase()}: ${messages.switchLanguage}`}><LanguageIcon fontSize="small"/><span>{language.toUpperCase()}</span></Link>
-            <AppLinkAtom className="contact-link" href="/contact/" aria-label={messages.contact}><span>{messages.contact}</span><ContactMailIcon/></AppLinkAtom>
+            <AppLinkAtom className="contact-link" href={contactHref(locale, path)} aria-label={messages.contact}><span>{messages.contact}</span><ContactMailIcon/></AppLinkAtom>
         </Toolbar>
         </Container>
     </AppBar>;

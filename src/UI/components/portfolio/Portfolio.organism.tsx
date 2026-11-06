@@ -6,6 +6,7 @@ import type { VisualAsset } from '@/src/content/visuals.mjs';
 import { useLocale } from '@/src/i18n/context';
 import { AppLinkAtom } from '../AppLink.atom';
 import {ActionLinkAtom} from '../ActionLink.atom';
+import {ContactSection} from '../ContactSection.organism';
 import styles from './portfolio.module.scss';
 
 function Artwork({asset, priority = false, hero = false}: {asset: VisualAsset; priority?: boolean; hero?: boolean}) {
@@ -47,6 +48,7 @@ export function PortfolioIndexPage({cards}: {cards: PortfolioCard[]}) {
             <p className={styles.confidentiality}>{labels.confidentiality}</p>
         </header>
         <PortfolioList cards={cards} priorityFirst/>
+        <ContactSection/>
     </Container>;
 }
 

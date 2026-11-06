@@ -41,10 +41,11 @@ export async function loadPage(locale: Locale, path: PagePath): Promise<SitePage
         return {id: item.id, path: portfolioPath(item), ...item[locale], artwork: media};
     }) : [];
     const metadata = getPageMetadata(locale, path, dictionary.pages);
-    const sections: Section[] = (article?.sections ?? []).map((section, index) => ({...section, media: (manifest[locale][path]?.article ?? []).filter(item => item.section === index)}));
     const projectContent = project ? JSON.parse(await readFile(`src/content/portfolio/${locale}/${project.id}.json`, 'utf8')) as PortfolioContent : null;
+    // Both service and project media must reach the compiler with their source paragraphs.
+    const sections = (projectContent?.sections ?? article?.sections ?? []).map((section, index) => ({subtitle: '', ...section, media: (manifest[locale][path]?.article ?? []).filter(item => item.section === index)}));
     const related = (project?.services ?? relatedServices[path] ?? routes.filter(route => route.startsWith(path.startsWith('/sound/') ? '/sound/' : '/software/') && route !== path).slice(0, 2)).map(route => ({path: route, title: getPageMetadata(locale, route, dictionary.pages).title}));
-    const editorial = compileEditorial({locale, path, sections: projectContent?.sections ?? sections, intro: projectContent?.intro ?? metadata.intro ?? [],
+    const editorial = compileEditorial({locale, path, sections, intro: projectContent?.intro ?? metadata.intro ?? [],
         audience: projectContent?.audience, role: projectContent?.role, stack: projectContent?.stack,
         category: project?.[locale].category, projectId: project?.id, related, previous: project ? neighbor(projectIndex - 1) : null, next: project ? neighbor(projectIndex + 1) : null});
     if (!editorial && (project || path.startsWith('/software/') || /^\/sound\/.+\/$/.test(path))) throw new Error(`Missing individual editorial composition: ${path}`);

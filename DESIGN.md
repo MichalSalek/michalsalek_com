@@ -91,3 +91,17 @@ and reliable contact handling. These changes must respect the original appearanc
 - Verify desktop, mobile, hover, contact and article layouts against the original
   export after changing shared components. Content improvements are not approval
   to redesign established components.
+- The delivery process is a semantic, open list within the existing homepage
+  introduction: horizontal on desktop and vertical on mobile, without numbered
+  tiles or connecting arrows. Keep the approved service-card arrangement.
+- Each offer page has one compact contact section before the footer, with an
+  invitation beside a form at 900px and above. Fields are at most 680px wide,
+  email precedes subject, and the message grows from six rows. The contact page
+  retains its full two-column form and twelve-row message. Compact feedback sits
+  below the message in normal flow. Contact links scroll to the section heading.
+- The indigo footer has four navigation groups and explicit light text, with
+  four/two/one columns at 900/600px. Its content is at most 1536px wide. Preserve
+  readable 44px links and visible hover/focus states.
+- Application views use real components with neutral demonstration data. Keep
+  complete desktop/mobile geometry, lazy responsive sources and a readable
+  demonstration caption. Photo-credit styling does not apply to these captions.

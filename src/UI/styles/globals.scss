@@ -97,6 +97,21 @@ a:focus-visible, button:focus-visible { outline: 3px solid #175bba; outline-offs
 .breadcrumbs [aria-current='page'] { color: inherit; font-weight: bold; text-decoration: none; }
 .sitemap-list { padding-left: 1.5rem; line-height: 2.5; }
 .contact-form { width: 100%; }
+.contact-section { margin-top: calc(var(--space-6) + var(--space-5)); }
+.contact-section-full { margin-top: 0; }
+.contact-invitation h1, .contact-invitation h2 { margin-top: 0; }
+.contact-invitation p { margin-top: 0; line-height: 1.7; }
+.contact-invitation a { display: inline-flex; align-items: center; min-height: 44px; overflow-wrap: anywhere; }
+#project-contact { scroll-margin-top: 120px; outline: none; }
+.contact-section-compact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: var(--space-5); align-items: start; }
+.contact-form-compact { max-width: 680px; justify-self: end; }
+.contact-form-compact .contact-fields { display: block; }
+.contact-form-compact .contact-email { margin-bottom: var(--space-3); }
+.contact-form-compact .contact-message { gap: var(--space-3); }
+.contact-form-compact .MuiInputBase-root, .contact-form-compact .MuiInputLabel-root { margin-top: 0; }
+.contact-form-compact button[type='submit'] { margin: 0; }
+.contact-form-compact .contact-feedback { position: static; width: 100%; margin-top: var(--space-2); padding: var(--space-2); font-size: 1rem; }
+@media (max-width: 899px) { .contact-section-compact { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); } .contact-form-compact { justify-self: start; } }
 .contact-fields { max-width: 1000px; display: flex; align-items: flex-start; flex-wrap: wrap; gap: 0 32px; }
 .contact-email { flex: 1; min-width: min(320px,100%); }
 .contact-message { display: flex; flex: 2; flex-direction: column; min-width: min(320px,100%); }
@@ -105,8 +120,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid #175bba; outline-offs
 @media (min-width: 600px) { .contact-feedback { font-size: 2.2vw; } }
 @media (min-width: 900px) { .contact-feedback { font-size: 1.8vw; } }
 @media (min-width: 1200px) { .contact-feedback { font-size: 1.1rem; } }
-.contact-feedback.sent { background: #2e7d32; }
-.contact-feedback.failed { background: #d32f2f; }
+.contact-feedback.sent { background: #1b5e20; }
+.contact-feedback.failed { background: #b71c1c; }
 .subject-attention[data-attention] .MuiInputLabel-shrink { background-color: #fff; }
 .subject-attention[data-attention='pulse'] .MuiOutlinedInput-root { animation: subject-attention 400ms linear 3; }
 .subject-attention[data-attention='static'] .MuiOutlinedInput-root { background-color: #e8eaf6; box-shadow: 0 0 0 3px rgba(26,35,126,.25); }

@@ -1,61 +1,57 @@
-import {expect, test, type Locator, type Page} from '@playwright/test';
+import {expect, test, type Page} from '@playwright/test';
 import {editorialPaths} from '../../src/content/editorial.mjs';
 import {localePath, primaryServices, relatedServices, routes, site} from '../../src/content/site.mjs';
 import {projectsForService} from '../../src/content/portfolio.mjs';
+import {topicForPage, contactTopics} from '../../src/layers/application/contact-context';
 
 const servicePaths = editorialPaths.filter(path => !path.startsWith('/portfolio/'));
 
-// Compute both pixels through every ancestor, including translucent backgrounds and
-// group opacity. Text and background take the same path until the text is painted.
-async function contrastForDirectText(locator: Locator) {
-    return locator.evaluate(element => {
+// Normalize real CSS paints through canvas, then compose both pixels through
+// every ancestor and group opacity. Batch the DOM read to cover all page text.
+async function checkContrast(page: Page, selector: string, context: string) {
+    const results = await page.locator(selector).evaluateAll(elements => {
         type Color = [number, number, number, number];
+        const canvas = document.createElement('canvas'); canvas.width = canvas.height = 1;
+        const paint = canvas.getContext('2d', {willReadFrequently: true})!;
+        const cache = new Map<string, Color>();
         const parse = (value: string): Color => {
-            const parts = value.match(/[\d.]+/g)?.map(Number);
-            if (!parts || parts.length < 3) throw new Error(`Unsupported computed color: ${value}`);
-            return [parts[0], parts[1], parts[2], parts[3] ?? 1];
+            const cached = cache.get(value); if (cached) return [...cached];
+            paint.clearRect(0, 0, 1, 1); paint.fillStyle = value; paint.fillRect(0, 0, 1, 1);
+            const [r, g, b, a] = paint.getImageData(0, 0, 1, 1).data;
+            const color: Color = [r, g, b, a / 255]; cache.set(value, color); return [...color];
         };
         const over = (top: Color, bottom: Color): Color => {
             const a = top[3] + bottom[3] * (1 - top[3]);
             if (a === 0) return [0, 0, 0, 0];
             return [0, 1, 2].map(i => (top[i] * top[3] + bottom[i] * bottom[3] * (1 - top[3])) / a).concat(a) as Color;
         };
-        const style = getComputedStyle(element);
-        let foreground: Color = parse(style.color);
-        let background: Color = [0, 0, 0, 0];
-        for (let node: Element | null = element; node; node = node.parentElement) {
-            const current = getComputedStyle(node);
-            const bg = parse(current.backgroundColor);
-            foreground = over(foreground, bg);
-            background = over(background, bg);
-            const opacity = Number(current.opacity);
-            foreground[3] *= opacity;
-            background[3] *= opacity;
-        }
-        foreground = over(foreground, [255, 255, 255, 1]);
-        background = over(background, [255, 255, 255, 1]);
         const luminance = (color: Color) => color.slice(0, 3).map(channel => {
             const c = channel / 255;
             return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
         }).reduce((sum, channel, index) => sum + channel * [0.2126, 0.7152, 0.0722][index], 0);
-        const light = [luminance(foreground), luminance(background)].sort((a, b) => b - a);
-        const large = parseFloat(style.fontSize) >= 24 || (parseFloat(style.fontSize) >= 18.6667 && Number(style.fontWeight) >= 700);
-        return {ratio: (light[0] + 0.05) / (light[1] + 0.05), minimum: large ? 3 : 4.5, text: [...element.childNodes].filter(node => node.nodeType === Node.TEXT_NODE).map(node => node.textContent).join('').trim(), foreground, background};
+        return elements.flatMap(element => {
+            const text = [...element.childNodes].filter(node => node.nodeType === Node.TEXT_NODE).map(node => node.textContent).join('').trim();
+            const style = getComputedStyle(element);
+            if (!text || !element.getClientRects().length || style.visibility === 'hidden') return [];
+            let foreground: Color = parse(style.color);
+            let background: Color = [0, 0, 0, 0];
+            for (let node: Element | null = element; node; node = node.parentElement) {
+                const current = getComputedStyle(node);
+                const bg = parse(current.backgroundColor);
+                foreground = over(foreground, bg); background = over(background, bg);
+                const opacity = Number(current.opacity); foreground[3] *= opacity; background[3] *= opacity;
+            }
+            foreground = over(foreground, [255, 255, 255, 1]); background = over(background, [255, 255, 255, 1]);
+            const light = [luminance(foreground), luminance(background)].sort((a, b) => b - a);
+            const large = parseFloat(style.fontSize) >= 24 || (parseFloat(style.fontSize) >= 18.6667 && Number(style.fontWeight) >= 700);
+            return [{ratio: (light[0] + 0.05) / (light[1] + 0.05), minimum: large ? 3 : 4.5, text, foreground, background}];
+        });
     });
-}
-
-async function checkContrast(page: Page, selector: string, context: string) {
-    const candidates = page.locator(selector);
-    for (let i = 0; i < await candidates.count(); i++) {
-        const element = candidates.nth(i);
-        const result = await contrastForDirectText(element);
-        if (!result.text || !(await element.isVisible())) continue;
-        expect(result.ratio, `${context}: “${result.text}” foreground ${result.foreground} background ${result.background}`).toBeGreaterThanOrEqual(result.minimum);
-    }
+    for (const result of results) expect(result.ratio, `${context}: “${result.text}” foreground ${result.foreground} background ${result.background}`).toBeGreaterThanOrEqual(result.minimum);
 }
 
 const textTargets = [
-    '.related-services h3', '.contact-cta h3',
+    '.related-services h3', '.contact-cta h1', '.contact-cta h2', '.contact-invitation p', '.contact-cta label', '.site-shell > footer *',
     '.related-services [data-info-panel] :is(h1,h2,h3,h4,h5,h6,a)',
     '.contact-cta [data-info-panel] :is(h1,h2,h3,h4,h5,h6,a)',
     '.related-services [data-info-panel] a *', '.contact-cta [data-info-panel] a *',
@@ -63,14 +59,14 @@ const textTargets = [
 ].join(', ');
 
 for (const locale of site.locales) {
-    test(`${locale}: contact failure and acceptance feedback have readable contrast`, async ({page}) => {
+    for (const variant of ['full', 'compact']) test(`${locale} ${variant}: contact failure and acceptance feedback have readable contrast`, async ({page}) => {
         let attempts = 0;
         await page.route('**/*', async route => {
             const method = route.request().method();
             if (method === 'POST' || method === 'OPTIONS') await route.fulfill({status: method === 'POST' ? (++attempts === 1 ? 502 : 204) : 204, headers: {'access-control-allow-origin': '*', 'access-control-allow-methods': 'POST, OPTIONS', 'access-control-allow-headers': 'content-type'}});
             else await route.continue();
         });
-        await page.goto(localePath(locale, '/contact/'));
+        await page.goto(localePath(locale, variant === 'full' ? '/contact/' : '/software/automation/'));
         const send = page.getByRole('button', {name: locale === 'pl' ? 'Wyślij wiadomość' : 'Send message', exact: true});
         test.skip(await send.count() === 0, 'Requires the endpoint-configured build');
         await page.locator('[name="email"]').fill('preview@example.com');
@@ -80,6 +76,12 @@ for (const locale of site.locales) {
             await send.click();
             await expect(page.locator(`[role="status"].${state}`)).toBeVisible();
             await checkContrast(page, '[role="status"]', `${locale} feedback ${state}`);
+            if (variant === 'compact') {
+                const textBox = (await page.locator('[name="message"]').boundingBox())!;
+                const feedbackBox = (await page.locator(`[role="status"].${state}`).boundingBox())!;
+                expect(feedbackBox.y).toBeGreaterThanOrEqual(textBox.y + textBox.height);
+                await expect(page.locator(`[role="status"].${state}`)).toHaveCSS('position', 'static');
+            }
             await page.getByRole('button', {name: 'OK', exact: true}).click();
         }
         expect(attempts).toBe(2);
@@ -93,8 +95,8 @@ for (const locale of site.locales) {
             const project = examples[0];
             await section.locator(`a[href="${localePath(locale, project.path)}"]`).click();
             await expect(page.locator('h1')).toHaveText(project.title);
-            await page.locator('main article footer a[href*="/contact/"]').click();
-            await expect(page.locator('[name="subject"]')).toHaveValue(project.title);
+            await page.locator('main article header a[href="#project-contact"]').click();
+            await expect(page.locator('[name="subject"]')).toHaveValue(contactTopics[topicForPage(project.path)][locale]);
         }
     });
     test(`${locale}: service card headings retain readable contrast`, async ({page}) => {
@@ -112,15 +114,13 @@ for (const locale of site.locales) {
         for (const path of routes) {
             await page.goto(localePath(locale, path));
             const panels = page.locator('.related-services [data-info-panel], .contact-cta [data-info-panel]');
-            if (servicePaths.includes(path) || path === '/' || path === '/sound/') {
-                expect(await panels.count(), `${path}: info panels`).toBeGreaterThanOrEqual(2);
-                expect(await page.locator('.contact-cta [data-info-panel] h3').count(), `${path}: contact panel headings`).toBeGreaterThanOrEqual(2);
-            }
+            expect(await panels.count(), `${path}: related panels`).toBe(servicePaths.includes(path) ? 2 : 0);
+            await expect(page.locator('.contact-cta')).toHaveCount(path === '/sitemap/' ? 0 : 1);
             if (Object.hasOwn(relatedServices, path)) expect(await page.locator('.related-services [data-info-panel] h3').count(), `${path}: related panel headings`).toBeGreaterThanOrEqual(2);
             const actions = page.locator('a.action-link');
             for (let i = 0; i < await actions.count(); i++) {
                 const action = actions.nth(i);
-                await expect(action).toHaveAttribute('href', /^(\/(?!\/)|mailto:)/);
+                await expect(action).toHaveAttribute('href', /^(\/(?!\/)|mailto:|#project-contact$)/);
                 await expect(action.locator('[data-link-arrow][aria-hidden="true"]')).toHaveCount(1);
                 expect((await action.boundingBox())!.height, `${locale} ${path} action target height`).toBeGreaterThanOrEqual(44);
             }
@@ -131,7 +131,7 @@ for (const locale of site.locales) {
     test(`${locale}: representative actions and card links remain readable on hover and focus`, async ({page}, testInfo) => {
         test.skip(testInfo.project.name !== 'desktop', 'Hover and keyboard focus are exercised in the desktop browser.');
         await page.goto(localePath(locale, '/software/automation/'));
-        for (const selector of ['header a.action-link', '.related-services [data-info-panel] a', '.contact-cta [data-info-panel] a']) {
+        for (const selector of ['header a.action-link', '.related-services [data-info-panel] a', '.site-shell > footer a[href^="mailto:"]']) {
             const link = page.locator(selector).first();
             await expect(link).toBeVisible();
             await link.hover();
@@ -163,12 +163,12 @@ for (const locale of site.locales) {
         await page.goto(localePath(locale, '/software/automation/'));
         expect(await styles('article > header a.action-link')).toEqual(intro);
         await page.goto(localePath(locale, '/portfolio/b2b-service-platform/'));
-        expect(await styles('article > footer > a.action-link[href*="/contact/"]')).toEqual(intro);
+        expect(await styles('article > header a.action-link[href="#project-contact"]')).toEqual(intro);
     });
 
     test(`${locale}: navigation fits at 4K and 320px`, async ({page}, testInfo) => {
         test.skip(testInfo.project.name !== 'desktop', 'Viewport sizes are set explicitly.');
-        for (const width of [3840, 320]) {
+        for (const width of [3840, 900, 600, 390, 320]) {
             await page.setViewportSize({width, height: 900});
             await page.goto(localePath(locale, '/'));
             await page.evaluate(() => document.fonts.ready);
@@ -186,6 +186,13 @@ for (const locale of site.locales) {
                 expect(current!.x + current!.width).toBeLessThanOrEqual(box!.x + box!.width + 1);
                 if (i > 0) expect(current!.x).toBeGreaterThanOrEqual(boxes[i - 1]!.x + boxes[i - 1]!.width - 1);
             }
+            const footer = page.locator('[data-footer-content]');
+            const footerBox = (await footer.boundingBox())!;
+            expect(footerBox.width).toBeLessThanOrEqual(1536);
+            expect(Math.abs(footerBox.x + footerBox.width / 2 - width / 2)).toBeLessThanOrEqual(1);
+            const columns = await footer.locator('nav').first().evaluate(element => getComputedStyle(element).gridTemplateColumns.split(' ').length);
+            expect(columns).toBe(width >= 900 ? 4 : width >= 600 ? 2 : 1);
+            for (const link of await footer.locator('a').all()) expect((await link.boundingBox())!.height).toBeGreaterThanOrEqual(44);
             expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
         }
     });

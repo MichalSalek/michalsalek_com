@@ -427,5 +427,53 @@
     },
     "notes": "An original anonymous scenario illustration for the project portfolio.",
     "webpQuality": 90
+  },
+  {
+    "id": "demo-business-account",
+    "kind": "screenshot",
+    "source": "demos/b2b-account-en-desktop.png",
+    "localizedSources": {
+      "en": "demos/b2b-account-en-desktop.png",
+      "pl": "demos/b2b-account-pl-desktop.png"
+    },
+    "mobileSources": {
+      "en": "demos/b2b-account-en-mobile.png",
+      "pl": "demos/b2b-account-pl-mobile.png"
+    },
+    "origin": "application-demo",
+    "credit": null,
+    "alt": {
+      "pl": "Konto firmowe i członkowie zespołu w aplikacji SaaS",
+      "en": "Business account and team members in the SaaS application"
+    },
+    "caption": {
+      "pl": "Widok aplikacji z danymi demonstracyjnymi",
+      "en": "Application view with demonstration data"
+    },
+    "notes": "Rendered from application components in an isolated demonstration with neutral branding, synthetic data and intercepted writes."
+  },
+  {
+    "id": "demo-product-catalog",
+    "kind": "screenshot",
+    "source": "demos/commerce-catalog-en-desktop.png",
+    "localizedSources": {
+      "en": "demos/commerce-catalog-en-desktop.png",
+      "pl": "demos/commerce-catalog-pl-desktop.png"
+    },
+    "mobileSources": {
+      "en": "demos/commerce-catalog-en-mobile.png",
+      "pl": "demos/commerce-catalog-pl-mobile.png"
+    },
+    "origin": "application-demo",
+    "credit": null,
+    "alt": {
+      "pl": "Katalog produktów ze stanem przygotowania i dostępnymi działaniami",
+      "en": "Product catalog with preparation status and available actions"
+    },
+    "caption": {
+      "pl": "Widok aplikacji z danymi demonstracyjnymi",
+      "en": "Application view with demonstration data"
+    },
+    "notes": "Rendered from application components in an isolated demonstration with neutral branding, synthetic data and intercepted writes."
   }
 ]

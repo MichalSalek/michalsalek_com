@@ -40,3 +40,5 @@ Generated from catalog.json and src/content/media-plan.mjs with npm run assets:c
 | [portfolio-services](portfolio/services.png) | 1536 x 1024 | Card: /portfolio/service-business-platform/<br>Opening image: /portfolio/service-business-platform/ | generated |
 | [portfolio-assistant](portfolio/assistant.png) | 1536 x 1024 | Card: /portfolio/remote-ai-assistant/<br>Opening image: /portfolio/remote-ai-assistant/ | generated |
 | [portfolio-house](portfolio/house.png) | 1536 x 1024 | Card: /portfolio/3d-house-planning/<br>Opening image: /portfolio/3d-house-planning/ | generated |
+| [demo-business-account](demos/b2b-account-en-desktop.png) | 1616 x 1122 | Article: /portfolio/b2b-service-platform/ (section 1) | application-demo |
+| [demo-product-catalog](demos/commerce-catalog-en-desktop.png) | 1440 x 572 | Article: /portfolio/shopify-product-experience/ (section 1) | application-demo |

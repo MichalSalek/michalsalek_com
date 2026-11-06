@@ -60,8 +60,8 @@ Framework updates and content work do not imply approval for a redesign.
 3. Review actual enquiries for the requested task, existing tools, source and
    project fit. Use this evidence before choosing an industry niche or package.
 4. Decide which audio work is currently available and which samples may be shared.
-5. Add lightweight conversion measurement and verify indexing using the owner's
-   search accounts. Avoid overlapping trackers.
+5. Review the implemented lightweight enquiry events and verify indexing using
+   the owner's search accounts. Avoid overlapping trackers.
 
 ## Direct service enquiries
 
@@ -99,12 +99,19 @@ References:
 
 ## Lightweight measurement
 
-The existing GA4 property is retained. A later measurement step should define
-contact-link clicks, contact submission results and service-to-contact navigation,
-with page language and source context. Keep one analytics owner per event. GTM
-can manage tags if it simplifies maintenance; evaluate PostHog only when its
-additional product or event analysis answers a concrete question. Do not install
-several overlapping trackers by default.
+The existing GA4 property is retained. Contact intent, first manual edits,
+accepted enquiries, errors and email-client openings use one shared event owner
+and the standard delayed-script queue. Known page paths, language, stable topic
+IDs, form variants and placements provide context without field contents or query
+strings. See [the contact contract](CONTACT.md) for draft, sending and measurement
+details. An accepted enquiry is not a qualified client or confirmed inbox delivery.
+Review actual requests before adding another tracker or more detailed events.
+
+The homepage introduces discovery, design, building/testing, deployment and
+maintenance within its existing opening. Every offer and portfolio page has a
+compact contact section; the dedicated contact page keeps the full presentation.
+The expanded footer groups the existing services, selected projects, engineering
+and audio links, using the route and portfolio registries.
 
 AI referrals, human enquiries and crawler visits are different measures. Track
 human conversions by referrer or UTM when available, and crawler requests through

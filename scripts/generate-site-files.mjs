@@ -24,7 +24,7 @@ for (const locale of site.locales) {
         const $ = load(html);
         const shareImage = $('meta[property="og:image"]').attr('content');
         if (shareImage?.startsWith(site.origin + '/')) assetPaths.add(new URL(shareImage).pathname);
-        $('img').each((_, element) => {
+        $('img, picture source').each((_, element) => {
             const src = $(element).attr('src');
             if (src?.startsWith('/')) assetPaths.add(src);
             for (const candidate of ($(element).attr('srcset') ?? '').split(',')) {
@@ -32,11 +32,15 @@ for (const locale of site.locales) {
                 if (url.startsWith('/')) assetPaths.add(url);
             }
         });
-        $('script, style, noscript').remove();
+        $('script, style, noscript, [data-text-export="exclude"], .contact-invitation p').remove();
         const title = $('h1').first().text().trim();
         const lines = [`# ${title}`, '', `HTML: ${pageUrl(locale, path)}`, `Language: ${locale}`, ''];
         $('main h2, main h3, main p, main li, main table, main dt, main dd, main figcaption').each((_, element) => {
             if (element.tagName === 'figcaption' && $(element).find('h2, h3, p, li, dt, dd').length) return;
+            if (element.tagName === 'figcaption' && $(element).parent('[data-application-demo]').length) {
+                const description = $(element).parent().find('img').attr('alt');
+                if (description) lines.push(description, '');
+            }
             if (element.tagName === 'table') {
                 const rows = $(element).find('tr').toArray().map(row => $(row).find('th, td').toArray().map(cell => $(cell).text().replace(/\s+/g, ' ').trim().replaceAll('|', '\\|')));
                 rows.forEach((row, index) => {

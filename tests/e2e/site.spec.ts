@@ -2,6 +2,17 @@ import { test, expect } from '@playwright/test';
 import { routes, localePath, site } from '../../src/content/site.mjs';
 import { heroMedia } from '../../src/content/media-plan.mjs';
 import {editorialPlans} from '../../src/content/editorial.mjs';
+import {contactTopics} from '../../src/layers/application/contact-context';
+
+// Keep browser tests isolated from the real contact service and analytics.
+test.beforeEach(async ({page}) => {
+    await page.route('**/*', async route => {
+        const request = route.request();
+        if (request.method() === 'OPTIONS' || request.method() === 'POST') return route.fulfill({status: 204, headers: {'access-control-allow-origin': '*', 'access-control-allow-methods': 'POST, OPTIONS', 'access-control-allow-headers': 'content-type'}});
+        if (/googletagmanager\.com|google-analytics\.com|analytics\.google\.com/.test(request.url())) return route.fulfill({status: 200, contentType: 'application/javascript', body: ''});
+        return route.continue();
+    });
+});
 
 for (const locale of site.locales) for (const path of routes) {
     test(`${locale} ${path} renders without errors or horizontal overflow`, async ({page}) => {
@@ -37,12 +48,14 @@ test('contact mode is explicit and delivery feedback reflects the service respon
     if (test.info().project.name === 'mobile') await page.setViewportSize({width: 320, height: 844});
     await page.goto('/pl/contact/');
     await expect(page.getByRole('status')).toBeEmpty();
-    await expect(page.getByRole('link', {name: site.email})).toHaveAttribute('href', `mailto:${site.email}`);
+    await expect(page.locator('main').getByRole('link', {name: site.email})).toHaveAttribute('href', `mailto:${site.email}`);
     const send = page.getByRole('button', {name: 'Wyślij wiadomość'});
     if (await send.count()) {
         let requests = 0;
         await page.route('**/*', async route => {
-            if (route.request().method() === 'POST') {
+            if (route.request().method() === 'OPTIONS') {
+                await route.fulfill({status: 204, headers: {'access-control-allow-origin': '*', 'access-control-allow-methods': 'POST, OPTIONS', 'access-control-allow-headers': 'content-type'}});
+            } else if (route.request().method() === 'POST') {
                 requests++;
                 await route.fulfill({status: requests === 1 ? 502 : 204, headers: {'access-control-allow-origin': '*'}});
             } else await route.continue();
@@ -107,7 +120,7 @@ test('static content and language links work without JavaScript', async ({browse
     await expect(page.locator('[data-editorial-chapter]')).toHaveCount(editorialPlans['/software/fullstack/'].chapters.length);
     await expect(page.locator('main')).toContainText('Node.js');
     await page.goto('http://127.0.0.1:4318/pl/contact/');
-    await expect(page.getByRole('link', {name: site.email})).toBeVisible();
+    await expect(page.locator('main').getByRole('link', {name: site.email})).toBeVisible();
     await expect(page.locator('button[type="submit"]')).toBeDisabled();
     await context.close();
 });
@@ -172,10 +185,10 @@ test('service entry pages have distinct opening scenes, readable scope and an im
         await expect(page.locator(`main [data-asset="${id}"]`)).toHaveCount(1);
         await expect(hero.locator('img')).toHaveAttribute('loading', editorialPlans[path].cover === 'opening' ? 'eager' : 'lazy');
         await expect(page.locator('main article header p').first()).not.toBeEmpty();
-        await expect(page.locator('main article header a[href*="/contact/"]')).toHaveAttribute('href', /\/pl\/contact\/\?about=.+/);
+        await expect(page.locator('main article header a[href="#project-contact"]')).toHaveCount(1);
         expect(scenes.has(id)).toBe(false); scenes.add(id);
     }
-    await page.locator('main article header a[href*="/contact/"]').click();
+    await page.locator('main article header a[href="#project-contact"]').click();
     await expect(page.locator('[name="subject"]')).not.toHaveValue('');
     await page.goto('/pl/');
     const kinds = await page.locator('.service-artwork-card').evaluateAll(nodes => nodes.slice(0, 6).map(node => node.classList.contains('service-artwork-photo') ? 'photo' : 'illustration'));
@@ -196,13 +209,12 @@ test('contextual article explainers remain complete vectors inside the reading c
     }
 });
 
-test('article contact panels keep both enquiry paths and prefill the service', async ({page}) => {
+test('article contact panel embeds a prefilled form', async ({page}) => {
     await page.goto('/software/backend/');
-    await expect(page.locator('.contact-cta .link-button')).toHaveCount(2);
-    const enquiry = page.locator('.contact-cta .link-button').first();
-    await enquiry.click();
-    await expect(page.locator('[name="subject"]')).not.toHaveValue('');
+    await expect(page.locator('.contact-cta form')).toHaveCount(1);
+    await expect(page.locator('[name="subject"]')).toHaveValue(contactTopics.backend.en);
     if (test.info().project.name === 'desktop') {
+        await page.goto('/contact/');
         const email = await page.locator('[name="email"]').boundingBox();
         const subject = await page.locator('[name="subject"]').boundingBox();
         expect(Math.abs(email!.y - subject!.y)).toBeLessThan(2);
@@ -243,9 +255,10 @@ async function recordSubjectCue(page: import('@playwright/test').Page) {
 test('a real service CTA produces three visible pulses without moving or focusing the input', async ({page}) => {
     await recordSubjectCue(page);
     await page.goto('/pl/software/ai-automation/');
-    const service = await page.locator('h1').innerText();
-    await page.locator('.contact-cta .link-button').first().click();
-    await expect(page.locator('[name="subject"]')).toHaveValue(service);
+    await page.locator('main article header a[href="#project-contact"]').click();
+    await expect(page).toHaveURL(/\/pl\/software\/ai-automation\/#project-contact$/);
+    await expect(page.locator('[name="subject"]')).toHaveValue(contactTopics.ai.pl);
+    await page.locator('[name="subject"]').scrollIntoViewIfNeeded();
     await expect.poll(() => page.evaluate(() => window.__subjectCue.ended)).toBe(true);
     const cue = await page.evaluate(() => window.__subjectCue);
     expect(cue.visible).toBe(true);
@@ -261,7 +274,7 @@ test('an offscreen subject waits for the reader to reveal it before pulsing', as
     await recordSubjectCue(page);
     await page.setViewportSize({width: 320, height: 480});
     await page.goto('/pl/contact/?about=Integracje');
-    await expect(page.locator('[name="subject"]')).toHaveValue('Integracje');
+    await expect(page.locator('[name="subject"]')).toHaveValue(contactTopics.integrations.pl);
     expect((await page.locator('[name="subject"]').boundingBox())!.y).toBeGreaterThan(480);
     await page.waitForTimeout(1500);
     expect(await page.evaluate(() => window.__subjectCue.started)).toBe(false);
@@ -274,8 +287,8 @@ test('an offscreen subject waits for the reader to reveal it before pulsing', as
 test('reduced motion retains a static subject cue without animation', async ({page}) => {
     await recordSubjectCue(page);
     await page.emulateMedia({reducedMotion: 'reduce'});
-    await page.goto('/pl/contact/?about=Test');
-    await expect(page.locator('[name="subject"]')).toHaveValue('Test');
+    await page.goto('/pl/contact/?topic=backend');
+    await expect(page.locator('[name="subject"]')).toHaveValue(contactTopics.backend.pl);
     const inputBox = page.locator('.subject-attention .MuiOutlinedInput-root');
     await expect(inputBox).toHaveCSS('background-color', 'rgb(232, 234, 246)');
     await page.waitForTimeout(1500);

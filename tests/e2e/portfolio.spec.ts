@@ -3,6 +3,17 @@ import { readFileSync } from 'node:fs';
 import { portfolioProjects, portfolioMessages, portfolioPath } from '../../src/content/portfolio.mjs';
 import { localePath, site, type Locale } from '../../src/content/site.mjs';
 import {editorialPlans} from '../../src/content/editorial.mjs';
+import {contactTopics, topicForPage} from '../../src/layers/application/contact-context';
+
+// Keep browser tests isolated from the real contact service and analytics.
+test.beforeEach(async ({page}) => {
+    await page.route('**/*', async route => {
+        const request = route.request();
+        if (request.method() === 'OPTIONS' || request.method() === 'POST') return route.fulfill({status: 204, headers: {'access-control-allow-origin': '*', 'access-control-allow-methods': 'POST, OPTIONS', 'access-control-allow-headers': 'content-type'}});
+        if (/googletagmanager\.com|google-analytics\.com|analytics\.google\.com/.test(request.url())) return route.fulfill({status: 200, contentType: 'application/javascript', body: ''});
+        return route.continue();
+    });
+});
 
 const switchLabel: Record<Locale, string> = {
     en: 'PL: Zmień język na polski',
@@ -45,10 +56,11 @@ for (const locale of site.locales) {
             await expect(page.getByRole('heading', {level: 1})).toHaveText(project[other].title);
             await page.getByRole('link', {name: switchLabel[other]}).click();
             await expect(page.getByRole('heading', {level: 1})).toHaveText(project[locale].title);
-            await page.getByRole('link', {name: portfolioMessages[locale].contact}).click();
-            await expect(page.locator('[name="subject"]')).toHaveValue(project[locale].title);
+            await page.locator('main article header a[href="#project-contact"]').click();
+            await expect(page).toHaveURL(new RegExp(`${localePath(locale, path)}#project-contact$`));
+            await expect(page.locator('[name="subject"]')).toHaveValue(contactTopics[topicForPage(path)][locale]);
             await page.goBack();
-            await page.getByRole('link', {name: portfolioMessages[locale].all, exact: true}).click();
+            await page.locator('main article').getByRole('link', {name: portfolioMessages[locale].all, exact: true}).click();
             await expect(page).toHaveURL(new RegExp(`${localePath(locale, '/portfolio/')}#${project.id}$`));
         }
     });

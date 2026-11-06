@@ -31,6 +31,12 @@ export const heroMedia = {
 };
 
 export const articleMedia = {
+    '/portfolio/b2b-service-platform/': [
+        {asset: 'demo-business-account', section: 0, after: 0, variant: 'wide'},
+    ],
+    '/portfolio/shopify-product-experience/': [
+        {asset: 'demo-product-catalog', section: 0, after: 0, variant: 'wide'},
+    ],
     '/software/custom-software/': [
         {asset: 'record-access', section: 1, after: 0, variant: 'inline'},
         {asset: 'application-planning', section: 2, after: 0, variant: 'wide'},

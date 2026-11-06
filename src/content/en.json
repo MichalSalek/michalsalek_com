@@ -11,7 +11,7 @@
     "general": "General question",
     "contactIntro": "**We reply within one day.** We are happy to discuss your idea, assess the options and suggest the next steps. You do not need a specification.",
     "email": "Your email",
-    "name": "Your name",
+    "name": "Your name (optional)",
     "subject": "Subject",
     "message": "Message",
     "send": "Send message",
@@ -31,7 +31,7 @@
     "interested": "Interested in this service?",
     "generalHeading": "I just have a question",
     "relatedIntro": "See how else we can help you:",
-    "introTitle": "From first conversation to a working system",
+    "introTitle": "From idea to deployment and maintenance",
     "introContact": "Let's talk about your project",
     "breadcrumbHome": "Home",
     "breadcrumbSoftware": "Software",
@@ -66,15 +66,42 @@
         "question": "How do you agree the scope, price and timeframe?",
         "answer": "We establish who will use the solution, what it needs to do and how the completed work will be checked. We then prepare a scope proposal, estimate and schedule. Larger projects can be divided into stages. External service costs, maintenance and further development are agreed separately."
       }
-    ]
+    ],
+    "deliverySteps": [
+      {
+        "title": "Discovery",
+        "description": "Goals, users and an agreed scope"
+      },
+      {
+        "title": "Design",
+        "description": "Screens, behaviour and integrations"
+      },
+      {
+        "title": "Build and test",
+        "description": "Features checked in a test environment"
+      },
+      {
+        "title": "Deployment",
+        "description": "Publication and operational checks"
+      },
+      {
+        "title": "Maintenance",
+        "description": "Diagnostics, fixes and further development"
+      }
+    ],
+    "footerSummary": "We deliver software from understanding your needs through deployment and maintenance.",
+    "responseTime": "We reply within one day.",
+    "footerServices": "Services",
+    "footerProjects": "Work",
+    "footerTechnology": "Technology",
+    "footerSound": "Sound"
   },
   "pages": {
     "/": {
       "title": "AI, automation and custom software for your business",
       "description": "Atomic Concept delivers websites, applications, integrations, automation and AI for businesses, from requirements and implementation to deployment and maintenance.",
       "intro": [
-        "We build websites and applications, connect business tools and implement automation and AI. We start by understanding how you work and what you want to improve. We propose a scope that fits that task, without unnecessary features.",
-        "**We design, build, test and deploy.** We take responsibility for the complete project, so you do not have to coordinate several contractors or explain the same thing again."
+        "We build websites and applications, connect business tools and implement automation and AI. We start by understanding how you work and what you want to improve. We propose a scope that fits that task, without unnecessary features."
       ]
     },
     "/software/architecture/": {

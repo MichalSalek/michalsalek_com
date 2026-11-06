@@ -11,7 +11,7 @@
     "general": "Inne pytanie",
     "contactIntro": "**Odpowiadamy w ciągu jednego dnia.** Chętnie omówimy Twój pomysł, wstępnie ocenimy możliwości realizacji i zaproponujemy kolejne kroki. Nie potrzebujesz gotowej specyfikacji.",
     "email": "Twój e-mail",
-    "name": "Twoje imię",
+    "name": "Twoje imię (opcjonalnie)",
     "subject": "Temat",
     "message": "Wiadomość",
     "send": "Wyślij wiadomość",
@@ -31,7 +31,7 @@
     "interested": "Interesuje Cię ta usługa?",
     "generalHeading": "Mam inne pytanie",
     "relatedIntro": "Zobacz, w czym jeszcze możemy pomóc:",
-    "introTitle": "Od pierwszej rozmowy do działającego systemu",
+    "introTitle": "Od pomysłu do wdrożenia i utrzymania",
     "introContact": "Porozmawiajmy o Twoim projekcie",
     "breadcrumbHome": "Strona główna",
     "breadcrumbSoftware": "Oprogramowanie",
@@ -66,15 +66,42 @@
         "question": "Jak ustalacie zakres, cenę i termin?",
         "answer": "Uzgadniamy, kto będzie korzystał z rozwiązania, co ma ono robić i jak sprawdzimy gotową pracę. Na tej podstawie przygotowujemy propozycję zakresu, wycenę i harmonogram. Większy projekt można podzielić na etapy. Koszty usług zewnętrznych, utrzymanie i dalszy rozwój ustalamy osobno."
       }
-    ]
+    ],
+    "deliverySteps": [
+      {
+        "title": "Ustalenia",
+        "description": "Cele, użytkownicy i uzgodniony zakres"
+      },
+      {
+        "title": "Projekt",
+        "description": "Widoki, zasady działania i integracje"
+      },
+      {
+        "title": "Budowa i testy",
+        "description": "Funkcje sprawdzane na wersji testowej"
+      },
+      {
+        "title": "Wdrożenie",
+        "description": "Publikacja i sprawdzenie działania"
+      },
+      {
+        "title": "Utrzymanie",
+        "description": "Diagnostyka, poprawki i dalszy rozwój"
+      }
+    ],
+    "footerSummary": "Realizujemy oprogramowanie od analizy potrzeb po wdrożenie i utrzymanie.",
+    "responseTime": "Odpowiadamy w ciągu jednego dnia.",
+    "footerServices": "Usługi",
+    "footerProjects": "Realizacje",
+    "footerTechnology": "Technologia",
+    "footerSound": "Dźwięk"
   },
   "pages": {
     "/": {
       "title": "AI, automatyzacje i oprogramowanie dla firm",
       "description": "Atomic Concept: strony, aplikacje, integracje, automatyzacje i AI dla firm. Kompleksowa realizacja od analizy potrzeb przez wdrożenie po utrzymanie.",
       "intro": [
-        "Tworzymy strony i aplikacje, łączymy programy używane w firmie oraz wdrażamy automatyzacje i AI. Zaczynamy od zrozumienia, jak pracujesz i co chcesz usprawnić. Proponujemy zakres dopasowany do tego zadania, bez zbędnych funkcji.",
-        "**Projektujemy, budujemy, testujemy i wdrażamy.** Bierzemy odpowiedzialność za całość, więc nie musisz koordynować kilku wykonawców ani tłumaczyć tego samego od nowa."
+        "Tworzymy strony i aplikacje, łączymy programy używane w firmie oraz wdrażamy automatyzacje i AI. Zaczynamy od zrozumienia, jak pracujesz i co chcesz usprawnić. Proponujemy zakres dopasowany do tego zadania, bez zbędnych funkcji."
       ]
     },
     "/software/architecture/": {

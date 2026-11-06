@@ -29,6 +29,23 @@ Previous/next navigation follows catalogue order. The standard metadata resolver
 covers both service pages and portfolio pages. Long case-study content is loaded
 at build time only for its page.
 
+## Interface demonstrations
+
+The business-account and commerce-catalog studies include views rendered from
+real application components with synthetic data and neutral branding in an
+isolated demonstration. No customer database is used; writes are intercepted.
+The private capture setup and source mapping stay outside this repository.
+
+Sanitized desktop and mobile sources live in `assets/library/demos/`. The media
+catalogue records `kind: screenshot`, `localizedSources`, `mobileSources`, localized
+alternative text and a readable demonstration caption. `media-plan.mjs` attaches
+them to source paragraphs. Services and projects receive media before editorial
+compilation, so a catalogue entry alone does not publish a screenshot. The normal
+generator creates content-hashed, lossless WebP sizes without raster enlargement;
+the mobile source keeps the whole relevant interface. Captions identify example
+data in HTML and Markdown. These are demonstrations, not customer production
+screenshots or measured business outcomes.
+
 ## Editorial contract
 
 Explain the purpose and user workflows before the engineering. Attribute the

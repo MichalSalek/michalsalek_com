@@ -20,6 +20,16 @@ for (const locale of site.locales) {
         const html = await readFile(`out${relative}index.html`, 'utf8');
         const $ = load(html);
         const label = `${locale} ${path}`;
+        const expectedForms = path === '/sitemap/' ? 0 : 1;
+        assert.equal($('main form.contact-form').length, expectedForms, `${label}: exactly one contextual contact form on each offer/contact page`);
+        assert.equal($('footer form').length, 0, `${label}: no form inside the global footer`);
+        if (expectedForms) {
+            assert.equal($('main form.contact-form-compact').length, path === '/contact/' ? 0 : 1, `${label}: appropriate contact variant`);
+            assert.equal($('#project-contact').length, 1, `${label}: stable contact heading`);
+        }
+        const footer = $('.site-shell > footer');
+        assert.equal(footer.find('section').length, 4, `${label}: four footer navigation groups`);
+        assert.equal(footer.find('a[href^="mailto:"]').length, 1, `${label}: direct footer contact`);
         assert.equal($('html').attr('lang'), locale, `${label}: html lang`);
         assert.equal($('h1').length, 1, `${label}: one h1`);
         assert.equal($('head title').length, 1, `${label}: one title`);
@@ -67,7 +77,9 @@ for (const locale of site.locales) {
         }
         const md = relative === '/' ? '/index.md' : `${relative.slice(0, -1)}.md`;
         const mirror = await readFile(`out${md}`, 'utf8');
+        assert(!mirror.includes('email-hint') && !mirror.includes('contact-feedback'), `${label}: form internals excluded from text mirrors`);
         for (const anchor of $('main a[href]')) {
+            if ($(anchor).closest('[data-text-export="exclude"], .contact-invitation p').length) continue;
             const href = $(anchor).attr('href');
             if (/^(\/|#|https?:|mailto:|tel:)/.test(href) && $(anchor).text().trim()) {
                 assert(mirror.includes(`<${new URL(href, pageUrl(locale, path)).href}>`), `${label}: published link destination in Markdown`);
@@ -77,6 +89,14 @@ for (const locale of site.locales) {
         for (const item of $('.enquiry-answers dt, .enquiry-answers dd')) assert(mirror.includes($(item).text().trim()), `${label}: enquiry answers in the Markdown mirror`);
         for (const cell of $('main table th, main table td')) assert(mirror.includes($(cell).text().trim()), `${label}: technical table in the Markdown mirror`);
         const project = findPortfolioProject(path);
+        if (['b2b-service-platform', 'shopify-product-experience'].includes(project?.id)) {
+            assert.equal($('[data-application-demo]').length, 1, `${label}: real demo present in final HTML`);
+            assert.equal($('[data-application-demo] picture source').length, 1, `${label}: dedicated mobile demo`);
+            const caption = locale === 'pl' ? 'Widok aplikacji z danymi demonstracyjnymi' : 'Application view with demonstration data';
+            assert.equal($('[data-application-demo] figcaption').text(), caption);
+            assert(mirror.includes(caption), `${label}: demonstration disclosure in Markdown`);
+            assert(mirror.includes($('[data-application-demo] img').attr('alt')), `${label}: demonstration description in Markdown`);
+        }
         const plan = editorialPlans[path];
         if (plan) {
             const content = project ? JSON.parse(await readFile(`src/content/portfolio/${locale}/${project.id}.json`, 'utf8')) : JSON.parse(await readFile(`src/content/${locale}-articles.json`, 'utf8'))[path.slice(1, -1)];
