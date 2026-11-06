@@ -8,12 +8,15 @@ import { RichTextAtom } from './RichText.atom';
 import {ContactSection} from './ContactSection.organism';
 import {PortfolioIndexPage, PortfolioShowcase} from './portfolio/Portfolio.organism';
 import {EditorialArticle} from './editorial/EditorialArticle.organism';
+import {overviewExplanationPlans} from '@/src/content/explanation-plans.mjs';
+import {ContextDiagram} from './editorial/ContextDiagram.molecule';
 
 export default function SitePage({path, title, cards, artwork, sections, messages, navigation, intro, portfolioCards, editorial}: SitePageProps) {
     if (editorial) return <EditorialArticle document={editorial} title={title} artwork={artwork}/>;
     if (path === '/portfolio/') return <PortfolioIndexPage cards={portfolioCards}/>;
     if (path === '/' || path === '/sound/') return <>
         <RootCardOrganism version={path === '/' ? 'software' : 'sound'} cards={cards} intro={intro}/>
+        <Container>{(overviewExplanationPlans[path] ?? []).map(plan => <ContextDiagram plan={plan} key={plan.title.en} overview/>)}</Container>
         {path === '/' && <PortfolioShowcase cards={portfolioCards}/>}
         {sections.length > 0 && <Container>{sections.map(section => <ContentBlockOrganism key={section.title} title={section.title} subtitle={section.subtitle} body={<>{section.paragraphs.map(text => <p key={text}><RichTextAtom text={text}/></p>)}</>}/>)}</Container>}
         {path === '/' && <Container><ContentBlockOrganism title={messages.startTitle} body={<dl className="enquiry-answers">{messages.startQuestions.map(item => <div key={item.question}><dt>{item.question}</dt><dd>{item.answer}</dd></div>)}</dl>}/></Container>}

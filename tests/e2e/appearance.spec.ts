@@ -56,6 +56,7 @@ const textTargets = [
     '.contact-cta [data-info-panel] :is(h1,h2,h3,h4,h5,h6,a)',
     '.related-services [data-info-panel] a *', '.contact-cta [data-info-panel] a *',
     'a.action-link', 'a.action-link *',
+    '[data-context-diagram] *', '[data-editorial-exhibit] *',
 ].join(', ');
 
 for (const locale of site.locales) {

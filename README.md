@@ -68,6 +68,13 @@ are not tracked, and reserve sources are not exported to the website.
 `npm run assets:preview` opens the source catalogue at http://localhost:4325.
 After changing the catalogue or placements, run `npm run assets:catalog`.
 
+Contextual diagrams live in `src/content/explanation-plans.mjs`. They illustrate
+the mechanism described by a specific chapter, with localized HTML labels and
+native SVG drawings. Sequential, parallel and shared-context compositions adapt
+to their available width. Supporting illustrations stay compact; the export audit
+checks that every explanation is present in both HTML and Markdown. See
+[the editorial guide](docs/EDITORIAL.md) for placement rules.
+
 The service grid ends with full-stack engineering and sound services. Selected
 project previews follow it and link to `/portfolio/` (`/pl/portfolio/` in Polish).
 See [the portfolio publishing guide](docs/PORTFOLIO.md) for the data contract,

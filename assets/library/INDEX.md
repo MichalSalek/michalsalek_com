@@ -5,23 +5,23 @@ Generated from catalog.json and src/content/media-plan.mjs with npm run assets:c
 | Asset | Source dimensions | Placement | Credit / origin |
 | --- | --- | --- | --- |
 | [service-application](photos/service-application.png) | 1585 x 992 | Opening image: /software/custom-software/ | generated |
-| [application-planning](photos/application-planning.png) | 1586 x 992 | Card: /software/automation/<br>Article: /software/custom-software/ (section 3)<br>Article: /software/frontend/ (section 3)<br>Article: /software/automation/ (section 2) | generated |
+| [application-planning](photos/application-planning.png) | 1586 x 992 | Card: /software/automation/ | generated |
 | [fullstack-development](photos/fullstack-development.png) | 1586 x 992 | Card: /software/fullstack/<br>Opening image: /software/fullstack/ | generated |
-| [api-and-interface](photos/api-and-interface.png) | 1586 x 992 | Article: /software/backend/ (section 2)<br>Article: /software/integrations/ (section 1) | generated |
+| [api-and-interface](photos/api-and-interface.png) | 1586 x 992 | Reserve | generated |
 | [operations-report](photos/operations-report.png) | 1586 x 992 | Card: /software/reporting/<br>Opening image: /software/reporting/ | generated |
-| [report-source-check](photos/report-source-check.png) | 1586 x 992 | Article: /software/reporting/ (section 3) | generated |
-| [case-and-task](illustrations/case-and-task.png) | 1536 x 1024 | Opening image: /software/automation/ | generated |
+| [report-source-check](photos/report-source-check.png) | 1586 x 992 | Reserve | generated |
+| [case-and-task](illustrations/case-and-task.png) | 1536 x 1024 | Reserve | generated |
 | [record-access-raster](illustrations/record-access-raster.png) | 1774 x 887 | Reserve | generated |
 | [case-views](illustrations/case-views.png) | 1774 x 887 | Card: /software/custom-software/<br>Opening image: /software/frontend/ | generated |
 | [software-layers](illustrations/software-layers.png) | 1536 x 1024 | Opening image: /software/architecture/ | generated |
 | [change-verification-raster](illustrations/change-verification-raster.png) | 1774 x 887 | Reserve | generated |
-| [shared-feature-change](illustrations/shared-feature-change.png) | 1774 x 887 | Article: /software/fullstack/ (section 2)<br>Article: /software/architecture/ (section 2) | generated |
+| [shared-feature-change](illustrations/shared-feature-change.png) | 1774 x 887 | Reserve | generated |
 | [report-summary](illustrations/report-summary.png) | 1536 x 1024 | Reserve | generated |
 | [missing-data-raster](illustrations/missing-data-raster.png) | 1774 x 887 | Reserve | generated |
 | [payment-and-fulfilment](illustrations/payment-and-fulfilment.png) | 1774 x 887 | Card: /software/integrations/<br>Opening image: /software/integrations/ | generated |
-| [record-access](illustrations/record-access.svg) | 600 x 300 | Article: /software/custom-software/ (section 2)<br>Article: /software/frontend/ (section 2)<br>Article: /software/ai-automation/ (section 2)<br>Article: /software/automation/ (section 2) | vector |
+| [record-access](illustrations/record-access.svg) | 600 x 300 | Article: /software/custom-software/ (section 2) | vector |
 | [missing-data](illustrations/missing-data.svg) | 600 x 300 | Article: /software/reporting/ (section 2) | vector |
-| [change-verification](illustrations/change-verification.svg) | 600 x 300 | Article: /software/fullstack/ (section 3)<br>Article: /software/architecture/ (section 3)<br>Article: /software/backend/ (section 3)<br>Article: /software/ai-automation/ (section 3)<br>Article: /software/integrations/ (section 3)<br>Article: /software/websites/ (section 3) | vector |
+| [change-verification](illustrations/change-verification.svg) | 600 x 300 | Article: /software/fullstack/ (section 3) | vector |
 | [ai-document-extraction](illustrations/ai-document-extraction.svg) | 1536 x 1024 | Card: /software/ai-automation/<br>Opening image: /software/ai-automation/ | vector |
 | [ai-document-extraction-raster](illustrations/ai-document-extraction.png) | 1536 x 1024 | Reserve | generated |
 | [responsive-business-website](photos/responsive-business-website.png) | 1536 x 1024 | Card: /software/websites/<br>Opening image: /software/websites/ | generated |
@@ -42,3 +42,4 @@ Generated from catalog.json and src/content/media-plan.mjs with npm run assets:c
 | [portfolio-house](portfolio/house.png) | 1536 x 1024 | Card: /portfolio/3d-house-planning/<br>Opening image: /portfolio/3d-house-planning/ | generated |
 | [demo-business-account](demos/b2b-account-en-desktop.png) | 1616 x 1122 | Article: /portfolio/b2b-service-platform/ (section 1) | application-demo |
 | [demo-product-catalog](demos/commerce-catalog-en-desktop.png) | 1440 x 572 | Article: /portfolio/shopify-product-experience/ (section 1) | application-demo |
+| [request-automation-flow](illustrations/request-automation-flow.png) | 1536 x 1024 | Opening image: /software/automation/ | generated |

@@ -10,7 +10,7 @@ export const projectEditorialPlans = {
                 id: 'account', title: text('Osoba i konto firmowe', 'Person and business account'), layout: 'aside',
                 take: [{section: 0, paragraphs: 'all', items: 'all'}], exhibitPosition: 'aside',
                 exhibit: {
-                    kind: 'permissions', title: text('Do kogo należą zasoby?', 'Who owns the resources?'),
+                    icons: ['person', 'key', 'database', 'server'], kind: 'permissions', title: text('Do kogo należą zasoby?', 'Who owns the resources?'),
                     caption: text('Schemat pokazuje różnicę między osobą korzystającą z panelu a kontem, którego dotyczą zasoby i rozliczenia.', 'The diagram distinguishes the person using the panel from the account associated with resources and billing.'),
                     items: [
                         item('Osoba', 'Person', 'Loguje się i wykonuje dozwolone operacje.', 'Signs in and performs permitted actions.'),
@@ -25,7 +25,7 @@ export const projectEditorialPlans = {
                 id: 'diagnostics', title: text('Audyt i diagnozowanie incydentów', 'Audit and incident diagnosis'), layout: 'decisions', reference: 'notes',
                 take: [{section: 2, paragraphs: 'all', items: 'all'}], exhibitPosition: 'after',
                 exhibit: {
-                    kind: 'records', title: text('Dwa rodzaje zapisu', 'Two kinds of record'),
+                    icons: ['document', 'search'], kind: 'records', title: text('Dwa rodzaje zapisu', 'Two kinds of record'),
                     caption: text('Zestawienie wyjaśnia, jaką rolę pełnią zapisy audytowe i informacje o incydentach w obsłudze platformy.', 'This comparison explains the different roles of audit records and incident information in operating the platform.'),
                     items: [
                         item('Zdarzenie audytowe', 'Audit event', 'Pomaga prześledzić wybrane działanie.', 'Helps trace a selected action.'),
@@ -42,7 +42,7 @@ export const projectEditorialPlans = {
                 id: 'merchant', title: text('Przygotowanie produktów', 'Preparing products'), layout: 'sequence',
                 take: [{section: 0, paragraphs: [0], items: [0, 1, 2]}, {section: 1, paragraphs: 'all'}], exhibitPosition: 'before',
                 exhibit: {
-                    kind: 'states', title: text('Gotowość produktu', 'Product readiness'),
+                    icons: ['task', 'clock', 'search', 'globe'], kind: 'states', title: text('Gotowość produktu', 'Product readiness'),
                     caption: text('Stany ilustrują pracę sprzedawcy od wyboru produktu do jego udostępnienia w sklepie.', 'These states illustrate the merchant’s work from selecting a product to making it available in the store.'),
                     items: [
                         item('Wybrany', 'Selected', 'Produkt został wskazany w katalogu.', 'The product has been selected in the catalog.'),
@@ -56,7 +56,7 @@ export const projectEditorialPlans = {
                 id: 'storefront', title: text('Na stronie produktu i telefonie', 'On the product page and phone'), layout: 'feature',
                 take: [{section: 0, paragraphs: [1], items: [3]}], exhibitPosition: 'after',
                 exhibit: {
-                    kind: 'delivery', title: text('Kontynuacja zakupów', 'Continuing the shopping journey'),
+                    icons: ['screen', 'link', 'task'], kind: 'delivery', title: text('Kontynuacja zakupów', 'Continuing the shopping journey'),
                     caption: text('Schemat pokazuje związek strony produktu, przejścia na telefon i koszyka sklepu.', 'The diagram connects the product page, mobile handoff and store cart.'),
                     items: [
                         item('Strona produktu', 'Product page', 'Kupujący otwiera interaktywną prezentację.', 'The shopper opens the interactive experience.'),
@@ -75,7 +75,7 @@ export const projectEditorialPlans = {
                 id: 'paths', title: text('Ścieżki przez serwis', 'Paths through the website'), layout: 'ledger',
                 take: [{section: 0, paragraphs: [0], items: [0, 1, 2]}], exhibitPosition: 'after',
                 exhibit: {
-                    kind: 'lineage', title: text('Różne pytania, różne materiały', 'Different questions, different resources'),
+                    icons: ['screen', 'document', 'mail'], kind: 'lineage', title: text('Różne pytania, różne materiały', 'Different questions, different resources'),
                     caption: text('Zestawienie przedstawia trzy sposoby korzystania z serwisu produktowego.', 'This overview presents three ways to explore the product website.'),
                     items: [
                         item('Zastosowania', 'Use cases', 'Opis produktu, obrazy i wideo pomagają poznać możliwości.', 'Product descriptions, images and video introduce its uses.'),
@@ -88,7 +88,7 @@ export const projectEditorialPlans = {
                 id: 'media', title: text('Treść, obraz i wideo', 'Text, images and video'), layout: 'split',
                 take: [{section: 0, paragraphs: [1]}, {section: 2, items: [0, 3]}], exhibitPosition: 'aside',
                 exhibit: {
-                    kind: 'publication', title: text('Materiały na różnych ekranach', 'Content across screen sizes'),
+                    icons: ['document', 'screen', 'wave', 'screen'], kind: 'publication', title: text('Materiały na różnych ekranach', 'Content across screen sizes'),
                     caption: text('Ilustracja układu pokazuje, jak tekst i materiały wizualne mogą układać się na wąskim i szerokim ekranie.', 'This layout illustration shows how text and visual material can be arranged on narrow and wide screens.'),
                     items: [
                         item('Tekst', 'Text', 'Opisuje zastosowania i ofertę.', 'Explains the uses and offer.'),
@@ -102,7 +102,7 @@ export const projectEditorialPlans = {
                 id: 'publishing', title: text('Przygotowanie i publikacja stron', 'Preparing and publishing pages'), layout: 'sequence',
                 take: [{section: 0, items: [3]}, {section: 1, paragraphs: 'all'}], exhibitPosition: 'after',
                 exhibit: {
-                    kind: 'records', title: text('Droga zmian do publikacji', 'Changes on the way to publication'),
+                    icons: ['screen', 'check', 'globe'], kind: 'records', title: text('Droga zmian do publikacji', 'Changes on the way to publication'),
                     caption: text('Etapy pokazują miejsca, w których można przygotować i sprawdzić zmiany przed udostępnieniem ich odbiorcom.', 'These stages show where changes can be prepared and checked before reaching visitors.'),
                     items: [
                         item('Podgląd', 'Preview', 'Przestrzeń do sprawdzania przygotowanych zmian.', 'A place to review prepared changes.'),
@@ -121,7 +121,7 @@ export const projectEditorialPlans = {
                 id: 'article-history', title: text('Powrót do artykułu', 'Returning to an article'), layout: 'aside',
                 take: [{section: 0, paragraphs: 'all', items: 'all'}], exhibitPosition: 'after',
                 exhibit: {
-                    kind: 'history', title: text('Historia w porównywalnym kontekście', 'History in a comparable context'),
+                    icons: ['document', 'screen', 'chart'], kind: 'history', title: text('Historia w porównywalnym kontekście', 'History in a comparable context'),
                     caption: text('Schemat przedstawia strukturę porównania kolejnych pomiarów dla tego samego języka i urządzenia.', 'This structural illustration shows how successive measurements can be compared for the same language and device.'),
                     items: [
                         item('Artykuł i zapytanie', 'Article and query', 'Określają obserwowany materiał.', 'Identify the material being observed.'),
@@ -141,7 +141,7 @@ export const projectEditorialPlans = {
                 id: 'relationship', title: text('Od portfolio do relacji', 'From portfolio to relationship'), layout: 'split',
                 take: [{section: 0, paragraphs: 'all', items: [0, 1]}], exhibitPosition: 'after',
                 exhibit: {
-                    kind: 'lineage', title: text('Wspólny kontekst współpracy', 'Shared context for the relationship'),
+                    icons: ['screen', 'link', 'clock'], kind: 'lineage', title: text('Wspólny kontekst współpracy', 'Shared context for the relationship'),
                     caption: text('Zestawienie pokazuje, jak prezentacja prac i połączenie kont wiążą się z kontekstem kolejnych wizyt.', 'This overview shows how published work and connected accounts relate to the context of future appointments.'),
                     items: [
                         item('Portfolio', 'Portfolio', 'Galeria przedstawia styl i realizacje usługodawcy.', 'The gallery presents the professional’s style and work.'),
@@ -162,7 +162,7 @@ export const projectEditorialPlans = {
                 id: 'one-job', title: text('Dwa kanały, jedno zadanie', 'Two channels, one job'), layout: 'feature',
                 take: [{section: 0, paragraphs: 'all', items: 'all'}], exhibitPosition: 'before',
                 exhibit: {
-                    kind: 'delivery', title: text('Wykonanie i dostarczenie', 'Execution and delivery'),
+                    icons: ['mail', 'task', 'database', 'mail'], kind: 'delivery', title: text('Wykonanie i dostarczenie', 'Execution and delivery'),
                     caption: text('Schemat rozdziela pracę nad zadaniem od przekazania odpowiedzi w kanale kontaktu.', 'The diagram distinguishes work on a job from delivery of the response through a contact channel.'),
                     items: [
                         item('Przyjęcie', 'Acceptance', 'Wiadomość prowadzi do zapisu zadania.', 'A message leads to a recorded job.'),
@@ -176,7 +176,7 @@ export const projectEditorialPlans = {
                 id: 'processes', title: text('Procesy na stanowisku operatora', 'Processes on the operator’s workstation'), layout: 'ledger',
                 take: [{section: 1, paragraphs: 'all', items: 'all'}], exhibitPosition: 'aside',
                 exhibit: {
-                    kind: 'layers', title: text('Podział obsługi', 'Division of responsibilities'),
+                    icons: ['mail', 'screen', 'code', 'database'], kind: 'layers', title: text('Podział obsługi', 'Division of responsibilities'),
                     caption: text('Osobne procesy obsługują kanały kontaktu i wykonanie, korzystając z lokalnego zapisu zadań.', 'Separate processes handle contact channels and execution using locally stored jobs.'),
                     items: [
                         item('Poczta', 'Email', 'Obsługuje korespondencję.', 'Handles correspondence.'),
@@ -196,7 +196,7 @@ export const projectEditorialPlans = {
                 id: 'site-and-house', title: text('Dom w kontekście terenu', 'A house in the context of its site'), layout: 'feature',
                 take: [{section: 0, paragraphs: 'all', items: 'all'}], exhibitPosition: 'aside',
                 exhibit: {
-                    kind: 'terrain', title: text('Teren, przekrój i wspólny kadr', 'Terrain, section and a shared view'),
+                    icons: ['house', 'layers', 'screen'], kind: 'terrain', title: text('Teren, przekrój i wspólny kadr', 'Terrain, section and a shared view'),
                     caption: text('Ilustracja objaśnia przestrzenny kontekst domu oraz sposoby oglądania i porównywania jego wariantów.', 'This illustration explains the spatial context of the house and ways to inspect and compare its variants.'),
                     items: [
                         item('Teren', 'Terrain', 'Bryła jest oglądana na tle ukształtowania działki.', 'The house is viewed against the shape of the site.'),
@@ -211,7 +211,7 @@ export const projectEditorialPlans = {
                 id: 'geometry', title: text('Model i obliczenia', 'Model and calculations'), layout: 'split',
                 take: [{section: 2, paragraphs: [0], items: 'all'}], exhibitPosition: 'after',
                 exhibit: {
-                    kind: 'layers', title: text('Jeden opis, dwa zastosowania', 'One description, two uses'),
+                    icons: ['code', 'house', 'chart'], kind: 'layers', title: text('Jeden opis, dwa zastosowania', 'One description, two uses'),
                     caption: text('Schemat przedstawia powiązanie danych wymiarowych z modelem przestrzennym i zestawieniami.', 'The diagram shows how dimensional data relates to the spatial model and reports.'),
                     items: [
                         item('Opis wymiarów', 'Dimensional description', 'Wspólne dane opisują geometrię domu.', 'Shared data describes the geometry of the house.'),

@@ -2,6 +2,7 @@ import Container from '@mui/material/Container';
 import type { EditorialChapter, EditorialDocument, EditorialReference } from '@/src/content/editorial.mjs';
 import { portfolioMessages, projectsForService } from '@/src/content/portfolio.mjs';
 import type { VisualAsset } from '@/src/content/visuals.mjs';
+import {explanationPlans, type DiagramSpec} from '@/src/content/explanation-plans.mjs';
 import { useLocale } from '@/src/i18n/context';
 import { AppLinkAtom } from '../AppLink.atom';
 import {ActionLinkAtom} from '../ActionLink.atom';
@@ -11,6 +12,7 @@ import { InfoTextBlockMolecule } from '../InfoTextBlock.molecule';
 import { LinkButtonAtom } from '../LinkButton.atom';
 import { RichTextAtom } from '../RichText.atom';
 import { EditorialExhibitMolecule } from './EditorialExhibit.molecule';
+import {ContextDiagram} from './ContextDiagram.molecule';
 import styles from './editorial.module.scss';
 
 type Entry = {term: string; detail: string};
@@ -33,7 +35,7 @@ function References({entries, format}: {entries: Entry[]; format: EditorialRefer
     return <dl className={`${styles.references} ${styles[`reference_${format}`]}`}>{entries.map((entry, index) => <div key={`${entry.term}-${index}`}><dt><RichTextAtom text={entry.term}/></dt><dd><RichTextAtom text={entry.detail}/></dd></div>)}</dl>;
 }
 
-function Chapter({chapter, cover, role}: {chapter: EditorialChapter; cover: VisualAsset | null; role: {label: string; text: string} | null}) {
+function Chapter({chapter, cover, role, diagrams}: {chapter: EditorialChapter; cover: VisualAsset | null; role: {label: string; text: string} | null; diagrams: DiagramSpec[]}) {
     const exhibit = chapter.exhibit && <EditorialExhibitMolecule exhibit={chapter.exhibit}/>;
     const canHaveRail = chapter.layout === 'aside' || chapter.layout === 'split';
     const railCover: VisualAsset | null = canHaveRail ? cover : null;
@@ -57,6 +59,7 @@ function Chapter({chapter, cover, role}: {chapter: EditorialChapter; cover: Visu
             {railCover ? <div className={styles.chapterRail}><Artwork asset={railCover} cover/>{chapter.exhibitPosition === 'aside' && exhibit}</div> : chapter.exhibitPosition === 'aside' && exhibit}
         </div>
         {!hasRail && items}
+        {diagrams.map(plan => <ContextDiagram key={plan.title.en} plan={plan}/>)}
         <References entries={chapter.facts} format={chapter.reference}/>
         {chapter.exhibitPosition === 'after' && exhibit}
     </section>;
@@ -96,7 +99,7 @@ export function EditorialArticle({document, title, artwork}: {document: Editoria
             {document.toc === 'inline' && navigation}
             <div className={`${styles.articleBody} ${document.toc === 'rail' ? styles.withRail : ''}`}>
                 {document.toc === 'rail' && navigation}
-                <div className={styles.chapters}>{document.chapters.map(chapter => <Chapter key={chapter.id} chapter={chapter} cover={document.cover === chapter.id ? artwork : null} role={document.roleAt === chapter.id ? role : null}/>)}</div>
+                <div className={styles.chapters}>{document.chapters.map(chapter => <Chapter key={chapter.id} chapter={chapter} cover={document.cover === chapter.id ? artwork : null} role={document.roleAt === chapter.id ? role : null} diagrams={(explanationPlans[path] ?? []).filter(plan => plan.chapter === chapter.id)}/>)}</div>
             </div>
             {document.stack.length > 0 && <section className={styles.stack} aria-labelledby="editorial-stack-title"><h2 id="editorial-stack-title">{labels.stack}</h2><References entries={document.stack} format={document.reference}/></section>}
             {document.kind === 'service' ? <footer className={styles.footer}>

@@ -7,6 +7,8 @@ import { useLocale } from '@/src/i18n/context';
 import { AppLinkAtom } from '../AppLink.atom';
 import {ActionLinkAtom} from '../ActionLink.atom';
 import {ContactSection} from '../ContactSection.organism';
+import {overviewExplanationPlans} from '@/src/content/explanation-plans.mjs';
+import {ContextDiagram} from '../editorial/ContextDiagram.molecule';
 import styles from './portfolio.module.scss';
 
 function Artwork({asset, priority = false, hero = false}: {asset: VisualAsset; priority?: boolean; hero?: boolean}) {
@@ -48,6 +50,7 @@ export function PortfolioIndexPage({cards}: {cards: PortfolioCard[]}) {
             <p className={styles.confidentiality}>{labels.confidentiality}</p>
         </header>
         <PortfolioList cards={cards} priorityFirst/>
+        {(overviewExplanationPlans['/portfolio/'] ?? []).map(plan => <ContextDiagram plan={plan} key={plan.title.en} overview/>)}
         <ContactSection/>
     </Container>;
 }

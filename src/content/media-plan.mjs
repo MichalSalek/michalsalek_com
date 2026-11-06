@@ -19,7 +19,7 @@ export const heroMedia = {
     '/sound/soundtracks/': 'audio-soundtracks',
     ...Object.fromEntries(portfolioProjects.map(project => [portfolioPath(project), project.cover])),
     '/software/ai-automation/': 'ai-document-extraction',
-    '/software/automation/': 'case-and-task',
+    '/software/automation/': 'request-automation-flow',
     '/software/integrations/': 'payment-and-fulfilment',
     '/software/websites/': 'responsive-business-website',
     '/software/custom-software/': 'service-application',
@@ -39,41 +39,11 @@ export const articleMedia = {
     ],
     '/software/custom-software/': [
         {asset: 'record-access', section: 1, after: 0, variant: 'inline'},
-        {asset: 'application-planning', section: 2, after: 0, variant: 'wide'},
     ],
     '/software/reporting/': [
         {asset: 'missing-data', section: 1, after: 1, variant: 'inline'},
-        {asset: 'report-source-check', section: 2, after: 1, variant: 'wide'},
     ],
     '/software/fullstack/': [
-        {asset: 'shared-feature-change', section: 1, after: 1, variant: 'wide'},
-        {asset: 'change-verification', section: 2, after: 0, variant: 'inline'},
-    ],
-    '/software/architecture/': [
-        {asset: 'shared-feature-change', section: 1, after: 0, variant: 'wide'},
-        {asset: 'change-verification', section: 2, after: 2, variant: 'inline'},
-    ],
-    '/software/backend/': [
-        {asset: 'api-and-interface', section: 1, after: 0, variant: 'wide'},
-        {asset: 'change-verification', section: 2, after: 0, variant: 'inline'},
-    ],
-    '/software/frontend/': [
-        {asset: 'record-access', section: 1, after: 1, variant: 'inline'},
-        {asset: 'application-planning', section: 2, after: 0, variant: 'wide'},
-    ],
-    '/software/ai-automation/': [
-        {asset: 'record-access', section: 1, after: 2, variant: 'inline'},
-        {asset: 'change-verification', section: 2, after: 0, variant: 'inline'},
-    ],
-    '/software/automation/': [
-        {asset: 'application-planning', section: 1, after: 0, variant: 'wide'},
-        {asset: 'record-access', section: 1, after: 3, variant: 'inline'},
-    ],
-    '/software/integrations/': [
-        {asset: 'api-and-interface', section: 0, after: 1, variant: 'wide'},
-        {asset: 'change-verification', section: 2, after: 0, variant: 'inline'},
-    ],
-    '/software/websites/': [
         {asset: 'change-verification', section: 2, after: 0, variant: 'inline'},
     ],
 };

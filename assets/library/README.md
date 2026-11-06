@@ -16,7 +16,8 @@ increase the published website payload.
 
 Photographs have responsive, high-quality derivatives for their display size and
 pixel density. Card derivatives use lossless WebP; larger photographs use WebP at
-quality 94. Raster illustrations use lossless WebP. Source files are never upscaled.
+quality 94. Raster illustrations use lossless WebP unless the catalogue selects
+an explicit quality for a compact cover. Source files are never upscaled.
 Small inline illustrations have SVG versions for sharp rendering at any density;
 their earlier raster versions remain available as reserves.
 Illustrations use containment during both export and display so their sides remain
@@ -33,6 +34,11 @@ is retained as an approved fallback.
 Keep new media tied to a specific service or paragraph. Avoid adding copy solely
 to make room for an unrelated image. Keep photographs free of people and server
 equipment, and illustrations in the indigo/grey palette.
+
+Explanatory diagrams are authored separately in `src/content/explanation-plans.mjs`
+and use native SVG drawings with ordinary localized HTML labels. These describe
+actual sequences and relationships; source artwork remains supporting imagery.
+The request automation cover has its generation prompt beside the source file.
 
 The original [Caught In Joy studio photograph](https://unsplash.com/photos/ptVBlniJi50)
 has been restored from its 2400px source. `staticPlacements` records the existing

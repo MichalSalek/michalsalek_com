@@ -23,6 +23,21 @@ illustrations remain attached to the paragraph they explain. Figures use ordinar
 HTML labels and captions; decorative SVG never carries the only copy of a fact.
 Do not imply that schematic data is a measured customer result.
 
+`explanation-plans.mjs` adds concrete visual explanations to selected chapters.
+Each diagram names its existing chapter and supplies its own English and Polish
+title, caption, steps and optional exception. `ContextDiagram` draws sequences,
+parallel lanes, comparisons or a shared context with HTML labels and native SVG
+illustrations. Only genuine sequences use ordered lists and directional
+connectors. At narrow container widths they become vertical, without shrinking
+the text. Home, audio and portfolio indexes have their own concise overviews;
+contact and sitemap pages do not need explanatory artwork.
+
+Keep these explanations distinct from the existing exhibits: show the mechanism
+where the prose introduces it, rather than repeating a nearby diagram. Supporting
+cover illustrations stay compact. Large application captures are reserved for
+the actual application demonstrations. The export audit checks diagram placement,
+both languages and complete descriptions in HTML and Markdown.
+
 ## Composition choices
 
 Openings can use an essay lead, a text-and-image split, a panoramic media break,

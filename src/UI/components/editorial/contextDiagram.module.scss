@@ -1,0 +1,53 @@
+.diagram { min-width: 0; margin: var(--space-4) 0; color: var(--site-text); }
+.caption { max-width: 780px; margin-bottom: var(--space-3); }
+.caption h2, .caption h3 { color: var(--site-ink); margin: 0 0 var(--space-1); font-size: 1.15rem; line-height: 1.35; font-weight: 600; }
+.caption p { margin: 0; line-height: 1.65; }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr)); gap: var(--space-3); list-style: none; margin: 0; padding: 0; }
+.step { position: relative; min-width: 0; }
+.drawing { position: relative; display: flex; align-items: center; justify-content: center; padding: var(--space-2); margin-bottom: var(--space-2); background: var(--site-tint); color: var(--site-ink); }
+.glyph { display: block; width: 128px; height: 104px; max-width: 100%; }
+.ordinal { position: absolute; left: var(--space-1); top: var(--space-1); color: var(--site-muted); font-size: .8rem; line-height: 1; }
+.step > strong, .exception strong { display: block; color: var(--site-ink); font-weight: 600; line-height: 1.45; margin-bottom: var(--space-1); }
+.step > p, .exception p { margin: 0; font-size: 1rem; line-height: 1.6; }
+/* DECISION: Connectors denote an actual sequence; parallel groups have no arrows. */
+.flow .step:not(:last-child)::after { content: '→'; position: absolute; top: 52px; right: calc(-1 * var(--space-3)); width: var(--space-3); text-align: center; color: var(--site-ink); line-height: 32px; background: var(--site-surface); }
+.split .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
+.split .drawing { justify-content: flex-start; }
+.hub .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); }
+.hub .steps[data-step-count='3'] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.hub .step:first-child { grid-column: 1 / -1; display: grid; grid-template-columns: 160px minmax(0, 1fr); column-gap: var(--space-3); align-items: center; max-width: 700px; }
+.hub .step:first-child .drawing { grid-row: span 2; margin-bottom: 0; }
+.hub .step:first-child > strong { align-self: end; }
+.hub .step:first-child > p { align-self: start; }
+.lanes .steps { grid-template-columns: minmax(0, 1fr); gap: var(--space-3); }
+.lanes .step { display: grid; grid-template-columns: 136px minmax(0, 1fr); column-gap: var(--space-3); align-items: center; }
+.lanes .drawing { grid-row: span 2; margin-bottom: 0; padding: var(--space-1); }
+.lanes .step > strong { align-self: end; }
+.lanes .step > p { align-self: start; }
+.exception { display: flex; align-items: center; gap: var(--space-2); margin-top: var(--space-3); padding-top: var(--space-2); border-top: 1px solid var(--site-border); max-width: 850px; }
+.exceptionGlyph { flex: 0 0 56px; width: 56px; height: 56px; color: var(--site-ink); }
+.exception strong { margin-bottom: 0; }
+.overview { margin: var(--space-5) 0 var(--space-6); }
+.overview .caption h2 { font-size: clamp(1.65rem, 3vw, 2.4rem); font-weight: 400; }
+@container diagram-section (max-width: 740px) {
+  .flow .steps { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
+  .flow .step { display: grid; grid-template-columns: 112px minmax(0, 1fr); column-gap: var(--space-2); align-items: center; }
+  .flow .drawing { grid-row: span 2; margin: 0; padding: var(--space-1); }
+  .flow .step > strong { align-self: end; }
+  .flow .step > p { align-self: start; }
+  .flow .step:not(:last-child)::after { top: auto; bottom: calc(-1 * var(--space-4)); left: 40px; right: auto; width: 32px; height: var(--space-4); content: '↓'; }
+}
+@media (max-width: 599px) {
+  .diagram { margin: var(--space-3) 0; }
+  .flow .steps, .hub .steps, .hub .steps[data-step-count='3'], .split .steps { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
+  .flow .step, .lanes .step, .hub .step:first-child, .split .step, .hub .step { display: grid; grid-template-columns: 88px minmax(0, 1fr); column-gap: var(--space-2); align-items: center; }
+  .drawing, .hub .step:first-child .drawing, .lanes .drawing { grid-row: span 2; margin: 0; padding: var(--space-1); }
+  .glyph { width: 88px; height: 80px; }
+  .step > strong, .hub .step:first-child > strong { align-self: end; }
+  .step > p, .hub .step:first-child > p { align-self: start; }
+  .flow .step:not(:last-child)::after { top: auto; bottom: calc(-1 * var(--space-4)); left: 28px; right: auto; width: 32px; height: var(--space-4); content: '↓'; }
+  .ordinal { left: 4px; top: 4px; font-size: .7rem; }
+  .exception { align-items: flex-start; }
+  .exceptionGlyph { flex-basis: 40px; width: 40px; height: 40px; }
+  .overview { margin: var(--space-5) 0; }
+}

@@ -475,5 +475,18 @@
       "en": "Application view with demonstration data"
     },
     "notes": "Rendered from application components in an isolated demonstration with neutral branding, synthetic data and intercepted writes."
+  },
+  {
+    "id": "request-automation-flow",
+    "source": "illustrations/request-automation-flow.png",
+    "kind": "illustration",
+    "wideWebpQuality": 88,
+    "alt": {
+      "pl": "Nowe zgłoszenie jest sprawdzane, tworzy zadanie dla pracownika i uruchamia potwierdzenie e-mail.",
+      "en": "A new request is validated, creates an assigned task and triggers an email acknowledgement."
+    },
+    "origin": "generated",
+    "notes": "Compact automation cover. See illustrations/request-automation-flow.prompt.md for the generation brief. Detailed labels are rendered in the article diagram.",
+    "credit": null
   }
 ]

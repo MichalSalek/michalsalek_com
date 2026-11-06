@@ -258,7 +258,8 @@ test('a real service CTA produces three visible pulses without moving or focusin
     await page.locator('main article header a[href="#project-contact"]').click();
     await expect(page).toHaveURL(/\/pl\/software\/ai-automation\/#project-contact$/);
     await expect(page.locator('[name="subject"]')).toHaveValue(contactTopics.ai.pl);
-    await page.locator('[name="subject"]').scrollIntoViewIfNeeded();
+    // Reveal the complete field; Chromium can treat a fractionally clipped border as already in view.
+    await page.locator('.subject-attention .MuiOutlinedInput-root').evaluate(element => element.scrollIntoView({block: 'center', behavior: 'instant'}));
     await expect.poll(() => page.evaluate(() => window.__subjectCue.ended)).toBe(true);
     const cue = await page.evaluate(() => window.__subjectCue);
     expect(cue.visible).toBe(true);
@@ -279,7 +280,7 @@ test('an offscreen subject waits for the reader to reveal it before pulsing', as
     await page.waitForTimeout(1500);
     expect(await page.evaluate(() => window.__subjectCue.started)).toBe(false);
     expect(await page.evaluate(() => scrollY)).toBe(0);
-    await page.locator('[name="subject"]').scrollIntoViewIfNeeded();
+    await page.locator('.subject-attention .MuiOutlinedInput-root').evaluate(element => element.scrollIntoView({block: 'center', behavior: 'instant'}));
     await expect.poll(() => page.evaluate(() => window.__subjectCue.ended)).toBe(true);
     expect(await page.evaluate(() => window.__subjectCue.visible)).toBe(true);
 });

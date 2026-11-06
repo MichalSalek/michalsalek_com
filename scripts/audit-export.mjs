@@ -7,6 +7,7 @@ import { heroMedia } from '../src/content/media-plan.mjs';
 import sharp from 'sharp';
 import {findPortfolioProject, portfolioProjects, portfolioPath} from '../src/content/portfolio.mjs';
 import {editorialPlans} from '../src/content/editorial.mjs';
+import {explanationPlans, overviewExplanationPlans} from '../src/content/explanation-plans.mjs';
 
 const visible = value => value.replace(/\[([^\]]+)\]\((?:https:\/\/|\/)[^)]+\)/g, '$1').replace(/\*\*([^*]+)\*\*/g, '$1').replace(/\s+/g, ' ').trim();
 
@@ -98,6 +99,20 @@ for (const locale of site.locales) {
             assert(mirror.includes($('[data-application-demo] img').attr('alt')), `${label}: demonstration description in Markdown`);
         }
         const plan = editorialPlans[path];
+        const diagrams = explanationPlans[path] ?? overviewExplanationPlans[path] ?? [];
+        assert.equal($('[data-context-diagram]').length, diagrams.length, `${label}: complete diagram placement`);
+        if (plan) assert(diagrams.length > 0, `${label}: an article needs a contextual diagram`);
+        for (const diagram of diagrams) {
+            const scope = diagram.chapter === 'overview' ? $('main') : $(`[data-editorial-chapter="${diagram.chapter}"]`);
+            const rendered = scope.find('[data-context-diagram]').filter((_, element) => $(element).find('figcaption :is(h2,h3)').text() === diagram.title[locale]);
+            assert.equal(rendered.length, 1, `${label}: diagram at its intended chapter`);
+            assert.equal(rendered.find('> ol').length, diagram.layout === 'flow' ? 1 : 0, `${label}: sequence semantics`);
+            assert.equal(rendered.find('a, button, input').length, 0, `${label}: explanation cannot resemble an action`);
+            for (const text of [diagram.title[locale], diagram.caption[locale], ...diagram.steps.flatMap(step => [step.title[locale], step.detail[locale]]), ...(diagram.exception ? [diagram.exception.title[locale], diagram.exception.detail[locale]] : [])]) {
+                assert(visible(rendered.text()).includes(visible(text)), `${label}: complete diagram description in HTML`);
+                assert(visible(mirror).includes(visible(text)), `${label}: complete diagram description in Markdown`);
+            }
+        }
         if (plan) {
             const content = project ? JSON.parse(await readFile(`src/content/portfolio/${locale}/${project.id}.json`, 'utf8')) : JSON.parse(await readFile(`src/content/${locale}-articles.json`, 'utf8'))[path.slice(1, -1)];
             const mainText = visible($('main').text());

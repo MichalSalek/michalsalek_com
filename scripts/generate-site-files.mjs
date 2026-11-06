@@ -35,7 +35,20 @@ for (const locale of site.locales) {
         $('script, style, noscript, [data-text-export="exclude"], .contact-invitation p').remove();
         const title = $('h1').first().text().trim();
         const lines = [`# ${title}`, '', `HTML: ${pageUrl(locale, path)}`, `Language: ${locale}`, ''];
-        $('main h2, main h3, main p, main li, main table, main dt, main dd, main figcaption').each((_, element) => {
+        $('main h2, main h3, main p, main li, main table, main dt, main dd, main figcaption, main [data-context-diagram]').each((_, element) => {
+            const diagram = $(element).closest('[data-context-diagram]');
+            if (diagram.length) {
+                if (!$(element).is('[data-context-diagram]')) return;
+                lines.push(`## ${diagram.find('figcaption h2, figcaption h3').text()}`, '', diagram.find('figcaption p').text(), '');
+                diagram.find('> ol > li, > ul > li').each((index, step) => {
+                    const prefix = diagram.find('> ol').length ? `${index + 1}.` : '-';
+                    lines.push(`${prefix} **${$(step).find('> strong').text()}**: ${$(step).find('> p').text()}`);
+                });
+                const exception = diagram.find('[data-diagram-exception]');
+                if (exception.length) lines.push('', `**${exception.find('strong').text()}**: ${exception.find('p').text()}`);
+                lines.push('');
+                return;
+            }
             if (element.tagName === 'figcaption' && $(element).find('h2, h3, p, li, dt, dd').length) return;
             if (element.tagName === 'figcaption' && $(element).parent('[data-application-demo]').length) {
                 const description = $(element).parent().find('img').attr('alt');

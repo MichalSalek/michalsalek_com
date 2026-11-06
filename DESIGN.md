@@ -105,3 +105,13 @@ and reliable contact handling. These changes must respect the original appearanc
 - Application views use real components with neutral demonstration data. Keep
   complete desktop/mobile geometry, lazy responsive sources and a readable
   demonstration caption. Photo-credit styling does not apply to these captions.
+- Large article visuals explain the adjacent subject. Use authored, localized
+  diagrams for events, conditions, data relationships and responsibilities;
+  select them in `src/content/explanation-plans.mjs`. Connectors represent actual
+  sequences only. Parallel responsibilities and comparisons have no sequence
+  arrows. Diagram labels remain ordinary static HTML, including on mobile and
+  without JavaScript. The reusable indigo drawings are a shared visual vocabulary,
+  not application controls or screenshots.
+- Unlabelled supporting illustrations are at most 480px wide and 300px high;
+  inline accents are at most 160px wide. Generic interface artwork does not take
+  the place of a contextual explanation. Preserve full-stack and sound card art.
