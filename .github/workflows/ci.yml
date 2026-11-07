@@ -27,10 +27,15 @@ jobs:
       - run: npm run check
       - run: npm run test:e2e
       - run: npm run audit:dependencies
+      - name: Record verified export
+        run: |
+          mkdir -p .artifacts/verified-static-site
+          cp -a out .artifacts/verified-static-site/out
+          node scripts/deploy/artifact.mjs create .artifacts/verified-static-site/manifest.json "$GITHUB_RUN_ID"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: static-site
-          path: out/
+          name: verified-static-site
+          path: .artifacts/verified-static-site/
           include-hidden-files: true
           retention-days: 7
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2

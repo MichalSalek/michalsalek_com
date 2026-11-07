@@ -62,9 +62,15 @@ The `CONTACT_ENDPOINT` and `GA_ID` repository variables supply public build
 configuration. Their values are bundled into browser code and must never contain
 secrets. Local production builds use the gitignored `.env.production.local`.
 
-CI runs without deployment credentials and publishes the static export as an
-artifact. `Deploy production` is an optional manual workflow restricted to `main`.
-It uses the same `npm run deploy` entrypoint.
+CI runs without deployment credentials and, after all checks succeed, publishes
+the static export with a manifest of its source SHA, build configuration and file
+hashes. `Deploy production` is an optional manual workflow restricted to `main`.
+It looks for a successful main-branch push CI run for the exact deployment SHA,
+checks GitHub's artifact digest and the manifest before packaging, and runs a fresh
+dependency audit. Configuration changes or damaged artifacts stop deployment; when
+no artifact is available, the workflow performs the full build and checks once.
+Local deployments continue to run the full checks. Both paths use the same
+`npm run deploy` entrypoint and retain the live verification and rollback gates.
 
 Configure these repository or production-environment secrets before using it:
 

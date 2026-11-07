@@ -3,6 +3,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: production-deploy
   cancel-in-progress: false
@@ -36,5 +37,13 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
       - run: npm ci
-      - run: npx playwright install --with-deps chromium
+      - name: Find and verify CI artifact
+        id: artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/deploy/fetch-ci-artifact.sh
+      - if: steps.artifact.outputs.available != 'true'
+        run: npx playwright install --with-deps chromium
       - run: npm run deploy
+        env:
+          CI_ARTIFACT_RUN_ID: ${{ steps.artifact.outputs.run_id }}

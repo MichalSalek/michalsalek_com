@@ -10,9 +10,16 @@ if [[ -z "$mode" ]]; then
     [[ -z "$(git status --porcelain)" ]] || { echo 'Commit the intended source before publishing.' >&2; exit 2; }
     [[ "$(git branch --show-current)" == main ]] || { echo 'Production releases must come from main.' >&2; exit 2; }
 fi
-npm run check
-npm run test:e2e
+if [[ -n "${CI_ARTIFACT_RUN_ID:-}" ]]; then
+    [[ "${GITHUB_ACTIONS:-}" == true && "${GITHUB_EVENT_NAME:-}" == workflow_dispatch && "${GITHUB_REF:-}" == refs/heads/main && "${GITHUB_SHA:-}" == "$(git rev-parse HEAD)" ]] || { echo 'CI artifact reuse requires the matching manual main deployment.' >&2; exit 2; }
+else
+    npm run check
+    npm run test:e2e
+fi
 npm run audit:dependencies
+if [[ -n "${CI_ARTIFACT_RUN_ID:-}" ]]; then
+    node scripts/deploy/artifact.mjs verify .artifacts/ci-download/extracted/manifest.json "$CI_ARTIFACT_RUN_ID"
+fi
 sha="$(git rev-parse HEAD)"
 release="$(date -u +%Y%m%dT%H%M%SZ)-${sha:0:12}"
 mkdir -p .artifacts
