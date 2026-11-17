@@ -20,6 +20,8 @@
     "sent": "Wiadomość została przyjęta. Odpowiemy w ciągu jednego dnia.",
     "failed": "Nie udało się potwierdzić wysyłki. Twój tekst pozostał w formularzu. Możesz otworzyć go w programie pocztowym.",
     "sending": "Wysyłanie...",
+    "editDraft": "Wróć do edycji",
+    "clearForm": "Wyczyść formularz",
     "switchLanguage": "Switch language to English",
     "skip": "Przejdź do treści",
     "notFound": "Nie znaleziono strony",
@@ -35,6 +37,10 @@
     "introContact": "Porozmawiajmy o Twoim projekcie",
     "heroTitle": "Aplikacje, AI i automatyzacje dla firm",
     "heroPortfolio": "Zobacz realizacje",
+    "heroServices": "Zobacz usługi",
+    "profileExperience": "Senior Full-Stack Developer (TypeScript, Node.js). Programuje zawodowo od 2019 roku i prowadzi Atomic Concept.",
+    "profileSkills": "Technologie",
+    "profileContact": "Kontakt w sprawie rekrutacji",
     "servicesTitle": "W czym możemy pomóc",
     "servicesIntro": "Od pojedynczej integracji po kompletną aplikację.",
     "breadcrumbHome": "Strona główna",
@@ -105,7 +111,7 @@
       "title": "AI, automatyzacje i oprogramowanie dla firm",
       "description": "Atomic Concept, prowadzone przez Michała Sałka: aplikacje, integracje, automatyzacje i AI dla firm — od analizy potrzeb po wdrożenie i utrzymanie.",
       "intro": [
-        "Atomic Concept prowadzi Michał Sałek, Senior Full-Stack Developer pracujący zawodowo od 2019 roku. Rozwijamy backend w TypeScript i Node.js, integracje oraz aplikacje, również z wykorzystaniem AI. Poznaj [technologie i sposób pracy](/software/fullstack/)."
+        "Budujemy aplikacje, łączymy firmowe narzędzia i automatyzujemy zadania, takie jak odczyt dokumentów."
       ]
     },
     "/software/architecture/": {
@@ -131,15 +137,18 @@
     },
     "/sound/": {
       "title": "Usługi dźwiękowe online",
-      "description": "Usługi dźwiękowe Atomic Concept: miks, mastering, podkłady i autorska muzyka do nagrań oraz produkcji wideo."
+      "description": "Usługi dźwiękowe Atomic Concept: miks, mastering, podkłady i autorska muzyka do nagrań oraz produkcji wideo.",
+      "intro": ["Możesz przesłać nagrania do miksu i masteringu albo zamówić muzykę do wokalu lub filmu."]
     },
     "/sound/studio/": {
       "title": "Studio miksu i masteringu online",
-      "description": "Miks i mastering online w Atomic Concept. Przygotuj ślady i porozmawiajmy o brzmieniu Twojego nagrania."
+      "description": "Miks i mastering online w Atomic Concept. Przygotuj ślady i porozmawiajmy o brzmieniu Twojego nagrania.",
+      "intro": ["Miksujemy i masterujemy nagrania wielośladowe. Napisz, jaki materiał masz i jakiego brzmienia szukasz."]
     },
     "/sound/soundtracks/": {
       "title": "Muzyka gotowa i na zamówienie",
-      "description": "Autorskie podkłady, ścieżki dźwiękowe i beaty Atomic Concept dla wokalistów, do filmów, reklam i zwiastunów."
+      "description": "Autorskie podkłady, ścieżki dźwiękowe i beaty Atomic Concept dla wokalistów, do filmów, reklam i zwiastunów.",
+      "intro": ["Komponujemy muzykę do wokalu, filmów i reklam. Możesz też zapytać o licencję na gotowy utwór."]
     },
     "/contact/": {
       "title": "Kontakt",

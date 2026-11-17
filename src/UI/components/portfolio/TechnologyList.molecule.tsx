@@ -1,4 +1,4 @@
-import styles from './technologyList.module.scss';
+import styles from './technologyList.module.css';
 
 export function TechnologyList({technologies, label}: {technologies: string[]; label: string}) {
     return <ul className={styles.list} aria-label={label}>

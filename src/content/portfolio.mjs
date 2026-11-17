@@ -2,8 +2,8 @@
 export const portfolioProjects = [
     {
         id: 'b2b-service-platform', slug: 'b2b-service-platform', cover: 'portfolio-b2b', featured: true,
-        publishedAt: '2026-11-06', updatedAt: '2026-11-06',
-        services: ['/software/custom-software/', '/software/integrations/'],
+        publishedAt: '2026-11-06', updatedAt: '2026-11-17',
+        services: ['/software/custom-software/', '/software/integrations/', '/software/fullstack/'],
         technologies: ['Next.js', 'React', 'TypeScript', 'PostgreSQL', 'Stripe'],
         pl: {
             title: 'Platforma SaaS dla klientów B2B', category: 'Aplikacja SaaS',
@@ -18,7 +18,7 @@ export const portfolioProjects = [
     },
     {
         id: 'shopify-product-experience', slug: 'shopify-product-experience', cover: 'portfolio-commerce', featured: true,
-        publishedAt: '2026-11-06', updatedAt: '2026-11-06',
+        publishedAt: '2026-11-06', updatedAt: '2026-11-17',
         services: ['/software/integrations/', '/software/custom-software/'],
         technologies: ['Shopify', 'React', 'TypeScript', 'GraphQL', 'PostgreSQL'],
         pl: {
@@ -34,7 +34,7 @@ export const portfolioProjects = [
     },
     {
         id: 'technology-product-website', slug: 'technology-product-website', cover: 'portfolio-website', featured: false,
-        publishedAt: '2026-11-06', updatedAt: '2026-11-06',
+        publishedAt: '2026-11-06', updatedAt: '2026-11-17',
         services: ['/software/websites/', '/software/integrations/'],
         technologies: ['Next.js', 'React', 'TypeScript', 'Cloudflare'],
         pl: {
@@ -50,23 +50,23 @@ export const portfolioProjects = [
     },
     {
         id: 'editorial-search-analytics', slug: 'editorial-search-analytics', cover: 'portfolio-editorial', featured: false,
-        publishedAt: '2026-11-06', updatedAt: '2026-11-06',
+        publishedAt: '2026-11-06', updatedAt: '2026-11-17',
         services: ['/software/reporting/', '/software/custom-software/'],
         technologies: ['React', 'TypeScript'],
         pl: {
             title: 'Aplikacja do monitorowania widoczności artykułów', category: 'Narzędzie redakcyjne',
             summary: 'Historia pozycji artykułów w wynikach wyszukiwania. Redaktorzy śledzą swoje publikacje, porównują zmiany dla różnych języków i urządzeń oraz sprawdzają, które treści wymagają uwagi.',
-            description: 'Wdrożenie narzędzia SEO dla redakcji: migracja frontendu do TypeScript, moduły, kontrakty API oraz historia widoczności artykułów według języka i urządzenia.',
+            description: 'Rozwój frontendu narzędzia SEO dla redakcji: migracja do TypeScript, moduły, kontrakty API i historia wyników według języka i urządzenia.',
         },
         en: {
             title: 'An application for tracking article search visibility', category: 'Editorial tool',
             summary: 'A history of article positions in search results. Editors follow their own publications, compare language and device contexts and identify content that needs attention.',
-            description: 'Delivery of an editorial SEO tool with a TypeScript frontend migration, modular code, agreed API contracts and article visibility history by language and device.',
+            description: 'Frontend development for an editorial SEO tool: a TypeScript migration, modular code, agreed API contracts and search ranking history by language and device.',
         },
     },
     {
         id: 'service-business-platform', slug: 'service-business-platform', cover: 'portfolio-services', featured: false,
-        publishedAt: '2026-11-06', updatedAt: '2026-11-06',
+        publishedAt: '2026-11-06', updatedAt: '2026-11-17',
         services: ['/software/custom-software/', '/software/fullstack/'],
         technologies: ['Next.js', 'React', 'TypeScript', 'PostgreSQL', 'Stripe'],
         pl: {
@@ -82,23 +82,23 @@ export const portfolioProjects = [
     },
     {
         id: 'remote-ai-assistant', slug: 'remote-ai-assistant', cover: 'portfolio-assistant', featured: true,
-        publishedAt: '2026-11-06', updatedAt: '2026-11-06',
+        publishedAt: '2026-11-06', updatedAt: '2026-11-17',
         services: ['/software/ai-automation/', '/software/automation/'],
         technologies: ['Python', 'FastAPI', 'SQLite', 'Ollama'],
         pl: {
             title: 'Zdalny asystent AI do pracy nad projektami', category: 'Wewnętrzny projekt AI',
-            summary: 'Zadanie wysłane przez czat lub e-mail trafia do asystenta pracującego na własnym komputerze. System łączy modele lokalne i zewnętrzne z rzeczywistą pracą w repozytoriach oraz historią wykonania.',
+            summary: 'Zadania wysłane przez czat lub e-mail trafiają do asystenta na komputerze operatora. Asystent może pracować w repozytoriach i zachowuje historię wykonania.',
             description: 'Zdalna platforma asystenta AI z czatem i e-mailem, modelami lokalnymi i zewnętrznymi, trwałą kolejką zadań, adapterami wykonawców oraz obsługą przerw.',
         },
         en: {
             title: 'A remote AI assistant for project work', category: 'Internal AI project',
-            summary: 'A task sent through chat or email reaches an assistant working on a private workstation. The system connects local and external models with real repository work and a durable execution history.',
+            summary: 'Tasks sent by chat or email reach an assistant on the operator’s workstation. It can work in repositories and keeps an execution history.',
             description: 'A remote AI assistant platform combining chat, email, local and external models, durable jobs, executor adapters, execution history and interruption handling.',
         },
     },
     {
         id: '3d-house-planning', slug: '3d-house-planning', cover: 'portfolio-house', featured: false,
-        publishedAt: '2026-11-06', updatedAt: '2026-11-06',
+        publishedAt: '2026-11-06', updatedAt: '2026-11-17',
         services: ['/software/custom-software/', '/software/ai-automation/'],
         technologies: ['TypeScript', 'Three.js', 'WebAssembly', 'Manifold'],
         pl: {
@@ -121,19 +121,19 @@ export const portfolioIndex = {
 
 export const portfolioMessages = {
     pl: {
-        title: 'Portfolio', introduction: 'Realizacje Michała Sałka, programisty full-stack prowadzącego Atomic Concept. Każdy opis przedstawia problem, zakres pracy i decyzje techniczne.',
-        confidentiality: 'Nazwy produktów i organizacji oraz szczegóły identyfikujące projekty zostały zanonimizowane.',
+        title: 'Portfolio', introduction: 'Opisy projektów pokazują, co robi każde rozwiązanie i za którą część odpowiadał Michał Sałek.',
+        confidentiality: 'Nazwy klientów i produktów pozostają poufne. Karty wskazują projekty wewnętrzne.',
         confidential: 'NDA', technologies: 'Technologie', read: 'Zobacz projekt', all: 'Wszystkie projekty', selected: 'Wybrane realizacje',
-        selectedIntro: 'Zobacz, jak potrzeby użytkowników przekładają się na działający produkt i jego zaplecze techniczne.',
+        selectedIntro: 'W opisach znajdziesz wkład Michała, użyte technologie i decyzje związane z działaniem aplikacji.',
         audience: 'Dla kogo', role: 'Zakres odpowiedzialności', navigation: 'W opisie projektu', stack: 'Technologie i zastosowanie',
         stackScope: 'Obszar', stackTools: 'Zastosowanie', previous: 'Poprzedni projekt', next: 'Następny projekt',
         contact: 'Porozmawiajmy o podobnym projekcie', related: 'Usługi związane z tym projektem',
     },
     en: {
-        title: 'Portfolio', introduction: 'Work by Michał Sałek, the full-stack developer behind Atomic Concept. Each case study explains the problem, his responsibilities and engineering decisions.',
-        confidentiality: 'Product and organization names, along with identifying project details, have been anonymized.',
+        title: 'Portfolio', introduction: 'The case studies show what each solution does and which parts Michał Sałek was responsible for.',
+        confidentiality: 'Client and product names remain confidential. Cards identify internal projects.',
         confidential: 'NDA', technologies: 'Technologies', read: 'Explore the project', all: 'All projects', selected: 'Selected work',
-        selectedIntro: 'See how user needs translate into a working product and the engineering behind it.',
+        selectedIntro: 'Each case explains Michał’s contribution, the technologies used and decisions that shaped how the application works.',
         audience: 'Who it serves', role: 'Scope of responsibility', navigation: 'In this case study', stack: 'Technologies and their use',
         stackScope: 'Area', stackTools: 'Use', previous: 'Previous project', next: 'Next project',
         contact: 'Discuss a similar project', related: 'Services relevant to this project',

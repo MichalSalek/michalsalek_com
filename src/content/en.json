@@ -20,6 +20,8 @@
     "sent": "Your message has been accepted. We will reply within one day.",
     "failed": "We could not confirm submission. Your text is still here. You can open it in your email app.",
     "sending": "Sending...",
+    "editDraft": "Back to editing",
+    "clearForm": "Clear form",
     "switchLanguage": "Zmień język na polski",
     "skip": "Skip to content",
     "notFound": "Page not found",
@@ -35,6 +37,10 @@
     "introContact": "Let's talk about your project",
     "heroTitle": "Applications, AI and automation for business",
     "heroPortfolio": "Explore our work",
+    "heroServices": "Browse services",
+    "profileExperience": "Senior Full-Stack Developer (TypeScript, Node.js). He leads Atomic Concept and has worked as a developer since 2019.",
+    "profileSkills": "Tech stack",
+    "profileContact": "Recruitment enquiries",
     "servicesTitle": "How we can help",
     "servicesIntro": "From a single integration to a complete application.",
     "breadcrumbHome": "Home",
@@ -105,7 +111,7 @@
       "title": "AI, automation and custom software for your business",
       "description": "Atomic Concept, led by Michał Sałek, delivers applications, integrations, automation and AI for businesses, from requirements through deployment and maintenance.",
       "intro": [
-        "Atomic Concept is led by Michał Sałek, a Senior Full-Stack Developer with professional experience since 2019. We develop TypeScript and Node.js backends, integrations and applications, including AI solutions. Explore the [technologies and engineering practices](/software/fullstack/)."
+        "We build applications, connect your tools and automate tasks such as processing documents."
       ]
     },
     "/software/architecture/": {
@@ -131,15 +137,18 @@
     },
     "/sound/": {
       "title": "Sound online services",
-      "description": "Online audio services by Atomic Concept. Mixing, mastering, backing tracks and original music for your recordings and video."
+      "description": "Online audio services by Atomic Concept. Mixing, mastering, backing tracks and original music for your recordings and video.",
+      "intro": ["Send us tracks for mixing and mastering, or commission music for vocals or video."]
     },
     "/sound/studio/": {
       "title": "Online mixing and mastering",
-      "description": "Online mixing and mastering by Atomic Concept. Prepare your multitracks and discuss the sound of your recording."
+      "description": "Online mixing and mastering by Atomic Concept. Prepare your multitracks and discuss the sound of your recording.",
+      "intro": ["We mix and master multitrack recordings. Tell us what you have recorded and what you want it to sound like."]
     },
     "/sound/soundtracks/": {
       "title": "Custom music and ready-made tracks",
-      "description": "Original backing tracks, soundtracks and beats by Atomic Concept for performers, videos, commercials and trailers."
+      "description": "Original backing tracks, soundtracks and beats by Atomic Concept for performers, videos, commercials and trailers.",
+      "intro": ["We compose music for vocals, films and advertising. You can also ask about licensing an existing track."]
     },
     "/contact/": {
       "title": "Contact",

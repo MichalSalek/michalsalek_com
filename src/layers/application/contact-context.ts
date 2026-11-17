@@ -6,6 +6,7 @@ export const CONTACT_ANCHOR = 'project-contact';
 export const contactTopics = {
     general: {pl: 'Zapytanie o współpracę', en: 'Cooperation enquiry'},
     software: {pl: 'Projekt oprogramowania', en: 'Software project'},
+    recruitment: {pl: 'Rozmowa rekrutacyjna', en: 'Recruitment enquiry'},
     ai: {pl: 'Wdrożenie AI', en: 'AI integration'},
     automation: {pl: 'Automatyzacja procesów', en: 'Workflow automation'},
     integrations: {pl: 'Integracje systemów', en: 'System integrations'},
@@ -62,8 +63,8 @@ export function contactContext(locale: Locale, path: PagePath, query: Record<str
     const legacy = about ? legacyTopic(about) : null;
     return {topicId: legacy ?? topicId, autoSubject: about ? (legacy ? contactTopics[legacy][locale] : about) : contactTopics[topicId][locale], sourcePath: path === '/contact/' ? knownSource(query.from) ?? localePath(locale, path) : localePath(locale, path), ...(about && !legacy ? {legacySubject: about} : {})};
 }
-export function contactHref(locale: Locale, path: PagePath): string {
-    return path === '/contact/' ? '/contact/' : `/contact/?topic=${topicForPage(path)}&from=${encodeURIComponent(localePath(locale, path))}`;
+export function contactHref(locale: Locale, path: PagePath, topic: ContactTopic = topicForPage(path)): string {
+    return path === '/contact/' && topic === 'general' ? '/contact/' : `/contact/?topic=${topic}&from=${encodeURIComponent(localePath(locale, path))}`;
 }
 export function contactPlacement(path: PagePath): ContactPlacement {
     return path === '/' ? 'home' : path === '/portfolio/' ? 'portfolio' : path.startsWith('/portfolio/') ? 'project' : path === '/contact/' ? 'contact' : path === '/sound/' ? 'sound' : 'service';

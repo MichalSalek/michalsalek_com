@@ -1,10 +1,9 @@
 {
   "intro": [
-    "This B2B dashboard serves businesses using 3D and AR virtual try-on technology. Customers manage access and API keys, check usage and handle subscriptions, while service staff use administrative tools.",
-    "A preview environment lets the team check changes before they reach production users."
+    "The dashboard gives companies using 3D and AR virtual try-on a place to manage access and API keys, check usage limits and handle subscriptions."
   ],
   "audience": "Businesses using virtual try-on technology and the people operating and administering the service.",
-  "role": "Michał Sałek was responsible for discovery, domain, interface and API design, development, deployment and application maintenance.",
+  "role": "Michał Sałek designed and delivered the dashboard and API, including how users access business account resources and how Stripe billing works. His scope also covered discovery and application maintenance.",
   "sections": [
     {
       "id": "context",

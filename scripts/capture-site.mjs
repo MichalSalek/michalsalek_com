@@ -5,6 +5,8 @@ import {createHash} from 'node:crypto';
 import {routes, site, localePath} from '../src/content/site.mjs';
 import {editorialPaths} from '../src/content/editorial.mjs';
 import {findPortfolioProject, projectsForService} from '../src/content/portfolio.mjs';
+import en from '../src/content/en.json' with {type: 'json'};
+import pl from '../src/content/pl.json' with {type: 'json'};
 
 const args = process.argv.slice(2);
 const option = name => args[args.indexOf(name) + 1];
@@ -131,6 +133,7 @@ try {
             captures.push({url, locale, viewport, prefix, expected, actual, chapterTiles});
         }
         if (viewport !== 'narrow') for (const locale of site.locales) {
+            const messages = locale === 'pl' ? pl.ui : en.ui;
             await checkedGoto(page, localePath(locale, '/software/automation/'));
             for (const [name, selector] of [['action', 'main article header a.action-link'], ['card', '.related-services [data-info-panel] a']]) {
                 const link = page.locator(selector).first();
@@ -157,19 +160,19 @@ try {
                 await page.goto(`${base}${localePath(locale, route)}`, {waitUntil: 'load'});
                 await page.locator('[name="message"]').fill('Preview draft. No message is sent.');
                 await page.locator('[name="email"]').fill('preview@example.com');
-                const send = page.getByRole('button', {name: locale === 'pl' ? 'Wyślij wiadomość' : 'Send message', exact: true});
+                const send = page.getByRole('button', {name: messages.send, exact: true});
                 if (await send.count()) {
                     await send.click();
                     const fallback = page.locator('main a.action-link[href^="mailto:"]');
                     await fallback.waitFor();
                     await complete(page.locator('.contact-form'), `${locale}-${viewport}-${variant}-failure-complete.png`);
                     await capture(page, `${locale}-${viewport}-${variant}-email-fallback.png`, fallback);
-                    await page.getByRole('button', {name: 'OK', exact: true}).click();
+                    await page.getByRole('button', {name: messages.editDraft, exact: true}).click();
                     responseStatus = 204;
                     await send.click();
                     await page.locator('.contact-feedback.sent').waitFor();
                     await complete(page.locator('.contact-form'), `${locale}-${viewport}-${variant}-acceptance-complete.png`);
-                    await page.getByRole('button', {name: 'OK', exact: true}).click();
+                    await page.getByRole('button', {name: messages.clearForm, exact: true}).click();
                     states.push({locale, viewport, variant, failure: 'captured', acceptance: 'captured'});
                 } else states.push({locale, viewport, variant, failure: 'not available: email-client mode'});
                 await page.unroute('**/*');

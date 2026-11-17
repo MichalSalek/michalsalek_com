@@ -1,10 +1,9 @@
 {
   "intro": [
-    "Główna strona marketingowa prezentuje produkt do wirtualnego przymierzania obuwia i akcesoriów w technologii 3D i AR, przeznaczony dla e-commerce. Wyjaśnia zastosowania rozwiązania, przedstawia ofertę i prowadzi do kontaktu lub umówienia spotkania.",
-    "Wspólne komponenty ułatwiają publikowanie kolejnych treści."
+    "Serwis przedstawia technologię wirtualnego przymierzania obuwia i akcesoriów. Prowadzi odwiedzających od przykładów zastosowań i oferty do kontaktu lub umówienia spotkania."
   ],
   "audience": "Marki i sprzedawcy e-commerce zainteresowani wirtualną przymierzalnią i sposobami jej wdrożenia.",
-  "role": "Michał Sałek odpowiadał za rozpoznanie potrzeb, projekt struktury, interfejsu i integracji oraz rozwój, wdrażanie i utrzymanie serwisu.",
+  "role": "Michał Sałek odpowiadał za strukturę i responsywny interfejs serwisu oraz za integracje formularzy. Prowadził prace od rozpoznania potrzeb po publikację stron w Cloudflare Pages i utrzymanie witryny.",
   "sections": [
     {
       "id": "context",

@@ -14,6 +14,7 @@ export const standardRoutes = ['/', '/software/architecture/', '/software/backen
 export const routes = [...standardRoutes, ...portfolioRoutes];
 
 export const primaryServices = ['/software/ai-automation/', '/software/automation/', '/software/integrations/', '/software/websites/', '/software/custom-software/', '/software/reporting/'];
+export const servicesAnchor = 'services';
 export const additionalServices = ['/software/fullstack/', '/sound/'];
 
 const sitemapSections = [

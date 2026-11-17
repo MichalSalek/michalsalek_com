@@ -2,7 +2,7 @@ import type {DiagramSpec, DiagramIcon} from '@/src/content/explanation-plans.mjs
 import {useLocale} from '@/src/i18n/context';
 import {DiagramGlyph} from './DiagramGlyph.atom';
 import {RichTextAtom} from '../RichText.atom';
-import styles from './contextDiagram.module.scss';
+import styles from './contextDiagram.module.css';
 
 export function DiagramSteps({steps, layout}: {steps: {title: string; detail: string; icon: DiagramIcon}[]; layout: DiagramSpec['layout']}) {
     const sequential = layout === 'flow';

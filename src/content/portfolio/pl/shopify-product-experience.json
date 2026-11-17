@@ -1,10 +1,9 @@
 {
   "intro": [
-    "Aplikacja Shopify umożliwia sprzedawcom obuwia udostępnienie klientom wirtualnej przymierzalni na stronie produktu. Obejmuje panel przygotowania produktów w administracji sklepu i elementy przymierzalni widoczne kupującym.",
-    "Panel pokazuje stan przygotowania, dostępne miejsca w planie i działania potrzebne do udostępnienia produktów."
+    "Sprzedawcy obuwia przygotowują produkty w panelu Shopify. Kupujący mogą uruchomić wirtualną przymierzalnię na stronie produktu i przejść do koszyka."
   ],
   "audience": "Sprzedawcy obuwia prowadzący sklepy Shopify oraz klienci przymierzający produkty w tych sklepach.",
-  "role": "Michał Sałek odpowiadał za rozpoznanie potrzeb, projekt zasad produktu, interfejsu i integracji oraz rozwój, wdrożenie i utrzymanie aplikacji.",
+  "role": "Michał Sałek zaprojektował i rozwijał panel dla sprzedawców, integrację z motywem sklepu i reguły rezerwowania miejsc w planie. Odpowiadał też za rozpoznanie potrzeb, wdrożenie i utrzymanie aplikacji.",
   "sections": [
     {
       "id": "context",

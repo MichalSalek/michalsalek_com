@@ -11,7 +11,7 @@ export const BreadcrumbsAtom = () => {
         <ol>
             <li><AppLinkAtom href="/sitemap/">{messages.sitemap}</AppLinkAtom></li>
             {items.map((item, index) => <li key={`${item.path}-${index}`}>
-                {index === items.length - 1 ? <span aria-current="page">{item.label}</span> : <AppLinkAtom href={item.path}>{item.label}</AppLinkAtom>}
+                {index === items.length - 1 ? <span aria-current="page">{item.label}</span> : <AppLinkAtom href={item.fragment ? `${item.path}#${item.fragment}` : item.path}>{item.label}</AppLinkAtom>}
             </li>)}
         </ol>
     </nav>;

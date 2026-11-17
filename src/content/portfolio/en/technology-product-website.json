@@ -1,10 +1,9 @@
 {
   "intro": [
-    "This main marketing website presents a 3D and AR virtual try-on product for shoes and accessories in e-commerce. It explains the use cases, presents the offer and directs visitors to contact the company or arrange a meeting.",
-    "Shared components make it easier to publish further content."
+    "The site presents virtual try-on for shoes and accessories. Visitors can explore use cases and the offer, then send an enquiry or arrange a meeting."
   ],
   "audience": "E-commerce brands and merchants interested in virtual try-on and ways to integrate it.",
-  "role": "Michał Sałek was responsible for discovery, structure, interface and integration design, development, deployment and website maintenance.",
+  "role": "Michał Sałek was responsible for the site structure, responsive interface and form integrations. He worked from discovery through publication on Cloudflare Pages and site maintenance.",
   "sections": [
     {
       "id": "context",

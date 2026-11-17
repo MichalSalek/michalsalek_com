@@ -1,15 +1,18 @@
 import Link, { type LinkProps } from 'next/link';
 import type { AnchorHTMLAttributes, ReactNode } from 'react';
-import { pageHref } from '@/src/content/site.mjs';
+import { pageHref, site } from '@/src/content/site.mjs';
 import { useLocale } from '@/src/i18n/context';
-import {contactContext} from '@/src/layers/application/contact-context';
+import {contactContext, type ContactPlacement} from '@/src/layers/application/contact-context';
 import {trackContact} from '@/src/layers/application/contact-analytics';
 
-type Props = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & Omit<LinkProps, 'href'> & {href: string; children: ReactNode};
-export const AppLinkAtom = ({href, children, onClick, ...props}: Props) => {
+type Props = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & Omit<LinkProps, 'href'> & {href: string; children: ReactNode; contactPlacement?: ContactPlacement};
+export const AppLinkAtom = ({href, children, onClick, contactPlacement, ...props}: Props) => {
     const {locale, path} = useLocale();
     return <Link {...props} href={pageHref(locale, href)} onClick={event => {
         onClick?.(event);
-        if (!event.defaultPrevented && href.split(/[?#]/)[0] === '/contact/') trackContact('contact_intent', {locale, path, topicId: contactContext(locale, path).topicId, variant: 'full', placement: props.className === 'contact-link' ? 'header' : 'footer'});
+        if (event.defaultPrevented || href.split(/[?#]/)[0] !== '/contact/') return;
+        const topic = new URL(href, site.origin).searchParams.get('topic');
+        const {topicId} = topic ? contactContext(locale, '/contact/', {topic}) : contactContext(locale, path);
+        trackContact('contact_intent', {locale, path, topicId, variant: 'full', placement: contactPlacement ?? (props.className === 'contact-link' ? 'header' : 'footer')});
     }}>{children}</Link>;
 };

@@ -2,8 +2,8 @@ import type { EditorialExhibit } from '@/src/content/editorial.mjs';
 import { RichTextAtom } from '../RichText.atom';
 import {DiagramGlyph} from './DiagramGlyph.atom';
 import {DiagramSteps} from './ContextDiagram.molecule';
-import diagramStyles from './contextDiagram.module.scss';
-import styles from './editorial.module.scss';
+import diagramStyles from './contextDiagram.module.css';
+import styles from './editorial.module.css';
 
 /** The drawing and its selectable explanation stay together in the static HTML. */
 export function EditorialExhibitMolecule({exhibit}: {exhibit: EditorialExhibit}) {

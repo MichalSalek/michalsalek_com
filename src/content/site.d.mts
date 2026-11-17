@@ -5,6 +5,7 @@ export const site: {origin: string; name: string; owner: string; email: string; 
 export const routes: PagePath[];
 export const standardRoutes: StandardPagePath[];
 export const primaryServices: PagePath[];
+export const servicesAnchor: 'services';
 export const additionalServices: PagePath[];
 export const sitemapGroups: {id: string; title: Record<Locale, string>; paths: PagePath[]}[];
 export const relatedServices: Partial<Record<PagePath, PagePath[]>>;

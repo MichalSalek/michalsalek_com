@@ -1,0 +1,9 @@
+{
+  "name": "@atomic-concept/lint-glob",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.mjs",
+  "dependencies": {
+    "glob": "14.0.6"
+  }
+}

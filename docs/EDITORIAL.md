@@ -29,8 +29,9 @@ title, caption, steps and optional exception. `ContextDiagram` draws sequences,
 parallel lanes, comparisons or a shared context with HTML labels and native SVG
 illustrations. Only genuine sequences use ordered lists and directional
 connectors. At narrow container widths they become vertical, without shrinking
-the text. Home, audio and portfolio indexes have their own concise overviews;
-contact and sitemap pages do not need explanatory artwork.
+the text. The audio index includes a short comparison of its services. The
+homepage uses its delivery timeline, and the portfolio index uses the project
+summaries to introduce the work.
 
 Keep these explanations distinct from the existing exhibits: show the mechanism
 where the prose introduces it, rather than repeating a nearby diagram. Supporting

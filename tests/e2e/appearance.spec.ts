@@ -3,6 +3,8 @@ import {editorialPaths} from '../../src/content/editorial.mjs';
 import {localePath, primaryServices, relatedServices, routes, site} from '../../src/content/site.mjs';
 import {projectsForService} from '../../src/content/portfolio.mjs';
 import {topicForPage, contactTopics} from '../../src/layers/application/contact-context';
+import en from '../../src/content/en.json' with {type: 'json'};
+import pl from '../../src/content/pl.json' with {type: 'json'};
 
 const servicePaths = editorialPaths.filter(path => !path.startsWith('/portfolio/'));
 
@@ -73,17 +75,24 @@ for (const locale of site.locales) {
         await page.locator('[name="email"]').fill('preview@example.com');
         await page.locator('[name="subject"]').fill('Feedback check');
         await page.locator('[name="message"]').fill('This request is intercepted locally.');
+        const messages = locale === 'pl' ? pl.ui : en.ui;
         for (const state of ['failed', 'sent']) {
-            await send.click();
-            await expect(page.locator(`[role="status"].${state}`)).toBeVisible();
+            await send.focus();
+            await page.keyboard.press('Enter');
+            const message = page.locator('[name="message"]');
+            const feedback = page.locator(`[role="status"].${state}`);
+            const acknowledge = page.getByRole('button', {name: state === 'failed' ? messages.editDraft : messages.clearForm, exact: true});
+            await expect(feedback).toBeVisible();
+            await expect(acknowledge).toBeFocused();
+            await expect(message).toHaveValue('This request is intercepted locally.');
+            await expect(message).toHaveJSProperty('readOnly', true);
             await checkContrast(page, '[role="status"]', `${locale} feedback ${state}`);
-            if (variant === 'compact') {
-                const textBox = (await page.locator('[name="message"]').boundingBox())!;
-                const feedbackBox = (await page.locator(`[role="status"].${state}`).boundingBox())!;
-                expect(feedbackBox.y).toBeGreaterThanOrEqual(textBox.y + textBox.height);
-                await expect(page.locator(`[role="status"].${state}`)).toHaveCSS('position', 'static');
-            }
-            await page.getByRole('button', {name: 'OK', exact: true}).click();
+            const gap = await feedback.evaluate(element => {
+                const message = element.parentElement!.querySelector('textarea[name="message"]')!;
+                return element.getBoundingClientRect().top - message.getBoundingClientRect().bottom;
+            });
+            expect(gap).toBeGreaterThanOrEqual(0);
+            await page.keyboard.press('Enter');
         }
         expect(attempts).toBe(2);
     });

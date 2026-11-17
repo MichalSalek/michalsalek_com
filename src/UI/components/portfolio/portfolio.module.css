@@ -5,6 +5,7 @@
 .page { padding-bottom: var(--space-6); }
 .indexHeader { max-width: 820px; margin: var(--space-4) 0 var(--space-6); }
 .indexHeader h1 { margin-bottom: var(--space-3); }
+.indexHeader > :global(.owner-profile) { margin-bottom: var(--space-3); }
 .lead { max-width: 760px; font-size: clamp(1.1rem, 1.5vw, 1.3rem); line-height: 1.6; }
 .confidentiality { max-width: 760px; margin: var(--space-3) 0 0; color: var(--site-muted); line-height: 1.6; }
 
@@ -23,16 +24,11 @@
 }
 .card:hover { border-color: var(--site-ink); }
 .card:focus-visible { outline: 3px solid var(--site-accent); outline-offset: 4px; }
-.artwork, .heroArtwork { position: relative; min-width: 0; margin: 0; background: var(--site-tint); }
-.artwork { display: flex; align-items: center; align-self: stretch; justify-content: center; width: 100%; min-height: 240px; }
-.artwork img, .heroArtwork img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.artwork figcaption, .heroArtwork figcaption { position: absolute; top: 5px; right: 5px; color: var(--site-muted); font-size: 6px; }
-.screenArtwork { flex-direction: column; gap: 12px; padding: 20px; }
-.screenArtwork img { height: auto; max-height: 300px; }
-.artwork figcaption.demoCaption { position: static; align-self: flex-start; color: var(--site-muted); font-size: .75rem; line-height: 1.4; }
+.artwork { display: flex; align-items: center; align-self: stretch; justify-content: center; width: 100%; min-width: 0; min-height: 240px; margin: 0; background: var(--site-tint); }
+.artwork img { display: block; width: 100%; aspect-ratio: 16 / 9; height: auto; object-fit: contain; }
 .cardCopy { display: flex; flex-direction: column; align-self: stretch; min-width: 0; padding: clamp(24px, 3vw, 40px); }
 .meta { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-3); color: var(--site-muted); font-size: .875rem; line-height: 1.5; }
-.cardCopy h2 { margin: 0 0 var(--space-1); color: var(--site-ink); font-size: clamp(1.4rem, 2.4vw, 2rem); line-height: 1.18; font-weight: 600; overflow-wrap: break-word; }
+.cardTitle { margin: 0 0 var(--space-1); color: var(--site-ink); font-size: clamp(1.4rem, 2.4vw, 2rem); line-height: 1.18; font-weight: 600; overflow-wrap: break-word; }
 .cardCopy .meta { margin-bottom: var(--space-2); }
 .cardCopy p { max-width: 690px; margin: 0 0 var(--space-3); font-size: 1rem; line-height: 1.6; }
 .read { display: inline-flex; align-items: center; align-self: flex-end; gap: var(--space-2); min-height: 44px; margin-top: auto; padding: var(--space-1) var(--space-2); border: 1px solid var(--site-accent); color: var(--site-surface); background: var(--site-accent); font-size: .875rem; font-weight: 600; text-decoration: none; transition: background-color 150ms ease, border-color 150ms ease; }

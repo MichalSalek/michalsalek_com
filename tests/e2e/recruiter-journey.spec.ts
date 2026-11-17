@@ -1,6 +1,7 @@
 import {expect, test} from '@playwright/test';
 import {portfolioMessages, portfolioPath, portfolioProjects} from '../../src/content/portfolio.mjs';
-import {localePath, site} from '../../src/content/site.mjs';
+import {localePath, servicesAnchor, site} from '../../src/content/site.mjs';
+import {contactTopics} from '../../src/layers/application/contact-context';
 
 test.beforeEach(async ({page}) => {
     await page.route('**/*', async route => {
@@ -18,13 +19,21 @@ for (const locale of site.locales) {
         await expect(home).toContainText('Michał Sałek');
         await expect(home).toContainText('2019');
         await expect(home.locator('.home-intro')).toContainText('Node.js');
-        const skills = home.getByRole('link', {name: locale === 'pl' ? 'technologie i sposób pracy' : 'technologies and engineering practices'});
+        const skills = home.locator('.owner-profile').getByRole('link', {name: locale === 'pl' ? 'Technologie' : 'Tech stack', exact: true});
         await expect(skills).toHaveAttribute('href', localePath(locale, '/software/fullstack/'));
         const contact = home.locator('.home-intro').getByRole('link', {name: locale === 'pl' ? 'Porozmawiajmy o współpracy' : 'Discuss working together'});
         await expect(contact).toHaveAttribute('href', '#project-contact');
+        await home.locator(`.home-intro a[href="#${servicesAnchor}"]`).click();
+        await expect(page.locator(`#${servicesAnchor}`)).toBeInViewport();
+        await page.goto(localePath(locale, '/software/fullstack/'));
+        await page.locator(`.breadcrumbs a[href="${localePath(locale, '/')}#${servicesAnchor}"]`).click();
+        await expect(page.locator(`#${servicesAnchor}`)).toBeInViewport();
 
         await page.goto(localePath(locale, '/portfolio/'));
-        await expect(page.locator('main header')).toContainText(locale === 'pl' ? 'Michała Sałka' : 'Michał Sałek');
+        await expect(page.locator('main header')).toContainText('Michał Sałek');
+        await page.locator('main header a[href*="topic=recruitment"]').click();
+        await expect(page.locator('[name="subject"]')).toHaveValue(contactTopics.recruitment[locale]);
+        await expect(page).toHaveURL(url => url.pathname === localePath(locale, '/contact/') && url.searchParams.get('from') === localePath(locale, '/portfolio/'));
         for (const project of portfolioProjects) {
             await page.goto(localePath(locale, portfolioPath(project)));
             const article = page.locator('main article[data-editorial-kind="project"]');

@@ -14,7 +14,7 @@ import { RichTextAtom } from '../RichText.atom';
 import { EditorialExhibitMolecule } from './EditorialExhibit.molecule';
 import {ContextDiagram} from './ContextDiagram.molecule';
 import {TechnologyList} from '../portfolio/TechnologyList.molecule';
-import styles from './editorial.module.scss';
+import styles from './editorial.module.css';
 
 type Entry = {term: string; detail: string};
 
@@ -89,15 +89,15 @@ export function EditorialArticle({document, title, artwork}: {document: Editoria
                 <div className={styles.openingCopy}>
                     <div className={styles.openingTitle}>
                         <h1>{title}</h1>
-                        {document.kind === 'project' && <div className={styles.meta}><span>{document.category}</span><span>{labels.confidential}</span></div>}
+                        {document.kind === 'project' && <div className={styles.meta}><span>{document.category}</span><strong>{labels.confidential}</strong></div>}
                     </div>
                     <div className={styles.openingNarrative}>
                         <div className={styles.intro}>{openingIntro.map((paragraph, index) => <p key={index}><RichTextAtom text={paragraph}/></p>)}</div>
-                        {document.audience && <dl className={styles.audience}><dt>{labels.audience}</dt><dd><RichTextAtom text={document.audience}/></dd></dl>}
                         {(document.kind === 'project' || document.roleAt === 'opening') && role && <div className={styles.role}><h2>{role.label}</h2><p><RichTextAtom text={role.text}/></p></div>}
                         {project && <TechnologyList technologies={project.technologies} label={labels.technologies}/>}
+                        {document.audience && <dl className={styles.audience}><dt>{labels.audience}</dt><dd><RichTextAtom text={document.audience}/></dd></dl>}
                         {demos.length > 0 && <a className={styles.demoLink} href="#editorial-demos-title">{locale === 'pl' ? 'Zobacz przykładowy widok aplikacji' : 'See an example application view'}</a>}
-                        <ContactIntentLink placement={document.kind === 'service' ? 'service' : 'project'}>{messages.introContact}</ContactIntentLink>
+                        <ContactIntentLink placement={document.kind === 'service' ? 'service' : 'project'}>{project ? labels.contact : messages.introContact}</ContactIntentLink>
                     </div>
                 </div>
                 {openingCover && <Artwork asset={openingCover} priority cover/>}
@@ -108,7 +108,7 @@ export function EditorialArticle({document, title, artwork}: {document: Editoria
                 {document.toc === 'rail' && navigation}
                 <div className={styles.chapters}>{document.chapters.map(chapter => <Chapter key={chapter.id} chapter={chapter} cover={document.cover === chapter.id ? artwork : null} role={document.kind !== 'project' && document.roleAt === chapter.id ? role : null} diagrams={(explanationPlans[path] ?? []).filter(plan => plan.chapter === chapter.id)}/>)}</div>
             </div>
-            {demos.length > 0 && <section className={styles.demos} aria-labelledby="editorial-demos-title"><h2 id="editorial-demos-title">{locale === 'pl' ? 'Przykładowy widok aplikacji' : 'An example view of the application'}</h2>{demos.map(media => <Artwork key={media.asset.src} asset={media.asset}/>)}</section>}
+            {demos.length > 0 && <section className={styles.demos} aria-labelledby="editorial-demos-title"><h2 id="editorial-demos-title" tabIndex={-1}>{locale === 'pl' ? 'Przykładowy widok aplikacji' : 'An example view of the application'}</h2>{demos.map(media => <Artwork key={media.asset.src} asset={media.asset}/>)}</section>}
             {document.stack.length > 0 && <section className={styles.stack} aria-labelledby="editorial-stack-title"><h2 id="editorial-stack-title">{labels.stack}</h2><References entries={document.stack} format={document.reference}/></section>}
             {document.kind === 'service' ? <footer className={styles.footer}>
                 {projects.length > 0 && <aside className={styles.projectExamples} aria-labelledby="project-examples-title" data-project-examples>

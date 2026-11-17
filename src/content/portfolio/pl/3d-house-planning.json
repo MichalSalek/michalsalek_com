@@ -1,10 +1,9 @@
 {
   "intro": [
-    "Wewnętrzna pracownia 3D pomaga przygotować koncepcję domu na konkretnej działce przed rozmową z architektem. Pozwala oglądać model na rzeczywistym terenie, porównywać warianty i sprawdzać ich parametry.",
-    "Działająca wersja obejmuje pomiary, przekroje, ustawienia słońca oraz eksport modelu i raportów. Planowany rozwój obejmuje rozmowę o zmianach w aplikacji i łatwiejsze przekazanie koncepcji architektowi."
+    "Pracownia 3D pomaga przygotować koncepcję domu na konkretnej działce przed rozmową z architektem. W działającej wersji można porównywać warianty, wykonywać pomiary i przekroje oraz eksportować model."
   ],
   "audience": "Osoba przygotowująca koncepcję własnego domu oraz architekt, który może ją dalej opracować.",
-  "role": "Michał Sałek odpowiada za koncepcję produktu, architekturę i implementację pracowni.",
+  "role": "Michał Sałek odpowiada za koncepcję, architekturę i implementację pracowni, w której jeden opis wymiarów zasila model Three.js oraz obliczenia dla poszczególnych wariantów.",
   "sections": [
     {
       "id": "context",

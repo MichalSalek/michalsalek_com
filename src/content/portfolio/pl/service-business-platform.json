@@ -1,10 +1,9 @@
 {
   "intro": [
-    "Platforma dla stylistek paznokci i ich klientek łączy portfolio zdjęć z wiadomościami, inspiracjami oraz historią wizyt. Pomaga pokazać wykonane stylizacje i zachować ustalenia przy kolejnych spotkaniach.",
-    "Produkt obejmuje konta, łączenie użytkowniczek kodem QR, notatki o klientkach, subskrypcje i panel administracyjny. Publiczne portfolio oraz codzienna obsługa klientek korzystają ze wspólnego systemu."
+    "Platforma łączy publiczne portfolio stylistek paznokci z wiadomościami, inspiracjami i historią wizyt, dzięki którym stylistki i klientki mogą wrócić do wcześniejszych ustaleń."
   ],
   "audience": "Stylistki paznokci prezentujące swoje prace oraz klientki przygotowujące się do wizyt.",
-  "role": "Michał Sałek odpowiada za koncepcję techniczną, architekturę i rozwój produktu od zakresu funkcji po wdrożenie i utrzymanie. W implementacji korzysta z agentów programujących oraz nadzoruje przegląd i weryfikację zmian.",
+  "role": "Michał Sałek odpowiada za koncepcję techniczną, architekturę i rozwój produktu, w tym wspólne kontrakty aplikacji i API, wdrożenia oraz diagnostykę. Korzysta z agentów kodujących i nadzoruje przegląd oraz sprawdzanie zmian.",
   "sections": [
     {
       "id": "context",
@@ -32,7 +31,7 @@
       "id": "delivery",
       "title": "Od galerii do codziennej obsługi",
       "paragraphs": [
-        "Zakres obejmuje publiczną prezentację oraz zalogowaną część aplikacji. Usługodawca zarządza materiałami i relacjami z klientami, a klient może korzystać z połączenia kont, wiadomości i inspiracji.",
+        "Publiczne portfolio i część dla zalogowanych użytkowników działają w jednym systemie. Stylistki zarządzają materiałami i notatkami o klientkach, a klientki mogą łączyć konta, wymieniać wiadomości i przesyłać inspiracje. System obejmuje także panel administracyjny.",
         "Część CRM przechowuje informacje związane z wizytami, aby kolejne spotkanie miało czytelny kontekst. Subskrypcje są powiązane z obsługą płatności Stripe, a produkt rozwijany jest jako aplikacja internetowa z osobnym API.",
         "Kolejne funkcje są dopracowywane iteracyjnie, od reguł domenowych i kontraktów danych po interfejs. Testy, środowisko stagingowe i sprawdzanie wydania poprzedzają udostępnienie zmian produkcyjnych. Utrzymanie obejmuje diagnozę zdarzeń i możliwość wycofania wydania."
       ],

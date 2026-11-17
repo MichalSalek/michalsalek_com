@@ -1,10 +1,9 @@
 {
   "intro": [
-    "This platform for nail stylists and their clients combines photo portfolios with messaging, inspiration and appointment history. It helps stylists show their work and keep track of details for future visits.",
-    "The product includes accounts, QR-code connections, client notes, subscriptions and an administration panel. Public portfolios and everyday client service share the same underlying system."
+    "The platform combines public photo portfolios with messaging, inspiration and appointment history, so nail stylists and clients can revisit what they agreed for previous visits."
   ],
   "audience": "Nail stylists presenting their work and clients preparing for appointments.",
-  "role": "Michał Sałek is responsible for the technical concept, architecture and product development from feature scope to deployment and maintenance. He uses coding agents for implementation and oversees review and verification of their changes.",
+  "role": "Michał Sałek is responsible for the technical concept, architecture and product development, including shared contracts between the app and API, releases and diagnostics. He uses coding agents and oversees review and verification of their changes.",
   "sections": [
     {
       "id": "context",
@@ -32,7 +31,7 @@
       "id": "delivery",
       "title": "From gallery to client service",
       "paragraphs": [
-        "The scope includes a public presentation and a signed-in application. Professionals manage materials and client relationships, while clients can connect accounts, exchange messages and share inspiration.",
+        "The platform brings public portfolios and a signed-in application into one system. Stylists manage their content and client notes, while clients can connect accounts, exchange messages and share inspiration. The system also includes an administration panel.",
         "CRM features retain visit information so a future appointment has useful context. Subscriptions are connected to Stripe payments, and the product is developed as a web application with a separate API.",
         "Features evolve iteratively, from domain rules and data contracts to the interface. Tests, a staging environment and release verification precede production changes. Maintenance includes event diagnosis and the ability to roll a release back."
       ],

@@ -116,20 +116,8 @@ export const explanationPlans = {
 };
 
 export const overviewExplanationPlans = {
-    '/': [diagram('overview', 'hub', 'Jak usługi łączą się z pracą firmy', 'How services connect to business work', 'Przykładowe obszary współpracy wokół jednego zadania.', 'Example areas of work around a business task.', [
-        step('form', 'Zadanie', 'Task', 'Firma opisuje potrzebę lub obecny proces.', 'A business describes a need or existing process.'),
-        step('screen', 'Aplikacja', 'Application', 'Ekrany i dane wspierają pracę użytkowników.', 'Screens and data support users’ work.'),
-        step('link', 'Integracje', 'Integrations', 'Połączenia wymieniają dane między narzędziami.', 'Connections exchange data between tools.'),
-        step('branch', 'Automatyzacja i AI', 'Automation and AI', 'Reguły lub AI mogą wspierać wybrane kroki.', 'Rules or AI can support selected steps.'),
-    ])],
     '/sound/': [diagram('overview', 'split', 'Dwie drogi pracy z dźwiękiem', 'Two ways to work with sound', 'Przegląd usług zależnie od materiału i celu.', 'Overview of services by material and purpose.', [
         step('wave', 'Twoje nagrania', 'Your recordings', 'Ślady mogą zostać zmiksowane i poddane masteringowi.', 'Tracks can be mixed and mastered.'),
         step('music', 'Nowa muzyka', 'New music', 'Muzyka może powstać do wokalu lub obrazu.', 'Music can be created for vocals or picture.'),
-    ])],
-    '/portfolio/': [diagram('overview', 'hub', 'Od potrzeb do działania', 'From needs to working tools', 'Przekrój obszarów przedstawionych w opisach projektów.', 'A cross-section of areas represented in the project descriptions.', [
-        step('person', 'Użytkownicy', 'Users', 'Projekty odpowiadają na różne zadania odbiorców.', 'Projects address different users’ tasks.'),
-        step('screen', 'Interfejsy', 'Interfaces', 'Panele i strony udostępniają informacje oraz działania.', 'Dashboards and websites provide information and actions.'),
-        step('database', 'Dane i reguły', 'Data and rules', 'Systemy przechowują dane i obsługują procesy.', 'Systems store data and handle processes.'),
-        step('link', 'Połączenia', 'Connections', 'Wybrane projekty współpracują z innymi usługami.', 'Selected projects work with other services.'),
     ])],
 };

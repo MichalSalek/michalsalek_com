@@ -41,7 +41,7 @@ should determine the next specialisation.
 The original site at `b5ed0e1` is the design reference, as defined in `../DESIGN.md`.
 Retain its cards, thumbnails, subtle credits, bordered Read More controls, contrast
 hover, article panels and contact form. Also retain the delayed subject highlight
-after a CTA, the page transition and the feedback/OK flow. Start the subject cue
+after a CTA, the page transition and the contact acknowledgement flow. Start the subject cue
 only once the field is in view and the page transition has finished. Reduced
 motion keeps a static highlight. The introduction uses a heading/body layout
 and emphasis rather than isolated paragraphs.

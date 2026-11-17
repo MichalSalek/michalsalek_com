@@ -24,9 +24,10 @@ for (const locale of site.locales) {
                     cards: rows.map(row => {
                         const copy = row.querySelector('a > div')!;
                         const action = copy.querySelector(':scope > span:last-child')!;
-                        return {row: rect(row), image: rect(row.querySelector('figure')!), title: rect(row.querySelector('h2')!), action: rect(action),
+                        return {row: rect(row), image: rect(row.querySelector('figure')!), title: rect(row.querySelector('h3')!), action: rect(action),
                             contentRight: rect(copy).right - parseFloat(getComputedStyle(copy).paddingRight)};
                     }),
+                    profileStart: rect(document.querySelector('.home-intro-copy')!).x,
                     overflow: document.documentElement.scrollWidth > window.innerWidth,
                 };
             });
@@ -36,6 +37,7 @@ for (const locale of site.locales) {
                 const [, left, right] = metrics.cards;
                 expect(Math.abs(metrics.header[0].y - metrics.header[1].y)).toBeLessThan(1.1);
                 expect(Math.abs(metrics.header[1].x - right.row.x)).toBeLessThan(1.1);
+                if (width >= 900) expect(Math.abs(metrics.profileStart - right.row.x)).toBeLessThan(1.1);
                 expect(Math.abs(metrics.cards[0].image.right - (left.row.right + right.row.x) / 2)).toBeLessThan(1.1);
                 expect(Math.abs(left.image.height - right.image.height)).toBeLessThan(1.1);
                 expect(Math.abs(left.title.y - right.title.y)).toBeLessThan(1.1);

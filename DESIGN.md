@@ -14,10 +14,28 @@ original visual treatment described below is historical wherever it conflicts wi
 this direction. Content, locale, accessibility and interaction constraints still apply.
 
 The recruiter review adds a concise, factual introduction of Michał Sałek on the
-homepage and portfolio. Project openings show his verified scope and technologies;
-client and product identities stay anonymous. Contact also welcomes recruitment
-and technical collaboration. These current instructions supersede the historical
-restrictions on personal attribution below.
+homepage and portfolio, with links to engineering practices and a contact form
+prefilled for recruitment. The homepage also links directly to the service grid.
+Project openings name a specific responsibility and keep the scope and
+technologies legible on a phone. The two demonstration images stay in the body
+of their case studies. Client and product identities stay anonymous. These
+current instructions supersede the historical restrictions on personal attribution
+below.
+
+## Style policy
+
+- Use `--site-surface` for reading text, `--site-tint` for media and secondary
+  panels, and `--site-ink`, `--site-text` and `--site-muted` for foregrounds.
+  Use `--site-accent` for primary actions and keyboard focus.
+- Shared content spans 1152px within the 1200px inner container. Its gutters
+  are 24px on desktop and 16px below 600px. The header and footer use their own 1536px
+  maximum. The two homepage introduction columns align with the project
+  showcase columns from 900px.
+- Use square corners and the shared 8, 16, 24, 32, 48 and 64px spacing scale.
+  Interactive controls reserve at least 44px where they stand alone.
+- One project card is one link. Its title and action supply the accessible
+  link name. The media frame contains the full illustration, and the action
+  stays at the bottom right.
 
 ## Previous visual reference
 
@@ -31,7 +49,7 @@ The October 2026 refresh adds static English/Polish routes, accessible navigatio
 and reliable contact handling. These changes must respect the original appearance.
 
 - Preserve the delayed three-pulse subject highlight after a service CTA, the
-  page transition and the contact feedback/OK interaction. Start the cue only
+  page transition and the contact acknowledgement flow. Start the cue only
   when its input is fully visible; use a static cue with reduced motion.
 - Keep the introduction structured with a clear heading, readable emphasis and
   deliberate desktop/mobile composition. Two bare paragraphs are insufficient.
@@ -118,8 +136,10 @@ and reliable contact handling. These changes must respect the original appearanc
 - Each offer page has one compact contact section before the footer, with an
   invitation beside a form at 900px and above. Fields are at most 680px wide,
   email precedes subject, and the message grows from six rows. The contact page
-  retains its full two-column form and twelve-row message. Compact feedback sits
-  below the message in normal flow. Contact links scroll to the section heading.
+  retains its full two-column form and twelve-row message. Feedback sits below
+  the message in both forms. After an unconfirmed submission the button returns
+  to editing. After acceptance it clears the form. Contact links scroll to the
+  section heading.
 - The indigo footer has four navigation groups and explicit light text, with
   four/two/one columns at 900/600px. Its content is at most 1536px wide. Preserve
   readable 44px links and visible hover/focus states.

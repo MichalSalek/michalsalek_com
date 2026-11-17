@@ -1,10 +1,9 @@
 {
   "intro": [
-    "This internal application helps editors and SEO specialists track the Google search positions of articles for their associated queries. Measurement history supports comparisons over time by language and device.",
-    "The React frontend was taken over unfinished. API and data formats were agreed with the team responsible for the separate Ruby on Rails backend."
+    "The tool shows editors how their articles rank in Google search over time. They can compare measurements for the same query, language and device type."
   ],
   "audience": "Editors and SEO specialists responsible for the visibility of published articles.",
-  "role": "Michał Sałek was responsible for developing the inherited frontend, preparing it for deployment and agreeing API and data formats with the backend team.",
+  "role": "Michał Sałek took over an unfinished React frontend, migrated it from JavaScript to strict TypeScript and prepared it for deployment. He agreed the API contracts with the team responsible for the separate Ruby on Rails backend.",
   "sections": [
     {
       "id": "context",

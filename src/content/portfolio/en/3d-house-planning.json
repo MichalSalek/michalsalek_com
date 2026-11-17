@@ -1,10 +1,9 @@
 {
   "intro": [
-    "This internal 3D studio helps prepare a house concept for a specific site before a discussion with an architect. It displays the model on real terrain and supports comparison of alternatives and their properties.",
-    "The working version includes measurements, sections, sun settings, and exports of the model and reports. Planned work includes an in-app conversation about changes and an easier handoff of the concept to an architect."
+    "This 3D studio helps prepare a house concept for a specific site before speaking with an architect. The working version can compare variants, take measurements, create sections and export the model."
   ],
   "audience": "A person preparing a concept for their own house and an architect who can develop it further.",
-  "role": "Michał Sałek is responsible for the product concept, architecture and implementation of the studio.",
+  "role": "Michał Sałek is responsible for the concept, architecture and implementation. One set of dimensions feeds the Three.js model and calculations for each variant.",
   "sections": [
     {
       "id": "context",

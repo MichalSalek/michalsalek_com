@@ -1,10 +1,9 @@
 {
   "intro": [
-    "Wewnętrzna aplikacja dla redaktorów i działu SEO pokazuje pozycje artykułów w wynikach wyszukiwania Google dla przypisanych zapytań. Historia pomiarów pozwala porównywać zmiany w czasie, z podziałem na język i urządzenie.",
-    "Interfejs React został przejęty w niedokończonym stanie. Formaty danych i API uzgodniono z zespołem odpowiedzialnym za osobny backend Ruby on Rails."
+    "Narzędzie pokazuje redaktorom, jak zmieniają się pozycje ich artykułów w wynikach Google. Historię można porównywać dla tego samego zapytania, języka i rodzaju urządzenia."
   ],
   "audience": "Redaktorzy i dział SEO pracujący nad widocznością publikacji.",
-  "role": "Michał Sałek odpowiadał za rozwój przejętego frontendu, przygotowanie go do wdrożenia oraz uzgodnienie API i formatów danych z zespołem backendu.",
+  "role": "Michał Sałek przejął niedokończony frontend w React, przeniósł go z JavaScriptu do TypeScriptu w trybie ścisłym i przygotował do wdrożenia. Kontrakty API uzgadniał z zespołem odpowiedzialnym za osobny backend w Ruby on Rails.",
   "sections": [
     {
       "id": "context",

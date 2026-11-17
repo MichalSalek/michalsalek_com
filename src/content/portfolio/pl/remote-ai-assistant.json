@@ -1,10 +1,9 @@
 {
   "intro": [
-    "Wewnętrzny asystent AI pozwala właścicielowi wysłać zadanie dotyczące projektu przez czat w przeglądarce lub e-mail, także z dala od własnego komputera. Zapisuje przebieg pracy i wynik, do których można później wrócić.",
-    "Platforma działa na komputerze operatora i kieruje zlecenia do lokalnych lub zewnętrznych modeli. W ramach nadanych uprawnień wykonawca może pracować w repozytorium, uruchamiać kontrole i przekazać wynik albo wdrożyć dopuszczone zmiany."
+    "Zadanie wysłane przez czat lub e-mail trafia na komputer operatora. Asystent korzysta z modeli lokalnych lub zewnętrznych i zapisuje przebieg pracy oraz wynik, do których można wrócić."
   ],
   "audience": "Właściciel prowadzący projekty i zlecający pracę na własnym stanowisku także zdalnie.",
-  "role": "Michał Sałek odpowiada za koncepcję, architekturę, implementację i utrzymanie wewnętrznej platformy asystenta AI.",
+  "role": "Michał Sałek zaprojektował, zbudował i utrzymuje platformę. Oddzielił wykonanie zadania i zapis jego wyniku od wysłania odpowiedzi, żeby nie powtarzać ukończonej pracy w razie problemu z dostarczeniem.",
   "sections": [
     {
       "id": "context",

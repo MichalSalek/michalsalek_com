@@ -22,7 +22,8 @@ prevent editing; a memory copy preserves navigation within the running tab.
 
 The dedicated contact page accepts `topic` and `from`. A recognized topic takes
 precedence over the legacy `about` parameter; saved manual text takes precedence
-over both. Legacy public labels remain recognized. `from` must exactly match a
+over both. The profile links on the homepage and portfolio use the
+`recruitment` topic. Legacy public labels remain recognized. `from` must exactly match a
 known localized path. External URLs, query strings, hashes and unknown paths are
 rejected. Without a valid source the current page supplies it.
 
@@ -32,8 +33,11 @@ contract remains `subject`, `text`, `replyTo`, `signature`. An in-memory lock
 prevents duplicate requests, including during client-side navigation. A successful
 HTTP response means the endpoint accepted the enquiry. It does not prove inbox
 delivery. Timeout and HTTP errors keep the draft; the complete email-client
-fallback remains available. The feedback button `OK` acknowledges the result:
-success clears the draft, failure retains it.
+fallback remains available. The feedback button describes its action.
+After acceptance it clears the draft, and after failure it returns to editing.
+Feedback sits below the editable
+message area. While sending or acknowledging the result, fields are read-only
+and the submit control keeps keyboard focus.
 
 ## Measurement
 

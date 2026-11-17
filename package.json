@@ -53,7 +53,8 @@
     "eslint": "9.39.5",
     "eslint-config-next": "16.4.6",
     "next-image-export-optimizer": "1.21.2",
-    "sass": "1.107.0",
+    "fast-glob": "file:tooling/lint-glob",
+    "tinyglobby": "file:tooling/lint-glob",
     "typescript": "npm:@typescript/typescript6@6.0.3",
     "@playwright/test": "1.64.1",
     "cheerio": "1.2.0",
@@ -63,6 +64,15 @@
     "sharp": "0.35.5"
   },
   "overrides": {
+    "@next/eslint-plugin-next@16.4.6": {
+      "fast-glob": "$fast-glob"
+    },
+    "eslint-import-resolver-typescript@3.10.1": {
+      "tinyglobby": "$tinyglobby"
+    },
+    "@typescript-eslint/typescript-estree@8.73.0": {
+      "tinyglobby": "$tinyglobby"
+    },
     "serve": {
       "compression": "1.8.2"
     }

@@ -4,8 +4,9 @@
 
   transition: background-color 150ms ease, border-color 150ms ease;
 
-  &:hover {
-    background-color: var(--site-tint);
-    border-color: var(--site-ink);
-  }
+}
+
+.link:hover {
+  background-color: var(--site-tint);
+  border-color: var(--site-ink);
 }

@@ -188,7 +188,7 @@
         "subtitle": "An example workflow with a person checking the result.",
         "paragraphs": [
           "Suppose a business receives enquiries containing a job description and an attached document. The application retrieves the message and AI suggests a category and extracts the agreed information. An employee sees the result alongside the source material, corrects it and approves the record for the customer management system.",
-          "If the document is missing a deadline or contains conflicting details, the enquiry is flagged for clarification. Missing details are flagged for review before the record is saved. We separately agree whether the application should prepare a draft reply, who may send it and which changes always require approval.",
+          "If the document is missing a deadline or contains conflicting details, an employee clarifies the enquiry before saving the record. We separately agree whether the application should prepare a draft reply, who may send it and which changes always require approval.",
           "We define which documents the application may use and which information may be sent to the AI provider. Processing location, data storage and access arrangements are agreed for the project. Searches of company materials should respect the permissions of the person using them.",
           "We also account for the AI service being unavailable, an incorrectly formatted response and the same message being processed again. We agree when to retry, when to notify an employee and how to prevent two records being created for one enquiry."
         ]

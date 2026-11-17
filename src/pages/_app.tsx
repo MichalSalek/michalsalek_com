@@ -7,7 +7,7 @@ import en from '@/src/content/en.json';
 import pl from '@/src/content/pl.json';
 import { useEffect, useSyncExternalStore } from 'react';
 import {useRouter} from 'next/router';
-import '@/src/UI/styles/globals.scss';
+import '@/src/UI/styles/globals.css';
 import { useRouteChangeTransitionController } from '@/src/layers/core/useRouteChangeTransition.controller';
 
 export type GeneralPageProps = SitePageProps;

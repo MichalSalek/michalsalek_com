@@ -1,10 +1,9 @@
 {
   "intro": [
-    "This internal AI assistant lets its owner send a project task through browser chat or email, including while away from their own computer. It records the work and result for later review.",
-    "The platform runs on the operator’s computer and routes requests to local or external models. Within the granted permissions, an executor can work in a repository, run checks and deliver a result or release authorized changes."
+    "A task sent by chat or email reaches the operator’s workstation. The assistant uses local or external models and records the work and its result for later review."
   ],
   "audience": "An owner managing projects and assigning work to their own workstation remotely.",
-  "role": "Michał Sałek is responsible for the concept, architecture, implementation and maintenance of the internal AI assistant platform.",
+  "role": "Michał Sałek designed, built and maintains the platform. He separated execution and result storage from sending the reply, so a delivery problem does not require repeating completed work.",
   "sections": [
     {
       "id": "context",

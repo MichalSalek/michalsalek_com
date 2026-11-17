@@ -72,6 +72,16 @@ no artifact is available, the workflow performs the full build and checks once.
 Local deployments continue to run the full checks. Both paths use the same
 `npm run deploy` entrypoint and retain the live verification and rollback gates.
 
+The dependency audit also covers development packages. The styles compile as
+plain CSS, and the existing Next.js and TypeScript ESLint rules use
+`tooling/lint-glob` for their file searches. These changes remove the audited
+Picomatch dependency paths affected by
+[GHSA-fc5q-39xc-vjpf](https://github.com/advisories/GHSA-fc5q-39xc-vjpf).
+When updating the pinned ESLint consumers, verify their file-search options
+against the adapter or remove the overrides once upstream supports an audited
+matcher. Next.js bundles its own build tooling and the host serves the static
+export without Node.js.
+
 Configure these repository or production-environment secrets before using it:
 
 - `MYDEVIL_SSH_TARGET`: the authorized SSH user and host.

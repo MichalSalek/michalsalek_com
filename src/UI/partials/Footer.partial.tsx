@@ -6,7 +6,7 @@ import { portfolioPath, portfolioProjects, portfolioMessages } from '@/src/conte
 import { primaryServices, site, standardRoutes } from '@/src/content/site.mjs';
 import { useLocale } from '@/src/i18n/context';
 import {contactHref, contactTopics, topicForPage} from '@/src/layers/application/contact-context';
-import styles from './footer.module.scss';
+import styles from './footer.module.css';
 
 const technologySlugs = ['fullstack', 'architecture', 'backend', 'frontend'];
 const projectLabels: Record<string, {en: string; pl: string}> = {

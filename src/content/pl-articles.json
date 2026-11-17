@@ -188,7 +188,7 @@
         "subtitle": "Przykładowy proces z miejscem na sprawdzenie wyniku przez człowieka.",
         "paragraphs": [
           "Załóżmy, że firma otrzymuje zapytania z opisem zlecenia i załączonym dokumentem. Aplikacja pobiera wiadomość, a AI proponuje kategorię sprawy i odczytuje uzgodnione informacje. Pracownik widzi wynik obok materiału źródłowego, poprawia go i zatwierdza wpis do systemu obsługi klientów.",
-          "Jeżeli w dokumencie brakuje terminu lub dane są sprzeczne, sprawa trafia do wyjaśnienia. Braki oznaczamy do sprawdzenia przed zapisaniem wpisu. Osobno ustalamy, czy aplikacja ma przygotować szkic odpowiedzi, kto może go wysłać i które zmiany zawsze wymagają akceptacji.",
+          "Jeżeli w dokumencie brakuje terminu lub dane są sprzeczne, pracownik wyjaśnia sprawę przed zapisaniem wpisu. Osobno ustalamy, czy aplikacja ma przygotować szkic odpowiedzi, kto może go wysłać i które zmiany zawsze wymagają akceptacji.",
           "Określamy, z jakich dokumentów wolno korzystać oraz jakie informacje mogą trafić do dostawcy AI. Miejsce przetwarzania, przechowywanie danych i zasady dostępu uzgadniamy dla projektu. Wyszukiwanie w firmowych materiałach powinno uwzględniać uprawnienia osoby, która z niego korzysta.",
           "Uwzględniamy też niedostępność usługi AI, niepoprawny format odpowiedzi i ponowne przetwarzanie tej samej wiadomości. Uzgadniamy, kiedy ponowić próbę, kiedy powiadomić pracownika i jak zapobiec utworzeniu dwóch wpisów dla jednej sprawy."
         ]

@@ -1,10 +1,9 @@
 {
   "intro": [
-    "This Shopify app lets shoe merchants offer a virtual try-on experience on their product pages. It includes a product preparation dashboard in the store administration and storefront elements used by shoppers.",
-    "The dashboard shows preparation status, available plan capacity and actions needed to make products available."
+    "Merchants prepare shoes in a Shopify dashboard. Shoppers can open the virtual try-on on a product page and continue to the cart."
   ],
   "audience": "Shoe merchants running Shopify stores and customers trying products in those stores.",
-  "role": "Michał Sałek was responsible for discovery, product rules, interface and integration design, development, deployment and application maintenance.",
+  "role": "Michał Sałek designed and developed the merchant dashboard, the store theme integration and the rules for reserving product slots. His role also covered discovery, deployment and maintenance.",
   "sections": [
     {
       "id": "context",

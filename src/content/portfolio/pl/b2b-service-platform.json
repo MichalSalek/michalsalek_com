@@ -1,10 +1,9 @@
 {
   "intro": [
-    "Panel B2B służy firmom korzystającym z technologii wirtualnej przymierzalni 3D i AR. Klienci zarządzają w nim dostępem i kluczami API, sprawdzają wykorzystanie oraz rozliczają subskrypcję, a obsługa usługi korzysta z narzędzi administracyjnych.",
-    "Środowisko podglądowe pozwala sprawdzić zmiany przed udostępnieniem ich użytkownikom produkcyjnym."
+    "Panel służy firmom korzystającym z wirtualnej przymierzalni 3D i AR. Klienci zarządzają dostępem i kluczami API, sprawdzają limity oraz obsługują subskrypcje."
   ],
   "audience": "Firmy korzystające z technologii wirtualnej przymierzalni oraz osoby obsługujące i administrujące usługą.",
-  "role": "Michał Sałek odpowiadał za rozpoznanie potrzeb, projekt domeny, interfejsu i API oraz rozwój, wdrożenie i utrzymanie aplikacji.",
+  "role": "Michał Sałek odpowiadał za zaprojektowanie i wdrożenie panelu oraz API, w tym reguł dostępu do zasobów konta firmowego i rozliczeń w Stripe. Jego zakres obejmował również analizę potrzeb i utrzymanie aplikacji.",
   "sections": [
     {
       "id": "context",

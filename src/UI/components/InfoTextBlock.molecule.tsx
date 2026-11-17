@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import styles from './infoTextBlock.module.scss';
+import styles from './infoTextBlock.module.css';
 
 export const InfoTextBlockMolecule = ({items}: {items: {heading: ReactNode; content: ReactNode}[]}) =>
     <Stack data-info-panels sx={{alignItems: 'stretch'}}>{items.map((item, index) =>

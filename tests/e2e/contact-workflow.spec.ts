@@ -1,6 +1,8 @@
 import {expect, test, type Page, type Route} from '@playwright/test';
 import {localePath, routes, site} from '../../src/content/site.mjs';
 import {contactTopics, knownSource} from '../../src/layers/application/contact-context';
+import en from '../../src/content/en.json' with {type: 'json'};
+import pl from '../../src/content/pl.json' with {type: 'json'};
 
 type EventRow = [string, string, Record<string, unknown>];
 const cors = {'access-control-allow-origin': '*', 'access-control-allow-methods': 'POST, OPTIONS', 'access-control-allow-headers': 'content-type'};
@@ -62,6 +64,7 @@ for (const locale of site.locales) {
     for (const variant of ['full', 'compact'] as const) {
         const path = variant === 'full' ? '/contact/' : '/software/backend/';
         test(`${locale} ${variant}: failed response retains data, retry sends exact payload and success clears both drafts`, async ({page}) => {
+            const messages = locale === 'pl' ? pl.ui : en.ui;
             let requests = 0;
             const payloads: unknown[] = [];
             await isolateNetwork(page, async route => {
@@ -74,7 +77,7 @@ for (const locale of site.locales) {
             const form = page.locator('form.contact-form');
             const send = form.locator('button[type="submit"]');
             await send.click();
-            await expect(form.getByRole('button', {name: 'OK', exact: true})).toBeVisible();
+            await expect(form.getByRole('button', {name: messages.editDraft, exact: true})).toBeVisible();
             const mailto = new URL((await form.locator('a[href^="mailto:"]').getAttribute('href'))!);
             expect(mailto.searchParams.get('subject')).toBe(data.subject);
             expect(mailto.searchParams.get('body')).toBe(`${data.message}\n\n${site.origin}${localePath(locale, path)}\n\n${data.name}\n${data.email}`);
@@ -84,7 +87,7 @@ for (const locale of site.locales) {
             await send.click();
             await expect(page.locator('[name="message"]')).toHaveValue(data.message);
             await send.click();
-            await expect(form.getByRole('button', {name: 'OK', exact: true})).toBeVisible();
+            await expect(form.getByRole('button', {name: messages.clearForm, exact: true})).toBeVisible();
             expect(requests).toBe(2);
             expect(payloads).toEqual(Array(2).fill({subject: data.subject, text: `${data.message}\n\n${site.origin}${localePath(locale, path)}`, replyTo: data.email, signature: data.name}));
             const telemetry = await assertEventsArePrivate(page);
@@ -142,7 +145,7 @@ test('pending delivery survives navigation and a second submit cannot send or em
     await page.locator('form.contact-form').evaluate(form => form.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true})));
     expect(requests).toBe(1);
     release();
-    await expect(page.getByRole('button', {name: 'OK', exact: true})).toBeVisible();
+    await expect(page.getByRole('button', {name: en.ui.clearForm, exact: true})).toBeVisible();
     expect(bodies).toEqual([{subject: data.subject, text: `${data.message}\n\n${site.origin}/software/backend/`, replyTo: data.email, signature: data.name}]);
     const telemetry = await assertEventsArePrivate(page);
     const leads = telemetry.filter(row => row[1] === 'generate_lead');
@@ -166,8 +169,8 @@ test('an unresponsive provider times out and retains the draft', async ({page}) 
     await page.goto('/contact/');
     await fill(page);
     await page.locator('form.contact-form button[type="submit"]').click();
-    await expect(page.getByRole('button', {name: 'OK', exact: true})).toBeVisible({timeout: 22_000});
-    await page.getByRole('button', {name: 'OK', exact: true}).click();
+    await expect(page.getByRole('button', {name: en.ui.editDraft, exact: true})).toBeVisible({timeout: 22_000});
+    await page.getByRole('button', {name: en.ui.editDraft, exact: true}).click();
     await expect(page.locator('[name="message"]')).toHaveValue(data.message);
     const telemetry = await assertEventsArePrivate(page);
     expect(telemetry.filter(row => row[1] === 'contact_error')).toHaveLength(1);
@@ -183,7 +186,7 @@ test('contact query selects a known topic and uses only a valid source in the pa
     await page.locator('[name="message"]').fill(data.message);
     await page.locator('[name="name"]').fill(data.name);
     await page.locator('form.contact-form button[type="submit"]').click();
-    await expect(page.getByRole('button', {name: 'OK', exact: true})).toBeVisible();
+    await expect(page.getByRole('button', {name: en.ui.clearForm, exact: true})).toBeVisible();
     expect(bodies).toEqual([{subject: contactTopics.backend.en, text: `${data.message}\n\n${site.origin}/pl/software/backend/`, replyTo: data.email, signature: data.name}]);
     const telemetry = await assertEventsArePrivate(page);
     expect(telemetry.filter(row => row[1] === 'generate_lead')[0][2]).toMatchObject({page_path: '/contact/', source_path: '/pl/software/backend/', topic_id: 'backend', form_variant: 'full'});

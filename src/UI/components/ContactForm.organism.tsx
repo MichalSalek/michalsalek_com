@@ -29,6 +29,10 @@ export default function ContactFormOrganism({variant, context, placement}: {vari
     const external = Boolean(process.env.NEXT_PUBLIC_CONTACT_ENDPOINT);
     const feedback = status === 'sent' || status === 'failed';
     const locked = status === 'sending' || feedback;
+    const fieldSlots = {input: {readOnly: locked}};
+    const buttonLabel = status === 'sent' ? messages.clearForm
+        : status === 'failed' ? messages.editDraft
+        : external ? messages.send : messages.openEmail;
     const eventContext = {path, locale, sourcePath: context.sourcePath, topicId: draft.subjectMode === 'manual' ? 'custom' : context.topicId, variant, placement};
     const mailto = contactMailto(site.email, subject, withContactSource(text, context.sourcePath), name, email);
     function edit(patch: Parameters<typeof update>[0]) {
@@ -54,19 +58,19 @@ export default function ContactFormOrganism({variant, context, placement}: {vari
     return <form className={`contact-form contact-form-${variant}`} data-text-export="exclude" onSubmit={submit} aria-busy={status === 'sending'}>
         <div className="contact-fields">
             <div className="contact-email">
-                <TextField label={messages.email} name="email" type="email" autoComplete="email" required={external} fullWidth disabled={locked} value={email} onChange={event => edit({email: event.target.value})}/>
+                <TextField label={messages.email} name="email" type="email" autoComplete="email" required={external} fullWidth slotProps={fieldSlots} value={email} onChange={event => edit({email: event.target.value})}/>
             </div>
             <div className="contact-message">
-                <TextField ref={subjectRef} key={context.autoSubject} className="subject-attention" label={messages.subject} name="subject" required fullWidth disabled={locked} value={subject} onChange={event => edit({subject: event.target.value})}/>
+                <TextField ref={subjectRef} key={context.autoSubject} className="subject-attention" label={messages.subject} name="subject" required fullWidth slotProps={fieldSlots} value={subject} onChange={event => edit({subject: event.target.value})}/>
                 <div className="contact-message-body">
-                    <TextField label={messages.message} name="message" required fullWidth multiline minRows={variant === 'compact' ? 6 : 12} disabled={locked} value={text} onChange={event => edit({text: event.target.value})}/>
+                    <TextField label={messages.message} name="message" required fullWidth multiline minRows={variant === 'compact' ? 6 : 12} slotProps={fieldSlots} value={text} onChange={event => edit({text: event.target.value})}/>
                     <div role="status" aria-live="polite" className={feedback ? `contact-feedback ${status}` : undefined}>{status === 'sent' ? messages.sent : status === 'failed' ? messages.failed : ''}</div>
                 </div>
-                <TextField label={messages.name} name="name" autoComplete="name" fullWidth disabled={locked} value={name} onChange={event => edit({name: event.target.value})}/>
+                <TextField label={messages.name} name="name" autoComplete="name" fullWidth slotProps={fieldSlots} value={name} onChange={event => edit({name: event.target.value})}/>
                 {!external && <p id="email-hint">{messages.emailHint}</p>}
                 {status === 'failed' && <ActionLinkAtom href={mailto} onClick={() => trackContact('contact_email_open', eventContext)}>{messages.openEmail}</ActionLinkAtom>}
-                <Button disableElevation sx={{my: '2rem', minHeight: '3rem', alignItems: 'center'}} size="large" type="submit" variant="contained" color={status === 'sent' ? 'success' : status === 'failed' ? 'error' : 'primary'} disabled={!hydrated || status === 'sending'} aria-label={status === 'sending' ? messages.sending : undefined} aria-describedby={!external ? 'email-hint' : undefined}>
-                    {status === 'sending' ? <CircularProgress thickness={20} size={24} color="inherit"/> : feedback ? 'OK' : external ? messages.send : messages.openEmail}
+                <Button disableElevation sx={{my: '2rem', minHeight: '3rem', alignItems: 'center'}} size="large" type="submit" variant="contained" color={status === 'sent' ? 'success' : status === 'failed' ? 'error' : 'primary'} disabled={!hydrated} aria-disabled={status === 'sending' || undefined} aria-label={status === 'sending' ? messages.sending : undefined} aria-describedby={!external ? 'email-hint' : undefined}>
+                    {status === 'sending' ? <CircularProgress thickness={20} size={24} color="inherit"/> : buttonLabel}
                 </Button>
             </div>
         </div>

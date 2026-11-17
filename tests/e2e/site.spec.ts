@@ -3,6 +3,7 @@ import { routes, localePath, site } from '../../src/content/site.mjs';
 import { heroMedia } from '../../src/content/media-plan.mjs';
 import {editorialPlans} from '../../src/content/editorial.mjs';
 import {contactTopics} from '../../src/layers/application/contact-context';
+import pl from '../../src/content/pl.json' with {type: 'json'};
 
 // Keep browser tests isolated from the real contact service and analytics.
 test.beforeEach(async ({page}) => {
@@ -65,15 +66,15 @@ test('contact mode is explicit and delivery feedback reflects the service respon
         await page.locator('[name="message"]').fill('Test message kept after failure');
         await send.click();
         await expect(page.getByRole('status')).toContainText('Nie udało się');
-        const feedbackBox = await page.getByRole('status').boundingBox();
-        const messageBox = await page.locator('.contact-message-body').boundingBox();
-        expect(feedbackBox!.y + feedbackBox!.height).toBeLessThanOrEqual(messageBox!.y + messageBox!.height);
+        const feedbackFits = await page.getByRole('status').evaluate(element =>
+            element.getBoundingClientRect().bottom <= element.parentElement!.getBoundingClientRect().bottom);
+        expect(feedbackFits).toBe(true);
         await expect(page.locator('[name="message"]')).toHaveValue('Test message kept after failure');
-        await page.getByRole('button', {name: 'OK', exact: true}).click();
+        await page.getByRole('button', {name: pl.ui.editDraft, exact: true}).click();
         await expect(page.locator('[name="message"]')).toHaveValue('Test message kept after failure');
         await send.click();
         await expect(page.getByRole('status')).toContainText('została przyjęta');
-        await page.getByRole('button', {name: 'OK', exact: true}).click();
+        await page.getByRole('button', {name: pl.ui.clearForm, exact: true}).click();
         await expect(page.locator('[name="message"]')).toHaveValue('');
         expect(requests).toBe(2);
     } else {
@@ -142,7 +143,7 @@ test('service cards keep readable controls, discreet credits and a stationary ho
             return channels.reduce((sum, channel, index) => sum + channel * [0.2126, 0.7152, 0.0722][index], 0);
         };
         const background = luminance(getComputedStyle(element).backgroundColor);
-        return ['h2', 'p', '.read-more'].map(selector => {
+        return ['h3', 'p', '.read-more'].map(selector => {
             const foreground = luminance(getComputedStyle(element.querySelector(selector)!).color);
             return (Math.max(foreground, background) + 0.05) / (Math.min(foreground, background) + 0.05);
         });

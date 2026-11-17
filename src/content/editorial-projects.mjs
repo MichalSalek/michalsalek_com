@@ -54,16 +54,7 @@ export const projectEditorialPlans = {
             },
             {
                 id: 'storefront', title: text('Na stronie produktu i telefonie', 'On the product page and phone'), layout: 'feature',
-                take: [{section: 0, paragraphs: [1], items: [3]}], exhibitPosition: 'after',
-                exhibit: {
-                    icons: ['screen', 'link', 'task'], kind: 'delivery', title: text('Kontynuacja zakupów', 'Continuing the shopping journey'),
-                    caption: text('Schemat pokazuje związek strony produktu, przejścia na telefon i koszyka sklepu.', 'The diagram connects the product page, mobile handoff and store cart.'),
-                    items: [
-                        item('Strona produktu', 'Product page', 'Kupujący otwiera interaktywną prezentację.', 'The shopper opens the interactive experience.'),
-                        item('Kod QR', 'QR code', 'Pozwala kontynuować prezentację na telefonie.', 'Allows the experience to continue on a phone.'),
-                        item('Koszyk sklepu', 'Store cart', 'Wybrane produkty mogą trafić do koszyka.', 'Selected products can be added to the cart.'),
-                    ],
-                },
+                take: [{section: 0, paragraphs: [1], items: [3]}],
             },
             {id: 'integration', title: text('Integracja i zadania w tle', 'Integration and background tasks'), layout: 'reference', take: [{section: 2, paragraphs: 'all', items: 'all'}]},
         ],
@@ -73,16 +64,7 @@ export const projectEditorialPlans = {
         chapters: [
             {
                 id: 'paths', title: text('Ścieżki przez serwis', 'Paths through the website'), layout: 'ledger',
-                take: [{section: 0, paragraphs: [0], items: [0, 1, 2]}], exhibitPosition: 'after',
-                exhibit: {
-                    icons: ['screen', 'document', 'mail'], kind: 'lineage', title: text('Różne pytania, różne materiały', 'Different questions, different resources'),
-                    caption: text('Zestawienie przedstawia trzy sposoby korzystania z serwisu produktowego.', 'This overview presents three ways to explore the product website.'),
-                    items: [
-                        item('Zastosowania', 'Use cases', 'Opis produktu, obrazy i wideo pomagają poznać możliwości.', 'Product descriptions, images and video introduce its uses.'),
-                        item('Oferta i zasoby', 'Offer and resources', 'Materiały pomagają zapoznać się z ofertą.', 'Resources help visitors understand the offer.'),
-                        item('Kontakt', 'Contact', 'Formularz i ścieżka spotkania służą dalszej rozmowie.', 'A form and a meeting path support a conversation.'),
-                    ],
-                },
+                take: [{section: 0, paragraphs: [0], items: [0, 1, 2]}],
             },
             {
                 id: 'media', title: text('Treść, obraz i wideo', 'Text, images and video'), layout: 'split',
@@ -115,7 +97,7 @@ export const projectEditorialPlans = {
         ],
     },
     '/portfolio/editorial-search-analytics/': {
-        opening: 'feature', cover: 'article-history', toc: 'none', reference: 'glossary', roleAt: 'opening',
+        opening: 'feature', cover: 'article-history', toc: 'inline', reference: 'glossary', roleAt: 'opening',
         chapters: [
             {
                 id: 'article-history', title: text('Powrót do artykułu', 'Returning to an article'), layout: 'aside',
@@ -139,20 +121,23 @@ export const projectEditorialPlans = {
         chapters: [
             {
                 id: 'relationship', title: text('Od portfolio do relacji', 'From portfolio to relationship'), layout: 'split',
-                take: [{section: 0, paragraphs: 'all', items: [0, 1]}], exhibitPosition: 'after',
-                exhibit: {
-                    icons: ['screen', 'link', 'clock'], kind: 'lineage', title: text('Wspólny kontekst współpracy', 'Shared context for the relationship'),
-                    caption: text('Zestawienie pokazuje, jak prezentacja prac i połączenie kont wiążą się z kontekstem kolejnych wizyt.', 'This overview shows how published work and connected accounts relate to the context of future appointments.'),
-                    items: [
-                        item('Portfolio', 'Portfolio', 'Galeria przedstawia styl i realizacje usługodawcy.', 'The gallery presents the professional’s style and work.'),
-                        item('Połączenie kont', 'Connected accounts', 'Kod QR pomaga powiązać klienta z usługodawcą.', 'A QR code helps connect the client and professional.'),
-                        item('Kontekst wizyty', 'Appointment context', 'Inspiracje, rozmowa i historia wspierają dalszą współpracę.', 'Inspiration, conversation and history support the ongoing relationship.'),
-                    ],
-                },
+                take: [{section: 0, paragraphs: 'all', items: [0, 1]}],
             },
             {id: 'service-work', title: text('Publiczna prezentacja i codzienna obsługa', 'Public presentation and daily service'), layout: 'ledger', take: [{section: 0, items: [2]}, {section: 1, paragraphs: [0, 1], items: 'all'}]},
             {id: 'product-care', title: text('Rozwój i utrzymanie produktu', 'Developing and maintaining the product'), layout: 'prose', take: [{section: 1, paragraphs: [2]}]},
-            {id: 'system-integrity', title: text('Spójność danych i diagnostyka', 'Data consistency and diagnostics'), layout: 'reference', reference: 'glossary', take: [{section: 2, paragraphs: 'all', items: 'all'}]},
+            {
+                id: 'system-integrity', title: text('Spójność danych i diagnostyka', 'Data consistency and diagnostics'), layout: 'reference', reference: 'glossary',
+                take: [{section: 2, paragraphs: 'all', items: 'all'}], exhibitPosition: 'after',
+                exhibit: {
+                    icons: ['document', 'screen', 'server'], kind: 'layers', title: text('Wspólne kontrakty aplikacji i API', 'Shared app and API contracts'),
+                    caption: text('Aplikacja i API korzystają ze sprawdzanych kopii tych samych definicji.', 'The app and API use checked copies of the same definitions.'),
+                    items: [
+                        item('Wspólne definicje', 'Shared definitions', 'Obejmują typy, walidatory i definicje API.', 'They cover types, validators and API definitions.'),
+                        item('Aplikacja', 'App', 'Korzysta z definicji przy wymianie danych z API.', 'It uses the definitions when exchanging data with the API.'),
+                        item('API', 'API', 'Korzysta z tych samych definicji po stronie serwera.', 'It uses the same definitions on the server.'),
+                    ],
+                },
+            },
         ],
     },
     '/portfolio/remote-ai-assistant/': {
@@ -160,17 +145,7 @@ export const projectEditorialPlans = {
         chapters: [
             {
                 id: 'one-job', title: text('Dwa kanały, jedno zadanie', 'Two channels, one job'), layout: 'feature',
-                take: [{section: 0, paragraphs: 'all', items: 'all'}], exhibitPosition: 'before',
-                exhibit: {
-                    icons: ['mail', 'task', 'database', 'mail'], kind: 'delivery', title: text('Wykonanie i dostarczenie', 'Execution and delivery'),
-                    caption: text('Schemat rozdziela pracę nad zadaniem od przekazania odpowiedzi w kanale kontaktu.', 'The diagram distinguishes work on a job from delivery of the response through a contact channel.'),
-                    items: [
-                        item('Przyjęcie', 'Acceptance', 'Wiadomość prowadzi do zapisu zadania.', 'A message leads to a recorded job.'),
-                        item('Wykonanie', 'Execution', 'Wybrany wykonawca realizuje uprawnioną pracę.', 'The selected executor performs authorized work.'),
-                        item('Wynik', 'Result', 'Rezultat pracy jest zapisany oddzielnie od wysyłki.', 'The work result is recorded separately from sending.'),
-                        item('Dostarczenie', 'Delivery', 'Odpowiedź trafia do kanału związanego z rozmową.', 'The response reaches the channel associated with the conversation.'),
-                    ],
-                },
+                take: [{section: 0, paragraphs: 'all', items: 'all'}],
             },
             {
                 id: 'processes', title: text('Procesy na stanowisku operatora', 'Processes on the operator’s workstation'), layout: 'ledger',
