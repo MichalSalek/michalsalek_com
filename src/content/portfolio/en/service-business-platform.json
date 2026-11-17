@@ -1,16 +1,16 @@
 {
   "intro": [
-    "A service professional needs a place to present their work and retain the context of a client conversation once an appointment is arranged. This platform combines photo portfolios, inspiration and messaging with the history of the relationship.",
-    "The product also includes accounts, subscriptions and administration. Published work and everyday client service can therefore share the same underlying system."
+    "This platform for nail stylists and their clients combines photo portfolios with messaging, inspiration and appointment history. It helps stylists show their work and keep track of details for future visits.",
+    "The product includes accounts, QR-code connections, client notes, subscriptions and an administration panel. Public portfolios and everyday client service share the same underlying system."
   ],
-  "audience": "Service professionals presenting their work and clients preparing for appointments.",
-  "role": "Atomic Concept is responsible for the technical concept, architecture and full product lifecycle, from feature scope to deployment and maintenance. Implementation uses coding agents, with code review and verification of their changes.",
+  "audience": "Nail stylists presenting their work and clients preparing for appointments.",
+  "role": "Michał Sałek is responsible for the technical concept, architecture and product development from feature scope to deployment and maintenance. He uses coding agents for implementation and oversees review and verification of their changes.",
   "sections": [
     {
       "id": "context",
       "title": "A portfolio and the relationship that follows",
       "paragraphs": [
-        "A photo can help a client choose a professional, but the relationship continues beyond a gallery visit. Inspiration and conversation are useful before an appointment, while previous details provide context for future visits.",
+        "Photos of nail designs help a client choose a stylist. Inspiration and conversation are useful before an appointment, while previous details provide context for future visits.",
         "The platform brings these needs together with tools for running the service. A client and professional can connect their accounts with a QR code and then work within the context of that relationship."
       ],
       "items": [

@@ -1,4 +1,22 @@
-.steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-3); list-style: none; margin: 0; padding: 0; }
-.steps li { display: flex; flex-direction: column; gap: var(--space-1); }
+.steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin: var(--space-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.steps::before { content: ''; position: absolute; top: 5px; right: 0; left: 0; height: 1px; background: var(--site-border); }
+.steps li { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-1); }
+.steps li::before { content: ''; display: block; width: 11px; height: 11px; margin-bottom: var(--space-1); background: var(--site-accent); }
 .steps strong { color: var(--site-ink); }
-@media (max-width: 899px) { .steps { grid-template-columns: 1fr; gap: var(--space-2); } }
+.steps span { line-height: 1.55; }
+@media (max-width: 899px) {
+  .steps { grid-template-columns: minmax(0, 1fr); gap: var(--space-3); }
+  .steps::before { top: 5px; right: auto; bottom: 0; left: 5px; width: 1px; height: auto; }
+  .steps li { display: grid; grid-template-columns: 11px minmax(0, 1fr); column-gap: var(--space-2); row-gap: 4px; }
+  .steps li::before { grid-row: 1 / 3; margin: 6px 0 0; }
+  .steps strong { align-self: start; }
+  .steps span { grid-column: 2; }
+}

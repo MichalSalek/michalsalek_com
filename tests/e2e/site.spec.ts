@@ -125,13 +125,29 @@ test('static content and language links work without JavaScript', async ({browse
     await context.close();
 });
 
-test('the original card treatment keeps readable controls, discreet credits and a stationary hover', async ({page}) => {
+test('service cards keep readable controls, discreet credits and a stationary hover', async ({page}) => {
     await page.goto('/');
     const card = page.locator('.service-card').first();
-    const title = card.locator('h2');
-    await expect(title).toHaveCSS('color', 'rgb(255, 255, 255)');
-    await expect(card.locator('.read-more')).toHaveCSS('color', 'rgb(255, 255, 255)');
-    await expect(card.locator('p').first()).toHaveCSS('color', 'rgb(255, 255, 255)');
+    const ratios = await card.evaluate(element => {
+        const canvas = document.createElement('canvas');
+        canvas.width = canvas.height = 1;
+        const context = canvas.getContext('2d')!;
+        const luminance = (color: string) => {
+            context.fillStyle = color;
+            context.fillRect(0, 0, 1, 1);
+            const channels = [...context.getImageData(0, 0, 1, 1).data].slice(0, 3).map(value => {
+                const channel = value / 255;
+                return channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+            });
+            return channels.reduce((sum, channel, index) => sum + channel * [0.2126, 0.7152, 0.0722][index], 0);
+        };
+        const background = luminance(getComputedStyle(element).backgroundColor);
+        return ['h2', 'p', '.read-more'].map(selector => {
+            const foreground = luminance(getComputedStyle(element.querySelector(selector)!).color);
+            return (Math.max(foreground, background) + 0.05) / (Math.min(foreground, background) + 0.05);
+        });
+    });
+    for (const ratio of ratios) expect(ratio).toBeGreaterThanOrEqual(4.5);
     await expect(card.locator('.read-more')).toHaveCSS('text-decoration-line', 'none');
     await expect(card.locator('figcaption')).toHaveCount(0);
     await card.scrollIntoViewIfNeeded();
@@ -157,7 +173,7 @@ test('the original card treatment keeps readable controls, discreet credits and 
     await expect(credit).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
 });
 
-test('mixed service media load with responsive sources and contextual article content', async ({page}) => {
+test('service illustrations load with responsive sources and contextual article content', async ({page}) => {
     await page.goto('/pl/');
     const thumbnails = page.locator('.service-artwork-card img');
     await expect(thumbnails).toHaveCount(8);
@@ -192,15 +208,15 @@ test('service entry pages have distinct opening scenes, readable scope and an im
     await expect(page.locator('[name="subject"]')).not.toHaveValue('');
     await page.goto('/pl/');
     const kinds = await page.locator('.service-artwork-card').evaluateAll(nodes => nodes.slice(0, 6).map(node => node.classList.contains('service-artwork-photo') ? 'photo' : 'illustration'));
-    expect(kinds).toEqual(['illustration', 'photo', 'illustration', 'photo', 'illustration', 'photo']);
-    await expect(page.locator('[data-asset="payment-and-fulfilment"] img')).toHaveCSS('object-fit', 'contain');
+    expect(kinds).toEqual(Array(6).fill('illustration'));
+    await expect(page.locator('[data-asset="ac-integrations"] img')).toHaveCSS('object-fit', 'contain');
     await expect(page.locator('.enquiry-answers dt')).toHaveCount(3);
 });
 
 test('contextual article explainers remain complete vectors inside the reading column', async ({page}) => {
-    for (const path of ['/software/custom-software/', '/software/reporting/', '/software/fullstack/']) {
+    for (const [path, id] of [['/software/custom-software/', 'record-access'], ['/software/reporting/', 'missing-data'], ['/software/fullstack/', 'change-verification']]) {
         await page.goto(localePath('pl', path));
-        const image = page.locator('main img[src$=".svg"]').first();
+        const image = page.locator(`main [data-asset="${id}"] img`);
         await image.scrollIntoViewIfNeeded();
         await expect(image).toHaveAttribute('src', /\.svg$/);
         expect((await image.boundingBox())!.width).toBeGreaterThan(0);
@@ -266,7 +282,7 @@ test('a real service CTA produces three visible pulses without moving or focusin
     expect(cue.opacity).toBe('1');
     expect(cue.focused).toBe(false);
     const changes = cue.samples.filter((sample, index, all) => index === 0 || sample.background !== all[index - 1].background);
-    expect(changes.filter(sample => sample.background === 'rgb(232, 234, 246)')).toHaveLength(3);
+    expect(changes.filter(sample => sample.background === 'rgb(241, 242, 241)')).toHaveLength(3);
     expect(new Set(cue.samples.map(sample => `${sample.width}:${sample.height}`)).size).toBe(1);
     expect(await page.evaluate(() => scrollY)).toBe(cue.scroll);
 });
@@ -291,9 +307,9 @@ test('reduced motion retains a static subject cue without animation', async ({pa
     await page.goto('/pl/contact/?topic=backend');
     await expect(page.locator('[name="subject"]')).toHaveValue(contactTopics.backend.pl);
     const inputBox = page.locator('.subject-attention .MuiOutlinedInput-root');
-    await expect(inputBox).toHaveCSS('background-color', 'rgb(232, 234, 246)');
+    await expect(inputBox).toHaveCSS('background-color', 'rgb(241, 242, 241)');
     await page.waitForTimeout(1500);
-    await expect(inputBox).toHaveCSS('background-color', 'rgb(232, 234, 246)');
+    await expect(inputBox).toHaveCSS('background-color', 'rgb(241, 242, 241)');
     expect(await page.evaluate(() => window.__subjectCue.started)).toBe(false);
 });
 

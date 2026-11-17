@@ -6,10 +6,10 @@
     "sitemap": "Sitemap",
     "readMore": "Read More",
     "related": "Related services",
-    "talk": "Do you want to talk?",
+    "talk": "Discuss working together",
     "ask": "Tell us about your project",
     "general": "General question",
-    "contactIntro": "**We reply within one day.** We are happy to discuss your idea, assess the options and suggest the next steps. You do not need a specification.",
+    "contactIntro": "**We reply within one day.** Contact us about a project, technical collaboration or hiring. You do not need a finished specification to start the conversation.",
     "email": "Your email",
     "name": "Your name (optional)",
     "subject": "Subject",
@@ -33,6 +33,10 @@
     "relatedIntro": "See how else we can help you:",
     "introTitle": "From idea to deployment and maintenance",
     "introContact": "Let's talk about your project",
+    "heroTitle": "Applications, AI and automation for business",
+    "heroPortfolio": "Explore our work",
+    "servicesTitle": "How we can help",
+    "servicesIntro": "From a single integration to a complete application.",
     "breadcrumbHome": "Home",
     "breadcrumbSoftware": "Software",
     "breadcrumbSound": "Sound",
@@ -99,9 +103,9 @@
   "pages": {
     "/": {
       "title": "AI, automation and custom software for your business",
-      "description": "Atomic Concept delivers websites, applications, integrations, automation and AI for businesses, from requirements and implementation to deployment and maintenance.",
+      "description": "Atomic Concept, led by Michał Sałek, delivers applications, integrations, automation and AI for businesses, from requirements through deployment and maintenance.",
       "intro": [
-        "We build websites and applications, connect business tools and implement automation and AI. We start by understanding how you work and what you want to improve. We propose a scope that fits that task, without unnecessary features."
+        "Atomic Concept is led by Michał Sałek, a Senior Full-Stack Developer with professional experience since 2019. We develop TypeScript and Node.js backends, integrations and applications, including AI solutions. Explore the [technologies and engineering practices](/software/fullstack/)."
       ]
     },
     "/software/architecture/": {
@@ -139,7 +143,7 @@
     },
     "/contact/": {
       "title": "Contact",
-      "description": "Contact Atomic Concept about your idea or a problem you want to solve. We reply within one day to discuss what is possible and the next steps."
+      "description": "Contact Atomic Concept about a project, technical collaboration or hiring. We reply within one day."
     },
     "/sitemap/": {
       "title": "Sitemap",

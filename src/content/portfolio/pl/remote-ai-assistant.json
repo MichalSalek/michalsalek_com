@@ -1,10 +1,10 @@
 {
   "intro": [
-    "Praca nad projektem nie zawsze zaczyna się przy komputerze, na którym znajduje się repozytorium. Wewnętrzna platforma pozwala przekazać zadanie przez czat lub e-mail i wrócić do jego przebiegu oraz wyniku.",
-    "Asystent działa na własnym komputerze operatora. Łączy modele lokalne i zewnętrzne z uprawnioną pracą w repozytoriach, kontrolami oraz przekazaniem rezultatu lub dopuszczonym wdrożeniem."
+    "Wewnętrzny asystent AI pozwala właścicielowi wysłać zadanie dotyczące projektu przez czat w przeglądarce lub e-mail, także z dala od własnego komputera. Zapisuje przebieg pracy i wynik, do których można później wrócić.",
+    "Platforma działa na komputerze operatora i kieruje zlecenia do lokalnych lub zewnętrznych modeli. W ramach nadanych uprawnień wykonawca może pracować w repozytorium, uruchamiać kontrole i przekazać wynik albo wdrożyć dopuszczone zmiany."
   ],
   "audience": "Właściciel prowadzący projekty i zlecający pracę na własnym stanowisku także zdalnie.",
-  "role": "Atomic Concept odpowiada za koncepcję, architekturę, implementację i utrzymanie wewnętrznej platformy asystenta AI.",
+  "role": "Michał Sałek odpowiada za koncepcję, architekturę, implementację i utrzymanie wewnętrznej platformy asystenta AI.",
   "sections": [
     {
       "id": "context",
@@ -54,7 +54,8 @@
       "id": "engineering",
       "title": "Decyzje techniczne",
       "paragraphs": [
-        "Najważniejsza jest możliwość odtworzenia przebiegu zadania i odróżnienia pracy wykonanej od wiadomości, która dopiero czeka na dostarczenie."
+        "Najważniejsza jest możliwość odtworzenia przebiegu zadania i odróżnienia pracy wykonanej od wiadomości, która dopiero czeka na dostarczenie.",
+        "Zdalny dostęp do panelu wymaga autoryzowanego urządzenia, a poczta przyjmuje zadania od dozwolonych nadawców. Można też wymagać weryfikacji podpisu DKIM; dostęp do wrażliwych ustawień chroni osobne potwierdzenie."
       ],
       "items": [
         {

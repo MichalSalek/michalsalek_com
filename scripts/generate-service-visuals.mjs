@@ -26,7 +26,7 @@ async function derivative(id,variant,caption,locale){
   if(caption){
    const art=await sharp(source).resize({width:560,height:490,fit:'contain',background:'#fff'}).png().toBuffer();
    const lines=titleLines(caption.title);
-   const text=Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><rect width="1200" height="630" fill="white"/><text x="625" y="125" font-family="Arial,sans-serif" font-size="22" fill="#1a237e">Atomic Concept</text>${lines.map((line,index)=>`<text x="625" y="${215+index*50}" font-family="Arial,sans-serif" font-size="38" fill="#1a237e">${escapeXml(line)}</text>`).join('')}<text x="625" y="555" font-family="Arial,sans-serif" font-size="22" fill="#5e6273">Portfolio</text></svg>`);
+   const text=Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><rect width="1200" height="630" fill="white"/><text x="625" y="125" font-family="Arial,sans-serif" font-size="22" fill="#a13d25">Atomic Concept</text>${lines.map((line,index)=>`<text x="625" y="${215+index*50}" font-family="Arial,sans-serif" font-size="38" fill="#202522">${escapeXml(line)}</text>`).join('')}<text x="625" y="555" font-family="Arial,sans-serif" font-size="22" fill="#59645d">Portfolio</text></svg>`);
    pipeline=sharp(text).composite([{input:art,left:32,top:70}]);
   }else pipeline=sharp(source,{density:144}).resize({width:1200,height:630,fit:entry.kind==='illustration'?'contain':'cover',background:'#fff',position:'centre'});
   const data=await pipeline.flatten({background:'#fff'}).jpeg({quality:94,chromaSubsampling:'4:4:4'}).toBuffer();
@@ -39,7 +39,7 @@ async function derivative(id,variant,caption,locale){
  const variants=[];
  for(const w of widths){
   // DECISION: Preserve the complete illustration; only photographs may be cropped.
-  const pipeline=sharp(source).resize(variant==='card'?{width:w,height:Math.round(w/1.5),fit:entry.kind==='illustration'?'contain':'cover',background:'#fff',position:'centre',withoutEnlargement:true,kernel:'lanczos3'}:{width:w,withoutEnlargement:true,kernel:'lanczos3'});
+  const pipeline=sharp(source).resize(variant==='card'?{width:w,height:Math.round(w/1.5),fit:entry.kind==='photo'?'cover':'contain',background:'#fff',position:'centre',withoutEnlargement:true,kernel:'lanczos3'}:{width:w,withoutEnlargement:true,kernel:'lanczos3'});
   // DECISION: Encoding quality is explicit per asset/placement; preserve original card text while keeping covers fast.
   const quality=entry.webpQuality??(variant==='wide'?entry.wideWebpQuality:undefined);
   const encoding=quality?{quality,smartSubsample:true,effort:6}:variant==='card'||entry.kind==='illustration'||entry.kind==='screenshot'?{lossless:true,effort:6}:{quality:94,smartSubsample:true,effort:6};
@@ -47,7 +47,7 @@ async function derivative(id,variant,caption,locale){
   const src=await save(`${id}-${variant}-${w}`,data);variants.push({src,width:w});
  }
  const fallback=variants.find(v=>v.width>= (variant==='card'?750:1200))??variants.at(-1);
- const result={id,kind:entry.kind,src:fallback.src,srcSet:variants.map(v=>`${v.src} ${v.width}w`).join(', '),width:variant==='card'?375:width,height:variant==='card'?250:height,credit:entry.credit};
+ const result={id,kind:entry.kind,src:fallback.src,srcSet:variants.map(v=>`${v.src} ${v.width}w`).join(', '),width:variant==='card'?375:width,height:variant==='card'?250:height,credit:entry.credit,...(entry.kind==='screenshot'?{fullSrc:variants.at(-1).src}:{})};
  if(entry.mobileSources?.[locale]&&variant!=='mobile'){
   const mobile=await derivative(id,'mobile',undefined,locale);result.mobile={src:mobile.src,width:mobile.width,height:mobile.height};
  }

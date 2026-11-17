@@ -65,7 +65,7 @@ export default function ContactFormOrganism({variant, context, placement}: {vari
                 <TextField label={messages.name} name="name" autoComplete="name" fullWidth disabled={locked} value={name} onChange={event => edit({name: event.target.value})}/>
                 {!external && <p id="email-hint">{messages.emailHint}</p>}
                 {status === 'failed' && <ActionLinkAtom href={mailto} onClick={() => trackContact('contact_email_open', eventContext)}>{messages.openEmail}</ActionLinkAtom>}
-                <Button sx={{my: '2rem', minHeight: '3rem', alignItems: 'center'}} size="large" type="submit" variant="contained" color={status === 'sent' ? 'success' : status === 'failed' ? 'error' : 'primary'} disabled={!hydrated || status === 'sending'} aria-label={status === 'sending' ? messages.sending : undefined} aria-describedby={!external ? 'email-hint' : undefined}>
+                <Button disableElevation sx={{my: '2rem', minHeight: '3rem', alignItems: 'center'}} size="large" type="submit" variant="contained" color={status === 'sent' ? 'success' : status === 'failed' ? 'error' : 'primary'} disabled={!hydrated || status === 'sending'} aria-label={status === 'sending' ? messages.sending : undefined} aria-describedby={!external ? 'email-hint' : undefined}>
                     {status === 'sending' ? <CircularProgress thickness={20} size={24} color="inherit"/> : feedback ? 'OK' : external ? messages.send : messages.openEmail}
                 </Button>
             </div>

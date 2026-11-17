@@ -6,14 +6,15 @@ applications and custom systems. The audience should not need technical knowledg
 
 Present Atomic Concept as an implementation company responsible for a complete
 engagement: discovery, design, engineering, integration, testing, deployment and
-agreed maintenance. Use company voice. No founder biography, career timeline,
-recruitment framing, personal remote-work narrative or GitHub links in marketing.
-Legal company identification can remain in the footer. Do not invent staff size,
-clients, certifications or delivery guarantees to create a corporate appearance.
+agreed maintenance. Use company voice for the offer. A concise, factual reference
+to founder Michał Sałek, his role and professional experience helps recruiters
+connect the work to the person. Contact also welcomes recruitment enquiries. Do
+not invent staff size, clients, certifications or delivery guarantees to create
+a corporate appearance. Do not publish a private CV or source-code profiles.
 
-The portfolio uses the same company voice. Attribute responsibility to Atomic
-Concept throughout both languages, without individual names or career details.
-Keep the actual technical contribution precise.
+The portfolio names Michał Sałek and describes his verified project responsibility
+in both languages. Keep client and product identities anonymous and distinguish
+his own contribution from work by other teams.
 
 ## Voice and evidence
 

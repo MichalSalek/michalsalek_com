@@ -1,8 +1,8 @@
 .container { color: var(--site-text); padding-bottom: var(--space-6); }
 .article { min-width: 0; background: var(--site-surface); line-height: 1.7; overflow-wrap: break-word; }
 .article :where(h1, h2, h3) { color: var(--site-ink); line-height: 1.2; }
-.article h1 { margin: 0 0 var(--space-3); font-size: clamp(2rem, 4.8vw, 3.75rem); font-weight: 400; }
-.article h2 { margin: 0 0 var(--space-3); font-size: clamp(1.65rem, 3vw, 2.4rem); font-weight: 400; }
+.article h1 { margin: 0 0 var(--space-3); font-size: clamp(2rem, 4.8vw, 3.75rem); font-weight: 600; letter-spacing: -.035em; }
+.article h2 { margin: 0 0 var(--space-3); font-size: clamp(1.65rem, 3vw, 2.4rem); font-weight: 600; letter-spacing: -.02em; }
 .article h3 { margin: 0 0 var(--space-1); font-size: 1.15rem; font-weight: 600; }
 .article p { margin: 0 0 var(--space-2); }
 .article :where(a:not(:global(.action-link))) { color: var(--site-ink); }
@@ -17,6 +17,7 @@
 .role { margin-top: var(--space-3); max-width: 700px; }
 .role h2 { margin-bottom: var(--space-1); }
 .openingNarrative > :global(.action-link) { margin-top: var(--space-1); }
+.demoLink { display: block; width: fit-content; min-height: 44px; padding: 10px 0; text-underline-offset: 3px; }
 .artwork { position: relative; width: 100%; min-width: 0; align-self: center; margin: var(--space-3) 0; background: var(--site-surface); }
 .artwork picture, .artwork img { display: block; width: 100%; }
 .artwork img { height: auto; max-height: 560px; object-fit: contain; }
@@ -26,11 +27,16 @@
 .artwork.applicationDemo { grid-column: 1 / -1; }
 .artwork.applicationDemo img { max-height: none; object-fit: contain; }
 .artwork.applicationDemo figcaption { position: static; margin-top: var(--space-2); font-size: 1rem; line-height: 1.6; color: var(--site-muted); }
+.enlarge { display: inline-flex; align-items: center; min-height: 44px; color: var(--site-ink); text-underline-offset: 3px; }
 .inlineArtwork { max-width: 200px; margin: var(--space-3) auto; }
 .opening > .artwork { margin: 0; }
 .opening_essay .openingCopy { max-width: 100%; }
 .opening_essay .openingNarrative { max-width: 740px; }
 .opening_essay > .artwork { max-width: 960px; }
+@media (min-width: 900px) {
+  .article[data-editorial-kind='project'] .opening_essay .openingCopy { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-5); }
+  .article[data-editorial-kind='project'] .opening_essay h1 { font-size: clamp(2.4rem, 4vw, 3.5rem); }
+}
 .opening_split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: var(--space-5); }
 .opening_panorama .openingCopy { max-width: 760px; }
 .opening_panorama > .artwork img { width: 100%; max-height: 460px; }
@@ -135,6 +141,8 @@
 .artwork.illustration img { max-height: 300px; }
 .inlineArtwork.illustration { max-width: 160px; }
 .artwork.photo:not(.applicationDemo) img { max-height: 400px; }
+.demos { max-width: 960px; margin-top: var(--space-6); }
+.demos h2 { scroll-margin-top: 120px; }
 .stack { margin-top: var(--space-6); }
 .footer { margin-top: calc(var(--space-6) + var(--space-5)); }
 .footer > :global(.related-services) { margin-bottom: var(--space-6); }
@@ -160,6 +168,7 @@
 }
 @media (max-width: 599px) {
   .opening { margin-top: var(--space-2); margin-bottom: var(--space-5); }
+  .neighbors { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); }
   .chapter { margin-top: var(--space-5); }
   .chapterContent.hasRail, .layout_split .chapterItems, .layout_decisions .chapterItems, .reference_glossary { grid-template-columns: minmax(0, 1fr); }
   .layout_ledger .chapterItems > div, .reference_notes > div, .exhibit_records .exhibitItems > div, .exhibit_lineage .exhibitItems > div, .exhibit_mix .exhibitItems > div { grid-template-columns: minmax(0, 1fr); gap: var(--space-1); }

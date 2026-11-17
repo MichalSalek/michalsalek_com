@@ -1,17 +1,17 @@
 {
   "intro": [
-    "Firma świadcząca usługę technologiczną potrzebowała miejsca, w którym klienci biznesowi mogą zarządzać dostępem, sprawdzać wykorzystanie i rozliczać subskrypcję. Powstała aplikacja łącząca te zadania z narzędziami administracyjnymi dla osób obsługujących usługę.",
-    "Projekt obejmował rozpoznanie potrzeb, ustalenie zasad działania kont i rozliczeń, projekt interfejsu i integracji, a następnie iteracyjne wdrażanie oraz utrzymanie. Zmiany można sprawdzać w środowisku podglądowym przed udostępnieniem ich użytkownikom produkcyjnym."
+    "Panel B2B służy firmom korzystającym z technologii wirtualnej przymierzalni 3D i AR. Klienci zarządzają w nim dostępem i kluczami API, sprawdzają wykorzystanie oraz rozliczają subskrypcję, a obsługa usługi korzysta z narzędzi administracyjnych.",
+    "Środowisko podglądowe pozwala sprawdzić zmiany przed udostępnieniem ich użytkownikom produkcyjnym."
   ],
-  "audience": "Firmy korzystające z usługi oraz osoby odpowiedzialne za jej obsługę i administrację.",
-  "role": "Atomic Concept odpowiada za rozpoznanie potrzeb, projekt domeny, interfejsu i API oraz rozwój, wdrożenie i utrzymanie aplikacji.",
+  "audience": "Firmy korzystające z technologii wirtualnej przymierzalni oraz osoby obsługujące i administrujące usługą.",
+  "role": "Michał Sałek odpowiadał za rozpoznanie potrzeb, projekt domeny, interfejsu i API oraz rozwój, wdrożenie i utrzymanie aplikacji.",
   "sections": [
     {
       "id": "context",
       "title": "Jedno miejsce do obsługi usługi",
       "paragraphs": [
-        "Klient biznesowy potrzebuje zarówno dostępu do technologii, jak i informacji potrzebnych do codziennej pracy: aktywnego planu, dostępnych limitów, kluczy API i dokumentów rozliczeniowych. Dane te powstają w różnych częściach systemu i usługach zewnętrznych.",
-        "Istotne było odróżnienie osoby logującej się od konta, do którego należą zasoby. Dzięki temu reguły dostępu i operacje można odnosić do właściwego konta firmowego, a nie wyłącznie do bieżącej sesji użytkownika."
+        "Klient biznesowy potrzebuje dostępu do technologii oraz informacji o aktywnym planie, limitach przymiarek, kluczach API i dokumentach rozliczeniowych. Dane te powstają w różnych częściach systemu i usługach zewnętrznych.",
+        "Istotne było odróżnienie osoby logującej się od konta, do którego należą zasoby. Dzięki temu kilka osób może pracować w kontekście tego samego konta firmowego, ale każda chroniona operacja wymaga sprawdzenia dostępu do danego zasobu."
       ],
       "items": [
         {

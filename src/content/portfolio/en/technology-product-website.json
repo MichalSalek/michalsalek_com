@@ -1,22 +1,22 @@
 {
   "intro": [
-    "The product website was designed to help visitors understand a technology offering and choose their next step: explore use cases, review the offer, watch materials or contact the company. Content and media are organized across a set of related pages.",
-    "The work covered discovery, structure and interface design, development of individual pages, deployment and maintenance. Reusable elements make it easier to publish new content without designing each page from scratch."
+    "This main marketing website presents a 3D and AR virtual try-on product for shoes and accessories in e-commerce. It explains the use cases, presents the offer and directs visitors to contact the company or arrange a meeting.",
+    "Shared components make it easier to publish further content."
   ],
-  "audience": "People exploring the technology, comparing the offer or looking to contact the company.",
-  "role": "Atomic Concept is responsible for discovery, structure, interface and integration design, development, deployment and website maintenance.",
+  "audience": "E-commerce brands and merchants interested in virtual try-on and ways to integrate it.",
+  "role": "Michał Sałek was responsible for discovery, structure, interface and integration design, development, deployment and website maintenance.",
   "sections": [
     {
       "id": "context",
       "title": "Explaining a complex product through its uses",
       "paragraphs": [
-        "Visitors arrive with different questions. Some want a quick introduction to the product’s capabilities; others need details of the offer, resources or a conversation with a representative. The site structure supports each of these paths.",
+        "Brands and merchants can explore virtual try-on for shoes and accessories, review the offer and resources, or contact the company. The navigation connects these topics across related pages.",
         "The work involved bringing text, images and video together in a readable layout for phones and larger screens. The offer, resources and contact forms each have a place in the navigation, so visitors can move from learning about the product to getting in touch."
       ],
       "items": [
         {
           "title": "Presentation",
-          "description": "Pages explain product use cases using visual materials and video."
+          "description": "Pages use text, images and video to explain virtual try-on and applications of 3D and AR technology."
         },
         {
           "title": "Offer and resources",

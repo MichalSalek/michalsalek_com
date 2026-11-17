@@ -8,15 +8,16 @@ database or runtime content service.
 
 1. Add a public record to `src/content/portfolio.mjs`. Its stable ID selects the
    content files; its slug forms `/portfolio/<slug>/`. Include both localized
-   summaries and metadata, editorial dates, a cover asset and relevant services.
+   summaries and metadata, editorial dates, a cover asset, relevant services and
+   a short list of technologies verified against the case study's scope.
 2. Add matching JSON files under `src/content/portfolio/pl/` and `en/`, named after
    the ID. Follow `PortfolioContent` in `portfolio.d.mts`: introduction, audience,
    responsibility, the context/delivery/engineering sections and a stack table.
 3. Register an original anonymous cover in the asset catalogue. Card and opening
    placements derive from the project record. Localized social previews are
    generated automatically.
-   Text-free portfolio artwork uses the catalogue's `webpQuality` setting for
-   efficient derivatives. The original sources remain unchanged.
+   Use the shared neutral and brick-red vector language for cards; application
+   demonstrations belong inside the article, not on a card or in its opening.
 4. Add an individual composition to `src/content/editorial-projects.mjs`. Select
    the source paragraphs and items once each, and choose contextual exhibits,
    cover position and a suitable reference format. See [EDITORIAL.md](EDITORIAL.md).
@@ -39,19 +40,21 @@ The private capture setup and source mapping stay outside this repository.
 Sanitized desktop and mobile sources live in `assets/library/demos/`. The media
 catalogue records `kind: screenshot`, `localizedSources`, `mobileSources`, localized
 alternative text and a readable demonstration caption. `media-plan.mjs` attaches
-them to source paragraphs. Services and projects receive media before editorial
-compilation, so a catalogue entry alone does not publish a screenshot. The normal
+them to source paragraphs. Screenshots are displayed together after the case-study
+chapters, keeping the opening free of application screens at large viewport sizes.
+Services and projects receive media before editorial compilation, so a catalogue entry alone does not publish a screenshot. The normal
 generator creates content-hashed, lossless WebP sizes without raster enlargement;
 the mobile source keeps the whole relevant interface. Captions identify example
-data in HTML and Markdown. These are demonstrations, not customer production
+data, with a link to a larger image for inspecting details. These are demonstrations, not customer production
 screenshots or measured business outcomes.
 
 ## Editorial contract
 
-Explain the purpose and user workflows before the engineering. Attribute the
-scope and delivery responsibility to Atomic Concept consistently in both
-languages. Do not name individuals, describe personal career history or switch
-to a personal voice. Keep the actual technical contribution precise.
+Explain the purpose and user workflows before the engineering. Identify Michał
+Sałek's actual responsibility near the start of each case in both languages, and
+distinguish his work from other teams' work. Show verified technologies without
+implying that a person worked alone or that every project was an Atomic Concept
+engagement. Do not publish a private CV or invent results and career details.
 
 Keep client and product identities, internal paths and source evidence outside
 this public repository. Review the visible text, metadata, structured data,

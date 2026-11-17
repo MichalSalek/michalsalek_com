@@ -1,12 +1,12 @@
 import type { Locale, PagePath } from './site.mjs';
 export type PortfolioPath = `/portfolio/${string}/`;
 export type PortfolioSummary = {title: string; category: string; summary: string; description: string};
-export type PortfolioProject = {id: string; slug: string; cover: string; featured: boolean; publishedAt: string; updatedAt: string; services: PagePath[]; pl: PortfolioSummary; en: PortfolioSummary};
+export type PortfolioProject = {id: string; slug: string; cover: string; featured: boolean; publishedAt: string; updatedAt: string; services: PagePath[]; technologies: string[]; pl: PortfolioSummary; en: PortfolioSummary};
 export type PortfolioSection = {id: 'context' | 'delivery' | 'engineering'; title: string; paragraphs: string[]; items: {title: string; description: string}[]};
 export type PortfolioContent = {intro: string[]; audience: string; role: string; sections: PortfolioSection[]; stack: {term: string; detail: string}[]};
 export const portfolioProjects: PortfolioProject[];
 export const portfolioIndex: Record<Locale, {title: string; description: string}>;
-export const portfolioMessages: Record<Locale, {title: string; introduction: string; confidentiality: string; confidential: string; read: string; all: string; selected: string; selectedIntro: string; audience: string; role: string; navigation: string; stack: string; stackScope: string; stackTools: string; previous: string; next: string; contact: string; related: string}>;
+export const portfolioMessages: Record<Locale, {title: string; introduction: string; confidentiality: string; confidential: string; technologies: string; read: string; all: string; selected: string; selectedIntro: string; audience: string; role: string; navigation: string; stack: string; stackScope: string; stackTools: string; previous: string; next: string; contact: string; related: string}>;
 export function portfolioPath(project: Pick<PortfolioProject, 'slug'>): PortfolioPath;
 export function findPortfolioProject(path: string): PortfolioProject | undefined;
 export function projectsForService(locale: Locale, path: PagePath): {path: PortfolioPath; title: string}[];

@@ -1,16 +1,16 @@
 {
   "intro": [
-    "Przed rozmową z architektem trudno ocenić, jak pomysł na dom zadziała na konkretnym terenie. Rozwijana pracownia pozwala obejrzeć koncepcję przestrzennie, porównać warianty i zebrać informacje do dalszych decyzji.",
-    "Działająca podstawa obejmuje model na rzeczywistym terenie, pomiary, światło, porównania i eksport. Kolejny kierunek rozwoju to rozmowa o zmianach w aplikacji oraz wygodne przekazanie koncepcji architektowi."
+    "Wewnętrzna pracownia 3D pomaga przygotować koncepcję domu na konkretnej działce przed rozmową z architektem. Pozwala oglądać model na rzeczywistym terenie, porównywać warianty i sprawdzać ich parametry.",
+    "Działająca wersja obejmuje pomiary, przekroje, ustawienia słońca oraz eksport modelu i raportów. Planowany rozwój obejmuje rozmowę o zmianach w aplikacji i łatwiejsze przekazanie koncepcji architektowi."
   ],
-  "audience": "Osoby przygotowujące koncepcję domu i architekci, którzy będą ją dalej opracowywać.",
-  "role": "Atomic Concept odpowiada za koncepcję produktu, architekturę i implementację pracowni.",
+  "audience": "Osoba przygotowująca koncepcję własnego domu oraz architekt, który może ją dalej opracować.",
+  "role": "Michał Sałek odpowiada za koncepcję produktu, architekturę i implementację pracowni.",
   "sections": [
     {
       "id": "context",
       "title": "Koncepcja w kontekście działki",
       "paragraphs": [
-        "Rzut i lista pomieszczeń nie zawsze wystarczają, by wyobrazić sobie bryłę, spadek terenu i dostęp światła. Możliwość obejrzenia domu z różnych stron pomaga wcześniej zauważyć pytania, które warto omówić z architektem.",
+        "Rzut i lista pomieszczeń nie zawsze wystarczają, by ocenić bryłę domu na pochyłym terenie i dostęp światła. Widok 3D oraz pomiary pomagają przygotować konkretne pytania do architekta.",
         "Pracownia łączy model domu z rzeczywistymi danymi terenu. Użytkownik może rozpatrywać kilka wariantów i sprawdzać ich podstawowe parametry, zamiast opierać rozmowę wyłącznie na pojedynczej wizualizacji."
       ],
       "items": [

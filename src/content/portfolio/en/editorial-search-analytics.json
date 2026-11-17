@@ -1,10 +1,10 @@
 {
   "intro": [
-    "An editorial department needed its own way to follow how articles appeared in search results. An internal application tailored to editors and the SEO department replaced a paid external tool.",
-    "Each editor can work with their own articles and related queries. Position histories make it possible to compare changes over time across languages and mobile and desktop devices."
+    "This internal application helps editors and SEO specialists track the Google search positions of articles for their associated queries. Measurement history supports comparisons over time by language and device.",
+    "The React frontend was taken over unfinished. API and data formats were agreed with the team responsible for the separate Ruby on Rails backend."
   ],
   "audience": "Editors and SEO specialists responsible for the visibility of published articles.",
-  "role": "Atomic Concept is responsible for developing the inherited frontend, bringing the application to deployment and agreeing API and data formats with the backend team.",
+  "role": "Michał Sałek was responsible for developing the inherited frontend, preparing it for deployment and agreeing API and data formats with the backend team.",
   "sections": [
     {
       "id": "context",

@@ -77,9 +77,10 @@ for (const locale of site.locales) {
             if (source.role) {
                 await expect(article.getByRole('heading', {name: portfolioMessages[locale].role, exact: true})).toBeVisible();
                 await expect(article.getByText(source.role, {exact: true})).toBeVisible();
-                expect(source.role).toContain('Atomic Concept');
             }
-            await expect(main).not.toContainText(/Michał\s+Sałek|Michal\s+Salek/i);
+            if (path.startsWith('/portfolio/')) {
+                await expect(article.locator('header')).toContainText('Michał Sałek');
+            }
             await expect(main.locator('a a, a button, button a, a [role="button"], button button')).toHaveCount(0);
             expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 

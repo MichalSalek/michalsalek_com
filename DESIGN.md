@@ -1,5 +1,26 @@
 # Design constraints
 
+## Current visual direction
+
+The November redesign uses neutral light
+surfaces, dark typography and a restrained brick-red action accent, including the
+header contact control. Selected projects precede the service grid. One shared grid
+aligns media, titles and bottom-right actions across card rows and breakpoints.
+Cards use cohesive, subject-led illustrations, concise summaries, NDA labels and
+verified technology badges. Labelled anonymous application demonstrations appear
+inside case studies below the opening, never in cards. The delivery process uses a
+simple horizontal timeline that becomes vertical on mobile, without arrows. The
+original visual treatment described below is historical wherever it conflicts with
+this direction. Content, locale, accessibility and interaction constraints still apply.
+
+The recruiter review adds a concise, factual introduction of Michał Sałek on the
+homepage and portfolio. Project openings show his verified scope and technologies;
+client and product identities stay anonymous. Contact also welcomes recruitment
+and technical collaboration. These current instructions supersede the historical
+restrictions on personal attribution below.
+
+## Previous visual reference
+
 The owner's original design at commit `b5ed0e1` is the visual reference. Keep its
 indigo cards, square geometry, typography, spacing, subtle photo credits, bordered
 Read More control with arrow, contrast-based card hover, article link panels and

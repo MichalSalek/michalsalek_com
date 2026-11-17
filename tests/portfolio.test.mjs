@@ -37,6 +37,9 @@ test('portfolio catalogue has unique identities, localized summaries and registe
         assert(validDate(project.updatedAt), `${project.id}: updated date`);
         assert(project.updatedAt >= project.publishedAt, `${project.id}: update precedes publication`);
         assert(project.services.length > 0);
+        assert(project.technologies.length > 0 && project.technologies.length <= 6, `${project.id}: technology badges`);
+        assert.equal(new Set(project.technologies).size, project.technologies.length, `${project.id}: duplicate technology`);
+        project.technologies.forEach(value => nonempty(value, `${project.id}: technology`));
         for (const service of project.services) assert(standardRoutes.includes(service), `${project.id}: ${service}`);
         for (const locale of site.locales) for (const field of ['title', 'category', 'summary', 'description']) {
             nonempty(project[locale][field], `${project.id} ${locale} ${field}`);

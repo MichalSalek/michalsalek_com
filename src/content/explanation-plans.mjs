@@ -74,9 +74,9 @@ export const explanationPlans = {
         step('music', 'Zakończenie', 'Ending', 'Utwór kończy się wraz z ostatnim kadrem.', 'The track ends with the closing frame.'),
     ])],
     '/portfolio/b2b-service-platform/': [diagram('delivery-work', 'flow', 'Zadanie poza żądaniem', 'Work outside the request', 'Schemat opisanego podziału obsługi operacji na zasobach.', 'Schematic of the described separation of asset operations.', [
-        step('screen', 'Panel', 'Dashboard', 'Użytkownik korzysta z panelu usługi.', 'A user works in the service dashboard.'),
-        step('task', 'Operacja', 'Operation', 'Praca nad zasobem jest obsługiwana asynchronicznie.', 'Asset work is handled asynchronously.'),
-        step('clock', 'Dalsze wykonanie', 'Continued execution', 'Operacja nie musi zakończyć się w jednym żądaniu.', 'The operation need not finish in one request.'),
+        step('screen', 'Żądanie', 'Request', 'Użytkownik rozpoczyna operację na zasobie w panelu.', 'A user starts an operation on a resource in the dashboard.'),
+        step('key', 'Dostęp', 'Access check', 'API sprawdza dostęp do zasobu w kontekście konta.', 'The API checks access to the resource in the account context.'),
+        step('task', 'Praca w tle', 'Background work', 'Operacja może być kontynuowana poza żądaniem.', 'The operation can continue outside the request.'),
     ])],
     '/portfolio/shopify-product-experience/': [diagram('integration', 'flow', 'Przygotowanie produktu w tle', 'Preparing a product in the background', 'Schemat opisanych zasad miejsc w planie i obsługi ponowień.', 'Schematic of the described plan capacity and retry handling.', [
         step('task', 'Przygotowanie', 'Preparation', 'Produkt jest kierowany do przygotowania.', 'A product is sent for preparation.'),

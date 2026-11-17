@@ -1,22 +1,22 @@
 {
   "intro": [
-    "Serwis produktowy miał pomóc odbiorcom zrozumieć rozwiązanie technologiczne i wybrać kolejny krok: zapoznać się z zastosowaniami, sprawdzić ofertę, obejrzeć materiały lub skontaktować się z firmą. Treści i multimedia zostały uporządkowane w zestaw powiązanych stron.",
-    "Prace objęły rozpoznanie potrzeb, projekt struktury i interfejsu, rozwój kolejnych podstron oraz wdrażanie i utrzymanie. Powtarzalne elementy ułatwiają publikowanie nowych treści bez projektowania każdej strony od początku."
+    "Główna strona marketingowa prezentuje produkt do wirtualnego przymierzania obuwia i akcesoriów w technologii 3D i AR, przeznaczony dla e-commerce. Wyjaśnia zastosowania rozwiązania, przedstawia ofertę i prowadzi do kontaktu lub umówienia spotkania.",
+    "Wspólne komponenty ułatwiają publikowanie kolejnych treści."
   ],
-  "audience": "Osoby poznające rozwiązanie technologiczne, porównujące ofertę lub szukające kontaktu z firmą.",
-  "role": "Atomic Concept odpowiada za rozpoznanie potrzeb, projekt struktury, interfejsu i integracji oraz rozwój, wdrażanie i utrzymanie serwisu.",
+  "audience": "Marki i sprzedawcy e-commerce zainteresowani wirtualną przymierzalnią i sposobami jej wdrożenia.",
+  "role": "Michał Sałek odpowiadał za rozpoznanie potrzeb, projekt struktury, interfejsu i integracji oraz rozwój, wdrażanie i utrzymanie serwisu.",
   "sections": [
     {
       "id": "context",
       "title": "Złożony produkt opisany przez zastosowania",
       "paragraphs": [
-        "Odbiorca może trafić na serwis z różnymi pytaniami. Jedna osoba chce szybko poznać możliwości produktu, inna szuka szczegółów oferty, materiałów lub rozmowy z przedstawicielem. Struktura serwisu daje dostęp do każdej z tych ścieżek.",
+        "Marki i sprzedawcy mogą poznać zastosowania wirtualnej przymierzalni dla obuwia i akcesoriów, sprawdzić ofertę oraz materiały lub skontaktować się z firmą. Nawigacja łączy te informacje na osobnych, powiązanych stronach.",
         "Ważne było połączenie tekstu, obrazów i wideo w czytelny układ działający na telefonie i większym ekranie. Oferta, zasoby oraz formularze kontaktowe mają swoje miejsce w nawigacji, dzięki czemu użytkownik może przejść od poznania produktu do kontaktu."
       ],
       "items": [
         {
           "title": "Prezentacja",
-          "description": "Podstrony opisują zastosowania produktu i korzystają z materiałów wizualnych oraz wideo."
+          "description": "Podstrony prezentują wirtualne przymierzanie i zastosowania technologii 3D oraz AR za pomocą tekstu, obrazów i wideo."
         },
         {
           "title": "Oferta i materiały",

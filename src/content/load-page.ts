@@ -8,7 +8,7 @@ import {compileEditorial, type EditorialDocument} from './editorial.mjs';
 export type ArticleMedia = {section: number; after: number; variant: 'wide' | 'inline'; asset: VisualAsset};
 export type Section = {title: string; subtitle: string; paragraphs: string[]; facts?: {term: string; detail: string}[]; media?: ArticleMedia[]};
 export type ServiceCard = {path: PagePath; title: string; paragraphs: string[]; artwork: VisualAsset | null};
-export type PortfolioCard = {id: string; path: PagePath; title: string; category: string; summary: string; artwork: VisualAsset};
+export type PortfolioCard = {id: string; path: PagePath; title: string; category: string; summary: string; technologies: string[]; artwork: VisualAsset};
 export type SitePageProps = {
     locale: Locale;
     path: PagePath;
@@ -38,7 +38,7 @@ export async function loadPage(locale: Locale, path: PagePath): Promise<SitePage
     const portfolioCards = path === '/' || path === '/portfolio/' ? portfolioProjects.filter(item => path !== '/' || item.featured).map(item => {
         const media = manifest[locale][portfolioPath(item)]?.card;
         if (!media) throw new Error(`Missing portfolio artwork: ${item.id}`);
-        return {id: item.id, path: portfolioPath(item), ...item[locale], artwork: media};
+        return {id: item.id, path: portfolioPath(item), ...item[locale], technologies: item.technologies, artwork: media};
     }) : [];
     const metadata = getPageMetadata(locale, path, dictionary.pages);
     const projectContent = project ? JSON.parse(await readFile(`src/content/portfolio/${locale}/${project.id}.json`, 'utf8')) as PortfolioContent : null;

@@ -2,9 +2,10 @@
   text-decoration: none;
   height: 100%;
 
-  transition: filter 100ms ease-in;
+  transition: background-color 150ms ease, border-color 150ms ease;
 
   &:hover {
-    filter: contrast(1.2) brightness(1) saturate(1.1)
+    background-color: var(--site-tint);
+    border-color: var(--site-ink);
   }
 }

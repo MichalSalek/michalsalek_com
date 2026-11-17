@@ -20,8 +20,9 @@ The audience is a business owner who wants a particular task improved, without
 needing a technical specification. The offer includes process discovery, a scoped
 implementation, deployment and an agreed handover or maintenance arrangement.
 The copy retains the owner's original ideas about analysis, maintainability and
-avoiding unnecessary complexity. Present complete company delivery and responsibility. Keep personal biography,
-career history and GitHub links out of the marketing pages. The approved copy
+avoiding unnecessary complexity. Present complete company delivery and responsibility.
+The homepage and portfolio briefly identify Michał Sałek and his experience for
+recruiters; do not publish a private CV or source-code profiles. The approved copy
 direction uses plain language, a clear service scope and responsibility for
 delivery, without superiority, slogans or metaphors.
 Service articles use individual editorial compositions and include practical workflows,

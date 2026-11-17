@@ -6,10 +6,10 @@
     "sitemap": "Mapa strony",
     "readMore": "Czytaj więcej",
     "related": "Powiązane usługi",
-    "talk": "Porozmawiajmy o Twoim projekcie",
+    "talk": "Porozmawiajmy o współpracy",
     "ask": "Opisz swój pomysł",
     "general": "Inne pytanie",
-    "contactIntro": "**Odpowiadamy w ciągu jednego dnia.** Chętnie omówimy Twój pomysł, wstępnie ocenimy możliwości realizacji i zaproponujemy kolejne kroki. Nie potrzebujesz gotowej specyfikacji.",
+    "contactIntro": "**Odpowiadamy w ciągu jednego dnia.** Możesz napisać w sprawie projektu, współpracy technicznej lub rekrutacji. Nie potrzebujesz gotowej specyfikacji, żeby rozpocząć rozmowę.",
     "email": "Twój e-mail",
     "name": "Twoje imię (opcjonalnie)",
     "subject": "Temat",
@@ -33,6 +33,10 @@
     "relatedIntro": "Zobacz, w czym jeszcze możemy pomóc:",
     "introTitle": "Od pomysłu do wdrożenia i utrzymania",
     "introContact": "Porozmawiajmy o Twoim projekcie",
+    "heroTitle": "Aplikacje, AI i automatyzacje dla firm",
+    "heroPortfolio": "Zobacz realizacje",
+    "servicesTitle": "W czym możemy pomóc",
+    "servicesIntro": "Od pojedynczej integracji po kompletną aplikację.",
     "breadcrumbHome": "Strona główna",
     "breadcrumbSoftware": "Oprogramowanie",
     "breadcrumbSound": "Dźwięk",
@@ -99,9 +103,9 @@
   "pages": {
     "/": {
       "title": "AI, automatyzacje i oprogramowanie dla firm",
-      "description": "Atomic Concept: strony, aplikacje, integracje, automatyzacje i AI dla firm. Kompleksowa realizacja od analizy potrzeb przez wdrożenie po utrzymanie.",
+      "description": "Atomic Concept, prowadzone przez Michała Sałka: aplikacje, integracje, automatyzacje i AI dla firm — od analizy potrzeb po wdrożenie i utrzymanie.",
       "intro": [
-        "Tworzymy strony i aplikacje, łączymy programy używane w firmie oraz wdrażamy automatyzacje i AI. Zaczynamy od zrozumienia, jak pracujesz i co chcesz usprawnić. Proponujemy zakres dopasowany do tego zadania, bez zbędnych funkcji."
+        "Atomic Concept prowadzi Michał Sałek, Senior Full-Stack Developer pracujący zawodowo od 2019 roku. Rozwijamy backend w TypeScript i Node.js, integracje oraz aplikacje, również z wykorzystaniem AI. Poznaj [technologie i sposób pracy](/software/fullstack/)."
       ]
     },
     "/software/architecture/": {
@@ -139,7 +143,7 @@
     },
     "/contact/": {
       "title": "Kontakt",
-      "description": "Skontaktuj się z Atomic Concept. Opisz swój pomysł lub problem. Odpowiadamy w ciągu jednego dnia i pomagamy ustalić możliwości realizacji oraz kolejne kroki."
+      "description": "Skontaktuj się z Atomic Concept w sprawie projektu, współpracy technicznej lub rekrutacji. Odpowiadamy w ciągu jednego dnia."
     },
     "/sitemap/": {
       "title": "Mapa strony",

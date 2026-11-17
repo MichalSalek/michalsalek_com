@@ -10,7 +10,6 @@ import { pageHref } from '@/src/content/site.mjs';
 import { ImageAtom } from '@/src/UI/components/Image.atom';
 import { ServiceArtworkAtom } from '@/src/UI/components/ServiceArtwork.atom';
 import type { VisualAsset } from '@/src/content/visuals.mjs';
-import { appStyles } from '@/src/UI/styles/constants';
 import { useLocale } from '@/src/i18n/context';
 import scss from './clickableCard.module.scss';
 
@@ -18,12 +17,12 @@ type Props = {image?: StaticImageData; alt?: string | {en: string; pl: string}; 
 export const ClickableCardMolecule = ({image, alt, credits, artwork, title, content, linkPath, priorityLoad}: Props) => {
     const {messages, locale} = useLocale();
     return <Card elevation={0} sx={{display: 'flex', flexDirection: 'column'}}>
-            <CardActionArea component={Link} href={pageHref(locale, linkPath)} className={`${scss.link} service-card`} sx={{display: 'flex', flexDirection: 'column', bgcolor: 'primary.main', p: 0, flex: 1, height: '100%', minHeight: 570}}>
+            <CardActionArea component={Link} href={pageHref(locale, linkPath)} className={`${scss.link} service-card`} sx={{display: 'flex', flexDirection: 'column', p: 0, flex: 1, height: '100%'}}>
                 {artwork ? <ServiceArtworkAtom asset={artwork} variant="card" priority={priorityLoad}/> : image && alt && credits ? <ImageAtom image={image} alt={alt} credits={credits} height={250} priority={priorityLoad}/> : null}
                 <CardContent sx={{width: '100%', flex: 1, display: 'flex', flexDirection: 'column'}}>
-                    <Typography variant="h3" component="h2" sx={{color: 'white', minHeight: '4rem'}}>{title}</Typography>
-                    <Typography component="div" variant="body2" sx={{color: 'white'}}>{content}</Typography>
-                    <div className="read-more-wrap"><Typography component="span" className="read-more" variant="button" sx={{color: 'white', display: 'inline-flex', borderColor: 'white', ...appStyles.cardBoxShadow}}>{messages.readMore}<ArrowRightIcon/></Typography></div>
+                    <Typography variant="h3" component="h2" sx={{color: 'var(--site-ink)'}}>{title}</Typography>
+                    <Typography component="div" variant="body2" sx={{color: 'var(--site-text)'}}>{content}</Typography>
+                    <div className="read-more-wrap"><Typography component="span" className="read-more" variant="button" sx={{color: 'var(--site-ink)', display: 'inline-flex', borderColor: 'var(--site-ink)'}}>{messages.readMore}<ArrowRightIcon/></Typography></div>
                 </CardContent>
             </CardActionArea>
     </Card>;

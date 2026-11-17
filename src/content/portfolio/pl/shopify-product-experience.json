@@ -1,17 +1,17 @@
 {
   "intro": [
-    "Sprzedawca korzystający z Shopify może udostępnić klientom interaktywną prezentację produktu bez przenoszenia ich do osobnego sklepu. Aplikacja obejmuje zarówno przygotowanie produktów w panelu sprzedawcy, jak i doświadczenie na stronie produktu.",
-    "Zakres prac prowadził od poznania procesu sprzedaży i wymagań integracji, przez projekt interfejsu i API, po etapowe wdrażanie oraz utrzymanie. Szczególną uwagę poświęcono temu, aby sprzedawca wiedział, które produkty są gotowe, a które wymagają kolejnego działania."
+    "Aplikacja Shopify umożliwia sprzedawcom obuwia udostępnienie klientom wirtualnej przymierzalni na stronie produktu. Obejmuje panel przygotowania produktów w administracji sklepu i elementy przymierzalni widoczne kupującym.",
+    "Panel pokazuje stan przygotowania, dostępne miejsca w planie i działania potrzebne do udostępnienia produktów."
   ],
-  "audience": "Sprzedawcy prowadzący sklepy Shopify oraz klienci oglądający produkty w tych sklepach.",
-  "role": "Atomic Concept odpowiada za rozpoznanie potrzeb, projekt zasad produktu, interfejsu i integracji oraz rozwój, wdrożenie i utrzymanie aplikacji.",
+  "audience": "Sprzedawcy obuwia prowadzący sklepy Shopify oraz klienci przymierzający produkty w tych sklepach.",
+  "role": "Michał Sałek odpowiadał za rozpoznanie potrzeb, projekt zasad produktu, interfejsu i integracji oraz rozwój, wdrożenie i utrzymanie aplikacji.",
   "sections": [
     {
       "id": "context",
       "title": "Od instalacji do strony produktu",
       "paragraphs": [
         "Sprzedawca instaluje aplikację w sklepie, wybiera produkty i uruchamia ich przygotowanie. Może zaznaczyć kilka pozycji naraz, sprawdzić postęp, ponowić nieudane zadania i zdecydować, które gotowe produkty mają być widoczne w sklepie.",
-        "Kupujący korzysta z prezentacji na stronie produktu. Gdy potrzebuje telefonu, może zeskanować kod QR wyświetlony na komputerze i kontynuować na urządzeniu mobilnym. Wybrane produkty mogą też trafić do koszyka w sklepie."
+        "Kupujący uruchamia wirtualną przymierzalnię obuwia na stronie produktu. Może zeskanować kod QR wyświetlony na komputerze, aby kontynuować na telefonie, a wybrany produkt dodać do koszyka sklepu."
       ],
       "items": [
         {
@@ -46,7 +46,7 @@
       "title": "Decyzje techniczne",
       "paragraphs": [
         "React Router i TypeScript obsługują aplikację panelową, a Shopify GraphQL API oraz App Bridge łączą ją z administracją sklepu. Polaris wspiera interfejs, natomiast rozszerzenia motywu w Liquid umieszczają elementy prezentacji na stronach produktów.",
-        "Przygotowanie produktów trwa poza pojedynczym żądaniem. Rezerwacje miejsc i klucze idempotencji pomagają kontrolować limity oraz ograniczać skutki powtórnych zgłoszeń. Mechanizmy synchronizacji i ponawiania obsługują zadania, które nie zakończyły się od razu."
+        "Przygotowanie produktów trwa poza pojedynczym żądaniem. Rezerwacje miejsc i klucze idempotencji pomagają kontrolować limity oraz ograniczać skutki powtórnych zgłoszeń. Mechanizmy synchronizacji i ponawiania obsługują zadania, które nie zakończyły się od razu. Przy równoczesnych zgłoszeniach miejsca są rezerwowane w transakcji z blokadą dla danego sklepu. Ponowienie przejmuje tylko zadania pozostające w stanie błędu, co ogranicza ryzyko równoległego uruchomienia tej samej pracy."
       ],
       "items": [
         {

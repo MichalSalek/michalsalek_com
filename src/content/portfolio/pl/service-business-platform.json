@@ -1,16 +1,16 @@
 {
   "intro": [
-    "Usługodawca potrzebuje miejsca, w którym może pokazać swoją pracę, a po umówieniu wizyty zachować kontekst rozmowy z klientem. Platforma łączy portfolio ze zdjęciami, inspiracje i komunikację z historią współpracy.",
-    "Produkt obejmuje również konta, subskrypcje i zaplecze administracyjne. Dzięki temu prezentacja realizacji i codzienna obsługa klientów korzystają ze wspólnego systemu."
+    "Platforma dla stylistek paznokci i ich klientek łączy portfolio zdjęć z wiadomościami, inspiracjami oraz historią wizyt. Pomaga pokazać wykonane stylizacje i zachować ustalenia przy kolejnych spotkaniach.",
+    "Produkt obejmuje konta, łączenie użytkowniczek kodem QR, notatki o klientkach, subskrypcje i panel administracyjny. Publiczne portfolio oraz codzienna obsługa klientek korzystają ze wspólnego systemu."
   ],
-  "audience": "Usługodawcy prezentujący realizacje oraz ich klienci przygotowujący się do wizyt.",
-  "role": "Atomic Concept odpowiada za koncepcję techniczną, architekturę i cały cykl rozwoju produktu, od zakresu funkcji po wdrożenie i utrzymanie. W implementacji korzysta z agentów programujących, a ich zmiany podlegają przeglądowi i weryfikacji.",
+  "audience": "Stylistki paznokci prezentujące swoje prace oraz klientki przygotowujące się do wizyt.",
+  "role": "Michał Sałek odpowiada za koncepcję techniczną, architekturę i rozwój produktu od zakresu funkcji po wdrożenie i utrzymanie. W implementacji korzysta z agentów programujących oraz nadzoruje przegląd i weryfikację zmian.",
   "sections": [
     {
       "id": "context",
       "title": "Portfolio i współpraca po pierwszym kontakcie",
       "paragraphs": [
-        "Zdjęcie realizacji pomaga klientowi wybrać usługodawcę, ale współpraca nie kończy się na obejrzeniu galerii. Przed wizytą przydają się inspiracje i rozmowa, a przy kolejnych spotkaniach także dostęp do wcześniejszych ustaleń.",
+        "Zdjęcia stylizacji pomagają klientce wybrać stylistkę. Przed wizytą przydają się inspiracje i rozmowa, a przy kolejnych spotkaniach także dostęp do wcześniejszych ustaleń.",
         "Platforma łączy te potrzeby z narzędziami do prowadzenia usługi. Klient i usługodawca mogą połączyć swoje konta kodem QR, a następnie pracować w kontekście wspólnej relacji."
       ],
       "items": [

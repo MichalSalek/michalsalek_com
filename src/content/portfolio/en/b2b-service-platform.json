@@ -1,17 +1,17 @@
 {
   "intro": [
-    "A technology service provider needed a place where business customers could manage access, check usage and handle subscriptions. The resulting application brings those tasks together with administrative tools for the people operating the service.",
-    "The work covered discovery, account and billing rules, interface and integration design, iterative delivery and maintenance. Changes can be checked in a preview environment before they reach production users."
+    "This B2B dashboard serves businesses using 3D and AR virtual try-on technology. Customers manage access and API keys, check usage and handle subscriptions, while service staff use administrative tools.",
+    "A preview environment lets the team check changes before they reach production users."
   ],
-  "audience": "Business customers using the service and the people responsible for operating and administering it.",
-  "role": "Atomic Concept is responsible for discovery, domain, interface and API design, development, deployment and application maintenance.",
+  "audience": "Businesses using virtual try-on technology and the people operating and administering the service.",
+  "role": "Michał Sałek was responsible for discovery, domain, interface and API design, development, deployment and application maintenance.",
   "sections": [
     {
       "id": "context",
       "title": "A single place to manage the service",
       "paragraphs": [
-        "A business customer needs access to the technology and the information required for everyday work: the active plan, available capacity, API keys and billing documents. These details originate in different parts of the system and in external services.",
-        "The design distinguishes the person signing in from the account that owns the resources. Access rules and operations can therefore refer to the appropriate business account rather than relying only on the current user session."
+        "A business customer needs access to the technology as well as information on the active plan, try-on limits, API keys and billing documents. These details originate in different parts of the system and external services.",
+        "The design distinguishes the person signing in from the account that owns the resources. This lets multiple people work in the context of the same business account, but each protected operation must check access to the relevant resource."
       ],
       "items": [
         {

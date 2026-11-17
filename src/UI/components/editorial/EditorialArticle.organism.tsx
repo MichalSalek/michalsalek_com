@@ -1,6 +1,6 @@
 import Container from '@mui/material/Container';
 import type { EditorialChapter, EditorialDocument, EditorialReference } from '@/src/content/editorial.mjs';
-import { portfolioMessages, projectsForService } from '@/src/content/portfolio.mjs';
+import { findPortfolioProject, portfolioMessages, projectsForService } from '@/src/content/portfolio.mjs';
 import type { VisualAsset } from '@/src/content/visuals.mjs';
 import {explanationPlans, type DiagramSpec} from '@/src/content/explanation-plans.mjs';
 import { useLocale } from '@/src/i18n/context';
@@ -13,11 +13,13 @@ import { LinkButtonAtom } from '../LinkButton.atom';
 import { RichTextAtom } from '../RichText.atom';
 import { EditorialExhibitMolecule } from './EditorialExhibit.molecule';
 import {ContextDiagram} from './ContextDiagram.molecule';
+import {TechnologyList} from '../portfolio/TechnologyList.molecule';
 import styles from './editorial.module.scss';
 
 type Entry = {term: string; detail: string};
 
 function Artwork({asset, priority = false, inline = false, cover = false}: {asset: VisualAsset; priority?: boolean; inline?: boolean; cover?: boolean}) {
+    const {locale} = useLocale();
     return <figure className={`${styles.artwork} ${inline ? styles.inlineArtwork : ''} ${asset.kind === 'photo' ? styles.photo : asset.kind === 'screenshot' ? styles.applicationDemo : styles.illustration}`} data-application-demo={asset.kind === 'screenshot' ? 'true' : undefined} data-asset={asset.id} data-editorial-cover={cover ? "true" : undefined}>
         <picture>
             {asset.mobile && <source media="(max-width: 599px)" srcSet={asset.mobile.src} width={asset.mobile.width} height={asset.mobile.height}/>}
@@ -26,6 +28,7 @@ function Artwork({asset, priority = false, inline = false, cover = false}: {asse
                 width={asset.width} height={asset.height} alt={asset.alt} loading={priority ? 'eager' : 'lazy'} fetchPriority={priority ? 'high' : undefined} decoding="async"/>
         </picture>
         {(asset.caption || asset.credit) && <figcaption>{asset.caption || asset.credit}</figcaption>}
+        {asset.kind === 'screenshot' && asset.fullSrc && <a className={styles.enlarge} href={asset.fullSrc} target="_blank" rel="noopener noreferrer">{locale === 'pl' ? 'Otwórz obraz w nowej karcie' : 'Open image in a new tab'}</a>}
     </figure>;
 }
 
@@ -51,7 +54,7 @@ function Chapter({chapter, cover, role, diagrams}: {chapter: EditorialChapter; c
             <div className={styles.prose}>
                 {chapter.paragraphs.map(paragraph => <div className={`${styles.paragraphGroup} ${paragraph.media.length > 0 && paragraph.media.every(media => media.variant === 'inline') ? styles.withInlineMedia : ''}`} key={paragraph.key}>
                     <p><RichTextAtom text={paragraph.text}/></p>
-                    {paragraph.media.map((media, index) => <Artwork key={`${media.asset.src}-${index}`} asset={media.asset} inline={media.variant === 'inline'}/>)}
+                    {paragraph.media.filter(media => media.asset.kind !== 'screenshot').map((media, index) => <Artwork key={`${media.asset.src}-${index}`} asset={media.asset} inline={media.variant === 'inline'}/>)}
                 </div>)}
                 {role && <div className={styles.role}><h3>{role.label}</h3><p><RichTextAtom text={role.text}/></p></div>}
                 {hasRail && items}
@@ -69,6 +72,8 @@ export function EditorialArticle({document, title, artwork}: {document: Editoria
     const {locale, path, messages} = useLocale();
     const labels = portfolioMessages[locale];
     const projects = document.kind === 'service' ? projectsForService(locale, path) : [];
+    const project = document.kind === 'project' ? findPortfolioProject(path) : undefined;
+    const demos = document.chapters.flatMap(chapter => chapter.paragraphs.flatMap(paragraph => paragraph.media.filter(media => media.asset.kind === 'screenshot')));
     const openingCover = document.cover === 'opening' && artwork;
     const role = document.role ? {label: labels.role, text: document.role} : null;
     const panoramaOpening = document.opening === 'panorama' && Boolean(openingCover);
@@ -79,7 +84,7 @@ export function EditorialArticle({document, title, artwork}: {document: Editoria
         <span>{contentsLabel}</span><ul>{document.chapters.map(chapter => <li key={chapter.id}><a href={`#${chapter.id}`}>{chapter.title}</a></li>)}</ul>
     </nav>;
     return <Container className={styles.container}>
-        <article className={styles.article} data-editorial-opening={document.opening}>
+        <article className={styles.article} data-editorial-opening={document.opening} data-editorial-kind={document.kind}>
             <header className={`${styles.opening} ${styles[`opening_${document.opening}`]} ${!openingCover ? styles.openingNoCover : ''}`}>
                 <div className={styles.openingCopy}>
                     <div className={styles.openingTitle}>
@@ -89,7 +94,9 @@ export function EditorialArticle({document, title, artwork}: {document: Editoria
                     <div className={styles.openingNarrative}>
                         <div className={styles.intro}>{openingIntro.map((paragraph, index) => <p key={index}><RichTextAtom text={paragraph}/></p>)}</div>
                         {document.audience && <dl className={styles.audience}><dt>{labels.audience}</dt><dd><RichTextAtom text={document.audience}/></dd></dl>}
-                        {document.roleAt === 'opening' && role && <div className={styles.role}><h2>{role.label}</h2><p><RichTextAtom text={role.text}/></p></div>}
+                        {(document.kind === 'project' || document.roleAt === 'opening') && role && <div className={styles.role}><h2>{role.label}</h2><p><RichTextAtom text={role.text}/></p></div>}
+                        {project && <TechnologyList technologies={project.technologies} label={labels.technologies}/>}
+                        {demos.length > 0 && <a className={styles.demoLink} href="#editorial-demos-title">{locale === 'pl' ? 'Zobacz przykładowy widok aplikacji' : 'See an example application view'}</a>}
                         <ContactIntentLink placement={document.kind === 'service' ? 'service' : 'project'}>{messages.introContact}</ContactIntentLink>
                     </div>
                 </div>
@@ -99,8 +106,9 @@ export function EditorialArticle({document, title, artwork}: {document: Editoria
             {document.toc === 'inline' && navigation}
             <div className={`${styles.articleBody} ${document.toc === 'rail' ? styles.withRail : ''}`}>
                 {document.toc === 'rail' && navigation}
-                <div className={styles.chapters}>{document.chapters.map(chapter => <Chapter key={chapter.id} chapter={chapter} cover={document.cover === chapter.id ? artwork : null} role={document.roleAt === chapter.id ? role : null} diagrams={(explanationPlans[path] ?? []).filter(plan => plan.chapter === chapter.id)}/>)}</div>
+                <div className={styles.chapters}>{document.chapters.map(chapter => <Chapter key={chapter.id} chapter={chapter} cover={document.cover === chapter.id ? artwork : null} role={document.kind !== 'project' && document.roleAt === chapter.id ? role : null} diagrams={(explanationPlans[path] ?? []).filter(plan => plan.chapter === chapter.id)}/>)}</div>
             </div>
+            {demos.length > 0 && <section className={styles.demos} aria-labelledby="editorial-demos-title"><h2 id="editorial-demos-title">{locale === 'pl' ? 'Przykładowy widok aplikacji' : 'An example view of the application'}</h2>{demos.map(media => <Artwork key={media.asset.src} asset={media.asset}/>)}</section>}
             {document.stack.length > 0 && <section className={styles.stack} aria-labelledby="editorial-stack-title"><h2 id="editorial-stack-title">{labels.stack}</h2><References entries={document.stack} format={document.reference}/></section>}
             {document.kind === 'service' ? <footer className={styles.footer}>
                 {projects.length > 0 && <aside className={styles.projectExamples} aria-labelledby="project-examples-title" data-project-examples>

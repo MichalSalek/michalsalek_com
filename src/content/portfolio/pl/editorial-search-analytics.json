@@ -1,10 +1,10 @@
 {
   "intro": [
-    "Redakcja potrzebowała własnego sposobu obserwowania, jak jej artykuły radzą sobie w wynikach wyszukiwania. Zamiast osobnego płatnego narzędzia powstała aplikacja dopasowana do pracy działu SEO i redaktorów.",
-    "Każdy redaktor ma dostęp do swoich artykułów i przypisanych do nich zapytań. Historia pozycji pozwala porównać zmiany w czasie, w różnych językach oraz na telefonach i komputerach."
+    "Wewnętrzna aplikacja dla redaktorów i działu SEO pokazuje pozycje artykułów w wynikach wyszukiwania Google dla przypisanych zapytań. Historia pomiarów pozwala porównywać zmiany w czasie, z podziałem na język i urządzenie.",
+    "Interfejs React został przejęty w niedokończonym stanie. Formaty danych i API uzgodniono z zespołem odpowiedzialnym za osobny backend Ruby on Rails."
   ],
   "audience": "Redaktorzy i dział SEO pracujący nad widocznością publikacji.",
-  "role": "Zakres Atomic Concept obejmuje rozwój przejętego frontendu, doprowadzenie aplikacji do wdrożenia oraz współpracę z zespołem backendu przy ustalaniu API i formatów danych.",
+  "role": "Michał Sałek odpowiadał za rozwój przejętego frontendu, przygotowanie go do wdrożenia oraz uzgodnienie API i formatów danych z zespołem backendu.",
   "sections": [
     {
       "id": "context",

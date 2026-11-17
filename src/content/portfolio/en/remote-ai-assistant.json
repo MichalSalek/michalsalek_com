@@ -1,10 +1,10 @@
 {
   "intro": [
-    "Project work does not always begin at the computer that holds the repository. This internal platform accepts a task through chat or email and lets its operator return to the execution history and result.",
-    "The assistant runs on the operator’s own computer. It connects local and external models to authorized repository work, checks and delivery of a result or an authorized release."
+    "This internal AI assistant lets its owner send a project task through browser chat or email, including while away from their own computer. It records the work and result for later review.",
+    "The platform runs on the operator’s computer and routes requests to local or external models. Within the granted permissions, an executor can work in a repository, run checks and deliver a result or release authorized changes."
   ],
   "audience": "An owner managing projects and assigning work to their own workstation remotely.",
-  "role": "Atomic Concept is responsible for the concept, architecture, implementation and maintenance of the internal AI assistant platform.",
+  "role": "Michał Sałek is responsible for the concept, architecture, implementation and maintenance of the internal AI assistant platform.",
   "sections": [
     {
       "id": "context",
@@ -54,7 +54,8 @@
       "id": "engineering",
       "title": "Engineering decisions",
       "paragraphs": [
-        "The central concern is being able to reconstruct what happened and distinguish completed work from a message that still needs to be delivered."
+        "The central concern is being able to reconstruct what happened and distinguish completed work from a message that still needs to be delivered.",
+        "Remote panel access requires an authorized device, and email tasks are accepted from permitted senders. DKIM signature verification can also be required; access to sensitive settings has a separate approval step."
       ],
       "items": [
         {

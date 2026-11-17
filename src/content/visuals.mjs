@@ -10,13 +10,13 @@ export const sceneByPath = {
 };
 
 export const visualPalette = {
-    paper: '#faf9f6',
+    paper: '#f1f2f1',
     surface: '#ffffff',
-    navy: '#66728a',
-    ink: '#58606b',
-    muted: '#969da3',
-    line: '#dfe2e5',
-    tint: '#eff1f3',
-    sage: '#b7c3bb',
-    accent: '#b97a62',
+    navy: '#353c38',
+    ink: '#202522',
+    muted: '#59645d',
+    line: '#d5d9d1',
+    tint: '#f1f2f1',
+    sage: '#aab2ad',
+    accent: '#a13d25',
 };
